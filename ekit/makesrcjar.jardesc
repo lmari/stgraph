@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="ekit/ekit_src.zip"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/ekit/makesrcjar.jardesc" exportErrors="false" exportWarnings="false" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="true"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <selectedElements exportClassFiles="false" exportJavaFiles="true" exportOutputFolder="false">
+        <file path="/ekit/.project"/>
+        <file path="/ekit/readme.txt"/>
+        <javaElement handleIdentifier="=ekit/src"/>
+        <file path="/ekit/license.txt"/>
+        <file path="/ekit/.classpath"/>
+    </selectedElements>
+</jardesc>

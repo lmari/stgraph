@@ -1,0 +1,113 @@
+<stgraph class="STGraph.decoder" version="STGraph build 5.7.13">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="250.0" timeD="1.0" maxSteps="1" batchSteps="1" width="798" height="561" scale="1.0" simulationDelay="1" stepsBeforePause="10" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forWeb="false" webModelLocale="" webModelDescription="" webModelGroups="" webModelAllLocales="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="false"/>
+    <nodes>
+        <node name="code" type="ValueNode" pos-x="120" pos-y="140" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(n,state[wrap($i0-1,n)]+2*state[$i0]+4*state[wrap($i0+1,n)])</fExpression>
+            <fStateTrans/>
+            <expression>array(n,state[wrap($i0-1,n)]+2*state[$i0]+4*state[wrap($i0+1,n)])</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=code</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="20" pos-y="140" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>The number of cells</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>200</fExpression>
+            <fStateTrans/>
+            <expression>200</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="out" type="ValueNode" pos-x="120" pos-y="320" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>state*[1:n]</fExpression>
+            <fStateTrans/>
+            <expression>state*[1:n]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>true</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=out</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="state" type="ValueNode" pos-x="120" pos-y="250" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>array(n,rand()&lt;0.05)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>code==1||code==4||code==7</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n,rand()&lt;0.05)</stateInit>
+            <isVectorOut>true</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>code==1||code==4||code==7</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=state</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text4" pos-x="30" pos-y="30" width="221" height="35" content="1D cellular automaton"/>
+        <text name="*text5" pos-x="20" pos-y="60" width="191" height="51" content="&lt;html&gt;   &lt;head&gt;     &lt;font size=&quot;4&quot; color=&quot;#0000ff&quot;&gt; &lt;/font&gt;  &lt;/head&gt;   &lt;body&gt;     &lt;font size=&quot;4&quot; color=&quot;#0000ff&quot;&gt;A classical one dimensional cellular      automaton.&lt;/font&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="state" target="code" label="(...)" labpos-x="504.5950773947968" labpos-y="-12.248199773403565" p0x="157.5" p0y="272.5" p1x="150.0" p1y="200.0" p2x="157.5" p2y="162.5" numpoints="3"/>
+        <edge source="state" target="out" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="157.5" p0y="272.5" p1x="157.5" p1y="342.5" numpoints="2"/>
+        <edge source="code" target="state" label="(...)" labpos-x="436.19433906478355" labpos-y="-27.66450361834174" p0x="157.5" p0y="162.5" p1x="170.0" p1y="190.0" p2x="157.5" p2y="272.5" numpoints="3"/>
+    </edges>
+    <widgets>
+        <widget type="MatrixViewerWidget" pos-x="290" pos-y="20" width="410" height="390">
+            <autoscalez>false</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>10.0</projelevationangle>
+            <plotcolor>SPECTRUM</plotcolor>
+            <proj2dscaling>15.0</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>125.0</projrotationangle>
+            <displayz>false</displayz>
+            <sourcena>out</sourcena>
+            <plottype>DENSITY</plottype>
+            <showtitlebar>false</showtitlebar>
+            <title>out</title>
+            <boxed>false</boxed>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

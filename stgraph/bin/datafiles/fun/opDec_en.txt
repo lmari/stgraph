@@ -1,0 +1,9 @@
+<h2>STGraph - Dec</h2>
+<u>Format</u>: <code>x##y</code>
+<u>Constraints</u>: <code>x</code> is a scalar and <code>y</code> an array, or viceversa
+<u>Description</u>: array obtained by removing the first <code>x</code> elements from each vector in the last dimension of the array <code>y</code> or the last <code>y</code> elements from each vector in the last dimension of the array <code>x</code>
+
+Equivalent to the function <code>dec(x,y)</code>.
+<br><code>Dec</code> is <a href="functions_en.properties">an operator</a>
+
+<u>Exceptions</u>: no

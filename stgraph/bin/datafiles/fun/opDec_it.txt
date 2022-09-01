@@ -1,0 +1,9 @@
+<h2>STGraph - Dec</h2>
+<u>Formato</u>: <code>x##y</code>
+<u>Vincoli</u>: <code>x</code> e' uno scalare e <code>y</code> un array, o viceversa
+<u>Descrizione</u>: array ottenuto rimuovendo i primi <code>x</code> elementi da ogni vettore nell'ultima dimensione dell'array <code>y</code> o gli ultimi <code>y</code> elementi da ogni vettore nell'ultima dimensione dell'array <code>x</code>
+
+Equivalente alla funzione <code>dec(x,y)</code>.
+<br><code>Dec</code> e' <a href="functions_it.properties">un operatore</a>
+
+<u>Eccezioni</u>: no

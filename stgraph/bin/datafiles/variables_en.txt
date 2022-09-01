@@ -1,0 +1,20 @@
+<a href="readme_en.txt">To the list of the available documentation</a>
+<h2>STGraph - System variables</h2>
+
+- <code>time0</code>: initial time of the simulation
+- <code>time1</code>: final time of the simulation
+- <code>timeD</code>: time step of the simulation
+- <code>timeN</code>: total number of time steps
+- <code>time</code>: current time of the simulation
+- <code>index</code>: current index of the simulation
+- <code>vTime</code>: vector of time steps
+- <code>vIndex</code>: vector of indexes
+- <code>this</code>: current value of each state variable
+
+Therefore the time span of a simulation is specified by a triple <code>[time0, time1, timeD]</code>
+so that the total number of time steps of the simulation is:
+<code>timeN = (int)(1 + (time1 - time0) / timeD)</code>
+
+Moreover, the two constants <code>pi</code> and <code>e</code> are available.
+
+<hr>

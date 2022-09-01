@@ -1,0 +1,9 @@
+<h2>STGraph - mod</h2>
+<u>Formato</u>: <code>mod(x,y)</code>
+<u>Vincoli</u>: <code>x</code> e <code>y</code> sono array (i vincoli sono specificati <a href="fun/_diadic_it.txt">qui</a>)
+<u>Descrizione</u>: <code>x</code> modulo <code>y</code>
+
+Equivalente all'operatore <code>x%y</code>.
+<br><code>mod</code> e' <a href="functions_it.properties">una funzione matematica</a><br><code>mod</code> e' <a href="fun/_diadic_it.txt">una funzione diadica polimorfa</a>
+
+<u>Eccezioni</u>: Come specificato <a href="fun/_diadic_it.txt">qui</a>.

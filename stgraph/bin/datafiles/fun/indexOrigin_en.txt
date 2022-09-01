@@ -1,0 +1,7 @@
+<h2>STGraph - indexOrigin</h2>
+<u>Format</u>: <code>indexOrigin()</code>
+<u>Constraints</u>:  
+<u>Description</u>: origin of array indexes, either 0 or 1, as set as model property
+<br><code>indexOrigin</code> is <a href="functions_en.properties">a control function</a>
+
+<u>Exceptions</u>: no

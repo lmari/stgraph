@@ -1,0 +1,9 @@
+<h2>STGraph - dec</h2>
+<u>Formato</u>: <code>dec(x,y,n)</code>
+<u>Vincoli</u>: <code>x</code> e' uno scalare e <code>y</code> un array, o viceversa, <code>n</code> (opzionale) e' un intero
+<u>Descrizione</u>: array ottenuto rimuovendo i primi <code>x</code> elementi da ogni vettore lungo la dimensione <code>n</code> se specificata, o l'ultima dimensione altrimenti, dell'array <code>y</code> o gli ultimi <code>y</code> elementi da ogni vettore lungo la dimensione <code>n</code> se specificata, o l'ultima dimensione altrimenti, dell'array <code>x</code>
+
+Se <code>n</code> e' omesso e' equivalente all'operatore <code>x##y</code>.
+<br><code>dec</code> e' <a href="functions_it.properties">una funzione per array</a>
+
+<u>Eccezioni</u>: <code>n</code> deve essere una dimensione corretta per <code>x</code>, attualmente <code>0</code> o <code>1</code>.

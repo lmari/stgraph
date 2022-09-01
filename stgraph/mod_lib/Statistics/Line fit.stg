@@ -1,0 +1,185 @@
+<stgraph class="STGraph.decoder" version="STGraph build 28.7.07">
+    <head systemName="" description="Linear fit." time0="0.0" time1="10.0" timeD="1.0" batchSteps="1" width="950" height="700" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="xInput" type="ValueNode" pos-x="110" pos-y="110" width="75" height="45">
+            <documentation>Vector of values along X axis.</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>[1:10]</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>[1:10]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=xInput</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="yInput" type="ValueNode" pos-x="110" pos-y="230" width="75" height="45">
+            <documentation>Vector of values along Y axis.</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>[1:10]</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>[1:10]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=yInput</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="xAve" type="ValueNode" pos-x="260" pos-y="160" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>iter(xInput,$0+$1,0)/size(xInput)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>iter(xInput,$0+$1,0)/size(xInput)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=xAve</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="yAve" type="ValueNode" pos-x="260" pos-y="290" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>iter(yInput,$0+$1,0)/size(yInput)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>iter(yInput,$0+$1,0)/size(yInput)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=yAve</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="xD" type="ValueNode" pos-x="400" pos-y="110" width="75" height="45">
+            <documentation/>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>xInput-xAve</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>xInput-xAve</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=xD</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="yD" type="ValueNode" pos-x="400" pos-y="230" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>yInput-yAve</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>yInput-yAve</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=yD</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="slope" type="ValueNode" pos-x="550" pos-y="150" width="75" height="45">
+            <documentation>Slope of the straight line that best fits the input vectors.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>iter(xD*yD,$0+$1,0)/iter(xD*xD,$0+$1,0)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>iter(xD*yD,$0+$1,0)/iter(xD*xD,$0+$1,0)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=slope</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="yIntercept" type="ValueNode" pos-x="550" pos-y="230" width="75" height="45">
+            <documentation>Intercept on the Y axis of the straight line that best fits the input vectors.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>yAve-slope*xAve</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>yAve-slope*xAve</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=yIntercept</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="xInput" target="xAve" label="(...)"/>
+        <edge source="yInput" target="yAve" label="(...)"/>
+        <edge source="xInput" target="xD" label="(...)"/>
+        <edge source="xAve" target="xD" label="(...)"/>
+        <edge source="yInput" target="yD" label="(...)"/>
+        <edge source="yAve" target="yD" label="(...)"/>
+        <edge source="xD" target="slope" label="(...)"/>
+        <edge source="yD" target="slope" label="(...)"/>
+        <edge source="slope" target="yIntercept" label="(...)"/>
+        <edge source="yAve" target="yIntercept" label="(...)"/>
+        <edge source="xAve" target="yIntercept" label="(...)"/>
+    </edges>
+    <widgets/>
+</stgraph>

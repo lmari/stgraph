@@ -1,0 +1,7 @@
+<h2>STGraph - log-1</h2>
+<u>Format</u>: <code>log(x)</code>
+<u>Constraints</u>: <code>x</code> is an array
+<u>Description</u>: natural logarithm of <code>x</code>
+<br><code>log-1</code> is <a href="functions_en.properties">a mathematical function</a><br><code>log-1</code> is <a href="fun/_monadic_en.txt">a monadic polymorphic function</a>
+
+<u>Exceptions</u>: <code>x</code> must be strictly positive.

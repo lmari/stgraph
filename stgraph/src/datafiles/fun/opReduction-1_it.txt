@@ -1,0 +1,9 @@
+<h2>STGraph - Reduction-1</h2>
+<u>Formato</u>: <code>f/x</code>
+<u>Vincoli</u>: <code>f</code> e' una funzione o un operatore; <code>x</code> e' un array
+<u>Descrizione</u>: se <code>x</code> e' un vettore, scalare ottenuto applicando la funzione diadica <code>f</code> ai primi due elementi di <code>x</code>, quindi al risultato e al terzo elemento, e cosi' via; se <code>x</code> e' un array di ordine <code>n</code>, array di ordine <code>n-1</code> ottenuto nello stesso modo, applicando <code>f</code> in parallelo agli elementi di ogni vettore dell'ultima dimensione
+
+Se <code>f</code> e' una funzione, <code>x</code> deve essere delimitata da parentesi (p.es., <code>max/(v)</code>).
+<br><code>Reduction-1</code> e' <a href="functions_it.properties">un operatore</a>
+
+<u>Eccezioni</u>: <code>x</code> deve essere un array non nullo.

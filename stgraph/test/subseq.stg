@@ -1,0 +1,86 @@
+<stgraph class="STGraph.decoder" version="STGraph build 27.2.12">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="1.0" maxSteps="10" batchSteps="1" width="950" height="700" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forWeb="false" webModelLocale="" webModelDescription="" webModelGroups="" webModelAllLocales="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="false"/>
+    <nodes>
+        <node name="input" type="ValueNode" pos-x="50" pos-y="70" width="65" height="45">
+            <documentation/>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>0</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=input</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="output" type="ValueNode" pos-x="190" pos-y="70" width="75" height="45">
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>stato</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>stato</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=output</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="stato" type="ValueNode" pos-x="110" pos-y="160" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit>0</fStateInit>
+            <fExpression/>
+            <fStateTrans>this+input</fStateTrans>
+            <backcol-r>255</backcol-r>
+            <expression/>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans>this+input</stateTrans>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=stato</customprops>
+            <valueType>1</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="input" target="stato" label="(...)"/>
+        <edge source="stato" target="output" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="310" pos-y="20" width="150" height="300">
+            <fontsize>10</fontsize>
+            <colwidth>143</colwidth>
+            <autowidth>true</autowidth>
+            <iconized>false</iconized>
+            <colalignment>0</colalignment>
+            <colformat>###0.0###</colformat>
+            <title>output </title>
+            <lastonly>false</lastonly>
+            <sourcena>output</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

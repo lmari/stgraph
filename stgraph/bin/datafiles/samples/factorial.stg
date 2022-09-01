@@ -1,0 +1,181 @@
+<stgraph class="STGraph.decoder" version="STGraph build 7.3.11">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="5.0" timeD="1.0" maxSteps="1" batchSteps="1" width="696" height="485" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="0" withInterrupts="false" isDataSaved="false" forWeb="false" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="false"/>
+    <nodes>
+        <node name="sequential" type="ValueNode" pos-x="210" pos-y="190" width="75" height="45">
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit>1</fStateInit>
+            <fExpression/>
+            <fStateTrans>if(time&lt;n,this*(time+1),this)</fStateTrans>
+            <backcol-r>255</backcol-r>
+            <expression/>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>1</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans>if(time&lt;n,this*(time+1),this)</stateTrans>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=sequential</customprops>
+            <valueType>1</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="_fact" type="ValueNode" pos-x="30" pos-y="80" width="75" height="45">
+            <documentation/>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>function(if($a0==0,1,$a0*_fact($a0-1)))</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>function(if($a0==0,1,$a0*_fact($a0-1)))</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=_fact</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="n" type="ValueNode" pos-x="80" pos-y="130" width="75" height="45">
+            <documentation>The input value,
+of which the factorial function
+is computed</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>5</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>5</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="iterative" type="ValueNode" pos-x="210" pos-y="70" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>*/[1:n]</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>*/[1:n]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=iterative</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="recursive" type="ValueNode" pos-x="210" pos-y="130" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>_fact(n)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>_fact(n)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=recursive</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="230" pos-y="10" width="371" height="51" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;font color=&quot;#0000ff&quot; size=&quot;4&quot;&gt;This example shows three different ways to 
+    implement and compute the factorial function&lt;/font&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+        <text name="*text2" pos-x="300" pos-y="190" width="361" height="51" content="&lt;html&gt;
+  &lt;head&gt;
+    &lt;font size=&quot;4&quot;&gt;
+&lt;/font&gt;  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;font size=&quot;4&quot;&gt;sequential&lt;br&gt;(requires the simulation to be run for at 
+    least n steps)&lt;/font&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+        <text name="*text3" pos-x="300" pos-y="130" width="331" height="41" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;font size=&quot;4&quot;&gt;recursive, based on the function (meta)function&lt;br&gt;(here in 
+    the _fact node)&lt;/font&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+        <text name="*text4" pos-x="300" pos-y="80" width="321" height="35" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;font size=&quot;4&quot;&gt;iterative, based on the reduction (meta)function&lt;/font&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+        <text name="*text5" pos-x="60" pos-y="10" width="161" height="35" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    Factorial product
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="n" target="iterative" label="(...)"/>
+        <edge source="n" target="recursive" label="(...)"/>
+        <edge source="n" target="sequential" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="80" pos-y="270" width="340" height="70">
+            <fontsize>20</fontsize>
+            <colwidth>79,83,86,85</colwidth>
+            <autowidth>true</autowidth>
+            <iconized>false</iconized>
+            <colalignment>0,0,0,0</colalignment>
+            <colformat>0,0,###0.0###,###0.0###</colformat>
+            <title>n iterative recursive sequential </title>
+            <lastonly>true</lastonly>
+            <sourcena>n,iterative,recursive,sequential</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

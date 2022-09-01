@@ -1,0 +1,7 @@
+<h2>STGraph - iter</h2>
+<u>Formato</u>: <code>iter(x,e,z)</code>
+<u>Vincoli</u>: <code>x</code> e' un array; <code>e</code> e' un'espressione; <code>z</code> e' un array
+<u>Descrizione</u>: valore ottenuto applicando ripetutamente l'espressione <code>e</code> (che puo' includere funzioni della forma <code>fun($0,$1)</code> oppure <code>$0op$1</code>), il cui elemento identita' e' <code>z</code>, agli elementi del vettore <code>x</code> o agli elementi di ogni vettore dell'ultima dimensione dell'array di ordine superiore <code>x</code>
+<br><code>iter</code> e' <a href="functions_it.properties">una funzione di controllo</a>
+
+<u>Eccezioni</u>: <code>x</code> deve essere non nullo.

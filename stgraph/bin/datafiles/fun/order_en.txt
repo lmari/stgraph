@@ -1,0 +1,7 @@
+<h2>STGraph - order</h2>
+<u>Format</u>: <code>order(x)</code>
+<u>Constraints</u>: <code>x</code> is an array
+<u>Description</u>: order, i.e., number of dimensions, of the array <code>x</code>
+<br><code>order</code> is <a href="functions_en.properties">an array function</a>
+
+<u>Exceptions</u>: no

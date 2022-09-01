@@ -1,0 +1,9 @@
+<h2>STGraph - getIndex</h2>
+<u>Format</u>: <code>getIndex(s,x)</code>
+<u>Constraints</u>: <code>s</code> is a scalar; <code>x</code> is an array
+<u>Description</u>: if <code>x</code> is a vector, vector of the indexes of the occurrences of <code>s</code> in <code>x</code>; if <code>x</code> is a higher order array, matrix of the indexes of the occurrences of <code>s</code> in <code>x</code>
+
+If <code>s</code> is not found, it returns the vector <code>[-1]</code>.
+<br><code>getIndex</code> is <a href="functions_en.properties">an array function</a>
+
+<u>Exceptions</u>: no

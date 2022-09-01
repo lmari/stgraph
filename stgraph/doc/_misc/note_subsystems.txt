@@ -1,0 +1,21 @@
+<a href="readme.txt">To the list of the available documentation</a>
+<h2>STGraph - A note on subsystems</h2>
+The handling of subsystems is at the same time very critical and very important.
+Very important because it allows a more complete object-oriented modeling, with (sub)systems as classes and variables as properties.
+Very critical because connection rules among nodes must be suitably defined, implemented and tested.
+
+Validation units / test models
+- super1: input --> [stateless] --> output : ok
+- super2: input --> aux --> [stateless] --> output : ok
+- super3: state --> [stateless] --> output : ok
+- super4: state -> aux --> [stateless] --> output : ok
+
+- super1-1: input --> [stateless] --> [stateless] --> output : ok
+
+- super1b: input --> [stateful] --> output : ok
+- super2b: aux --> [stateful] --> output : ok
+- super3b: state --> [stateful] --> output : ok
+- super4b: state -> aux --> [stateful] --> output : ok
+
+- super1-1b: input --> [stateful] --> [stateful] --> output : ok
+

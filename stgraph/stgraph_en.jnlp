@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!-- JNLP File for STGraph --> 
+  <jnlp codebase="http://www.liuc.it/persone/lmari/stgraph/srcbin/" href="stgraph_en.jnlp"> 
+    <information>
+       <title>STGraph</title>
+       <vendor>Luca Mari</vendor>
+       <description>STGraph</description>
+       <description kind="short">STGraph</description>
+       <offline-allowed/>
+     </information>
+     <resources>
+       <j2se version="1.5+"/>
+       <jar href="./lib/commons-logging-1.1.1.jar"/>
+       <jar href="./lib/ekit.jar"/>
+       <jar href="./lib/ilf-gpl.jar"/>
+       <jar href="./lib/jep.jar"/>
+       <jar href="./lib/jgraph.jar"/>
+       <jar href="./lib/jxl.jar"/>
+       <jar href="./lib/nanoxml-2.2.3.jar"/>
+       <jar href="./lib/spring-beans.jar"/>
+       <jar href="./lib/spring-context.jar"/>
+       <jar href="./lib/spring-core.jar"/>
+       <jar href="./lib/stgraphfun.jar" />
+       <jar href="./lib/surfaceplotter.jar" />
+       <jar href="./lib/java-spacebrew.jar" />
+       <jar href="./lib/json4processing.jar" />
+       <jar href="./lib/WebSocket.jar" />
+       <jar href="./lib/trident.jar" />
+       <jar href="./lib/steel.jar" />
+       <jar href="./lib/stgraph.jar" main="true"/>
+     </resources>
+     <application-desc main-class="it.liuc.stgraph.STGraph">
+       <argument>-l=en</argument> <!-- set locale -->
+       <argument>-s</argument> <!-- set splash off -->
+       <argument>-e</argument> <!-- set easy mode -->
+     </application-desc>
+     <security>
+        <all-permissions/> 
+     </security> 
+</jnlp>

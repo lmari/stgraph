@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=/home/luca/workspace/stgraph/mylauncher.sh
+GenericName[en_US]=
+GenericName=
+Icon=/home/luca/workspace/stgraph/src/icons/base/stgraph.png
+MimeType=
+Name[en_US]=STGraph
+Name=STGraph
+Path=/home/luca/workspace/stgraph
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

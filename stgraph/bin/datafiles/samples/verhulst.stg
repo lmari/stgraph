@@ -1,0 +1,132 @@
+<stgraph class="STGraph.decoder" version="STGraph build 5.7.13">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="200.0" timeD="1.0" maxSteps="1" batchSteps="0" width="819" height="552" scale="1.0" simulationDelay="10" stepsBeforePause="1" integrationMethod="0" exceptionHandling="0" withInterrupts="false" isDataSaved="false" forWeb="false" webModelLocale="" webModelDescription="" webModelGroups="" webModelAllLocales="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="false"/>
+    <nodes>
+        <node name="k" type="ValueNode" pos-x="180" pos-y="70" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <documentation>The growth parameter</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>2.65</fExpression>
+            <fStateTrans/>
+            <expression>2.7</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="nmax" type="ValueNode" pos-x="180" pos-y="140" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <documentation>The target number
+of individuals</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>10</fExpression>
+            <fStateTrans/>
+            <expression>12.5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="population" type="ValueNode" pos-x="320" pos-y="110" width="111" height="45">
+            <font>Serif,12</font>
+            <forecol>0,255,0</forecol>
+            <documentation>The number of individuals
+in the population</documentation>
+            <isOut>true</isOut>
+            <fStateInit>1</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+(k*this-this*this*k/nmax)*timeD</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>1</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+(k*this-this*this*k/nmax)*timeD</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=population</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="142" pos-y="6" width="171" height="25" content="Verhulst dynamics"/>
+        <text name="*text2" pos-x="440" pos-y="50" width="351" height="111" content="&lt;html&gt;   &lt;head&gt;     &lt;font size=&quot;4&quot;&gt; &lt;/font&gt;  &lt;/head&gt;   &lt;body&gt;     &lt;font color=&quot;blue&quot; size=&quot;4&quot;&gt;A classical dynamic system, which becomes      chaotic when both the time step (here set to 1) and the growth parameter      are large enough. &lt;/font&gt;     &lt;p&gt;       &lt;font color=&quot;blue&quot; size=&quot;4&quot;&gt;By modifying the input &lt;code&gt;k&lt;/code&gt;, the        obtained behavior is either stable, oscillating, or fractal.&lt;/font&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="k" target="population" label="(...)" labpos-x="288.4505345580502" labpos-y="-21.394651253143586" p0x="217.5" p0y="92.5" p1x="375.5" p1y="132.5" numpoints="2"/>
+        <edge source="nmax" target="population" label="(...)" labpos-x="297.4922077613087" labpos-y="19.63650895045282" p0x="217.5" p0y="162.5" p1x="375.5" p1y="132.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="SliderWidget" pos-x="20" pos-y="130" width="150" height="70">
+            <0>0</0>
+            <widgetvalue>12.5</widgetvalue>
+            <max>15.0</max>
+            <min>5.0</min>
+            <showtitlebar>false</showtitlebar>
+            <source>nmax</source>
+            <delta>0.5</delta>
+            <iconized>false</iconized>
+            <title>nmax: 12.5</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="20" pos-y="200" width="760" height="210">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>false</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>population</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="SliderWidget" pos-x="20" pos-y="60" width="150" height="70">
+            <0>0</0>
+            <widgetvalue>2.7</widgetvalue>
+            <max>3.0</max>
+            <min>0.0</min>
+            <showtitlebar>false</showtitlebar>
+            <source>k</source>
+            <delta>0.05</delta>
+            <iconized>false</iconized>
+            <title>k: 2.7</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

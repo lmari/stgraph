@@ -1,0 +1,9 @@
+<h2>STGraph - Size</h2>
+<u>Format</u>: <code>@x</code>
+<u>Constraints</u>: <code>x</code> is an array
+<u>Description</u>: size of <code>x</code>
+
+Equivalent to the function <code>size(x)</code>. The value is zero if <code>x</code> is a scalar, and a vector otherwise.
+<br><code>Size</code> is <a href="functions_en.properties">an array function</a>
+
+<u>Exceptions</u>: no

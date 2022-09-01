@@ -1,0 +1,9 @@
+<h2>STGraph - FFT</h2>
+<u>Format</u>: <code>FFT(x,s)</code>
+<u>Constraints</u>: <code>s</code> is a scalar, either <code>1</code> or <code>2</code>; <code>x</code> is a vector if <code>x==1</code>, and a matrix if <code>x==2</code>
+<u>Description</u>: if <code>s==1</code>, fast Fourier transform of the vector <code>x</code>; if <code>s==2</code>, inverse fast Fourier transform of the matrix <code>x</code>
+
+If FFT is computed, it takes a vector and returns a <code>size(x) x 2</code> matrix, to be interpreted as a vector of complex numbers. If inverse FFT is computed, it takes a <code>2</code> column matrix, to be interpreted as a vector of complex numbers, and returns a vector.
+<br><code>FFT</code> is <a href="functions_en.properties">a mathematical function</a>
+
+<u>Exceptions</u>: If FFT is computed, the size of <code>x</code> must be a power of <code>2</code>. If inverse FFT is computed, the row number of <code>x</code> must be a power of <code>2</code> and its column number must be <code>2</code>.

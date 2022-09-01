@@ -1,0 +1,110 @@
+<stgraph class="STGraph.decoder" version="STGraph build 6.8.07">
+    <head systemName="" description="" time0="0.0" time1="10.0" timeD="1.0" batchSteps="1" width="950" height="700" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="false"/>
+    <nodes>
+        <node name="y2" type="ValueNode" pos-x="360" pos-y="270" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub2.output</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub2.output</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=y2</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="sub" type="ModelNode" pos-x="210" pos-y="110" width="81" height="45">
+            <subvisible>false</subvisible>
+            <superExpression0>x</superExpression0>
+            <forecol-b>0</forecol-b>
+            <forecol-r>0</forecol-r>
+            <systemName>subcomb.stg</systemName>
+            <backcol-g>255</backcol-g>
+            <backcol-b>255</backcol-b>
+            <backcol-r>255</backcol-r>
+            <forecol-g>0</forecol-g>
+            <subVarNames>input</subVarNames>
+        </node>
+        <node name="sub2" type="ModelNode" pos-x="210" pos-y="270" width="75" height="45">
+            <subvisible>false</subvisible>
+            <superExpression0>sub.output</superExpression0>
+            <forecol-b>0</forecol-b>
+            <forecol-r>0</forecol-r>
+            <systemName>subcomb.stg</systemName>
+            <backcol-g>255</backcol-g>
+            <customprops>Name=sub2</customprops>
+            <backcol-b>255</backcol-b>
+            <backcol-r>255</backcol-r>
+            <forecol-g>0</forecol-g>
+            <subVarNames>input</subVarNames>
+        </node>
+        <node name="x" type="ValueNode" pos-x="60" pos-y="110" width="65" height="45">
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>time</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>time</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="y" type="ValueNode" pos-x="360" pos-y="110" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub.output</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub.output</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=y</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="x" target="sub" label="(...)" labpos-x="294.11764705882354" labpos-y="-12.5" p0x="125.0" p0y="132.5" p1x="210.0" p1y="132.5" numpoints="2"/>
+        <edge source="sub" target="y" label="(...)" labpos-x="290.0" labpos-y="-16.0" p0x="291.0" p0y="132.5" p1x="360.0" p1y="132.5" numpoints="2"/>
+        <edge source="sub2" target="y2" label="(...)" labpos-x="293.0" labpos-y="-14.0" p0x="285.0" p0y="292.5" p1x="360.0" p1y="292.5" numpoints="2"/>
+        <edge source="sub" target="sub2" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="550" pos-y="43" width="182" height="256">
+            <colwidth>50,48,58</colwidth>
+            <autowidth>false</autowidth>
+            <iconized>false</iconized>
+            <colalignment>0,0,0</colalignment>
+            <colformat>###0.0###,###0.0###,###0.0###</colformat>
+            <title>x y y2 </title>
+            <lastonly>false</lastonly>
+            <sourcena>x,y,y2</sourcena>
+        </widget>
+    </widgets>
+</stgraph>

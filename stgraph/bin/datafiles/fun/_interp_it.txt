@@ -1,0 +1,12 @@
+<h2>STGraph - Funzioni di interpolazione</h2>
+Ognuna delle funzioni seguenti genera un valore di interpolazione secondo la stessa logica:
+- due vettori <code>vx</code> e <code>vy</code> sono specificati, come punti di controllo che definiscono la curva di interpolazione
+- un array di valori <code>x</code> è specificato, i cui corrispondenti valori <code>y</code> sulla curva sono calcolati dalla funzione.
+
+<a href="fun/bline_it.txt">bline(vx,vy,x)</a>
+<a href="fun/line_it.txt">line(vx,vy,x)</a>
+<a href="fun/pline_it.txt">pline(vx,vy,x)</a>
+<a href="fun/sigmoid_it.txt">sigmoid(vx,vy,x)</a>
+<a href="fun/spline_it.txt">spline(vx,vy,x)</a>
+<hr>
+<a href="functions_it.properties">List of functions</a>

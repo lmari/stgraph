@@ -1,0 +1,7 @@
+<h2>STGraph - Eq</h2>
+<u>Formato</u>: <code>x==y</code>
+<u>Vincoli</u>: <code>x</code> e <code>y</code> sono array (i vincoli sono specificati <a href="fun/_diadic_it.txt">qui</a>)
+<u>Descrizione</u>: confronto logico: <code>x</code> e' uguale a <code>y</code>?
+<br><code>Eq</code> e' <a href="functions_it.properties">un operatore</a><br><code>Eq</code> e' <a href="fun/_diadic_it.txt">una funzione diadica polimorfa</a>, <a href="fun/_boolean_it.txt">un operatore booleano</a>
+
+<u>Eccezioni</u>: Come specificato <a href="fun/_diadic_it.txt">qui</a>.

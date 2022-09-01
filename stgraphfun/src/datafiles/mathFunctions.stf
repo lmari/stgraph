@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment><![CDATA[
+	Note that in formulas the "less than" character must be coded as &lt;
+	]]></comment>
+
+	<entry key="en:Mathematical functions__it:Funzioni matematiche|isEven">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+			$a0/2==int($a0/2)
+		) // <![CDATA[
+			en:<code>isEven(x)</code>: <code>true</code> if <code>x</code> is even__
+			it:<code>isEven(x)</code>: <code>true</code> se <code>x</code> e' pari
+		]]>
+	</entry>
+
+	<entry key="en:Mathematical functions__it:Funzioni matematiche|isPos">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+			$a0>0
+		) // <![CDATA[
+			en:<code>isPos(x)</code>: <code>true</code> if <code>x</code> is strictly positive__
+			it:<code>isPos(x)</code>: <code>true</code> se <code>x</code> e' strettamente positivo
+		]]>
+	</entry>
+
+	<entry key="en:Mathematical functions__it:Funzioni matematiche|isInt">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+			$a0==int($a0)
+		) // <![CDATA[
+			en:<code>isInt(x)</code>: <code>true</code> if <code>x</code> is integer__
+			it:<code>isInt(x)</code>: <code>true</code> se <code>x</code> e' intero
+		]]>
+	</entry>
+
+	<entry key="en:Mathematical functions__it:Funzioni matematiche|abs">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+			if($a0>=0,$a0,-$a0)
+		) // <![CDATA[
+			en:<code>abs(x)</code>: absolute value of <code>x</code>__
+			it:<code>abs(x)</code>: valore assoluto di <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:Mathematical functions__it:Funzioni matematiche|pos">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+			if($a0>0,$a0,0)
+		) // <![CDATA[
+			en:<code>pos(x)</code>: <code>x</code> if <code>x</code> is positive, <code>0</code> otherwise__
+			it:<code>pos(x)</code>: <code>x</code> se <code>x</code> e' positivo, <code>0</code> altrimenti
+		]]>
+	</entry>
+
+	<entry key="en:Mathematical functions__it:Funzioni matematiche|between">
+		if($numArgs!=3,
+			"en:Three arguments are required__it:Sono richiesti tre argomenti",
+			$a0>=$a1 && $a0 &lt;=$a2
+		) // <![CDATA[
+			en:<code>between(x,a1,a2)</code>: <code>true</code> if <code>x</code> is between <code>a1</code> and <code>a2</code>__
+			it:<code>between(x,a1,a2)</code>: <code>true</code> se <code>x</code> e' tra <code>a1</code> e <code>a2</code> 
+		]]>
+	</entry>
+
+	<entry key="en:Mathematical functions__it:Funzioni matematiche|factorial">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+			if($a0!=int($a0),factorial(int($a0)),if($a0&lt;=0,1,$a0*factorial($a0-1)))
+		) // <![CDATA[
+			en:<code>factorial(n)</code>: factorial product of <code>n</code>__
+			it:<code>factorial(n)</code>: prodotto fattoriale di <code>n</code>
+		]]>
+	</entry>
+
+	<entry key="en:Mathematical functions__it:Funzioni matematiche|nary2dec">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1,
+			"en:The first argument must be a vector__it:Il primo argomento deve essere un vettore",
+		order($a1)!=0||$a1&lt;2||!isInt($a1),
+			"en:The second argument must be a integer scalar greater than 1__it:Il secondo argomento deve essere uno scalare intero maggiore di 1",
+			+/(array(@$a0,$a1^(@$a0-$i0-1))*$a0)
+		) // <![CDATA[
+			en:<code>nary2dec(v,n)</code>: natural number (in decimal format) corresponding to the number in <code>n</code>-ary format in the vector <code>v</code>__
+			it:<code>nary2dec(v,n)</code>: numero naturale (in formato decimale) corrispondente al numero in formato <code>n</code>-ario nel vettore <code>v</code>
+		]]>
+	</entry>
+
+	<entry key="en:Mathematical functions__it:Funzioni matematiche|dec2nary">
+		if($numArgs!=2&&$numArgs!=3,
+			"en:Two or three arguments are required__it:Sono richiesti due o tre argomenti",
+		order($a0)!=0||!isInt($a0)||$a0&lt;0,
+			"en:The first argument must be an integer non-negative scalar__it:Il primo argomento deve essere uno scalare intero non negativo",
+		order($a1)!=0||!isInt($a1)||$a1&lt;2,
+			"en:The second argument must be a integer scalar greater than 1__it:Il secondo argomento deve essere uno scalare intero maggiore di 1",
+		$numArgs==2,
+			iter(int($a0/array(int(1+log($a0,$a1)),$a1^$i0))%$a1,$1#$0,[]),
+		order($a2)!=0||!isInt($a2)||$a2&lt;0,
+			"en:The third argument, if present, must be an integer non-negative scalar__it:Il terzo argomento, se presente, deve essere uno scalare intero non negativo",
+			lpad(iter(int($a0/array(int(1+log($a0,$a1)),$a1^$i0))%$a1,$1#$0,[]),$a2)
+		) // <![CDATA[
+			en:<code>dec2nary(x,n)</code>: vector containing the number in <code>n</code>-ary format corresponding to natural number (in decimal format) <code>x</code>__
+			it:<code>dec2nary(x,n)</code>: vettore che contiene il numero in formato <code>n</code>-ario corrispondente al numero naturale (in formato decimale) <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:Mathematical functions__it:Funzioni matematiche|map3to2d">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1||@$a0!=3,
+			"en:The first argument must be a vector of three elements__it:Il primo argomento deve essere un vettore con tre elementi",
+		order($a1)!=1||@$a1!=2,
+			"en:The second argument must be a vector of two elements__it:Il secondo argomento deve essere un vettore con due elementi",
+			[$a0[0]-$a0[2]*sin($a1[0]),$a0[1]-$a0[2]*sin($a1[1])]
+		) // <![CDATA[
+			en:<code>map3to2d(x,y)</code>: 2D vector obtained projecting the 3D vector <code>x</code> by means of the angular coefficients in the 2D vector <code>y</code>__
+			it:<code>map3to2d(x,y)</code>: vettore 2D ottenuto proiettando il vettore 3D <code>x</code> mediante i coefficienti angolari nel vettore 2D <code>y</code>
+		]]>
+	</entry>
+
+</properties>

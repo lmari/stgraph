@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment><![CDATA[
+	currently HTML characters are not filtered; hence && --> &amp;&amp;
+	]]></comment>
+
+	<entry key="en:[user]Array functions__it:[user]Funzioni array|vector">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+			array($a0,$a1)
+		) // <![CDATA[
+			en:<code>vector(n,x)</code>: vector of <code>n</code> elements of value <code>x</code>__
+			it:<code>vector(n,x)</code>: vettore di <code>n</code> elementi di valore <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:[user]Array functions__it:[user]Funzioni array|matrix">
+		if($numArgs!=3,
+			"en:Three arguments are required__it:Sono richiesti tre argomenti",
+			array([$a0,$a1],$a2)
+		) // <![CDATA[
+			en:<code>matrix(n1,n2,x)</code>: matrix of <code>n1</code> rows and <code>n2</code> columns, each element of value <code>x</code>__
+			it:<code>matrix(n1,n2,x)</code>: matrice di <code>n1</code> righe e <code>n2</code> colonne, con ogni elementi di valore <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:[user]Array functions__it:[user]Funzioni array|numRows">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+		order($a0)!=2,
+			"en:The argument must be a matrix__it:L'argomento deve essere una matrice",
+			get(@$a0,0)
+		) // <![CDATA[
+			en:<code>numRows(m)</code>: number of rows of the matrix <code>m</code>__
+			it:<code>numRows(m)</code>: numero delle righe della matrice <code>m</code>
+		]]>
+	</entry>
+
+	<entry key="en:[user]Array functions__it:[user]Funzioni array|numCols">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+		order($a0)!=2,
+			"en:The argument must be a matrix__it:L'argomento deve essere una matrice",
+			get(@$a0,1)
+		) // <![CDATA[
+			en:<code>numCols(m)</code>: number of columns of the matrix <code>m</code>__
+			it:<code>numCols(m)</code>: numero delle colonne della matrice <code>m</code>
+		]]>
+	</entry>
+
+	<entry key="en:[user]Array functions__it:[user]Funzioni array|lastDim">
+		order($a0);
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+		$v0==0,
+			"en:The argument cannot be a scalar__it:L'argomento non puo' essere uno scalare",
+		$v0==1,
+			@$a0,
+			get(@$a0,$v0-1)
+		) // <![CDATA[
+			en:<code>lastDim(x)</code>: number of elements in the last (fastest) dimension of the array <code>x</code>__
+			it:<code>lastDim(x)</code>: numero degli elementi nell'ultima dimensione dell'array <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:[user]Array functions__it:[user]Funzioni array|numEl">
+		order($a0);
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+		$v0==0,
+			1,
+		$v0==1,
+			@$a0,
+			*/(@$a0)
+		) // <![CDATA[
+			en:<code>numEl(x)</code>: number of elements in the array <code>x</code>__
+			it:<code>numEl(x)</code>: numero degli elementi nell'array <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:[user]Array functions__it:[user]Funzioni array|prod">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=2||order($a1)!=2,
+			"en:Two matrices are required__it:Sono richieste due matrici",
+		numCols($a0)!=numRows($a1),
+			"en:The two matrices cannot multiplied with each other__it:Le due matrici non sono moltiplicabili tra loro",
+			array([numRows($a0),numCols($a1)],+/($a0[[$i0],[]]*$a1[[],[$i1]]))
+		) // <![CDATA[
+			en:<code>prod(x,y)</code>: vector product of the matrices <code>x</code> and <code>y</code>__
+			it:<code>prod(x,y)</code>: prodotto vettoriale delle matrici <code>x</code> e <code>y</code>
+		]]>
+	</entry>
+
+	<entry key="en:[user]Array functions__it:[user]Funzioni array|sumif">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1,
+			"en:The first argument must be a vector__it:Il primo argomento deve essere un vettore",
+			iter($a0,if(eval($a1),$0+$1,$0),0)
+		) // <![CDATA[
+			en:<code>sumif(v,c)</code>: conditional sum over the elements of the vector <code>v</code>, where the condition <code>c</code> (written as string, i.e., delimited by double quotes) can contain the system variables <code>$1</code>, running over the vector elements, and <code>$i</code>, the corresponding index__
+			it:<code>sumif(v,c)</code>: somma condizionale sugli elementi del vettore <code>v</code> dove la condizione <code>c</code> (scritta come stringa, e dunque delimitata da doppi apici) puo' contenere le variabili di sistema <code>$1</code>, che varia sugli elementi del vettore, e <code>$i</code>, l'indice corrispondente
+		]]>
+	</entry>
+
+	<entry key="en:[user]Array functions__it:[user]Funzioni array|select">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1,
+			"en:The first argument must be a vector__it:Il primo argomento deve essere un vettore",
+			iter($a0,if(eval($a1),$0#$1,$0),[])
+		) // <![CDATA[
+			en:<code>select(v,c)</code>: subvector of the vector <code>v</code> whose elements satisfy the condition <code>c</code> (written as string, i.e., delimited by double quotes), which can contain the system variables <code>$1</code>, running over the vector elements, and <code>$i</code>, the corresponding index__
+			it:<code>select(v,c)</code>: sottovettore del vettore <code>v</code> i cui elementi soddisfano la condizione <code>c</code> (scritta come stringa, e dunque delimitata da doppi apici), che puo' contenere le variabili di sistema <code>$1</code>, che varia sugli elementi del vettore, e <code>$i</code>, l'indice corrispondente
+		]]>
+	</entry>
+
+	<entry key="en:[user]Array functions__it:[user]Funzioni array|filter">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1||order($a1)!=1,
+			"en:The arguments must be vectors__it:Gli argomenti devono essere vettori",
+		@$a0!=@$a1,
+			"en:The arguments must have the same size__it:Gli argomenti devono avere la stessa dimensione",
+			remove($a0,$a1*[1:@$a1]-1)
+		) // <![CDATA[
+			en:<code>select(v,c)</code>: subvector of the vector <code>v</code> obtained by removing the elements of value <code>1</code> in the boolean vector <code>c</code>__
+			it:<code>select(v,c)</code>: sottovettore del vettore <code>v</code> ottenuto rimuovendo gli elementi di valore <code>1</code> nel vettore booleano <code>c</code>
+		]]>
+	</entry>
+
+</properties>

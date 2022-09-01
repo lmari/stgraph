@@ -1,0 +1,4 @@
+Each of the following functions generates an interpolation value according to the same logic:
+- two vectors @0vx@0 and @0vy@0 are specified, as control points defining the interpolating curve
+- an array of @0x@0 values is specified, whose corresponding @0y@0 values on the curve are computed by the function.
+

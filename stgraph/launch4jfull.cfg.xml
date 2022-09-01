@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>true</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>./lib</jar>
+  <outfile>/home/luca/workspace/stgraph/stgraphfull.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>/home/luca/workspace/stgraph/stgraph.ico</icon>
+  <classPath>
+    <mainClass>it.liuc.stgraph.STGraph</mainClass>
+    <cp>lib/commons-logging-1.1.1.jar</cp>
+    <cp>lib/ekit.jar</cp>
+    <cp>lib/ilf-gpl.jar</cp>
+    <cp>lib/jep.jar</cp>
+    <cp>lib/jgraph.jar</cp>
+    <cp>lib/jxl.jar</cp>
+    <cp>lib/nanoxml-2.2.3.jar</cp>
+    <cp>lib/spring-beans.jar</cp>
+    <cp>lib/spring-context.jar</cp>
+    <cp>lib/spring-core.jar</cp>
+    <cp>lib/stgraphfun.jar</cp>
+    <cp>lib/surfaceplotter.jar</cp>
+    <cp>lib/java-spacebrew.jar</cp>
+    <cp>lib/json4processing.jar</cp>
+    <cp>lib/WebSocket.jar</cp>
+    <cp>lib/trident.jar</cp>
+    <cp>lib/steel.jar</cp>
+    <cp>lib/bgicons.jar</cp>
+    <cp>lib/stgraph.jar</cp>
+  </classPath>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <minVersion>1.5.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+</launch4jConfig>

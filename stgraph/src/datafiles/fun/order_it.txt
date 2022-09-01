@@ -1,0 +1,7 @@
+<h2>STGraph - order</h2>
+<u>Formato</u>: <code>order(x)</code>
+<u>Vincoli</u>: <code>x</code> e' un array
+<u>Descrizione</u>: ordine, cioe' numero delle dimensioni, dell'array <code>x</code>
+<br><code>order</code> e' <a href="functions_it.properties">una funzione per array</a>
+
+<u>Eccezioni</u>: no

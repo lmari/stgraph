@@ -1,0 +1,9 @@
+<h2>STGraph - getPhases</h2>
+<u>Formato</u>: <code>getPhases()</code>
+<u>Vincoli</u>:  
+<u>Descrizione</u>: vettore di fasi specificato nella proprieta' custom "Phase"
+
+Il formato per la proprieta' custom e', per esempio, 1,5-8.
+<br><code>getPhases</code> e' <a href="functions_it.properties">una funzione di controllo</a>
+
+<u>Eccezioni</u>: La proprieta' custom "Phase" deve essere definita e il suo valore deve essere assegnato come specificato.

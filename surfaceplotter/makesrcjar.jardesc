@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="surfaceplotter/surfaceplotter_src.zip"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/surfaceplotter/makesrcjar.jardesc" exportErrors="false" exportWarnings="false" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <selectedElements exportClassFiles="false" exportJavaFiles="true" exportOutputFolder="false">
+        <file path="/surfaceplotter/license.txt"/>
+        <file path="/surfaceplotter/readme.txt"/>
+        <file path="/surfaceplotter/.classpath"/>
+        <javaElement handleIdentifier="=surfaceplotter/src"/>
+        <file path="/surfaceplotter/.project"/>
+    </selectedElements>
+</jardesc>

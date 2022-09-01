@@ -1,0 +1,7 @@
+<h2>STGraph - bline</h2>
+<u>Formato</u>: <code>bline(vx,vy,x)</code>
+<u>Vincoli</u>: <code>vx</code> e <code>vy</code> sono vettori; <code>x</code> e' un array
+<u>Descrizione</u>: il valore <code>y</code> corrispondente a <code>x</code> sul segmento da <code>(vx[0],vy[0])</code> a <code>(vx[1],vy[1])</code>, e costante altrove
+<br><code>bline</code> e' <a href="functions_it.properties">una funzione matematica</a><br><code>bline</code> e' <a href="fun/_interp_it.txt">una funzione di interpolazione</a>
+
+<u>Eccezioni</u>: Sia <code>vx</code> sia <code>vy</code> devono avere due elementi; <code>vx[0]</code> deve essere minore di <code>vx[1]</code>.

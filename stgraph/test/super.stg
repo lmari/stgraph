@@ -1,0 +1,104 @@
+<stgraph class="STGraph.decoder" version="STGraph build 27.2.12">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="1.0" maxSteps="1" batchSteps="1" width="807" height="653" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forWeb="false" webModelLocale="" webModelDescription="" webModelGroups="" webModelAllLocales="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="in" type="ValueNode" pos-x="110" pos-y="170" width="75" height="45">
+            <documentation/>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>time</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>time</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=node2</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="out1" type="ValueNode" pos-x="370" pos-y="120" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub.sout1</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub.sout1</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=node3</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="out2" type="ValueNode" pos-x="370" pos-y="230" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub.sout2</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub.sout2</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=node1</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="sub" type="ModelNode" pos-x="230" pos-y="170" width="75" height="45">
+            <subvisible>false</subvisible>
+            <systemName>sub.stg</systemName>
+            <superExpression1>in</superExpression1>
+            <documentation/>
+            <superExpression0>in</superExpression0>
+            <forecol-g>0</forecol-g>
+            <backcol-r>255</backcol-r>
+            <forecol-b>0</forecol-b>
+            <backcol-g>255</backcol-g>
+            <subVarNames>sin1,sin2</subVarNames>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=node1</customprops>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="in" target="sub" label="(...)"/>
+        <edge source="sub" target="out1" label="(...)"/>
+        <edge source="sub" target="out2" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="520" pos-y="90" width="150" height="300">
+            <fontsize>10</fontsize>
+            <colwidth>90,53</colwidth>
+            <autowidth>true</autowidth>
+            <iconized>false</iconized>
+            <colalignment>0,0</colalignment>
+            <colformat>###0.0###,###0.0###</colformat>
+            <title>out1 out2 </title>
+            <lastonly>false</lastonly>
+            <sourcena>out1,out2</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

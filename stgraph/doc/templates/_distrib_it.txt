@@ -1,0 +1,11 @@
+Ognuna delle funzioni seguenti può essere eseguita per generare un numero casuale estratto dalla distribuzione di probabilità data, o per restituire i valori @0y@0 della funzione di densità di probabilità (PDF), o della funzione di densità di probabilità cumulata (CDF), o funzione di densità di probabilità cumulata inversa per i valori @0x@0 dati.
+Assumendo che i parametri che caratterizzano la distribuzione @0f@0 siano nel vettore @0v@0 (p.es., nel caso della distribuzione gaussiana @0v=[mean,stddev]@0), gli usi seguenti sono ammessi:
+- @0f()@0 restituisce un valore casuale estratto dalla distribuzione con parametri di default
+- @0f(v)@0 restituisce un valore casuale estratto dalla distribuzione con i parametri nel vettore @0v@0
+- @0f(v,x,0)@0 restituisce i valori della PDF con parametri nel vettore @0v@0 e per gli argomenti nell'array @0x@0
+- @0f(v,x,1)@0 restituisce i valori della CDF con parametri nel vettore @0v@0 e per gli argomenti nell'array @0x@0
+- @0f(v,x,2)@0 restituisce i valori della CDF inversa con parametri nel vettore @0v@0 e per gli argomenti nell'array @0x@0, nell'intervallo @0[0,1]@0 (o @0(0,1)@0).
+Le relazioni algoritmiche tra PDF e CDF sono le seguenti:
+- la CDF è approssimata da @0(+\pdf)*deltax@0, dove @0pdf@0 è il vettore dei valori della PDF e @0deltax@0 è il passo dei argomenti nel dominio; 
+- la PDF è approssimata da @0(-|-cdf)/deltax@0, where @0cdf@0 è il vettore dei valori della CDF e @0deltax@0 è come sopra.
+

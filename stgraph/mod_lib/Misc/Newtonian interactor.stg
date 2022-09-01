@@ -1,0 +1,226 @@
+<stgraph class="STGraph.decoder" version="STGraph build 6.11.07">
+    <head systemName="Newtonian interactor" description="Compute the accelerations due to the mutual gravitational interaction of two bodies" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="1.0" batchSteps="1" width="1083" height="984" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" withUncertainty="false" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="G" type="ValueNode" pos-x="630" pos-y="200" width="75" height="45">
+            <documentation>Gravitation constant</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>0.667*10^-10</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>0.667*10^-10</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=G</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="p12" type="ValueNode" pos-x="290" pos-y="200" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>pB-pA</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>pB-pA</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=x12</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="p123" type="ValueNode" pos-x="510" pos-y="200" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>((p122[0]+p122[1])^1.5)/(G*p12)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>((p122[0]+p122[1])^1.5)/(G*p12)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=x12</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="p122" type="ValueNode" pos-x="400" pos-y="200" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>p12^2</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>p12^2</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=x12</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="pB" type="ValueNode" pos-x="190" pos-y="260" width="75" height="45">
+            <documentation>Position of body B</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>[0,0]</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>[0,0]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=position B</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="pA" type="ValueNode" pos-x="190" pos-y="140" width="75" height="45">
+            <documentation>Position of body A</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>[0,0]</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>[0,0]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=position A</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="mB" type="ValueNode" pos-x="450" pos-y="100" width="75" height="45">
+            <documentation>Mass of body B</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>1</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=mass B</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="aA" type="ValueNode" pos-x="580" pos-y="100" width="75" height="45">
+            <documentation>Acceleration of body A</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>mB/p123</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>mB/p123</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=acceleration A</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="mA" type="ValueNode" pos-x="450" pos-y="300" width="75" height="45">
+            <documentation>Mass of body A</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>1</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=mass A</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="aB" type="ValueNode" pos-x="580" pos-y="300" width="75" height="45">
+            <documentation>Acceleration of body B</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>-mA/p123</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>-mA/p123</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=acceleration B</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="p12" target="p122" label="(...)" p0x="327.5" p0y="222.5" p1x="437.5" p1y="222.5" numpoints="2"/>
+        <edge source="p122" target="p123" label="(...)" p0x="437.5" p0y="222.5" p1x="547.5" p1y="222.5" numpoints="2"/>
+        <edge source="G" target="p123" label="(...)" p0x="667.5" p0y="222.5" p1x="547.5" p1y="222.5" numpoints="2"/>
+        <edge source="p12" target="p123" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="365.0" p0y="236.21951219512195" p1x="430.0" p1y="260.0" p2x="510.0" p2y="234.46808510638297" numpoints="3"/>
+        <edge source="pB" target="p12" label="(...)"/>
+        <edge source="pA" target="p12" label="(...)"/>
+        <edge source="p123" target="aA" label="(...)"/>
+        <edge source="mB" target="aA" label="(...)"/>
+        <edge source="mA" target="aB" label="(...)" p0x="497.5" p0y="132.5" p1x="627.5" p1y="132.5" numpoints="2"/>
+        <edge source="p123" target="aB" label="(...)"/>
+    </edges>
+    <widgets/>
+</stgraph>

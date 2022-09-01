@@ -1,0 +1,6 @@
+Ognuna delle funzioni / operatori seguenti ha un argomento, che è un array, e quindi in particolare scalare (array di ordine @00@0), vettore (array di ordine @01@0), o matrice (array di ordine @02@0), e si comporta in modo polimorfo.
+Dato @0f(x)@0:
+- se @0x@0 is an empty @0n>0@0-order array, il risultato è @0x@0 stesso
+- se @0x@0 è uno scalare, il risultato è uno scalare
+- se @0x@0 è un array di ordine @0n>0@0, il risultato è un array @0y@0 di ordine @0n>0@0 tale che @0y[i1,...in]=[f(x[i1]),...,f(x[i1])]@0
+

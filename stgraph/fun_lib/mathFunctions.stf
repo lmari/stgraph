@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment><![CDATA[
+	currently HTML characters are not filtered; hence && --> &amp;&amp;
+	]]></comment>
+
+	<entry key="en:[user]Mathematical functions__it:[user]Funzioni matematiche|abs">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+			if($a0>=0,$a0,-$a0)
+		) // <![CDATA[
+			en:<code>abs(x)</code>: absolute value of <code>x</code>__
+			it:<code>abs(x)</code>: valore assoluto di <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:[user]Mathematical functions__it:[user]Funzioni matematiche|pos">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+			if($a0>0,$a0,0)
+		) // <![CDATA[
+			en:<code>pos(x)</code>: <code>x</code> if <code>x</code> is positive, <code>0</code> otherwise__
+			it:<code>pos(x)</code>: <code>x</code> se <code>x</code> e' positivo, <code>0</code> altrimenti
+		]]>
+	</entry>
+
+	<entry key="en:[user]Mathematical functions__it:[user]Funzioni matematiche|even">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+			$a0/2==int($a0/2)
+		) // <![CDATA[
+			en:<code>even(x)</code>: <code>true</code> if <code>x</code> is even__
+			it:<code>even(x)</code>: <code>true</code> se <code>x</code> e' pari
+		]]>
+	</entry>
+
+	<entry key="en:[user]Mathematical functions__it:[user]Funzioni matematiche|map3to2d">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1||@$a0!=3,
+			"en:The first argument must be a vector of three elements__it:Il primo argomento deve essere un vettore con tre elementi",
+		order($a1)!=1||@$a1!=2,
+			"en:The second argument must be a vector of two elements__it:Il secondo argomento deve essere un vettore con due elementi",
+			[$a0[0]-$a0[2]*sin($a1[0]),$a0[1]-$a0[2]*sin($a1[1])]
+		) // <![CDATA[
+			en:<code>map3to2d(x,y)</code>: 2D vector obtained projecting the 3D vector <code>x</code> by means of the angular coefficients in the 2D vector <code>y</code>__
+			it:<code>map3to2d(x,y)</code>: vettore 2D ottenuto proiettando il vettore 3D <code>x</code> mediante i coefficienti angolari nel vettore 2D <code>y</code>
+		]]>
+	</entry>
+
+</properties>

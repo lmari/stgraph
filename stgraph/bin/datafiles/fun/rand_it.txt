@@ -1,0 +1,7 @@
+<h2>STGraph - rand</h2>
+<u>Formato</u>: <code>rand(x,y)</code>
+<u>Vincoli</u>: <code>x</code> (opzionale) e' uno scalare; <code>y</code> (opzionale) e' uno scalare
+<u>Descrizione</u>: valore casuale estratto da una distribuzione uniforme tra <code>0</code> e <code>1</code>, o tra <code>0</code> e <code>x</code> se solo <code>x</code> e' specificato, o tra <code>x</code> e <code>y</code> se entrambi sono specificati
+<br><code>rand</code> e' <a href="functions_it.properties">una funzione statistica</a>
+
+<u>Eccezioni</u>: Se solo <code>x</code> e' specificato, deve essere strettamente positivo; se sia <code>x</code> sia <code>y</code> sono specificati, il primo deve essere minore del secondo.

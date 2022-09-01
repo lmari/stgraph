@@ -1,0 +1,52 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.6.07">
+    <head systemName="" description="" time0="0.0" time1="10.0" timeD="1.0" batchSteps="1" width="950" height="700" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="input" type="ValueNode" pos-x="120" pos-y="100" width="75" height="45">
+            <documentation>Input vector, of which the Allan deviation is to be computed.</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit>vector(n,0)</fStateInit>
+            <fExpression>[0:10]</fExpression>
+            <fStateTrans>this+vector(n,2*randInt(2)-1)</fStateTrans>
+            <backcol-r>255</backcol-r>
+            <expression>[0:10]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit>vector(n,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans>this+vector(n,2*randInt(2)-1)</stateTrans>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=x</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="output" type="ValueNode" pos-x="280" pos-y="100" width="75" height="45">
+            <documentation>Output scalar: the Allan deviation of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sqrt(iter(vector(size(input)-1,input[$r+1]-input[$r])^2,$0+$1,0)/(2*(size(input)-2)))</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sqrt(iter(vector(size(input)-1,input[$r+1]-input[$r])^2,$0+$1,0)/(2*(size(input)-2)))</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=allandev</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="input" target="output" label="(...)" p0x="167.5" p0y="202.5" p1x="327.5" p1y="262.5" numpoints="2"/>
+    </edges>
+    <widgets/>
+</stgraph>

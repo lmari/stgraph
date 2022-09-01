@@ -1,0 +1,7 @@
+<h2>STGraph - log-2</h2>
+<u>Formato</u>: <code>log(x,y)</code>
+<u>Vincoli</u>: <code>x</code> e <code>y</code> sono array (i vincoli sono specificati <a href="fun/_diadic_it.txt">qui</a>)
+<u>Descrizione</u>: logaritmo di <code>x</code> in base <code>y</code>
+<br><code>log-2</code> e' <a href="functions_it.properties">una funzione matematica</a><br><code>log-2</code> e' <a href="fun/_diadic_it.txt">una funzione diadica polimorfa</a>
+
+<u>Eccezioni</u>: Come specificato <a href="fun/_diadic_it.txt">qui</a>. Inoltre, <code>x</code> e <code>y</code> devono essere strettamente positivi.

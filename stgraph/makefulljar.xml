@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project stgraph">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="/home/luca/workspace/stgraph/stgraph.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="it.liuc.stgraph.STGraph"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="/home/luca/workspace/stgraph/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/luca/workspace/stgraph/lib/jxl.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/luca/workspace/stgraph/lib/nanoxml-2.2.3.jar"/>
+            <fileset dir="/home/luca/workspace/myjep/bin"/>
+            <fileset dir="/home/luca/workspace/stgraphfun/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/luca/workspace/stgraph/lib/spring-beans.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/luca/workspace/stgraph/lib/spring-context.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/luca/workspace/stgraph/lib/spring-core.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/luca/workspace/stgraph/lib/ilf-gpl.jar"/>
+            <fileset dir="/home/luca/workspace/jgraph/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/luca/workspace/stgraph/lib/commons-logging-1.1.1.jar"/>
+            <fileset dir="/home/luca/workspace/ekit/bin"/>
+            <fileset dir="/home/luca/workspace/surfaceplotter/bin"/>
+        </jar>
+    </target>
+</project>

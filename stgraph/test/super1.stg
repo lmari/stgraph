@@ -1,0 +1,77 @@
+<stgraph class="STGraph.decoder" version="STGraph build 6.8.07">
+    <head systemName="" description="" time0="0.0" time1="10.0" timeD="1.0" batchSteps="1" width="950" height="700" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="false"/>
+    <nodes>
+        <node name="sub" type="ModelNode" pos-x="190" pos-y="110" width="111" height="45">
+            <subvisible>true</subvisible>
+            <superExpression0>x</superExpression0>
+            <forecol-b>0</forecol-b>
+            <forecol-r>0</forecol-r>
+            <systemName>subcomb.stg</systemName>
+            <backcol-g>255</backcol-g>
+            <customprops>Name=sub</customprops>
+            <backcol-b>255</backcol-b>
+            <backcol-r>255</backcol-r>
+            <forecol-g>0</forecol-g>
+            <subVarNames>input</subVarNames>
+        </node>
+        <node name="x" type="ValueNode" pos-x="60" pos-y="110" width="65" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>time</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>time</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=x</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="y" type="ValueNode" pos-x="360" pos-y="110" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub.output</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub.output</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=y</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="x" target="sub" label="(...)" labpos-x="523.0" labpos-y="-11.0" p0x="125.0" p0y="132.5" p1x="190.0" p1y="132.5" numpoints="2"/>
+        <edge source="sub" target="y" label="(...)" labpos-x="492.0" labpos-y="-12.0" p0x="301.0" p0y="132.5" p1x="360.0" p1y="132.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="550" pos-y="43" width="150" height="300">
+            <colwidth>70,70</colwidth>
+            <autowidth>true</autowidth>
+            <iconized>false</iconized>
+            <colalignment>0,0</colalignment>
+            <colformat>###0.0###,###0.0###</colformat>
+            <title>x y </title>
+            <lastonly>false</lastonly>
+            <sourcena>x,y</sourcena>
+        </widget>
+    </widgets>
+</stgraph>

@@ -1,0 +1,7 @@
+<h2>STGraph - sysTime</h2>
+<u>Formato</u>: <code>sysTime()</code>
+<u>Vincoli</u>:  
+<u>Descrizione</u>: numero di millisecondi dall'inizio della simulazione
+<br><code>sysTime</code> e' <a href="functions_it.properties">una funzione di controllo</a>
+
+<u>Eccezioni</u>: no

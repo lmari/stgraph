@@ -1,0 +1,50 @@
+<a href="readme_it.txt">All'elenco dei documenti disponibili</a>
+<h2>STGraph - Scorciatoie di tastiera e mouse</h2>
+<b>Informazione e operazioni di modifica</b>
+F1: mostra alcune informazioni sul modello attivo o sul nodo selezionato
+Shift+F1: mostra informazioni complete sul modello attivo
+F2: apre una finestra di dialogo per assegnare le proprieta' del nodo, o del widget, o del testo selezionato
+Shift-F2: apre una finestra di dialogo per assegnare le proprieta' del modello attivo
+N: apre una finestra di dialogo con l'elenco dei nodi nel modello attivo e consente di selezionarli
+W: apre una finestra di dialogo con l'elenco dei widget nel modello attivo e consente di operare su di essi
+G: apre una finestra di dialogo con l'elenco dei gruppi di nodi nel modello attivo e consente di operare su di essi
+[frecce]: muove i nodi selezionati in una data direzione (1 pixel)
+[ctrl-frecce]: muove i nodi selezionati in una data direzione (5 pixel)
+Ctrl+A: seleziona tutti i nodi del modello attivo
+Ctrl+Z: elimina l'ultima operazione
+Ctrl+Y: ripristina l'ultima operazione
+Ctrl+X: taglia nell'archivio appunti
+Ctrl+C: copia nell'archivio appunti
+Ctrl+V: incolla i contenuti dell'archivio appunti
+Del: cancella i nodi, o widget, o testi selezionati
+
+<b>Operazioni sui file</b>
+Ctrl+N: crea un nuovo modello
+Ctrl+O: carica un modello
+Ctrl+S: salva il modello attivo
+Ctrl+Shift+S: specifica un nome di file per il modello attivo e lo salva
+Ctrl+W: chiude il modello attivo
+Ctrl+Q: esce da STGraph
+
+<b>Operazioni di inserimento</b>
+V: inserisce un nodo variabile
+M: inserisce un nodo di modello
+A: inserisce una freccia tra i due nodi selezionati
+T: inserisce un testo
+
+<b>Operazioni di simulazione</b>
+1: esegue la simulazione
+2: esegue la simulazione in modo temporizzato
+3: esegue la simulazione per passi
+4: ferma la simulazione
+
+<b>Operazioni con il mouse</b>
+[click] su un nodo, o un widget, o un testo, o una freccia : seleziona l'oggetto
+[click-destro] su un nodo o un widget: apre il menu contestuale per l'oggetto
+[click-destro] sullo sfondo: apre il menu contestuale per il modello attivo
+[doppio-click] su un nodo o un widget: apre una finestra di dialogo per assegnare le proprieta' dell'oggetto
+[doppio-click] su un testo: apre l'editor per il testo
+[doppio-click] sullo sfondo: apre una finestra di dialogo per assegnare le proprieta' del modello attivo
+[shift-click] su una freccia selezionata: aggiunge o elimina un punto di controllo per la freccia
+
+<hr>

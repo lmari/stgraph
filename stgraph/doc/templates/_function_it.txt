@@ -1,0 +1,4 @@
+Gli argomenti della funzione definita sono referenziati nell'espressione come @0$a0@0, @0$a1@0, ... (fino a @0$a3@0).
+Per esempio, se l'espressione del nodo @0_x@0 e' @0function(($a0+$a1)/2)@0 allora @0_x(2,3)@0 produce il risultato @0(2+3/2)=2.5@0.
+Inoltre, l'espressione puo' contenere la variabile di sistema @0$numArgs@0, assegnata al numero degli argomenti della funzione.
+Si noti che la (meta)funzione @0function@0 consente definizioni ricorsive. Per esempio, la funzione prodotto fattoriale puo' essere definita in un nodo di nome @0_fact@0 come: @0function(if($a0==0,1,$a0*_fact($a0-1)))@0.

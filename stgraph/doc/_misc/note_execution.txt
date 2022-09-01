@@ -1,0 +1,43 @@
+<a href="readme.txt">To the list of the available documentation</a>
+<h2>STGraph - A note on execution logic</h2>
+Let us take into account the execution flow, in terms of method calls, when a simulation is executed
+with the Euler (simplest) integration algorithm.
+(Methods marked with (*) recursively call themselves to handle subsystems)
+
+<pre>
+exec()
+	initTimeBasis(*)
+	computeFirst()
+		resetComputationalProperties(*)
+        setIndexAndTime()
+        preParseExpressions(*)
+        computeIt(true)
+        preParseExpressionsComplete(*)
+		handleOutput()
+	loop of compute()
+        computeIt(false)
+		handleOutput()
+
+
+computeIt(isFirstCall)
+	if(isFirstCall)
+    	computeInputs(isFirstCall) (--> inputs, then unconnected auxs)
+		computeStates(isFirstCall) (--> states, then recursively computeIt() for each sequential subsystem)
+		computeSync(isFirstCall) (--> auxs, including combinatorial subsystems by recursively computeIt())
+	else
+		computeStates(isFirstCall) (--> states, then recursively computeIt() for each sequential subsystem)
+        setIndexAndTime()
+    	computeInputs(isFirstCall) (--> inputs, then unconnected auxs)
+		computeSync(isFirstCall) (--> auxs, including combinatorial subsystems by recursively computeIt())
+</pre>
+
+Accordingly, the evaluation sequence is:
+- single system:
+	inputs, states, auxs, { states, inputs, auxs }*
+- system with a combinatorial subsystem:
+	super.inputs, super.states, super.auxs, [sub.inputs, sub.auxs], { super.states, super.inputs, super.auxs, [sub.inputs, sub.auxs] }*
+- system with a sequential subsystem:
+	super.inputs, super.states, [sub.inputs, sub.states, sub.auxs], super.auxs, { super.states, [sub.inputs, sub.states, sub.auxs], super.inputs, super.auxs }*
+
+	input --> [sub.inputs --> sub.states --> sub.auxs] --> output
+	

@@ -1,0 +1,9 @@
+<h2>STGraph - ReadFromXLS-1</h2>
+<u>Formato</u>: <code>readFromXLS(x,y,r,c)</code>
+<u>Vincoli</u>: <code>x</code> e' una stringa; <code>y</code>, <code>r</code>, e <code>c</code> sono scalari
+<u>Descrizione</u>: valore letto dalla riga <code>r</code> e colonna <code>c</code> del foglio di indice <code>y</code> del file xls il cui nome e' <code>x</code>
+
+Il file xls deve essere nella stessa cartella del modello, e il nome del file <code>x</code> deve essere indicato senza percorso. Tutti gli indici partono da 1.
+<br><code>ReadFromXLS-1</code> e' <a href="functions_it.properties">una funzione di controllo</a>
+
+<u>Eccezioni</u>: no

@@ -1,0 +1,7 @@
+<h2>STGraph - GenVect2</h2>
+<u>Formato</u>: <code>[x:y:z]</code>
+<u>Vincoli</u>: <code>x</code>, <code>y</code> e <code>z</code> sono scalari
+<u>Descrizione</u>: vettore dei valori da <code>x</code> a <code>z</code> separati per <code>z</code>
+<br><code>GenVect2</code> e' <a href="functions_it.properties">un operatore</a>
+
+<u>Eccezioni</u>: no

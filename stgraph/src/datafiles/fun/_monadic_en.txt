@@ -1,0 +1,26 @@
+<h2>STGraph - Monadic polymorphic functions / operators</h2>
+Each of the following functions / operators has a single argument, which are arrays, and therefore in particular scalars (<code>0</code>-order arrays), vectors (<code>1</code>-order arrays), or matrices (<code>2</code>-order arrays), and behaves polymorphically.
+Given <code>f(x)</code>:
+- if <code>x</code> is an empty <code>n>0</code>-order array, the result is <code>x</code> itself
+- if <code>x</code> is a scalar, the result is a scalar
+- if <code>x</code> is a <code>n>0</code>-order array, the result is a <code>n>0</code>-order array <code>y</code> such that <code>y[i1,...in]=[f(x[i1]),...,f(x[i1])]</code>
+
+<a href="fun/acos_en.txt">acos(x)</a>
+<a href="fun/asin_en.txt">asin(x)</a>
+<a href="fun/atan_en.txt">atan(x)</a>
+<a href="fun/cos_en.txt">cos(x)</a>
+<a href="fun/deg2rad_en.txt">deg2rad(x)</a>
+<a href="fun/exp_en.txt">exp(x)</a>
+<a href="fun/int_en.txt">int(x)</a>
+<a href="fun/isNumber_en.txt">isNumber(x)</a>
+<a href="fun/log-1_en.txt">log(x)</a>
+<a href="fun/opMinus_en.txt">-x</a>
+<a href="fun/opNot_en.txt">!x</a>
+<a href="fun/rad2deg_en.txt">rad2deg(x)</a>
+<a href="fun/randInt_en.txt">randInt(x)</a>
+<a href="fun/sign_en.txt">sign(x)</a>
+<a href="fun/sin_en.txt">sin(x)</a>
+<a href="fun/sqrt_en.txt">sqrt(x)</a>
+<a href="fun/tan_en.txt">tan(x)</a>
+<hr>
+<a href="functions_en.properties">List of functions</a>

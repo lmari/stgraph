@@ -1,0 +1,96 @@
+<stgraph class="STGraph.decoder" version="STGraph build 2.10.07">
+    <head systemName="Spatial derivative" description="Synchronous derivative of a vector" timeUnitDescription="" time0="0.0" time1="10.0" timeD="1.0" batchSteps="1" width="1000" height="856" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" withUncertainty="false" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="input" type="ValueNode" pos-x="140" pos-y="130" width="75" height="45">
+            <documentation>Input vector, of which the spatial derivative is to be computed</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>[0:10]</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>[0:10]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=input</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="output" type="ValueNode" pos-x="270" pos-y="130" width="75" height="45">
+            <documentation>Output vector: spatial derivative of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>firstElement#vector(size(input)-1,(input[$r+1]-input[$r])/delta_s)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>firstElement#vector(size(input)-1,(input[$r+1]-input[$r])/delta_s)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=spatialDeriv</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="firstElement" type="ValueNode" pos-x="140" pos-y="210" width="75" height="45">
+            <documentation>First element of the spatial derivative</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>0</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=first element</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="delta_s" type="ValueNode" pos-x="140" pos-y="50" width="75" height="45">
+            <documentation>Spatial step for computing the derivative (default value: 0.01)</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>0.01</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>0.01</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=delta s</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="input" target="output" label="(...)" p0x="177.5" p0y="152.5" p1x="177.5" p1y="262.5" numpoints="2"/>
+        <edge source="firstElement" target="output" label="(...)"/>
+        <edge source="delta_s" target="output" label="(...)"/>
+    </edges>
+    <widgets/>
+</stgraph>

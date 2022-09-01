@@ -1,0 +1,7 @@
+<h2>STGraph - rad2deg</h2>
+<u>Format</u>: <code>rad2deg(x)</code>
+<u>Constraints</u>: <code>x</code> is an array
+<u>Description</u>: value of <code>x</code> converted from radians to degrees
+<br><code>rad2deg</code> is <a href="functions_en.properties">a mathematical function</a><br><code>rad2deg</code> is <a href="fun/_monadic_en.txt">a monadic polymorphic function</a>
+
+<u>Exceptions</u>: no

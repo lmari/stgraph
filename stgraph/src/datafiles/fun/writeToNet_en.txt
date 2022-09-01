@@ -1,0 +1,7 @@
+<h2>STGraph - writeToNet</h2>
+<u>Format</u>: <code>writeToNet(x)</code>
+<u>Constraints</u>: <code>x</code> is an array
+<u>Description</u>: send <code>x</code> to a Spacebrew network server
+<br><code>writeToNet</code> is <a href="functions_en.properties">a control function</a>
+
+<u>Exceptions</u>: The Spacebrew server must be reachable.

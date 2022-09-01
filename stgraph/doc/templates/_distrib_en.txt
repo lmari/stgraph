@@ -1,0 +1,11 @@
+Each of the following functions can be called for either generating a random number extracted from the given statistical distribution, or returning the @0y@0 values of either the probability density function (PDF), or the cumulative density function (CDF), or the inverse cumulative density function for the given @0x@0 values.
+Provided that the parameters characterizing the distribution @0f@0 are stored in the vector @0v@0 (e.g., in the case of the gaussian distribution @0v=[mean,stddev]@0), then the following usages are allowed:
+- @0f()@0 returns a random number extracted from the distribution with default parameters
+- @0f(v)@0 returns a random number extracted from the distribution whose parameters are in the vector @0v@0
+- @0f(v,x,0)@0 returns the PDF values of the distribution whose parameters are in the vector @0v@0 and for the arguments in the array @0x@0
+- @0f(v,x,1)@0 returns the CDF values of the distribution whose parameters are in the vector @0v@0 and for the arguments in the array @0x@0
+- @0f(v,x,2)@0 returns the inverse CDF values of the distribution whose parameters are in the vector @0v@0 and for the arguments in the array @0x@0, in the range @0[0,1]@0 (or @0(0,1)@0).
+The algorithmic relations between PDFs and CDFs are as follows:
+- the CDF is approximated by @0(+\pdf)*deltax@0, where @0pdf@0 is the vector of the PDF values and @0deltax@0 is the step of the domain values; 
+- the PDF is approximated by @0(-|-cdf)/deltax@0, where @0cdf@0 is the vector of the CDF values and @0deltax@0 is as before.
+

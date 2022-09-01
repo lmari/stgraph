@@ -1,0 +1,26 @@
+<h2>STGraph - Samples & Examples</h2>
+
+<b>Some models, suggesting a few ideas of what can be done with STGraph...</b>
+
+- The classical <a href="samples/lorenz.stg">Lorenz attractor</a>, also implemented as a <a href="samples/lorenz_sync.stg">vector synchronous model</a>.
+
+- The <a href="samples/verhulst.stg">Verhulst system</a>, a classical dynamic system, which becomes chaotic when both the time step and the growth parameter are large enough. By modifying the growth parameter, the obtained behavior is either stable, oscillating, or fractal.
+
+- A simple example showing <a href="samples/fft.stg">the power spectrum</a> of a noisy signal computed by the Fast Fourier Transform.
+
+- A simple model showing that <a href="samples/equiv_state_delay.stg">a state is equivalent to a delayed function in feedback</a> with itself.
+
+- An example showing three different ways to implement and compute the <a href="samples/factorial.stg">factorial product</a> function.
+
+- In a completely polymorphic way, a model simulating <a href="samples/freebodies.stg">n bodies moving in a bounded 2D space</a>.
+
+- A model showing the <a href="samples/brownian.stg">irreversibility of brownian motion</a> of n particles, in particular by displaying how the area of their bounding box statistically increases during the simulation.
+
+- A basic <a href="samples/cell_automaton_1D.stg">one dimensional cellular automaton</a>.
+
+- The <a href="samples/heat_equation.stg">Fourier heat equation</a>, a simple partial differential equation.
+
+- A tricky implementation of the <a href="samples/galton_machine.stg">Galton machine</a>.
+
+- The example of an <a href="samples/fern_by_ifs.stg">iterated fractal system</a>.
+

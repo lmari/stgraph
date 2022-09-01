@@ -1,0 +1,7 @@
+<h2>STGraph - round</h2>
+<u>Formato</u>: <code>round(x,y)</code>
+<u>Vincoli</u>: <code>x</code> e <code>y</code> sono array (i vincoli sono specificati <a href="fun/_diadic_it.txt">qui</a>)
+<u>Descrizione</u>: <code>x</code> arrotondato a <code>y</code> decimali
+<br><code>round</code> e' <a href="functions_it.properties">una funzione matematica</a><br><code>round</code> e' <a href="fun/_diadic_it.txt">una funzione diadica polimorfa</a>
+
+<u>Eccezioni</u>: Come specificato <a href="fun/_diadic_it.txt">qui</a>.

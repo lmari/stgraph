@@ -1,0 +1,9 @@
+<h2>STGraph - Conc</h2>
+<u>Formato</u>: <code>x#y</code>
+<u>Vincoli</u>: <code>x</code> e <code>y</code> sono array
+<u>Descrizione</u>: <code>x</code> concatenato con <code>y</code>
+
+Equivalente ala funzione <code>x#y</code>. Deve essere possibile concatenare <code>x</code> con <code>y</code> in termini delle loro dimensioni.
+<br><code>Conc</code> e' <a href="functions_it.properties">un operatore</a>
+
+<u>Eccezioni</u>: no

@@ -1,0 +1,7 @@
+<h2>STGraph - binomial</h2>
+<u>Formato</u>: <code>binomial(v,x,s)</code>
+<u>Vincoli</u>: <code>v</code> (opzionale) e' un vettore; <code>x</code> (opzionale) e' un array; <code>s</code> (opzionale) e' uno scalare, o <code>0</code> o <code>1</code> o <code>2</code>
+<u>Descrizione</u>: distribuzione di probabilita' binomiale, di parametri <code>v=[p1,p2]</code>, con <code>p1</code>=mean (default: <code>0</code>), <code>p2</code>=stddev (default: <code>1</code>): se <code>x</code> e <code>s</code> non sono specificati, valore casuale estratto dalla distribuzione; se <code>s==0</code>, valore della pdf in <code>x</code>; se <code>s==1</code>, valore della cdf in <code>x</code>
+<br><code>binomial</code> e' <a href="functions_it.properties">una funzione statistica</a><br><code>binomial</code> e' <a href="fun/_distrib_it.txt">una funzione di distribuzione statistica</a>
+
+<u>Eccezioni</u>: <code>s</code> deve essere o <code>0</code> o <code>1</code>.

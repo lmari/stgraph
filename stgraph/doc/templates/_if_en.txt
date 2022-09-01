@@ -1,0 +1,5 @@
+The function @0if@0 operates as a chain of if ... then ... else if ... then ...
+Its simplest form, @0if(c,v1,v2)@0, is equivalent to the structure if @0c@0 then @0v1@0 else @0v2@0.
+It behaves "as polymorphically as possible": in particular, if @0c@0, @0v1@0 and @0v2@0 are arrays of the same size, the function produces an array of that size, such that @0result[i1,...,in] == v1[i1,...,in]@0 if @0c[i1,...,in]@0 is true and @0result[i1,...,in] == v2[i1,...,in]@0 otherwise.
+Given the general form, @0if(c1,v1,c2,v2,...,cn,vn,vn+1)@0, the conditions @0ci@0 must have the same size. If they are scalars, the values @0vj@0 are not constrained. Otherwise, the values @0vj@0 must have the same size of the conditions @0ci@0 or must be scalars.
+

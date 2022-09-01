@@ -1,0 +1,36 @@
+<a href="readme.txt">To the list of the available documentation</a>
+<h2>STGraph - A note on custom properties and interrupt conditions</h2>
+With each graph node a list of optional custom properties is associated, each of them expressed as a couple <code>name=value</code>.
+
+While such properties can be freely assigned for documentation, some of them are pre-defined together with their behavior, as follows <i>(note that names are case-sensitive)</i>.
+
+<b>General properties</b>
+-<code>Name</code>: descriptive name of the node, displayed alternatively to the variable name in the node tooltip
+-<code>Unit</code>: Evaluation / measurement unit, displayed in the node tooltip 
+-<code>DefaultValue</code>: default value, displayed in the node tooltip (also used in STGraphWeb)
+-<code>Decimals</code>: number of decimals digits to be displayed (used in STGraphWeb)
+-<code>Min</code>: minimum allowed value, displayed in the node tooltip (also used in STGraphWeb)
+-<code>Max</code>: maximum allowed value, displayed in the node tooltip (also used in STGraphWeb)
+
+<b>Properties related to interrupt conditions</b>
+<i>(these properties are used in computation only if the interrupt handling is activated in the model configuration dialog)</i>
+Each of the following properties must be written as <code>event=action</code>, where:
+- <code>event</code>, that triggers the specified <code>action</code>, can be:
+--- <code>OnBelowMin</code>: the current value is less than the value specified by the custom property <code>Min</code>
+--- <code>OnAboveMax</code>: the current value is greater than the value specified by the the custom property <code>Max</code>
+--- <code>OnZero</code>: the current value is equal to zero
+--- <code>OnTrue</code>: the current value is greater than zero
+--- <code>OnFalse</code>: the current value is equal or less than zero
+- <code>action</code> can be:
+--- <code>pause("message")</code>
+--- <code>end("message")</code>
+
+<b>Properties related to uncertainty handling</b>
+<i>(these properties are used in computation only if the uncertainty handling is activated in the model configuration dialog)</i>
+-<code>Unc</code>: standard uncertainty
+-<code>Correl(x,y)</code>: correlation coefficient (in [-1,1]) of the <code>x</code> and <code>y</code> defining nodes 
+
+<b>Properties used in STGraphWeb</b>
+(documented in <code>it.liuc.stgraphweb.STWTools<code>)
+-<code>InputType</code>: input type
+-<code>OutputType</code>: output type

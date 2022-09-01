@@ -1,0 +1,162 @@
+<stgraph class="STGraph.decoder" version="STGraph build 28.6.07">
+    <head systemName="" description="Pearson (linear) correlation of two input vectors." time0="0.0" time1="0.0" timeD="1.0" batchSteps="1" width="950" height="700" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="input2" type="ValueNode" pos-x="127" pos-y="283" width="75" height="45">
+            <documentation>Second input vector, whose Pearson correlation to first input vector is to be computed.</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>vector(10,$r+$r*rand())</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>vector(10,$r+$r*rand())</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=input2</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="input1" type="ValueNode" pos-x="127" pos-y="113" width="75" height="45">
+            <documentation>First input vector, whose Pearson correlation to second input vector is to be computed.</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>vector(10,$r)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>vector(10,$r)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=input1</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="mx" type="ValueNode" pos-x="257" pos-y="113" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>average(input1)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>average(input1)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=mx</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="my" type="ValueNode" pos-x="257" pos-y="283" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>average(input2)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>average(input2)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=mx</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="sx" type="ValueNode" pos-x="317" pos-y="63" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>stdDev(input1)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>stdDev(input1)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=sx</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="sy" type="ValueNode" pos-x="317" pos-y="333" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>stdDev(input2)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>stdDev(input2)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=sx</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="output" type="ValueNode" pos-x="320" pos-y="200" width="75" height="45">
+            <documentation>Pearson correlation coeeficient of first and second input vectors.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>iter((input1-mx)*(input2-my),$0+$1,0)/((size(input1)-1)*sx*sy)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>iter((input1-mx)*(input2-my),$0+$1,0)/((size(input1)-1)*sx*sy)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=output</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="input1" target="mx" label="(...)" p0x="164.5" p0y="135.5" p1x="294.5" p1y="135.5" numpoints="2"/>
+        <edge source="input2" target="my" label="(...)" p0x="164.5" p0y="305.5" p1x="294.5" p1y="305.5" numpoints="2"/>
+        <edge source="input1" target="sx" label="(...)" p0x="164.5" p0y="135.5" p1x="294.5" p1y="85.5" numpoints="2"/>
+        <edge source="input2" target="sy" label="(...)" p0x="164.5" p0y="305.5" p1x="354.5" p1y="355.5" numpoints="2"/>
+        <edge source="mx" target="output" label="(...)"/>
+        <edge source="input1" target="output" label="(...)"/>
+        <edge source="input2" target="output" label="(...)"/>
+        <edge source="my" target="output" label="(...)"/>
+        <edge source="sx" target="output" label="(...)"/>
+        <edge source="sy" target="output" label="(...)"/>
+    </edges>
+    <widgets/>
+</stgraph>

@@ -1,0 +1,9 @@
+<h2>STGraph - transpose</h2>
+<u>Formato</u>: <code>transpose(x)</code>
+<u>Vincoli</u>: <code>x</code> e' un array
+<u>Descrizione</u>: array ottenuto per trasposizione dell'array <code>x</code>
+
+Questa funzione implementa un concetto generalizzato di trasposizione. Se l'argomento e' uno scalare, e' restituito senza cambiamenti; altrimenti e' restituito l'array ottenuto sostituendo la i-esima dimensione dell'argomento con la (i+1)-esima dimensione.
+<br><code>transpose</code> e' <a href="functions_it.properties">una funzione per array</a>
+
+<u>Eccezioni</u>: no

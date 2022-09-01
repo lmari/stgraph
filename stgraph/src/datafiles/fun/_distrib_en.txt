@@ -1,0 +1,23 @@
+<h2>STGraph - Polymorphic functions handling statistical distributions</h2>
+Each of the following functions can be called for either generating a random number extracted from the given statistical distribution, or returning the <code>y</code> values of either the probability density function (PDF), or the cumulative density function (CDF), or the inverse cumulative density function for the given <code>x</code> values.
+Provided that the parameters characterizing the distribution <code>f</code> are stored in the vector <code>v</code> (e.g., in the case of the gaussian distribution <code>v=[mean,stddev]</code>), then the following usages are allowed:
+- <code>f()</code> returns a random number extracted from the distribution with default parameters
+- <code>f(v)</code> returns a random number extracted from the distribution whose parameters are in the vector <code>v</code>
+- <code>f(v,x,0)</code> returns the PDF values of the distribution whose parameters are in the vector <code>v</code> and for the arguments in the array <code>x</code>
+- <code>f(v,x,1)</code> returns the CDF values of the distribution whose parameters are in the vector <code>v</code> and for the arguments in the array <code>x</code>
+- <code>f(v,x,2)</code> returns the inverse CDF values of the distribution whose parameters are in the vector <code>v</code> and for the arguments in the array <code>x</code>, in the range <code>[0,1]</code> (or <code>(0,1)</code>).
+The algorithmic relations between PDFs and CDFs are as follows:
+- the CDF is approximated by <code>(+\pdf)*deltax</code>, where <code>pdf</code> is the vector of the PDF values and <code>deltax</code> is the step of the domain values; 
+- the PDF is approximated by <code>(-|-cdf)/deltax</code>, where <code>cdf</code> is the vector of the CDF values and <code>deltax</code> is as before.
+
+<a href="fun/beta_en.txt">beta(v,x,s)</a>
+<a href="fun/binomial_en.txt">binomial(v,x,s)</a>
+<a href="fun/chiSquare_en.txt">chiSquare(v,x,s)</a>
+<a href="fun/exponential_en.txt">exponential(v,x,s)</a>
+<a href="fun/gamma_en.txt">gamma(v,x,s)</a>
+<a href="fun/gaussian_en.txt">gaussian(v,x,s)</a>
+<a href="fun/poisson_en.txt">poisson(v,x,s)</a>
+<a href="fun/tDistribution_en.txt">tDistribution(v,x,s)</a>
+<a href="fun/uniform_en.txt">uniform(v,x,s)</a>
+<hr>
+<a href="functions_en.properties">List of functions</a>

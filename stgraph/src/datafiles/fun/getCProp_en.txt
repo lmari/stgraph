@@ -1,0 +1,9 @@
+<h2>STGraph - getCProp</h2>
+<u>Format</u>: <code>getCProp(n,x)</code>
+<u>Constraints</u>: <code>n</code> (optional) is a node name; <code>x</code> is a string
+<u>Description</u>: value of the custom property named <code>x</code>, either of the node <code>n</code> or of the current node if <code>n</code> is not specified
+
+Only numerical values are dealt with. If specified, <code>n</code> must be written without quotes.
+<br><code>getCProp</code> is <a href="functions_en.properties">a control function</a>
+
+<u>Exceptions</u>: If specified, <code>n</code> must be the name of a connected node. <code>x</code> must be the name of an existing custom property, whose value must be a number.

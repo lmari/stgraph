@@ -1,0 +1,9 @@
+<h2>STGraph - cos</h2>
+<u>Format</u>: <code>cos(x)</code>
+<u>Constraints</u>: <code>x</code> is an array
+<u>Description</u>: cosine of <code>x</code>
+
+<code>x</code> is expressed in radians.
+<br><code>cos</code> is <a href="functions_en.properties">a mathematical function</a><br><code>cos</code> is <a href="fun/_monadic_en.txt">a monadic polymorphic function</a>
+
+<u>Exceptions</u>: no

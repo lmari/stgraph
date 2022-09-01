@@ -1,0 +1,26 @@
+<a href="readme.txt">To the list of the available documentation</a>
+<h2>STGraph - A note on error - exception handling</h2>
+*** Error handling
+The background control of the correctness of the graph definition allows to constantly check whether the simulation can be executed.
+If errors are recognized, the interactive tools to run the simulation (buttons, menu items, and keyboard shortcuts) are turned off,
+and the first error found is displayed.
+The method STGraphExec.checkAllDefinitions() is in charge of this control, and as a side-effect, set the lastError property.
+It is called once a system has been loaded (by the constructor STDesktop()), and after any node / edge insertions, removals, and modifications
+(by the method STGraphPanel.graphChanged(), which is also in charge of displaying the error message).
+The method STGraphExec.checkAllDefinitions() in its turn delegates the execution of the control to the methods checkDefinition()
+for each subclass of STNode.
+The methods checkDefinition() call the method STNode.checkExpressionDefinition() for each expression to be checked.
+This method parses an expression by calling JEP: this catches bad formed formulas and wrong number of parameters (also in the case of
+variable number of parameters, by a suitable extenson of JEP). During the parsing, the method run() of the classes defining the functions /
+operators appearing in the expression is called; in the case of errors, the static method STInterpreter.handleException() is called, which is
+a wrapper for the JEP throwing ParseException() (this method handles also the exceptions).
+Finally, the method checkExpressionDefinition() calls the method checkVariable() for each subclass of STNode.
+In the case of node definition by dialog, the last check is done before the dialog closing, in the method STDialog.completeExit(), after
+having called the method STGraphExec.computeInteractively().
+
+
+*** Exception handling
+Exceptions during execution are caught by the classes which define the functions and the operators.
+In case of exception the method STInterpreter.handleException() is called:
+if the field STGraphImpl.exceptionHandling (interactively set in the general dialog) is set to 0, the node which generated the exception
+is set to 0.0; else a custom exception is thrown and properly highlighted

@@ -1,0 +1,7 @@
+<h2>STGraph - sign</h2>
+<u>Format</u>: <code>sign(x)</code>
+<u>Constraints</u>: <code>x</code> is an array
+<u>Description</u>: sign of <code>x</code>, i.e., <code>1</code> if <code>x > 0</code>, <code>-1</code> if <code>x < 0</code>, <code>0</code> if <code>x == 0</code>
+<br><code>sign</code> is <a href="functions_en.properties">a mathematical function</a><br><code>sign</code> is <a href="fun/_monadic_en.txt">a monadic polymorphic function</a>
+
+<u>Exceptions</u>: no

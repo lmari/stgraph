@@ -1,0 +1,13 @@
+<h2>STGraph - if</h2>
+<u>Format</u>: <code>if(c1,x1,c2,x2,...,cn,xn,xn+1)</code>
+<u>Constraints</u>: all arguments are arrays, either of the same size or of “compatible size” (see the Notes)
+<u>Description</u>: conditional structure: return <code>x1</code> if <code>c1</code> is true, else <code>x2</code> if <code>c2</code> is true, else ..., and <code>xn+1</code> otherwise
+
+The function <code>if</code> operates as a chain of if ... then ... else if ... then ...
+Its simplest form, <code>if(c,v1,v2)</code>, is equivalent to the structure if <code>c</code> then <code>v1</code> else <code>v2</code>.
+It behaves "as polymorphically as possible": in particular, if <code>c</code>, <code>v1</code> and <code>v2</code> are arrays of the same size, the function produces an array of that size, such that <code>result[i1,...,in] == v1[i1,...,in]</code> if <code>c[i1,...,in]</code> is true and <code>result[i1,...,in] == v2[i1,...,in]</code> otherwise.
+Given the general form, <code>if(c1,v1,c2,v2,...,cn,vn,vn+1)</code>, the conditions <code>ci</code> must have the same size. If they are scalars, the values <code>vj</code> are not constrained. Otherwise, the values <code>vj</code> must have the same size of the conditions <code>ci</code> or must be scalars.
+
+<br><code>if</code> is <a href="functions_en.properties">a control function</a>
+
+<u>Exceptions</u>: The number of parameters must be odd.

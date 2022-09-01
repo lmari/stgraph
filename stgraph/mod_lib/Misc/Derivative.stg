@@ -1,0 +1,74 @@
+<stgraph class="STGraph.decoder" version="STGraph build 6.11.07">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="1.0" batchSteps="1" width="950" height="700" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" withUncertainty="false" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="input" type="ValueNode" pos-x="160" pos-y="170" width="75" height="45">
+            <documentation>Input signal to be derivated</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>0</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=Input</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="output" type="ValueNode" pos-x="340" pos-y="170" width="75" height="45">
+            <documentation>Derivative of the input</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit>init</fStateInit>
+            <fExpression>(input-this)/timeD</fExpression>
+            <fStateTrans>input</fStateTrans>
+            <backcol-r>255</backcol-r>
+            <expression>(input-this)/timeD</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>init</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans>input</stateTrans>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=Derivative</customprops>
+            <valueType>2</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="init" type="ValueNode" pos-x="160" pos-y="90" width="75" height="45">
+            <documentation>Initial value</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>0</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=Initial value</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="input" target="output" label="(...)"/>
+        <edge source="init" target="output" label="(...)"/>
+    </edges>
+    <widgets/>
+</stgraph>

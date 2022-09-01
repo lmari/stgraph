@@ -1,0 +1,7 @@
+<h2>STGraph - DefExpr</h2>
+<u>Formato</u>: <code>{x}</code>
+<u>Vincoli</u>: <code>x</code> e' un'espressione
+<u>Descrizione</u>: sottoespressione assegnata alla variabile <code>$wn</code>, dove <code>n</code> varia da 0 a 3 secondo l'ordine di valutazione
+<br><code>DefExpr</code> e' <a href="functions_it.properties">un operatore</a>
+
+<u>Eccezioni</u>: no

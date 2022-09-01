@@ -1,0 +1,7 @@
+<h2>STGraph - shuffle</h2>
+<u>Formato</u>: <code>shuffle(x)</code>
+<u>Vincoli</u>: <code>x</code> e' un array
+<u>Descrizione</u>: array ottenuto permutando in modo casuale gli elementi dell'array <code>x</code>
+<br><code>shuffle</code> e' <a href="functions_it.properties">una funzione per array</a>
+
+<u>Eccezioni</u>: no

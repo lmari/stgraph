@@ -1,0 +1,7 @@
+<h2>STGraph - resize</h2>
+<u>Format</u>: <code>resize(x,v)</code>
+<u>Constraints</u>: <code>x</code> is an array; <code>v</code> is a vector
+<u>Description</u>: array obtained by resizing the array <code>x</code> to the size <code>v</code>, and by trimming the exceeding trailing elements or padding with trailing zeros if required
+<br><code>resize</code> is <a href="functions_en.properties">an array function</a>
+
+<u>Exceptions</u>: no

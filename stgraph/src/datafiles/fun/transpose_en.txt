@@ -1,0 +1,9 @@
+<h2>STGraph - transpose</h2>
+<u>Format</u>: <code>transpose(x)</code>
+<u>Constraints</u>: <code>x</code> is an array
+<u>Description</u>: array obtained by transposing the array <code>x</code>
+
+This function implements a generalized concept of transposition. If the argument is a scalar, then it is returned as it is. Otherwise the i-th dimension of the argument is cycled to the (i+1)-th dimension of the value.
+<br><code>transpose</code> is <a href="functions_en.properties">an array function</a>
+
+<u>Exceptions</u>: no

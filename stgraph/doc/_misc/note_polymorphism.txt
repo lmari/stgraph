@@ -1,0 +1,13 @@
+<a href="readme.txt">To the list of the available documentation</a>
+<h2>STGraph - A note on function polymorphism and lazy evaluation</h2>
+STGraph functions and operators are generally polymorphic; for example, <code>sin(<i>x)</code> applies to:
+- a scalar <code>x</code>, and then produces a scalar, <code>sin(<i>x)</code>
+- a vector <code>x == [x1,x2,...]</code>, and then produces a vector <code>[sin(x1),sin(x2),...]</code>
+- a matrix <code>x == [[x1,x2,...],[y1,y2,...],...] and then produces a matrix <code>[[sin(x1),sin(x2),...],[sin(y1),sin(y2),...],...]</code>
+As an example of this polymorphism, let us consider the function <code>if</code>, <code>if(x,y,z)<code>, that behaves "as polymorphically as possible": in the most complex case, if <code>x</code>, <code>y</code> and <code>z</code> are all vectors or matrices and have the same size, then the function produces a vector or a matrix of that size, such that <code>result[i;j] == y[i;j]</code> if <code>x[i;j]</code> is true and <code>result[i;j] == z[i;j]</code> otherwise.
+
+The price to be paid to obtain this behavior is that both <code>y</code> and <code>z</code> must be evaluated before the function returns its value.
+To avoid this effect, and to have only either <code>y</code> or <code>z</code> evaluated in dependence of the value of <code>x</code>, the function <code>iif</code> ("immediate if"), <code>if(x,y,z)<code>, must be instead adopted, that operates according to the "lazy evaluation" principle: its arguments are evaluated only when required.
+On the other hand, <code>iif</code> is only weakly polymorphic: <code>x</code> must be a scalar, and in dependence of its boolean value either <code>y</code> or <code>z</code> is returned, both of them being scalars, vectors, or matrices.
+
+Polymorphism applies in the same way in the case of dyadic functions, such as sum or max, provided that their arguments have the same size.

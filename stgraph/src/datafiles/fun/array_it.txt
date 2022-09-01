@@ -1,0 +1,7 @@
+<h2>STGraph - array</h2>
+<u>Formato</u>: <code>array(v,e)</code>
+<u>Vincoli</u>: <code>v</code> e' uno scalare o un vettore; <code>e</code> e' un'espressione
+<u>Descrizione</u>: array la cui dimensione e' <code>v</code> e i cui elementi sono specificati dall'espressione <code>e</code>, che puo' contenere le variabili di sistema <code>$i0</code>,...,<code>$i5</code>, ognuna di esse assegnata al valore della dimensione corrispondente
+<br><code>array</code> e' <a href="functions_it.properties">una funzione per array</a>
+
+<u>Eccezioni</u>: no

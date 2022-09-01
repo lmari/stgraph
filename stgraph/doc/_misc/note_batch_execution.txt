@@ -1,0 +1,11 @@
+<a href="readme.txt">To the list of the available documentation</a>
+<h2>STGraph - A note on batch execution</h2>
+The same model can be simulated repeatedly in automatic way, by setting a number greater than 1 for the "steps of batch execution" parameter in the model properties.
+
+The standard behavior for nodes is to reset their value before each repetition. On the other hand, STGraph allows to maintain such values during a batch execution, by means of <i>batch variables</i>.
+A batch variable is...
+
+only output nodes can be "batched"?
+
+__batch
+__vBatch

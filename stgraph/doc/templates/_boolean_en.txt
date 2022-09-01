@@ -1,0 +1,5 @@
+Each of the following operators deals with with the true and false boolean values, which are defined in STGraph as follows:
+- each value greater than zero (actually: greater or equal to @0EPSILON@0) is evaluated as true;
+- each value less or equal than zero (actually: less to @0EPSILON@0) is evaluated as false.
+The only primitive type in STGraph is double: hence, true and false are implemented as @01.0@0 and @00.0@0 respectively.
+

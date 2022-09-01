@@ -1,0 +1,13 @@
+<h2>STGraph - if</h2>
+<u>Formato</u>: <code>if(c1,x1,c2,x2,...,cn,xn,xn+1)</code>
+<u>Vincoli</u>: tutti gli argomenti sono array, o della stessa dimensione o di “dimensione compatibile” (vedi le Note)
+<u>Descrizione</u>: struttura condizionale: restituisce <code>x1</code> se <code>c1</code> e' vero, altrimenti <code>x2</code> se <code>c2</code> e' vero, altrimenti ..., e <code>xn+1</code> altrimenti
+
+La funzione <code>if</code> opera come una catena di if ... then ... else if ... then ...
+La sua forma più semplice, <code>if(c,v1,v2)</code>, è equivalente alla struttura if <code>c</code> then <code>v1</code> else <code>v2</code>.
+Si comporta "più polimorficamente possibile": in particolare, se <code>c</code>, <code>v1</code> e <code>v2</code> sono array della stessa dimensione, la funzione produce un array di quella dimensione, tale che <code>risultato[i1,...,in] == v1[i1,...,in]</code> se <code>c[i1,...,in]</code> è vero e <code>risultato[i1,...,in] == v2[i1,...,in]</code> altrimenti.
+Data la forma generale, <code>if(c1,v1,c2,v2,...,cn,vn,vn+1)</code>, le condizioni <code>ci</code> devono avere la stessa dimensione. Se sono scalari, i valori <code>vj</code> non sono vincolati. Altrimenti, i valori <code>vj</code> devono avere la stessa dimensione delle condizioni <code>ci</code> o devono essere scalari.
+
+<br><code>if</code> e' <a href="functions_it.properties">una funzione di controllo</a>
+
+<u>Eccezioni</u>: Il numero degli argomenti deve essere dispari.

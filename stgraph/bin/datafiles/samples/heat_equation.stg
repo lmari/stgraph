@@ -1,0 +1,271 @@
+<stgraph class="STGraph.decoder" version="STGraph build 5.7.13">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="20.0" timeD="0.005" maxSteps="1" batchSteps="1" width="914" height="543" scale="1.0" simulationDelay="1" stepsBeforePause="10" integrationMethod="0" exceptionHandling="1" withInterrupts="true" isDataSaved="false" forWeb="false" webModelLocale="" webModelDescription="" webModelGroups="" webModelAllLocales="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Dx" type="ValueNode" pos-x="20" pos-y="320" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Space step of the x array</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.15</fExpression>
+            <fStateTrans/>
+            <expression>0.15</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Dx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="k" type="ValueNode" pos-x="190" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Thermal constant</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=k</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="r" type="ValueNode" pos-x="100" pos-y="320" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Parameter to check whether the model is numerically stable and convergent:
+it must be &lt;=0.5</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>timeD/Dx^2</fExpression>
+            <fStateTrans/>
+            <expression>timeD/Dx^2</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=r;OnAboveMax=end(&quot;Instable model!&quot;);Max=0.5</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="u" type="ValueNode" pos-x="190" pos-y="220" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Array of temperature along the x dimension</documentation>
+            <isOut>true</isOut>
+            <fStateInit>u0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>integral(k*(uxx[0]#uxx#uxx[@uxx-1]))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>u0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral(k*(uxx[0]#uxx#uxx[@uxx-1]))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=T</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="u0" type="ValueNode" pos-x="70" pos-y="220" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Initial temperature along the x dimension</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(x&gt;2&amp;&amp;x&lt;5,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(x&gt;2&amp;&amp;x&lt;5,1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=u0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="uL" type="ValueNode" pos-x="290" pos-y="190" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>u[0]</fExpression>
+            <fStateTrans/>
+            <expression>u[0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=uFirst</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="uR" type="ValueNode" pos-x="290" pos-y="260" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>u[@u-1]</fExpression>
+            <fStateTrans/>
+            <expression>u[@u-1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=uR</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="uxx" type="ValueNode" pos-x="190" pos-y="320" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Array of second derivative of temperature along the x dimension</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(@u-2,u[$i0+2]-2*u[$i0+1]+u[$i0])/(Dx^2)</fExpression>
+            <fStateTrans/>
+            <expression>array(@u-2,u[$i0+2]-2*u[$i0+1]+u[$i0])/(Dx^2)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=uxx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="x" type="ValueNode" pos-x="70" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Arrray of x values,
+from 0 to 10 with space step set by the constant Dx</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0:Dx:10]</fExpression>
+            <fStateTrans/>
+            <expression>[0:Dx:10]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="40" pos-y="20" width="261" height="51" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;font size=&quot;5&quot;&gt;Heat (Fourier&apos;s) equation &lt;/font&gt;     &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;font size=&quot;5&quot;&gt;of thermal conductivity&lt;/font&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+        <text name="*text2" pos-x="50" pos-y="70" width="231" height="31" content="&lt;html&gt;   &lt;head&gt;     &lt;font size=&quot;4&quot;&gt; &lt;/font&gt;  &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;font size=&quot;4&quot;&gt;A classical, and simple, 1D&amp;#160; PDE...&lt;/font&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="u" target="uR" label="(...)" p0x="227.5" p0y="242.5" p1x="327.5" p1y="282.5" numpoints="2"/>
+        <edge source="u" target="uL" label="(...)" p0x="227.5" p0y="242.5" p1x="327.5" p1y="212.5" numpoints="2"/>
+        <edge source="k" target="u" label="(...)" p0x="227.5" p0y="152.5" p1x="227.5" p1y="242.5" numpoints="2"/>
+        <edge source="uxx" target="u" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="227.5" p0y="342.5" p1x="240.0" p1y="290.0" p2x="227.5" p2y="242.5" numpoints="3"/>
+        <edge source="u" target="uxx" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="227.5" p0y="242.5" p1x="210.0" p1y="290.0" p2x="227.5" p2y="342.5" numpoints="3"/>
+        <edge source="u0" target="u" label="(...)" p0x="107.5" p0y="242.5" p1x="227.5" p1y="242.5" numpoints="2"/>
+        <edge source="x" target="u0" label="(...)" p0x="107.5" p0y="152.5" p1x="107.5" p1y="242.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="390" pos-y="10" width="480" height="220">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>false</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>u</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <maxy>1.0</maxy>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <miny>0.0</miny>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>0.2</stepy>
+            <showdots>false</showdots>
+            <xsourcena>x</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="480" pos-y="230" width="300" height="160">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>true,true</showline>
+            <showtitlebar>false</showtitlebar>
+            <linecolors>__RED,__GREEN</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>uL,uR</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#1,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false,false</showdots>
+            <xsourcena>vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

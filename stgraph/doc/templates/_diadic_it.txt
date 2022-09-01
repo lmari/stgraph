@@ -1,0 +1,9 @@
+Ognuna delle funzioni / operatori seguenti ha due argomenti, che sono array, e quindi in particolare scalari (array di ordine @00@0), vettori (array di ordine @01@0), o matrici (array di ordine @02@0), e si comporta in modo polimorfo.
+Dato @0f(x1,x2)@0:
+- se @0x1@0 o @0x2@0 è un array di ordine @0n>0@0 vuoto, il risultato è @00.0@0
+- se @0x1@0 e @0x2@0 sono scalari, il risultato è uno scalare
+- se @0x1@0 è uno scalare e @0x2@0 è un array di ordine @0n>0@0, il risultato è un array @0y@0 di ordine @0n@0 tale che @0y[i1,...in]=f(x1,x2[i1,...in])@0 (o viceversa)
+- se @0x1@0 e @0x2@0 sono array di ordine @0n>0@0 della stessa dimensione, il risultato è un array @0y@0 di ordine @0n@0 tale che @0y[i1,...in]=f(x1[i1,...in],x2[i1,...in])@0
+- se @0x1@0 è un array di ordine @0n>1@0 e @0x2@0 è un array di ordine @0n-1@0, e le loro prime @0n-1@0 dimensioni sono le stesse, il risultato è un array @0y@0 di ordine @0n@0 tale che @0y[i1,...in]=f(x1[i1,...in],x2[i1,...in-1])@0
+Negli altri casi si genera un'eccezione.
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="stgraph/stgraph_src.zip"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/stgraph/makesrcjar.jardesc" exportErrors="false" exportWarnings="false" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="true"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <selectedElements exportClassFiles="false" exportJavaFiles="true" exportOutputFolder="false">
+        <file path="/stgraph/readme.txt"/>
+        <javaElement handleIdentifier="=stgraph/src"/>
+        <folder path="/stgraph/licenses"/>
+        <file path="/stgraph/stgraph.bat"/>
+        <file path="/stgraph/.project"/>
+        <file path="/stgraph/.classpath"/>
+        <file path="/stgraph/stgraph.sh"/>
+    </selectedElements>
+</jardesc>

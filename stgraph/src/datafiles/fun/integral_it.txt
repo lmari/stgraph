@@ -1,0 +1,9 @@
+<h2>STGraph - integral</h2>
+<u>Formato</u>: <code>integral(x)</code>
+<u>Vincoli</u>: <code>x</code> e' un array
+<u>Descrizione</u>: nelle transizioni di stato dei nodi di stato, somma iterativa di <code>x</code>, sulla base dell'algoritmo di integrazione scelto
+
+Nel caso dell'algoritmo di Euler, il valore e' <code>this+x*timeD</code>.
+<br><code>integral</code> e' <a href="functions_it.properties">una funzione matematica</a>
+
+<u>Eccezioni</u>: no

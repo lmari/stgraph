@@ -1,0 +1,63 @@
+<stgraph class="STGraph.decoder" version="STGraph build 19.10.07">
+    <head systemName="" description="" timeUnitDescription="" time0="0.0" time1="0.0" timeD="1.0" batchSteps="1" width="950" height="700" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" withUncertainty="false" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="_acker" type="ValueNode" pos-x="130" pos-y="170" width="75" height="45">
+            <documentation/>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>function(if(@{{$a0==0,$a1+1,@{{$a0&gt;0&amp;&amp;$a1==0,@{{_acker($a0-1,1),_acker($a0-1,_acker($a0,$a1-1))@))</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>function(if($a0==0,$a1+1,$a0&gt;0&amp;&amp;$a1==0,_acker($a0-1,1),_acker($a0-1,_acker($a0,$a1-1))))</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=_acker</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="out" type="ValueNode" pos-x="300" pos-y="170" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>_acker(3,4)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>_acker(3,4)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=out</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="_acker" target="out" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="435" pos-y="144" width="150" height="91">
+            <colwidth>137</colwidth>
+            <autowidth>true</autowidth>
+            <iconized>false</iconized>
+            <colalignment>0</colalignment>
+            <colformat>###0.0###</colformat>
+            <title>out </title>
+            <lastonly>true</lastonly>
+            <sourcena>out</sourcena>
+        </widget>
+    </widgets>
+</stgraph>

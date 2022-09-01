@@ -1,0 +1,9 @@
+<h2>STGraph - dec</h2>
+<u>Format</u>: <code>dec(x,y,n)</code>
+<u>Constraints</u>: <code>x</code> is a scalar and <code>y</code> an array, or viceversa, <code>n</code> (optional) is an integer
+<u>Description</u>: array obtained by removing the first <code>x</code> elements from each vector along the dimension <code>n</code> if specified, or the last dimension otherwise, of the array <code>y</code> or the last <code>y</code> elements from each vector along the dimension <code>n</code> if specified, or the last dimension otherwise, of the array <code>x</code>
+
+If <code>n</code> is omitted it is equivalent to the operator <code>x##y</code>.
+<br><code>dec</code> is <a href="functions_en.properties">an array function</a>
+
+<u>Exceptions</u>: <code>n</code> must be a correct dimension for <code>x</code>, currently <code>0</code> or <code>1</code>.

@@ -1,0 +1,32 @@
+<h2>STGraph - Funzioni / operatori diadici polimorfi</h2>
+Ognuna delle funzioni / operatori seguenti ha due argomenti, che sono array, e quindi in particolare scalari (array di ordine <code>0</code>), vettori (array di ordine <code>1</code>), o matrici (array di ordine <code>2</code>), e si comporta in modo polimorfo.
+Dato <code>f(x1,x2)</code>:
+- se <code>x1</code> o <code>x2</code> è un array di ordine <code>n>0</code> vuoto, il risultato è <code>0.0</code>
+- se <code>x1</code> e <code>x2</code> sono scalari, il risultato è uno scalare
+- se <code>x1</code> è uno scalare e <code>x2</code> è un array di ordine <code>n>0</code>, il risultato è un array <code>y</code> di ordine <code>n</code> tale che <code>y[i1,...in]=f(x1,x2[i1,...in])</code> (o viceversa)
+- se <code>x1</code> e <code>x2</code> sono array di ordine <code>n>0</code> della stessa dimensione, il risultato è un array <code>y</code> di ordine <code>n</code> tale che <code>y[i1,...in]=f(x1[i1,...in],x2[i1,...in])</code>
+- se <code>x1</code> è un array di ordine <code>n>1</code> e <code>x2</code> è un array di ordine <code>n-1</code>, e le loro prime <code>n-1</code> dimensioni sono le stesse, il risultato è un array <code>y</code> di ordine <code>n</code> tale che <code>y[i1,...in]=f(x1[i1,...in],x2[i1,...in-1])</code>
+Negli altri casi si genera un'eccezione.
+
+<a href="fun/log-2_it.txt">log(x,y)</a>
+<a href="fun/max_it.txt">max(x,y)</a>
+<a href="fun/min_it.txt">min(x,y)</a>
+<a href="fun/mod_it.txt">mod(x,y)</a>
+<a href="fun/opAddition_it.txt">x+y</a>
+<a href="fun/opAnd_it.txt">x&&y</a>
+<a href="fun/opDifference_it.txt">x-y</a>
+<a href="fun/opEq_it.txt">x==y</a>
+<a href="fun/opGE_it.txt">x>=y</a>
+<a href="fun/opGT_it.txt">x>y</a>
+<a href="fun/opLE_it.txt">x&lt;=y</a>
+<a href="fun/opLT_it.txt">x&lt;y</a>
+<a href="fun/opMod_it.txt">x%y</a>
+<a href="fun/opNE_it.txt">x!=y</a>
+<a href="fun/opOr_it.txt">x||y</a>
+<a href="fun/opPower_it.txt">x^y</a>
+<a href="fun/opProduct_it.txt">x*y</a>
+<a href="fun/opQuotient_it.txt">x/y</a>
+<a href="fun/round_it.txt">round(x,y)</a>
+<a href="fun/wrap_it.txt">wrap(x,y)</a>
+<hr>
+<a href="functions_it.properties">List of functions</a>

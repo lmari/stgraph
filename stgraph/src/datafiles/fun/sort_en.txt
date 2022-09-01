@@ -1,0 +1,7 @@
+<h2>STGraph - sort</h2>
+<u>Format</u>: <code>sort(x,s)</code>
+<u>Constraints</u>: <code>x</code> is an array; <code>s</code> (optional) is a scalar
+<u>Description</u>: array obtained by sorting the elements of the array <code>x</code>, either in direct order, if <code>s==0</code> or it is not specified, or in reverse order, if <code>s==1</code>
+<br><code>sort</code> is <a href="functions_en.properties">an array function</a>
+
+<u>Exceptions</u>: If specified, <code>s</code> must be either <code>0</code> or <code>1</code>.

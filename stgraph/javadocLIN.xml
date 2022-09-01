@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" author="true" classpath="lib/iText-2.1.4.jar:lib/spring-core.jar:../ekit/bin:lib/stgraph.jar:lib/commons-logging.jar:lib/nanoxml-2.2.3.jar:lib/tinylaf.jar:../mynewjep/bin:lib/spring-context.jar:lib/spring-beans.jar:lib/jxl.jar:lib/jgraph.jar" destdir="doc/javadoc" doctitle="STGraph" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" overview="/home/luca2/workspace/stgraph/doc/templates/overview.html" packagenames="it.liuc.stgraph.action,it.liuc.stgraph.fun.utils,it.liuc.stgraph.widget,it.liuc.stgraph.util,it.liuc.stgraph.fun,it.liuc.stgraph.tools,it.liuc.stgraph,it.liuc.stgraph.node" source="1.5" sourcepath="src" splitindex="true" stylesheetfile="/home/luca2/workspace/stgraph/doc/templates/javadoc.css" use="true" version="true"/>
+    </target>
+</project>

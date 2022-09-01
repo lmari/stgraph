@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment><![CDATA[
+	Note that in formulas the "less than" character must be coded as &lt;
+	]]></comment>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|rank">
+		if($numArgs>2,
+			"en:One or two arguments are required__it:Sono richiesti uno o due argomenti",
+		order($a0)!=1,
+			"en:The first argument must be a vector__it:Il primo argomento deve essere un vettore",
+		$numArgs==2 && order($a1)!=0,
+			"en:The second argument, if present, must be a scalar__it:Il secondo argomento, se presente, deve essere uno scalare",
+		$numArgs==1 || $a1==0,
+			array(@$a0,get(getIndex($a0[$i0],sort($a0)),indexOrigin())),
+			array(@$a0,get(getIndex($a0[$i0],{sort($a0)}),indexOrigin())+(@(getIndex($a0[$i0],$w0))-1)/2)
+		) // <![CDATA[
+			en:<code>rank(x,y)</code>: vector of position indexes of the vector <code>x</code>; if <code>y</code> is specified and is <code>!=0</code>, the average rank is assigned to ties__
+			it:<code>rank(x,y)</code>: vettore degli indici di posizione del vettore <code>x</code>; se <code>y</code> e' specificato ed e' <code>!=0</code>, il rango medio e' assegnato ai valori uguali
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|range">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+		order($a0)!=1,
+			"en:The argument must be a vector__it:L'argomento deve essere un vettore",
+			max/($a0)-min/($a0)
+		) // <![CDATA[
+			en:<code>range(x)</code>: range (i.e., max-min) of the array <code>x</code>__
+			it:<code>range(x)</code>: range (max-min) dell'array <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|median">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+		order($a0)!=1,
+			"en:The argument must be a vector__it:L'argomento deve essere un vettore",
+			if(isEven({@$a0}),(get({sort($a0)},$w0/2-1)+get($w1,$w0/2))/2,get(sort($a0),($w0-1)/2))
+		) // <![CDATA[
+			en:<code>median(x)</code>: median of the array <code>x</code>__
+			it:<code>median(x)</code>: mediana dell'array <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|percentile">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1,
+			"en:The argument must be a vector__it:L'argomento deve essere un vettore",
+		order($a1)!=0 || $a1 &lt; 0 || $a1 > 100,
+			"en:The argument must be a scalar between 0 and 100__it:L'argomento deve essere uno scalare tra 0 e 100",
+		$a1 == 100,
+			get(sort($a0),@$a0-1+indexOrigin()),
+			get(sort($a0),int(($a1/100)*@$a0)+indexOrigin())
+		) // <![CDATA[
+			en:<code>percentile(x,y)</code>: <code>y</code>-th percentile of the array <code>x</code>__
+			it:<code>percentile(x,y)</code>: <code>y</code>-esimo percentile dell'array <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|mean">
+		if($numArgs>2,
+			"en:One or two arguments are required__it:Sono richiesti uno o due argomenti",
+		order($a0)==0, $a0,
+		numEl($a0)==1, $a0[0],
+		$numArgs==1||$a1==0, +/$a0/lastDim($a0),
+		$a1==1, */$a0^(1/lastDim($a0)),
+		$a1==2, lastDim($a0)/+/(1/$a0),
+			0
+		) // <![CDATA[
+			en:<code>mean(x)</code> or <code>mean(x,y)</code>: mean value of the array <code>x</code>, computed along its last dimension; it computes the arithmetic mean if <code>y</code> is not specified or is <code>=0</code>, the geometric mean if <code>y=1</code>, and the harmonic mean if <code>y=2</code>__
+			it:<code>mean(x)</code> or <code>mean(x,y)</code>: media dell'array <code>x</code>, calcolata lungo la sua ultima dimensione; calcola la media aritmetica se <code>y</code> non e' specificato o e' <code>=0</code>, la media geometrica se <code>y=1</code>, e la media armonica se <code>y=2</code>
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|stdDev">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+		order($a0)==0,
+			"en:The argument cannot be a scalar__it:L'argomento non puo' essere uno scalare",
+			sqrt((+/(($a0-mean($a0))^2))/(lastDim($a0)-1))
+		) // <![CDATA[
+			en:<code>stdDev(x)</code>: standard deviation of the array <code>x</code>, computed along its last dimension__
+			it:<code>stdDev(x)</code>: deviazione standard dell'array <code>x</code>, calcolata lungo la sua ultima dimensione
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|kurtosis">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+		order($a0)==0,
+			"en:The argument cannot be a scalar__it:L'argomento non puo' essere uno scalare",
+			1/(lastDim($a0)*stdDev($a0)^4)*(+/($a0-mean($a0))^4)-3
+		) // <![CDATA[
+			en:<code>kurtosis(x)</code>: kurtosis of the array <code>x</code>, computed along its last dimension__
+			it:<code>kurtosis(x)</code>: kurtosis dell'array <code>x</code>, calcolata lungo la sua ultima dimensione
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|skewness">
+		if($numArgs!=1,
+			"en:One argument is required__it:E' richiesto un argomento",
+		order($a0)==0,
+			"en:The argument cannot be a scalar__it:L'argomento non puo' essere uno scalare",
+			1/(lastDim($a0)*stdDev($a0)^3)*(+/($a0-mean($a0))^3)
+		) // <![CDATA[
+			en:<code>skewness(x)</code>: skewness of the array <code>x</code>, computed along its last dimension__
+			it:<code>skewness(x)</code>: skewness dell'array <code>x</code>, calcolata lungo la sua ultima dimensione
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|correl">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1 || order($a1)!=1,
+			"en:Both arguments must be vectors__it:Entrambi gli argomenti devono essere vettori",
+		@$a0!=@$a1,
+			"en:The two arguments must have the same number of elements__it:I due argomenti devono avere lo stesso numero di elementi",
+			(+/(($a0-mean($a0))*($a1-mean($a1))))/((@$a0-1)*stdDev($a0)*stdDev($a1))
+		) // <![CDATA[
+			en:<code>correl(x,y)</code>: coefficient of linear correlation of the vectors <code>x</code> and <code>y</code>__
+			it:<code>correl(x,y)</code>: coefficiente di correlazione lineare dei vettori <code>x</code> e <code>y</code>
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|spearmanCorrel">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1 || order($a1)!=1,
+			"en:Both arguments must be vectors__it:Entrambi gli argomenti devono essere vettori",
+		@$a0!=@$a1,
+			"en:The two arguments must have the same number of elements__it:I due argomenti devono avere lo stesso numero di elementi",
+			correl(rank($a0,1),rank($a1,1))	
+		) // <![CDATA[
+			en:<code>correl(x,y)</code>: coefficient of Spearman's rank correlation of the vectors <code>x</code> and <code>y</code>__
+			it:<code>correl(x,y)</code>: coefficiente di correlazione di rango di Spearman dei vettori <code>x</code> e <code>y</code>
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|autocorrel">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1,
+			"en:The first argument must be a vector__it:Il primo argomento deve essere un vettore",
+		order($a1)!=0 || $a1 &lt; 0 || $a1!=int($a1) || $a1 > @$a0-2,
+			"en:The second argument must be a non-negative integer scalar at most equal to the number of elements of the vector minus 2__it:Il secondo argomento deve essere uno scalare intero non negativo e pari al più al numero degli elementi del vettore meno 2",
+			correl(get($a0,[indexOrigin():@$a0-((1-indexOrigin())+$a1)]),get($a0,[$a1+indexOrigin():@$a0-(1-indexOrigin())]))
+		) // <![CDATA[
+			en:<code>autocorrel(x,y)</code>: coefficient of linear autocorrelation of the vector <code>x</code> shifted of <code>y</code> elements__
+			it:<code>autocorrel(x,y)</code>: coefficiente di autocorrelazione lineare del vettore <code>x</code> traslato di <code>y</code> elementi
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|slope">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1||order($a1)!=1,
+			"en:Both arguments must be vectors__it:Entrambi gli argomenti devono essere vettori",
+		@$a0!=@$a1,
+			"en:The two arguments must have the same number of elements__it:I due argomenti devono avere lo stesso numero di elementi",
+			(+/($a0*$a1)-(+/$a0)*(+/$a1)/@$a0)/(+/($a0^2)-((+/$a0)^2)/@$a0)
+		) // <![CDATA[
+			en:<code>slope(x,y)</code>: slope of the least squares line for the vectors <code>x</code> and <code>y</code>__
+			it:<code>slope(x,y)</code>: pendenza della retta ai minimi quadrati per i vettori <code>x</code> e <code>y</code>
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|intercept">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1||order($a1)!=1,
+			"en:Both arguments must be vectors__it:Entrambi gli argomenti devono essere vettori",
+		@$a0!=@$a1,
+			"en:The two arguments must have the same number of elements__it:I due argomenti devono avere lo stesso numero di elementi",
+			mean($a1)-slope($a0,$a1)*mean($a0)
+		) // <![CDATA[
+			en:<code>intercept(x,y)</code>: intercept of the least squares line for the vectors <code>x</code> and <code>y</code>__
+			it:<code>intercept(x,y)</code>: intercetta della retta ai minimi quadrati per i vettori <code>x</code> e <code>y</code>
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|sampleWithRep">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1,
+			"en:The first argument must be a vector__it:Il primo argomento deve essere un vettore",
+		order($a1)!=0||$a1&lt;=0||$a1!=int($a1),
+			"en:The second argument must be a positive integer scalar__it:Il secondo argomento deve essere uno scalare intero positivo",
+			array($a1,get($a0,randInt(@$a0)+indexOrigin()))
+		) // <![CDATA[
+			en:<code>sampleWithRep(x,y)</code>: vector of <code>y</code> elements obtained by sampling with repetition the vector <code>x</code>__
+			it:<code>sampleWithRep(x,y)</code>: vettore di <code>y</code> elementi ottenuto campionando con ripetizione il vettore <code>x</code>
+		]]>
+	</entry>
+
+	<entry key="en:Statistical functions__it:Funzioni statistiche|sampleWithoutRep">
+		if($numArgs!=2,
+			"en:Two arguments are required__it:Sono richiesti due argomenti",
+		order($a0)!=1,
+			"en:The first argument must be a vector__it:Il primo argomento deve essere un vettore",
+		order($a1)!=0||$a1&lt;=0||$a1!=int($a1),
+			"en:The second argument must be a positive integer scalar__it:Il secondo argomento deve essere uno scalare intero positivo",
+		$a1>@$a0,
+			"en:The second argument must be at most the size of the first argument vector__it:Il secondo argomento deve essere al piu' pari alla dimensione del vettore primo argomento",
+			resize(shuffle($a0),[$a1])
+		) // <![CDATA[
+			en:<code>sampleWithoutRep(x,y)</code>: vector of <code>y</code> elements obtained by sampling without repetition the vector <code>x</code>__
+			it:<code>sampleWithoutRep(x,y)</code>: vettore di <code>y</code> elementi ottenuto campionando senza ripetizione il vettore <code>x</code>
+		]]>
+	</entry>
+</properties>

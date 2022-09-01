@@ -1,0 +1,9 @@
+<h2>STGraph - Reduction-1</h2>
+<u>Format</u>: <code>f/x</code>
+<u>Constraints</u>: <code>f</code> is a function or an operator; <code>x</code> is an array
+<u>Description</u>: if <code>x</code> is a vector, scalar obtained by applying the dyadic function / operator <code>f</code> to the first two elements of <code>x</code>, then to the result and the third element, and so on; if <code>x</code> is a [n]order array, [n-1]order array obtained in the same way by applying <code>f</code> in parallel to the elements of each vector of the last dimension
+
+If <code>f</code> is a function, then <code>x</code> must be delimited by parentheses (e.g., <code>max/(v)</code>).
+<br><code>Reduction-1</code> is <a href="functions_en.properties">an operator</a>
+
+<u>Exceptions</u>: <code>x</code> must be a non-null array.

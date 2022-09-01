@@ -1,0 +1,7 @@
+<h2>STGraph - shift</h2>
+<u>Format</u>: <code>shift(x,y,s)</code>
+<u>Constraints</u>: <code>x</code> and <code>y</code> are arrays; <code>s</code> (optional) is a scalar
+<u>Description</u>: array obtained by concatenating the array <code>y</code> to the array <code>x</code> at the left and removing the same number of elements from <code>x</code> at the right if <code>s==0</code> or it is not specified, or in reverse order, if <code>s==1</code>
+<br><code>shift</code> is <a href="functions_en.properties">an array function</a>
+
+<u>Exceptions</u>: It must be possible concatenate <code>x</code> with <code>y</code> in terms of their sizes; if specified, <code>s</code> must be either <code>0</code> or <code>1</code>.

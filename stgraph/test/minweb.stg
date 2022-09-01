@@ -1,0 +1,102 @@
+<stgraph class="STGraph.decoder" version="STGraph build 9.8.15">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="1.0" maxSteps="10" batchSteps="1" width="994" height="578" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="true" webModelLanguages="En,It" webModelDescription="EnglishURL" webTimeUnit="month" webModelGroups="Group1__g1URL-en__ __1|Group2__g2URL-en__icona 1__0|Group3__ __icona 2__1|Group4__ __ __0" webModelDescription_It="ItalianURL" webTimeUnit_It="mese" webModelGroups_It="Gruppo1__g1URL-it__ __1|Gruppo2__g2URL-it__icona 2__0|Gruppo3__ __icona 1__1|Gruppo4__ __ __0" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="in" type="ValueNode" pos-x="30" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <name_It>un input</name_It>
+            <forecol>0,0,0</forecol>
+            <documentation>Input variable</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0,0]</fExpression>
+            <fStateTrans/>
+            <expression>[0,0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <documentation_It>Variabile di input</documentation_It>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <unit_It>metro</unit_It>
+            <backcol>255,255,255</backcol>
+            <customprops>Group=01;DefaultValue=0;InputType=3;Unit=metre;Decimals=0;Name=an input</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="out" type="ValueNode" pos-x="200" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <name_It>un output</name_It>
+            <forecol>0,0,0</forecol>
+            <documentation>Output variable</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>state*2</fExpression>
+            <fStateTrans/>
+            <expression>state*2</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <documentation_It>Variabile di output</documentation_It>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <unit_It>metro</unit_It>
+            <backcol>255,255,255</backcol>
+            <customprops>Group=02;Unit=metre;Decimals=0;Name=an output;OutputType=6</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="state" type="ValueNode" pos-x="100" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>state0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>state0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=state</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="state0" type="ValueNode" pos-x="30" pos-y="210" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Initial state</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0,0]</fExpression>
+            <fStateTrans/>
+            <expression>[0,0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>DefaultValue=0;InputType=0;Decimals=0;Name=the initial state</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="360" pos-y="10" width="591" height="191" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;small&gt;&lt;font size=&quot;4&quot;&gt;&lt;b&gt;Model definition:&amp;#160; computational component and      default language&lt;/b&gt;&lt;/font&gt;&lt;/small&gt;      &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;&lt;font size=&quot;4&quot;&gt;In &lt;/font&gt;&lt;font face=&quot;Monospaced&quot; size=&quot;4&quot; color=&quot;#0000ff&quot;&gt;Edit|Edit        Model Definition&lt;/font&gt;&lt;font size=&quot;4&quot;&gt;, check &amp;quot;Is for web&amp;quot; and set the        default language&lt;/font&gt;&lt;/small&gt;&lt;br&gt;     &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;&lt;font size=&quot;4&quot;&gt;In &lt;/font&gt;&lt;font face=&quot;Monospaced&quot; size=&quot;4&quot; color=&quot;#0000ff&quot;&gt;Web        Tools|Edit Texts...&lt;/font&gt;&lt;font size=&quot;4&quot;&gt;, define groups for the default        language&lt;/font&gt;&lt;/small&gt;&lt;br&gt;&lt;font size=&quot;4&quot;&gt;For each relevant node, set&lt;br&gt;--        the group&lt;br&gt;-- the input / output type&lt;br&gt;-- the name (optional but        suggested)&lt;br&gt;-- the Decimals and the Unit (optional) properties&lt;br&gt;--        the description for the default language &lt;/font&gt;     &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;font size=&quot;4&quot;&gt;For each input node, set the DefaultValue property&lt;/font&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+        <text name="*text2" pos-x="360" pos-y="210" width="591" height="191" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;small&gt;&lt;font size=&quot;4&quot;&gt;&lt;b&gt;Optional additional languages&lt;/b&gt;&lt;/font&gt;&lt;/small&gt;      &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;&lt;font size=&quot;4&quot;&gt;In &lt;/font&gt;&lt;font face=&quot;Monospaced&quot; size=&quot;4&quot; color=&quot;#0000ff&quot;&gt;Edit|Edit        Model Definition&lt;/font&gt;&lt;font size=&quot;4&quot;&gt;, set the additional languages&lt;/font&gt;&lt;/small&gt;&lt;br&gt;     &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;&lt;font size=&quot;4&quot;&gt;In &lt;/font&gt;&lt;font face=&quot;Monospaced&quot; size=&quot;4&quot; color=&quot;#0000ff&quot;&gt;Web        Tools|Edit Texts...&lt;/font&gt;&lt;font size=&quot;4&quot;&gt;,&lt;/font&gt;&lt;/small&gt;&lt;br&gt;&lt;font size=&quot;4&quot;&gt;--        &lt;small&gt;define groups&lt;/small&gt;&lt;br&gt;-- for each node set:&lt;/font&gt;&lt;br&gt;&lt;font size=&quot;4&quot;&gt;----        the name (optional but suggested)&lt;br&gt;&lt;/font&gt;     &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;font size=&quot;4&quot;&gt;---- the unit (optional)&lt;br&gt;---- the description&lt;br&gt;for        each additional language&lt;/font&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="state0" target="state" label="(...)"/>
+        <edge source="in" target="state" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="67.5" p0y="112.5" p1x="137.5" p1y="172.5" numpoints="2"/>
+        <edge source="state" target="out" label="(...)" p0x="137.5" p0y="172.5" p1x="227.5" p1y="232.5" numpoints="2"/>
+    </edges>
+    <widgets/>
+    <groups/>
+    <reports/>
+</stgraph>

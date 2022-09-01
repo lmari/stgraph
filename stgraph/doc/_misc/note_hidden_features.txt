@@ -1,0 +1,15 @@
+<a href="readme.txt">To the list of the available documentation</a>
+<h2>STGraph - Hidden features</h2>
+As an under development system, STGraph contains some features which are not easily (sometimes directly) accessible via the GUI.
+They are mainly still experimental...
+
+- "external widgets": controlled by the field it.liuc.stgraph.widget.STWidgets.isInternal
+- expression tree: accessible by clicking on the variable name in the dialogs
+
+- M: print some info on the selected entities
+- Ctrl-2: dump the graph image to the "/prova.png" file
+
+- in the expression editor:
+--- ctrl-S add spaces around infix operators
+--- ctrl-T indents in reference to prefix operators / functions
+--- ctrl-R removes all formattings

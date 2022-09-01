@@ -1,0 +1,9 @@
+<h2>STGraph - getData</h2>
+<u>Formato</u>: <code>getData(x,y)</code>
+<u>Vincoli</u>: <code>x</code> e <code>y</code> sono array
+<u>Descrizione</u>: vettore degli elementi dell'array <code>y</code> identificati dagli indici nel vettore <code>x</code> se <code>y</code> e' un vettore o dagli indici nella matrice <code>x</code> se <code>y</code> e' un array di ordine superiore
+
+Se non son trovati elementi, restituisce lo scalare <code>-1</code>.
+<br><code>getData</code> e' <a href="functions_it.properties">una funzione per array</a>
+
+<u>Eccezioni</u>: no

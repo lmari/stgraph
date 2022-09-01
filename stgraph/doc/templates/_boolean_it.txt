@@ -1,0 +1,5 @@
+Ognuno dei seguenti operatori tratta con i valori booleani vero e falso, che sono definiti in STGraph come segue:
+- ogni valore maggiore di zero (effettivamente: maggiore o uguale di @0EPSILON@0) è valutato come vero;
+- ogni valore minore o uguale a zero (effettivamente: minore di @0EPSILON@0) è valutato come falso.
+L'unico tipo primitivo in STGraph è double: quindi, vero e falso sono implementati come @01.0@0 e @00.0@0 rispettivamente.
+

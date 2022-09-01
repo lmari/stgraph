@@ -1,0 +1,126 @@
+<stgraph class="STGraph.decoder" version="STGraph build 1.1.15">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="1.0" maxSteps="1" batchSteps="1" width="950" height="700" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="amplitude" type="ValueNode" pos-x="140" pos-y="100" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <documentation>Amplitude of the sine wave (default = 1).</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=amplitude</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="freq" type="ValueNode" pos-x="140" pos-y="170" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <documentation>Frequency of the sine wave (default = 1).</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=frequency</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="input" type="ValueNode" pos-x="250" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Independent variable of the sine wave (default = 0).</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=input</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="offset" type="ValueNode" pos-x="220" pos-y="280" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <documentation>Offset of the sine wave (default = 0).</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=offset</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="output" type="ValueNode" pos-x="280" pos-y="170" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <documentation>Sine wave value, whose amplitude, frequency, phase, and input value are specified.</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>amplitude*sin(2*pi*freq*input+phase)+offset</fExpression>
+            <fStateTrans/>
+            <expression>amplitude*sin(2*pi*freq*input+phase)+offset</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=output</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="phase" type="ValueNode" pos-x="140" pos-y="240" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <documentation>Phase of the sine wave (default = 0).</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=phase</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="amplitude" target="output" label="(...)"/>
+        <edge source="freq" target="output" label="(...)"/>
+        <edge source="phase" target="output" label="(...)"/>
+        <edge source="input" target="output" label="(...)"/>
+        <edge source="offset" target="output" label="(...)"/>
+    </edges>
+    <widgets/>
+    <groups/>
+    <reports/>
+</stgraph>

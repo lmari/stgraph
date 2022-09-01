@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="myjep/jep_src.zip"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/myjep/makesrcjar.jardesc" exportErrors="false" exportWarnings="false" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="true"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <selectedElements exportClassFiles="false" exportJavaFiles="true" exportOutputFolder="false">
+        <file path="/myjep/readme.txt"/>
+        <file path="/myjep/.classpath"/>
+        <file path="/myjep/.project"/>
+        <javaElement handleIdentifier="=myjep/src"/>
+        <file path="/myjep/license.txt"/>
+    </selectedElements>
+</jardesc>

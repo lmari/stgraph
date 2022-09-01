@@ -1,0 +1,343 @@
+<stgraph class="STGraph.decoder" version="STGraph build 5.7.13">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="500.0" timeD="0.01" maxSteps="1" batchSteps="1" width="952" height="547" scale="1.0" simulationDelay="5" stepsBeforePause="10" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forWeb="false" webModelLocale="" webModelDescription="" webModelGroups="" webModelAllLocales="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="atBottom" type="ValueNode" pos-x="380" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>prevy&gt;0&amp;&amp;y&lt;=0</fExpression>
+            <fStateTrans/>
+            <expression>prevy&gt;0&amp;&amp;y&lt;=0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=atBottom;OnTrue=pause(&quot;bottom&quot;)</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="atLevel" type="ValueNode" pos-x="160" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>(int(prevy)!=int(y))&amp;&amp;y&lt;nLev</fExpression>
+            <fStateTrans/>
+            <expression>(int(prevy)!=int(y))&amp;&amp;y&lt;nLev</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=atLevel</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="ay" type="ValueNode" pos-x="50" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>-5</fExpression>
+            <fStateTrans/>
+            <expression>-5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=ay</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="bx" type="ValueNode" pos-x="50" pos-y="330" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>245,245,245</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>resize(array([nLev,2*nLev-1],min($i0,max(-$i0,$i1-(nLev-1)))),[nLev*(2*nLev-1)])</fExpression>
+            <fStateTrans/>
+            <expression>resize(array([nLev,2*nLev-1],min($i0,max(-$i0,$i1-(nLev-1)))),[nLev*(2*nLev-1)])</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=bx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="by" type="ValueNode" pos-x="50" pos-y="360" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>245,245,245</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>resize(array([nLev,2*nLev-1],nLev-$i0),[nLev*(2*nLev-1)])</fExpression>
+            <fStateTrans/>
+            <expression>resize(array([nLev,2*nLev-1],nLev-$i0),[nLev*(2*nLev-1)])</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=bx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="h" type="ValueNode" pos-x="410" pos-y="270" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>array(2*nLev+1,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(atBottom,set(this,x+nLev,.2+this[x+nLev]),this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(2*nLev+1,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(atBottom,set(this,x+nLev,.2+this[x+nLev]),this)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=h</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="hx" type="ValueNode" pos-x="410" pos-y="330" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[-nLev:nLev]</fExpression>
+            <fStateTrans/>
+            <expression>[-nLev:nLev]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=hx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="430" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>0{{</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+atBottom{{</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+atBottom</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="nLev" type="ValueNode" pos-x="50" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>6</fExpression>
+            <fStateTrans/>
+            <expression>6</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nLev</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="p" type="ValueNode" pos-x="50" pos-y="270" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.5</fExpression>
+            <fStateTrans/>
+            <expression>0.5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=p</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="prevy" type="ValueNode" pos-x="270" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>nLev</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>y</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>nLev</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>y</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=prevy</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="vy" type="ValueNode" pos-x="160" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(y&lt;=0,0,atLevel,0,this+ay*timeD)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(y&lt;=0,0,atLevel,0,this+ay*timeD)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=vy</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="x" type="ValueNode" pos-x="270" pos-y="270" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(atBottom,0,if(atLevel,if(rand()&lt;p,this-1,this+1),this))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(atBottom,0,if(atLevel,if(rand()&lt;p,this-1,this+1),this))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="y" type="ValueNode" pos-x="270" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>nLev+.5</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(atBottom,nLev+.5,this+vy*timeD)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>nLev+.5</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(atBottom,nLev+.5,this+vy*timeD)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=y</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="90" pos-y="30" width="271" height="35" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;big&gt;The &amp;quot;Galton machine&amp;quot;&lt;/big&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="vy" target="y" label="(...)" p0x="197.5" p0y="112.5" p1x="307.5" p1y="112.5" numpoints="2"/>
+        <edge source="ay" target="vy" label="(...)" p0x="87.5" p0y="112.5" p1x="197.5" p1y="112.5" numpoints="2"/>
+        <edge source="y" target="vy" label="(...)" p0x="307.5" p0y="112.5" p1x="197.5" p1y="112.5" numpoints="2"/>
+        <edge source="y" target="prevy" label="(...)" p0x="307.5" p0y="112.5" p1x="307.5" p1y="192.5" numpoints="2"/>
+        <edge source="prevy" target="atLevel" label="(...)" p0x="307.5" p0y="192.5" p1x="197.5" p1y="192.5" numpoints="2"/>
+        <edge source="y" target="atLevel" label="(...)" p0x="307.5" p0y="112.5" p1x="197.5" p1y="192.5" numpoints="2"/>
+        <edge source="atLevel" target="vy" label="(...)" p0x="197.5" p0y="192.5" p1x="197.5" p1y="112.5" numpoints="2"/>
+        <edge source="atLevel" target="x" label="(...)"/>
+        <edge source="p" target="x" label="(...)"/>
+        <edge source="x" target="h" label="(...)"/>
+        <edge source="prevy" target="atBottom" label="(...)"/>
+        <edge source="y" target="atBottom" label="(...)"/>
+        <edge source="atBottom" target="h" label="(...)"/>
+        <edge source="atBottom" target="y" label="(...)"/>
+        <edge source="atBottom" target="x" label="(...)"/>
+        <edge source="atBottom" target="n" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="520" pos-y="10" width="400" height="390">
+            <title/>
+            <dotscolors>__RED,__GREEN,__BLUE</dotscolors>
+            <linewidths>#1,#1,#1</linewidths>
+            <showline>false,false,false</showline>
+            <showtitlebar>false</showtitlebar>
+            <linecolors>__RED,__GREEN,__BLUE</linecolors>
+            <barscolors>__RED,__GREEN,__BLUE</barscolors>
+            <dotsstyles>__style1,__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1,#1</dotsxscales>
+            <showbars>false,false,true</showbars>
+            <autolegendy>false</autolegendy>
+            <ysourcena>y,by,h</ysourcena>
+            <autolegendx>false</autolegendx>
+            <typey>0</typey>
+            <legendy/>
+            <typex>0</typex>
+            <legendx/>
+            <linestyles>__style1,__style1,__style1</linestyles>
+            <dotstype>dot,dot,dot</dotstype>
+            <dotsyscales>#1,#1,#1</dotsyscales>
+            <dotsangles>#0,#0,#0</dotsangles>
+            <dotssizes>#10,#10,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1,#1</barswidths>
+            <dotshilast>false,false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true,true,false</showdots>
+            <xsourcena>x,bx,hx</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true,false,false</dotslastonly>
+        </widget>
+        <widget type="DataTableWidget" pos-x="290" pos-y="330" width="100" height="60">
+            <fontsize>30</fontsize>
+            <colwidth>82</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>false</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>1</colalignment>
+            <colformat>0</colformat>
+            <title>n </title>
+            <lastonly>true</lastonly>
+            <sourcena>n</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

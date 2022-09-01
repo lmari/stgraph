@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;AnalysisDirectlyDefinedNodes.java&apos; to &apos;it.liuc.stgraph.action.AnalysisDirectlyDefinedNodes.java&apos;&#x0A;- Original project: &apos;stgraph&apos;&#x0A;- Destination element: &apos;it.liuc.stgraph.action.AnalysisDirectlyDefinedNodes.java&apos;&#x0A;- Original element: &apos;it.liuc.stgraph.action.AnalysisDirectlyDefinedNodes.java&apos;" description="Copy compilation unit" destination="/src&lt;it.liuc.stgraph.action{AnalysisDirectlyDefinedNodes.java" element1="/src&lt;it.liuc.stgraph.action{AnalysisDirectlyDefinedNodes.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1637362531314" units="1" version="1.0"/>
+</session>

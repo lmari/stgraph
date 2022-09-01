@@ -1,0 +1,7 @@
+<h2>STGraph - readFromNet</h2>
+<u>Format</u>: <code>readFromNet()</code>
+<u>Constraints</u>:  
+<u>Description</u>: value read from a Spacebrew network server
+<br><code>readFromNet</code> is <a href="functions_en.properties">a control function</a>
+
+<u>Exceptions</u>: The Spacebrew server must be reachable.

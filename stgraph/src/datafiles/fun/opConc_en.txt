@@ -1,0 +1,9 @@
+<h2>STGraph - Conc</h2>
+<u>Format</u>: <code>x#y</code>
+<u>Constraints</u>: <code>x</code> and <code>y</code> are arrays
+<u>Description</u>: <code>x</code> concatenated with <code>y</code>
+
+Equivalent to the function <code>conc(x,y)</code>. It must be possible concatenate <code>x</code> with <code>y</code> in terms of their sizes.
+<br><code>Conc</code> is <a href="functions_en.properties">an operator</a>
+
+<u>Exceptions</u>: no

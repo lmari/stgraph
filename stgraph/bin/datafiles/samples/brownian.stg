@@ -1,0 +1,283 @@
+<stgraph class="STGraph.decoder" version="STGraph build 5.7.13">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="3" time0="0.0" time1="1.7976931348623157E308" timeD="1.0" maxSteps="1" batchSteps="0" width="798" height="561" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="0" withInterrupts="false" isDataSaved="false" forWeb="false" webModelLocale="" webModelDescription="" webModelGroups="" webModelAllLocales="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="false"/>
+    <nodes>
+        <node name="area" type="ValueNode" pos-x="359" pos-y="189" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Area of the bounding box</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>(maxy-minx)*(maxy-miny)</fExpression>
+            <fStateTrans/>
+            <expression>(maxy-minx)*(maxy-miny)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=area</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="arrx" type="ValueNode" pos-x="359" pos-y="129" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[minx,maxx,maxx,minx,minx]</fExpression>
+            <fStateTrans/>
+            <expression>[minx,maxx,maxx,minx,minx]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="arry" type="ValueNode" pos-x="359" pos-y="239" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[miny,miny,maxy,maxy,miny]</fExpression>
+            <fStateTrans/>
+            <expression>[miny,miny,maxy,maxy,miny]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="maxx" type="ValueNode" pos-x="259" pos-y="159" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>X max coordinate of the bounding box</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>iter(x,max($0,$1),-9)</fExpression>
+            <fStateTrans/>
+            <expression>iter(x,max($0,$1),-9)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=maxx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="maxy" type="ValueNode" pos-x="259" pos-y="259" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Y max coordinate of the bounding box</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>iter(y,max($0,$1),-9)</fExpression>
+            <fStateTrans/>
+            <expression>iter(y,max($0,$1),-9)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=maxy</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="minx" type="ValueNode" pos-x="259" pos-y="109" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>X min coordinate of the bounding box</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>iter(x,min($0,$1),9)</fExpression>
+            <fStateTrans/>
+            <expression>iter(x,min($0,$1),9)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=minx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="miny" type="ValueNode" pos-x="259" pos-y="209" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Y min coordinate of the bounding box</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>iter(y,min($0,$1),9)</fExpression>
+            <fStateTrans/>
+            <expression>iter(y,min($0,$1),9)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=miny</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="19" pos-y="179" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,255,0</forecol>
+            <documentation>The number of bodies</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>500</fExpression>
+            <fStateTrans/>
+            <expression>250.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="x" type="ValueNode" pos-x="139" pos-y="159" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>X coordinates of particles</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array(n,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(@this==n,this+array(n,rand()/20)-0.025,@this&lt;n,this#array(n-@this,0),this[[0:n-1]])</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(@this==n,this+array(n,rand()/20)-0.025,@this&lt;n,this#array(n-@this,0),this[[0:n-1]])</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="y" type="ValueNode" pos-x="139" pos-y="209" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Y coordinates of particles</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array(n,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(@this==n,this+array(n,rand()/20)-0.025,@this&lt;n,this#array(n-@this,0),this[[0:n-1]])</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(@this==n,this+array(n,rand()/20)-0.025,@this&lt;n,this#array(n-@this,0),this[[0:n-1]])</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=y</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="70" pos-y="10" width="281" height="35" content="Brownian motion and irreversibility"/>
+        <text name="*text2" pos-x="20" pos-y="40" width="421" height="61" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;font color=&quot;blue&quot; size=&quot;4&quot;&gt;This model shows the irreversibility of      brownian motion of n particles, in particular by displaying how the area      of their bounding box statistically increases during the simulation&lt;/font&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+        <text name="*text3" pos-x="20" pos-y="280" width="221" height="21" content="&lt;html&gt;
+  &lt;head&gt;
+
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;font size=&quot;4&quot; color=&quot;#0000ff&quot;&gt;Set the number &lt;i&gt;n&lt;/i&gt; of particles&lt;/font&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="n" target="y" label="(...)" p0x="56.5" p0y="201.5" p1x="176.5" p1y="231.5" numpoints="2"/>
+        <edge source="n" target="x" label="(...)" p0x="56.5" p0y="201.5" p1x="176.5" p1y="181.5" numpoints="2"/>
+        <edge source="maxx" target="arrx" label="(...)" p0x="296.5" p0y="181.5" p1x="396.5" p1y="151.5" numpoints="2"/>
+        <edge source="x" target="minx" label="(...)" p0x="176.5" p0y="181.5" p1x="296.5" p1y="131.5" numpoints="2"/>
+        <edge source="y" target="miny" label="(...)" p0x="176.5" p0y="231.5" p1x="296.5" p1y="231.5" numpoints="2"/>
+        <edge source="x" target="maxx" label="(...)" p0x="176.5" p0y="181.5" p1x="296.5" p1y="181.5" numpoints="2"/>
+        <edge source="y" target="maxy" label="(...)" p0x="176.5" p0y="231.5" p1x="296.5" p1y="281.5" numpoints="2"/>
+        <edge source="minx" target="arrx" label="(...)" p0x="296.5" p0y="131.5" p1x="396.5" p1y="151.5" numpoints="2"/>
+        <edge source="miny" target="arry" label="(...)" p0x="296.5" p0y="231.5" p1x="396.5" p1y="261.5" numpoints="2"/>
+        <edge source="maxy" target="arry" label="(...)" p0x="296.5" p0y="281.5" p1x="396.5" p1y="261.5" numpoints="2"/>
+        <edge source="maxy" target="area" label="(...)" p0x="296.5" p0y="281.5" p1x="396.5" p1y="211.5" numpoints="2"/>
+        <edge source="miny" target="area" label="(...)" p0x="296.5" p0y="231.5" p1x="396.5" p1y="211.5" numpoints="2"/>
+        <edge source="maxx" target="area" label="(...)" p0x="296.5" p0y="181.5" p1x="396.5" p1y="211.5" numpoints="2"/>
+        <edge source="minx" target="area" label="(...)" p0x="296.5" p0y="131.5" p1x="396.5" p1y="211.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="460" pos-y="10" width="310" height="290">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>false,true</showline>
+            <showtitlebar>false</showtitlebar>
+            <linecolors>__RED,__GREEN</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>y,arry</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <maxy>2.0</maxy>
+            <maxx>2.0</maxx>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <miny>-2.0</miny>
+            <minx>-2.0</minx>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#3,#1</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>1.0</stepy>
+            <stepx>1.0</stepx>
+            <showdots>true,false</showdots>
+            <xsourcena>x,arrx</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false</dotslastonly>
+        </widget>
+        <widget type="SliderWidget" pos-x="20" pos-y="320" width="200" height="80">
+            <0>0</0>
+            <widgetvalue>250.0</widgetvalue>
+            <max>1000.0</max>
+            <min>10.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>n</source>
+            <delta>10.0</delta>
+            <iconized>false</iconized>
+            <title>n: 250.0</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

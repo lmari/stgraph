@@ -1,0 +1,26 @@
+<h2>STGraph - Funzioni / operatori monadici polimorfi</h2>
+Ognuna delle funzioni / operatori seguenti ha un argomento, che è un array, e quindi in particolare scalare (array di ordine <code>0</code>), vettore (array di ordine <code>1</code>), o matrice (array di ordine <code>2</code>), e si comporta in modo polimorfo.
+Dato <code>f(x)</code>:
+- se <code>x</code> is an empty <code>n>0</code>-order array, il risultato è <code>x</code> stesso
+- se <code>x</code> è uno scalare, il risultato è uno scalare
+- se <code>x</code> è un array di ordine <code>n>0</code>, il risultato è un array <code>y</code> di ordine <code>n>0</code> tale che <code>y[i1,...in]=[f(x[i1]),...,f(x[i1])]</code>
+
+<a href="fun/acos_it.txt">acos(x)</a>
+<a href="fun/asin_it.txt">asin(x)</a>
+<a href="fun/atan_it.txt">atan(x)</a>
+<a href="fun/cos_it.txt">cos(x)</a>
+<a href="fun/deg2rad_it.txt">deg2rad(x)</a>
+<a href="fun/exp_it.txt">exp(x)</a>
+<a href="fun/int_it.txt">int(x)</a>
+<a href="fun/isNumber_it.txt">isNumber(x)</a>
+<a href="fun/log-1_it.txt">log(x)</a>
+<a href="fun/opMinus_it.txt">-x</a>
+<a href="fun/opNot_it.txt">!x</a>
+<a href="fun/rad2deg_it.txt">rad2deg(x)</a>
+<a href="fun/randInt_it.txt">randInt(x)</a>
+<a href="fun/sign_it.txt">sign(x)</a>
+<a href="fun/sin_it.txt">sin(x)</a>
+<a href="fun/sqrt_it.txt">sqrt(x)</a>
+<a href="fun/tan_it.txt">tan(x)</a>
+<hr>
+<a href="functions_it.properties">List of functions</a>

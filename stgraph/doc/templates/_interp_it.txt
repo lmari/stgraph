@@ -1,0 +1,4 @@
+Ognuna delle funzioni seguenti genera un valore di interpolazione secondo la stessa logica:
+- due vettori @0vx@0 e @0vy@0 sono specificati, come punti di controllo che definiscono la curva di interpolazione
+- un array di valori @0x@0 è specificato, i cui corrispondenti valori @0y@0 sulla curva sono calcolati dalla funzione.
+

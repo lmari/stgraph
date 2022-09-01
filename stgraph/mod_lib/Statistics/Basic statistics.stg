@@ -1,0 +1,360 @@
+<stgraph class="STGraph.decoder" version="STGraph build 8.10.08">
+    <head systemName="Basic statistics" description="Analyze the input vector as a population sample and generate some basic statistics." timeUnitDescription="" timeFrame="1" time0="0.0" time1="0.0" timeD="1.0" batchSteps="0" width="950" height="700" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" withUncertainty="false" isDataSaved="false" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="input" type="ValueNode" pos-x="260" pos-y="70" width="75" height="45">
+            <documentation>Input vector, the object of the statistical analysis.</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>[3,4,5,2,3,4,5,6,4,7]</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>[3,4,5,2,3,4,5,6,4,7]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=input</customprops>
+            <valueType>0</valueType>
+            <forecol-r>255</forecol-r>
+        </node>
+        <node name="meanValue" type="ValueNode" pos-x="150" pos-y="220" width="75" height="45">
+            <documentation>Mean value of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>(+/input)/count</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>(+/input)/count</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=mean value</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="median" type="ValueNode" pos-x="400" pos-y="180" width="75" height="45">
+            <documentation>Median value of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>get(sortedInput,int(count/2)-1)</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>get(sortedInput,int(count/2)-1)</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=median</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="maxval" type="ValueNode" pos-x="80" pos-y="130" width="75" height="45">
+            <documentation>Maximum value of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>max/(input)</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>max/(input)</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=max</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="stddev" type="ValueNode" pos-x="190" pos-y="310" width="75" height="45">
+            <documentation>Sample standard deviation of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>sqrt(+/(deviations^2)/(count-1))</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>sqrt(+/(deviations^2)/(count-1))</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=standard deviation</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="count" type="ValueNode" pos-x="260" pos-y="180" width="75" height="45">
+            <documentation>Number of elements of the input vector.</documentation>
+            <isOut>false</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>#input</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>#input</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=count</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="minval" type="ValueNode" pos-x="80" pos-y="70" width="75" height="45">
+            <documentation>Minimum value of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>min/(input)</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>min/(input)</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=min</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="sortedInput" type="ValueNode" pos-x="400" pos-y="70" width="75" height="45">
+            <documentation/>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sort(input)</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sort(input)</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=sorted input</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="filteredVals" type="ValueNode" pos-x="540" pos-y="70" width="75" height="45">
+            <documentation/>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>vector(count,if($r==0,get(sortedInput,0),if(get(sortedInput,$r)==get(sortedInput,$r-1),-99,get(sortedInput,$r))))</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>vector(count,if($r==0,get(sortedInput,0),if(get(sortedInput,$r)==get(sortedInput,$r-1),-99,get(sortedInput,$r))))</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=filtered values</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="distinctVals" type="ValueNode" pos-x="660" pos-y="70" width="75" height="45">
+            <documentation>Vector of distinct values in the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>iter(filteredVals,if($1!=-99,$0#$1,$0),[])</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>iter(filteredVals,if($1!=-99,$0#$1,$0),[])</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=distinct values</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="absoluteFreqs" type="ValueNode" pos-x="660" pos-y="170" width="75" height="45">
+            <documentation>Absolute frequencies (histogram) of the values in the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>histogram(sortedInput,distinctVals)</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>histogram(sortedInput,distinctVals)</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=absolute frequencies</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="mode" type="ValueNode" pos-x="770" pos-y="170" width="75" height="45">
+            <documentation>Mode (most frequent) value of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>get(distinctVals,occurrence(iter(absoluteFreqs,max($0,$1),$0),absoluteFreqs))</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>get(distinctVals,occurrence(iter(absoluteFreqs,max($0,$1),$0),absoluteFreqs))</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=mode</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="deviations" type="ValueNode" pos-x="60" pos-y="280" width="75" height="45">
+            <documentation/>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>input-meanValue</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>input-meanValue</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=deviations</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="skew" type="ValueNode" pos-x="220" pos-y="390" width="75" height="45">
+            <documentation>Sample skewness of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>(count/((count-1)*(count-2)))*+/(deviations^3)/stddev^3</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>(count/((count-1)*(count-2)))*+/(deviations^3)/stddev^3</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=skewness</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="kurt" type="ValueNode" pos-x="330" pos-y="430" width="75" height="45">
+            <documentation>Sample kurtosis of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>255</forecol-g>
+            <fStateInit/>
+            <fExpression>((count*(count+1))/((count-1)*(count-2)*(count-3)))*+/(deviations^4)/stddev^4-(3*(count-1)^2)/((count-2)*(count-3))</fExpression>
+            <fStateTrans/>
+            <backcol-r>0</backcol-r>
+            <expression>((count*(count+1))/((count-1)*(count-2)*(count-3)))*+/(deviations^4)/stddev^4-(3*(count-1)^2)/((count-2)*(count-3))</expression>
+            <forecol-b>255</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=kurtosis</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="230" pos-y="20" width="201" height="35" content="&lt;html&gt;&lt;h2&gt;Basic statistics"/>
+        <text name="*text2" pos-x="600" pos-y="310" width="271" height="35" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    LM, summer 07 - fall 08
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="input" target="meanValue" label="(...)" p0x="297.5" p0y="92.5" p1x="187.5" p1y="242.5" numpoints="2"/>
+        <edge source="sortedInput" target="median" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="437.5" p0y="92.5" p1x="437.5" p1y="202.5" numpoints="2"/>
+        <edge source="input" target="maxval" label="(...)" p0x="297.5" p0y="92.5" p1x="117.5" p1y="152.5" numpoints="2"/>
+        <edge source="input" target="count" label="(...)" p0x="297.5" p0y="92.5" p1x="297.5" p1y="202.5" numpoints="2"/>
+        <edge source="count" target="median" label="(...)" p0x="297.5" p0y="202.5" p1x="437.5" p1y="202.5" numpoints="2"/>
+        <edge source="count" target="meanValue" label="(...)" p0x="297.5" p0y="202.5" p1x="187.5" p1y="242.5" numpoints="2"/>
+        <edge source="count" target="stddev" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="289.625" p0y="225.0" p1x="235.375" p1y="380.0" numpoints="2"/>
+        <edge source="input" target="minval" label="(...)" p0x="297.5" p0y="92.5" p1x="117.5" p1y="92.5" numpoints="2"/>
+        <edge source="input" target="sortedInput" label="(...)" p0x="297.5" p0y="92.5" p1x="437.5" p1y="92.5" numpoints="2"/>
+        <edge source="filteredVals" target="distinctVals" label="(...)" p0x="577.5" p0y="92.5" p1x="697.5" p1y="92.5" numpoints="2"/>
+        <edge source="distinctVals" target="absoluteFreqs" label="(...)" p0x="697.5" p0y="92.5" p1x="697.5" p1y="192.5" numpoints="2"/>
+        <edge source="sortedInput" target="filteredVals" label="(...)"/>
+        <edge source="sortedInput" target="absoluteFreqs" label="(...)"/>
+        <edge source="absoluteFreqs" target="mode" label="(...)"/>
+        <edge source="distinctVals" target="mode" label="(...)"/>
+        <edge source="count" target="filteredVals" label="(...)"/>
+        <edge source="meanValue" target="deviations" label="(...)"/>
+        <edge source="input" target="deviations" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="270.8139534883721" p0y="115.0" p1x="170.0" p1y="200.0" p2x="113.41463414634146" p2y="280.0" numpoints="3"/>
+        <edge source="deviations" target="stddev" label="(...)"/>
+        <edge source="stddev" target="skew" label="(...)"/>
+        <edge source="count" target="skew" label="(...)"/>
+        <edge source="deviations" target="skew" label="(...)"/>
+        <edge source="count" target="kurt" label="(...)"/>
+        <edge source="stddev" target="kurt" label="(...)"/>
+        <edge source="deviations" target="kurt" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="117.54545454545455" p0y="325.0" p1x="220.0" p1y="440.0" p2x="330.0" p2y="449.3220338983051" numpoints="3"/>
+    </edges>
+    <widgets/>
+</stgraph>

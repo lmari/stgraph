@@ -1,0 +1,120 @@
+<stgraph class="STGraph.decoder" version="STGraph build 8.12.14">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="0.03125" maxSteps="1" batchSteps="1" width="992" height="768" scale="1.0" simulationDelay="1" stepsBeforePause="20" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forWeb="false" webModelLanguages="" webModelDescription="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="b" type="ValueNode" pos-x="462" pos-y="57" width="75" height="25">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>1</fExpression>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="r" type="ValueNode" pos-x="303" pos-y="255" width="75" height="25">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression/>
+            <expression>15</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="s" type="ValueNode" pos-x="27" pos-y="153" width="75" height="25">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression/>
+            <expression>5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="x" type="ValueNode" pos-x="171" pos-y="153" width="75" height="25">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fStateTrans>integral(s*(y-this))</fStateTrans>
+            <fExpression/>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans>integral(s*(y-this))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="y" type="ValueNode" pos-x="411" pos-y="153" width="75" height="25">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>1</fStateInit>
+            <format>0.0##</format>
+            <fStateTrans>integral(-x*z+r*x-this)</fStateTrans>
+            <fExpression/>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>1</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans>integral(-x*z+r*x-this)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=y</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="z" type="ValueNode" pos-x="297" pos-y="57" width="75" height="25">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>1</fStateInit>
+            <format>0.0##</format>
+            <fStateTrans>integral(-b*this+x*y)</fStateTrans>
+            <fExpression/>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>1</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans>integral(-b*this+x*y)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=z</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="20" pos-y="30" width="271" height="36" content="The (classical) Lorenz attractor"/>
+    </texts>
+    <edges>
+        <edge source="z" target="y" label="(...)" labpos-x="263.6390239071279" labpos-y="3.16451519472858" p0x="354.71604938271605" p0y="82.0" p1x="400.0" p1y="110.0" p2x="427.0" p2y="152.0" p3x="428.5925925925926" p3y="153.0" numpoints="4"/>
+        <edge source="b" target="z" label="(...)" labpos-x="300.0" labpos-y="9.5" p0x="462.0" p0y="69.5" p1x="372.0" p1y="69.5" numpoints="2"/>
+        <edge source="x" target="z" label="(...)" labpos-x="179.0" labpos-y="-19.0" p0x="224.90625" p0y="153.0" p1x="318.09375" p1y="82.0" numpoints="2"/>
+        <edge source="x" target="y" label="(...)" labpos-x="273.0" labpos-y="-2.0" p0x="246.0" p0y="174.24505928853756" p1x="335.0" p1y="195.0" p2x="411.0" p2y="175.24669603524228" numpoints="3"/>
+        <edge source="y" target="x" label="(...)" labpos-x="212.0" labpos-y="-7.0" p0x="411.0" p0y="160.97665369649806" p1x="320.0" p1y="150.0" p2x="246.0" p2y="160.28699551569505" numpoints="3"/>
+        <edge source="s" target="x" label="(...)" labpos-x="333.3333333333333" labpos-y="-13.5" p0x="102.0" p0y="165.5" p1x="171.0" p1y="165.5" numpoints="2"/>
+        <edge source="y" target="z" label="(...)" labpos-x="217.0" labpos-y="3.0" p0x="420.85915492957747" p0y="153.0" p1x="370.0" p1y="130.0" p2x="341.8347107438017" p2y="82.0" numpoints="3"/>
+        <edge source="r" target="y" label="(...)" labpos-x="298.0" labpos-y="23.0" p0x="353.7352941176471" p0y="255.0" p1x="435.2647058823529" p1y="178.0" numpoints="2"/>
+    </edges>
+    <widgets/>
+    <groups/>
+    <reports/>
+</stgraph>

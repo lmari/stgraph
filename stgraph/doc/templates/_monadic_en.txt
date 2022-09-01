@@ -1,0 +1,6 @@
+Each of the following functions / operators has a single argument, which are arrays, and therefore in particular scalars (@00@0-order arrays), vectors (@01@0-order arrays), or matrices (@02@0-order arrays), and behaves polymorphically.
+Given @0f(x)@0:
+- if @0x@0 is an empty @0n>0@0-order array, the result is @0x@0 itself
+- if @0x@0 is a scalar, the result is a scalar
+- if @0x@0 is a @0n>0@0-order array, the result is a @0n>0@0-order array @0y@0 such that @0y[i1,...in]=[f(x[i1]),...,f(x[i1])]@0
+

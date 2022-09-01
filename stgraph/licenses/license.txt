@@ -1,0 +1,58 @@
+STGraph is Copyright 2004-2011, Luca Mari and is licensed under the GNU GPL 2.0.
+
+STGraph is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License version 2.0 as published by the Free Software Foundation.
+
+STGraph is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.
+If not, see <http://www.gnu.org/licenses/>.
+
+Although the license does not formally require it, the Author of STGraph kindly asks
+everyone who modifies the source code of the program to send him a communication
+specifying which changes have been done and where the modified source code can be
+obtained.
+
+The Author of STGraph would like to thank the Universita' Cattaneo - LIUC
+(http://www.liuc.it) for the support given during the years of the software
+development and the kind availability of letting the program be distributed
+as free software.
+
+                                        ***
+
+STGraph is built on several open source libraries:
+- the following ones have been used as is and distributed as jar packages:
+--- Commons Logging 1.1.1 (http://commons.apache.org/logging) Apache license
+--- InfoNode Look and Feel 1.6.1 (http://www.infonode.net) GPL license
+--- Jxl 2.6.12 (http://http://www.andykhan.com/jexcelapi) LGPL license
+--- NanoXML 2.2.3 (http://devkix.com/nanoxml.php) zlib/libpng license
+--- Spring 2.5 (http://springframework.org, Apache license
+- the following ones have been used with modifications and distributed as jar packages;
+  a package with the modified source code is also distributed:
+--- Ekit 1.7 (http://www.hexidec.com/ekit.php) LGPL & GPL license
+--- JEP 2.4 (http://www.singularsys.com/jep), GPL license
+--- JGraph 5.13.0.4 (http://www.jgraph.com) LGPL license
+--- SurfacePlotter 2.0.0 (http://code.google.com/p/surfaceplotter) LGPL license
+--- Trident (https://github.com/kirillcool/trident) BSD license
+--- SteelSeries-Swing (https://github.com/HanSolo/SteelSeries-Swing) custom license
+--- SpacebrewP5 (https://github.com/spacebrew/spacebrewP5) custom license
+
+- the following ones have been integrated in the source code and distributed in the main jar:
+--- Colt 1.2 (http://acs.lbl.gov/~hoschek/colt) Colt license
+--- FileDrop 1.1 (http://prdownloads.sourceforge.net/iharder/filedrop-1.1.zip) public domain
+
+STGraph Documenter, a stand alone application, is also built on:
+--- iText 2.1.4 (http://www.lowagie.com/iText) AGPL license
+
+Where applicable, the license information is included.
+
+The UI icons have been taken from the Oxygen set and slightly integrated and modified.
+
+To his best knowledge, the Author of STGraph believes that the given distributions
+comply with the requirements of the licenses of these libraries. Were not this the case,
+the Author is ready to operate to make them compliant as required.
+
+Project contact:
+Luca Mari (lmari@liuc.it)

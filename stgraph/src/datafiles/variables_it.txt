@@ -1,0 +1,20 @@
+<a href="readme_it.txt">All'elenco dei documenti disponibili</a>
+<h2>STGraph - Variabili di sistema</h2>
+
+- <code>time0</code>: istante di inizio della simulazione
+- <code>time1</code>: istante di fine della simulazione
+- <code>timeD</code>: lunghezza temporale di ogni passo di simulazione
+- <code>timeN</code>: numero totale dei passi della simulazione
+- <code>time</code>: passo corrente della simulazione
+- <code>index</code>: indice corrente della simulazione
+- <code>vTime</code>: vettore dei passi
+- <code>vIndex</code>: vettore degli indici
+- <code>this</code>: valore corrente della variabile di stato
+
+Il periodo della simulazione e' descritto dalla tripla <code>[time0, time1, timeD]</code>.
+Il numero totale di passi della simulazione e' calcolato come segue:
+<code>timeN = (int)(1 + (time1 - time0) / timeD)</code>
+
+In piu' sono disponibili due costanti: <code>pi</code> ed <code>e</code>.
+
+<hr>

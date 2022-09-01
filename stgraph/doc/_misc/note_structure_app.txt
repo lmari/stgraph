@@ -1,0 +1,11 @@
+<a href="readme.txt">To the list of the available documentation</a>
+<h2>STGraph - A note on the application structure</h2>
+The application starts from the class <code>STGraph</code>, which contains the <code>main()</code> method
+and generates an instance of the <code>Container</code> class <code>STGraphC</code> with a new <code>JFrame</code> as argument.
+
+The constructor <code>STGraphC()</code> initializes the logger and the Spring framework.
+
+Then the <code>setPreferences()</code> and <code>initContainer()</code> methods are called.
+The latter initializes the <code>JTabbedPane</code> <code>multiDesktop</code> together with the menubar, toolbar, and the statusbar.
+
+

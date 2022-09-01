@@ -1,0 +1,52 @@
+<stgraph class="STGraph.decoder" version="STGraph build 28.6.07">
+    <head systemName="" description="" time0="0.0" time1="10.0" timeD="1.0" batchSteps="1" width="950" height="700" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="input" type="ValueNode" pos-x="50" pos-y="80" width="75" height="45">
+            <documentation>Input vector, of which the maximum elemento is to be identified.</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>vector(10,rand())</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>vector(10,rand())</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=input</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="output" type="ValueNode" pos-x="220" pos-y="80" width="75" height="45">
+            <documentation>Output scalar: maximum value among the elements of the input vector.</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>iter(input,max($0,$1),input[0])</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>iter(input,max($0,$1),input[0])</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=output</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="input" target="output" label="(...)"/>
+    </edges>
+    <widgets/>
+</stgraph>

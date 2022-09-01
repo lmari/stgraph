@@ -1,0 +1,7 @@
+<h2>STGraph - pline</h2>
+<u>Formato</u>: <code>pline(vx,vy,x)</code>
+<u>Vincoli</u>: <code>vx</code> e <code>vy</code> sono vettori; <code>x</code> e' un array
+<u>Descrizione</u>: valore <code>y</code> corrispondente a <code>x</code> sulla polinomiale i cui vertici sono nei vettori <code>vx</code> e <code>vy</code>
+<br><code>pline</code> e' <a href="functions_it.properties">una funzione matematica</a><br><code>pline</code> e' <a href="fun/_interp_it.txt">una funzione di interpolazione</a>
+
+<u>Eccezioni</u>: <code>vx</code> e <code>vy</code> devono avere lo stesso numero di elementi, almeno due; per ogni <code>i</code>, <code>vx[i]</code> deve essere minore di <code>vx[i+1]</code>.

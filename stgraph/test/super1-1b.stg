@@ -1,0 +1,155 @@
+<stgraph class="STGraph.decoder" version="STGraph build 6.8.07">
+    <head systemName="" description="" time0="0.0" time1="10.0" timeD="1.0" batchSteps="1" width="807" height="653" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="false"/>
+    <nodes>
+        <node name="sub" type="ModelNode" pos-x="190" pos-y="110" width="71" height="45">
+            <subvisible>false</subvisible>
+            <superExpression0>x</superExpression0>
+            <forecol-b>0</forecol-b>
+            <forecol-r>0</forecol-r>
+            <systemName>subseq.stg</systemName>
+            <backcol-g>255</backcol-g>
+            <customprops>Name=sub</customprops>
+            <backcol-b>255</backcol-b>
+            <backcol-r>255</backcol-r>
+            <forecol-g>0</forecol-g>
+            <subVarNames>input</subVarNames>
+        </node>
+        <node name="x" type="ValueNode" pos-x="60" pos-y="110" width="65" height="45">
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>time</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>time</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="y2" type="ValueNode" pos-x="360" pos-y="180" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub2.output</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub2.output</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=y2</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="x1" type="ValueNode" pos-x="190" pos-y="260" width="75" height="45">
+            <documentation/>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit>0</fStateInit>
+            <fExpression/>
+            <fStateTrans>this+x</fStateTrans>
+            <backcol-r>255</backcol-r>
+            <expression/>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans>this+x</stateTrans>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=x1</customprops>
+            <valueType>1</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="sub2" type="ModelNode" pos-x="190" pos-y="180" width="75" height="45">
+            <subvisible>false</subvisible>
+            <superExpression0>sub.output</superExpression0>
+            <forecol-b>0</forecol-b>
+            <forecol-r>0</forecol-r>
+            <systemName>subseq.stg</systemName>
+            <backcol-g>255</backcol-g>
+            <customprops>Name=sub2</customprops>
+            <backcol-b>255</backcol-b>
+            <backcol-r>255</backcol-r>
+            <forecol-g>0</forecol-g>
+            <subVarNames>input</subVarNames>
+        </node>
+        <node name="y3" type="ValueNode" pos-x="360" pos-y="260" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit>0</fStateInit>
+            <fExpression/>
+            <fStateTrans>this+x1</fStateTrans>
+            <backcol-r>255</backcol-r>
+            <expression/>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans>this+x1</stateTrans>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=y3</customprops>
+            <valueType>1</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="y" type="ValueNode" pos-x="360" pos-y="110" width="75" height="45">
+            <documentation/>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub.output</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub.output</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=y</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="x" target="sub" label="(...)" labpos-x="400.0" labpos-y="-10.5" p0x="125.0" p0y="132.5" p1x="190.0" p1y="132.5" numpoints="2"/>
+        <edge source="sub2" target="y2" label="(...)" labpos-x="458.0" labpos-y="-11.0" p0x="265.0" p0y="187.05882352941177" p1x="360.0" p1y="147.94117647058823" numpoints="2"/>
+        <edge source="x" target="x1" label="(...)" labpos-x="85.0" labpos-y="24.0" p0x="112.75" p0y="155.0" p1x="207.25" p1y="260.0" numpoints="2"/>
+        <edge source="sub" target="sub2" label="(...)"/>
+        <edge source="x1" target="y3" label="(...)" labpos-x="389.4736842105263" labpos-y="-12.5" p0x="265.0" p0y="282.5" p1x="360.0" p1y="282.5" numpoints="2"/>
+        <edge source="sub" target="y" label="(...)" labpos-x="444.0" labpos-y="-13.0" p0x="261.0" p0y="132.5" p1x="360.0" p1y="132.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="530" pos-y="23" width="205" height="275">
+            <colwidth>48,45,46,56</colwidth>
+            <autowidth>true</autowidth>
+            <iconized>false</iconized>
+            <colalignment>0,0,0,0</colalignment>
+            <colformat>###0.0###,###0.0###,###0.0###,###0.0###</colformat>
+            <title>x y y2 y3 </title>
+            <lastonly>false</lastonly>
+            <sourcena>x,y,y2,y3</sourcena>
+        </widget>
+    </widgets>
+</stgraph>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="jgraph/jgraph_src.zip"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/jgraph/makesrcjar.jardesc" exportErrors="false" exportWarnings="false" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="true"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <selectedElements exportClassFiles="false" exportJavaFiles="true" exportOutputFolder="false">
+        <file path="/jgraph/.project"/>
+        <file path="/jgraph/license.txt"/>
+        <file path="/jgraph/readme.txt"/>
+        <file path="/jgraph/.classpath"/>
+        <javaElement handleIdentifier="=jgraph/src"/>
+    </selectedElements>
+</jardesc>

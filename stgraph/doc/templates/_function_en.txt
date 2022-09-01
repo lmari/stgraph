@@ -1,0 +1,4 @@
+The arguments of the defined function are referred to in the expression as @0$a0@0, @0$a1@0, ... (up to @0$a3@0).
+For example, if the expression of the node @0_x@0 is @0function(($a0+$a1)/2)@0 then @0_x(2,3)@0 produces the result @0(2+3)/2=2.5@0.
+Furthermore, such expression can contain the system variable @0$numArgs@0, that is set to the number of arguments to the function.
+Note that the (meta)function @0function@0 allows recursive definitions. For example, the factorial product function can be defined in a node named @0_fact@0 as follows: @0function(if($a0==0,1,$a0*_fact($a0-1)))@0.

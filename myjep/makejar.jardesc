@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="stgraph/lib/jep.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/myjep/makejar.jardesc" exportErrors="false" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" manifestLocation="/myjep/src/manifest.mf" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/myjep/.classpath"/>
+        <javaElement handleIdentifier="=myjep/src&lt;org.nfunk.jep.function"/>
+        <javaElement handleIdentifier="=myjep/src&lt;org.nfunk.jep"/>
+        <javaElement handleIdentifier="=myjep/src&lt;org.nfunk.jep.evaluation"/>
+        <file path="/myjep/license.txt"/>
+        <file path="/myjep/.project"/>
+        <javaElement handleIdentifier="=myjep/src&lt;org.nfunk.jep.type"/>
+        <javaElement handleIdentifier="=myjep/src&lt;datafiles"/>
+    </selectedElements>
+</jardesc>

@@ -1,0 +1,17 @@
+<h2>STGraph - Operatori booleani</h2>
+Ognuno dei seguenti operatori tratta con i valori booleani vero e falso, che sono definiti in STGraph come segue:
+- ogni valore maggiore di zero (effettivamente: maggiore o uguale di <code>EPSILON</code>) è valutato come vero;
+- ogni valore minore o uguale a zero (effettivamente: minore di <code>EPSILON</code>) è valutato come falso.
+L'unico tipo primitivo in STGraph è double: quindi, vero e falso sono implementati come <code>1.0</code> e <code>0.0</code> rispettivamente.
+
+<a href="fun/opAnd_it.txt">x&&y</a>
+<a href="fun/opEq_it.txt">x==y</a>
+<a href="fun/opGE_it.txt">x>=y</a>
+<a href="fun/opGT_it.txt">x>y</a>
+<a href="fun/opLE_it.txt">x&lt;=y</a>
+<a href="fun/opLT_it.txt">x&lt;y</a>
+<a href="fun/opNE_it.txt">x!=y</a>
+<a href="fun/opNot_it.txt">!x</a>
+<a href="fun/opOr_it.txt">x||y</a>
+<hr>
+<a href="functions_it.properties">List of functions</a>

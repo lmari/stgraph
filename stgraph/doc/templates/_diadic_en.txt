@@ -1,0 +1,9 @@
+Each of the following functions / operators has two arguments, which are arrays, and therefore in particular scalars (@00@0-order arrays), vectors (@01@0-order arrays), or matrices (@02@0-order arrays), and behaves polymorphically.
+Given @0f(x1,x2)@0:
+- if @0x1@0 or @0x2@0 is an empty @0n>0@0-order array, the result is @00.0@0
+- if @0x1@0 and @0x2@0 are scalars, the result is a scalar
+- if @0x1@0 is a scalar and @0x2@0 is a @0n>0@0-order array, the result is a @0n@0-order array @0y@0 such that @0y[i1,...in]=f(x1,x2[i1,...in])@0 (or viceversa)
+- if @0x1@0 and @0x2@0 are @0n>0@0-order arrays of the same dimensions, the result is a @0n@0-order array @0y@0 such that @0y[i1,...in]=f(x1[i1,...in],x2[i1,...in])@0
+- if @0x1@0 is a @0n>1@0-order array and @0x2@0 is a @0n-1@0-order array, and their first @0n-1@0 dimensions are the same, the result is a @0n@0-order array @0y@0 such that @0y[i1,...in]=f(x1[i1,...in],x2[i1,...in-1])@0
+An exception is thrown in the other cases.
+

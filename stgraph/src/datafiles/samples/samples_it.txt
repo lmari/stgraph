@@ -1,0 +1,26 @@
+<h2>STGraph - Esempi</h2>
+
+<b>Alcuni modelli, per suggerire idee su quello che si puo' fare con STGraph...</b>
+
+- Il classico <a href="samples/lorenz.stg">attrattore di Lorenz</a>, implementato anche come <a href="samples/lorenz_sync.stg">modello vettoriale sincrono</a>.
+
+- Il <a href="samples/verhulst.stg">sistema di Verhulst</a>, classico sistema dinamico, che diventa caotico quando sia il passo temporale sia il parametro di crescita sono sufficientemente grandi. Al variare del parametro di crescita, si ottiene un comportamento stabile, periodico, o frattale.
+
+- Un semplice esempio che mostra <a href="samples/fft.stg">lo spettro di potenza</a> di un segnale rumoroso, calcolato attraverso la Fast Fourier Transform.
+
+- Un semplice modello che mostra come <a href="samples/equiv_state_delay.stg">uno stato sia equivalente a una variabile ritardata e in feedback</a> con se stessa.
+
+- Un esempio che mostra tre diversi modi per implementare e calcolare il <a href="samples/factorial.stg">prodotto fattoriale</a>.
+
+- In modo completamente polimorfico, un modello che simula <a href="samples/freebodies.stg">n corpi in moto in uno spazio 2D limitato</a>.
+
+- Un modello che mostra la <a href="samples/brownian.stg">irreversibilita' del moto browniano</a> di n particelle, in particolare evidenziando come l'area del rettangolo che li include cresce statisticamente nel corso della simulazione.
+
+- Un basilare <a href="samples/cell_automaton_1D.stg">automa cellulare a una dimensione</a>.
+
+- La <a href="samples/heat_equation.stg">equazione del calore di Fourier</a>, una semplice equazione differenziale alle derivate parziali.
+
+- Un'implementazione, un poco complessa, della <a href="samples/galton_machine.stg">macchina di Galton</a>.
+
+- Un esempio di <a href="samples/fern_by_ifs.stg">sistema frattale iterato</a>.
+

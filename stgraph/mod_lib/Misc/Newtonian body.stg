@@ -1,0 +1,138 @@
+<stgraph class="STGraph.decoder" version="STGraph build 7.9.07">
+    <head systemName="" description="" timeUnitDescription="" time0="0.0" time1="10.0" timeD="1.0" batchSteps="1" width="992" height="810" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" preInitVars="false" exceptionHandling="1" withUncertainty="false" isDataSaved="false" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="m" type="ValueNode" pos-x="140" pos-y="130" width="75" height="45">
+            <documentation>Mass of the body</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>10</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>10</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=mass</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="p0" type="ValueNode" pos-x="440" pos-y="130" width="75" height="45">
+            <documentation>Initial position of the body</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>[0,0]</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>[0,0]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=position 0</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="v0" type="ValueNode" pos-x="280" pos-y="130" width="75" height="45">
+            <documentation>Initial velocity of the body</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>[0,0]</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>[0,0]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=velocity 0</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="v" type="ValueNode" pos-x="280" pos-y="240" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit>v0</fStateInit>
+            <fExpression/>
+            <fStateTrans>integral(a)</fStateTrans>
+            <backcol-r>255</backcol-r>
+            <expression/>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>v0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans>integral(a)</stateTrans>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=v</customprops>
+            <valueType>1</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="a" type="ValueNode" pos-x="140" pos-y="240" width="75" height="45">
+            <documentation>Acceleration of the body</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>[0,0]</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>[0,0]</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=acceleration</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="p" type="ValueNode" pos-x="440" pos-y="240" width="75" height="45">
+            <documentation>Position of the body</documentation>
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit>p0</fStateInit>
+            <fExpression/>
+            <fStateTrans>integral(v)</fStateTrans>
+            <backcol-r>255</backcol-r>
+            <expression/>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>p0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans>integral(v)</stateTrans>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=position</customprops>
+            <valueType>1</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="v0" target="v" label="(...)"/>
+        <edge source="a" target="v" label="(...)"/>
+        <edge source="p0" target="p" label="(...)"/>
+        <edge source="v" target="p" label="(...)"/>
+    </edges>
+    <widgets/>
+</stgraph>

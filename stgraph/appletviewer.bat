@@ -1,0 +1,1 @@
+C:\Java\jdk1.6.0\bin\appletviewer -J-Djava.security.policy=java.policy.applet2 stgraph.html

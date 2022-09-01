@@ -1,0 +1,9 @@
+<h2>STGraph - conc</h2>
+<u>Formato</u>: <code>conc(x,y,n)</code>
+<u>Vincoli</u>: <code>x</code> e <code>y</code> sono array, <code>n</code> (opzionale) e' un intero
+<u>Descrizione</u>: <code>x</code> concatenato con <code>y</code> lungo la dimensione <code>n</code> se specificata o l'ultima dimensione altrimenti
+
+Se <code>n</code> e' omesso e' equivalente all'operatore <code>x#y</code>.
+<br><code>conc</code> e' <a href="functions_it.properties">una funzione per array</a>
+
+<u>Eccezioni</u>: Deve essere possibile concatenare <code>x</code> con <code>y</code> in termini delle loro dimensioni; <code>n</code> deve essere una dimensione corretta per <code>x</code>, attualmente <code>0</code> o <code>1</code>.

@@ -1,0 +1,52 @@
+<a href="readme.txt">To the list of the available documentation</a>
+<h2>STGraph - A note on data types</h2>
+Data are internally processed as a single scalar type: double.
+The exposed types are three:
+- Number (Double, sometimes Integer)
+- Vector (written [x1,x2,...] and interpreted as column vectors)
+- Matrix (written [[x1,x2,...],[y1,y2,...],...])
+Widgets operate according to these types.
+
+The basic functions that create vectors and matrices are:
+- vector(n,expr) : create a vector of n elements of value computed by expr, which can contain the system variable $r, automatically incremented from 0 to n-1
+- matrix(m,n,expr) : create a matrix of m,n elements of value computed by expr, which can contain the system variables $r and $c, automatically incremented from 0 to m-1 and from 0 to n-1 respectively
+Therefore vector(3,1) == [1,1,1] and vector(4,$r) == [0,1,2,3].
+
+Shortcuts:
+[x1,x2,...] create a vector with elements x1,x2,...
+[[x1,x2,...],[y1,y2,...],...] create a matrix whose rows have elements [x1,x2,...], [y1,y2,...], ...
+[x:y] == vector(x,y,$r)
+vec[ind] == get(vec,ind)
+mat[row;col] == get(mat,row,col)
+vec[ind1:ind2] == slice(vec,ind1,ind2)
+vec[:ind] == sliceTo(vec,ind)
+vec[ind:] == sliceFrom(vec,ind)
+x#y == conc(x,y)
+
+To cast among types:
+- if x is N, [x] is V (indeed a one element vector)
+- if x is V, [x] is M (and therefore if x is N, [[x]] is M) (indeed a one column matrix)
+- if x is M, getRow(x,i) and getColumn(x,j) are V
+- if x is M, x[i;j] (equivalent to get(x,i,j)) is N
+- if x is V, x[i] (equivalent to get(x,i)) is N
+
+and also:
+- toNumber(x), which produces:
+--- x if x is N
+--- x[0] if x is V
+--- x[0;0] if x is M
+- toVector(x), which produces:
+--- [x] if x is N
+--- x if x is V
+--- getColumn(0) if x is M
+- toMatrix(x), which produces:
+--- [[x]] if x is N
+--- [x] if x is V
+--- x if x is M
+
+To get the type of a variable:
+- isNumber(x)
+- isVector(x)
+- isMatrix(x)
+
+Given these tools, each function returns its natural type (e.g., transpose returns M)

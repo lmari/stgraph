@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="stgraph/lib/stgraph.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/stgraph/makejar.jardesc" exportErrors="false" exportWarnings="false" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" manifestLocation="/stgraph/src/manifest.mf" manifestVersion="1.0" reuseManifest="true" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.action"/>
+        <file path="/stgraph/.project"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.widget"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.node"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.fun"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;icons.base"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;icons.menuset"/>
+        <file path="/stgraph/.classpath"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.fun.utils"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;icons.set0"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.util"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.tools"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.fun"/>
+    </selectedElements>
+</jardesc>

@@ -1,0 +1,437 @@
+#<a href="readme_en.txt">To the list of the available documentation</a>
+<h2>STGraph - History</h2>
+
+<hr>
+<b>Version Fall15-Fall21</b>
+- extended the function Integral with an optional second argument
+- set jdk6 as class compatibility for all projects
+- finally added some basic keyboard control to some input widgets and made input widgets more interactive
+- removed the obsolete option to run it as an applet
+- fixed some bugs
+
+<hr>
+<b>Version Winter13-Summer15</b>
+- added the websocket communication via Spacebrew (functions writeToNet() and readFromNet())
+- improved the appearance of some widgets
+- extended the configuration options by allowing the user set menu font and icon sizes
+- improved the support for multiple languages in web models
+- fixed some aspects of the interrupt handling
+- set jdk8 as compiler level and jdk5 as class compatibility for all projects
+- fixed several bugs
+
+<hr>
+<b>Version Fall11-Fall13</b>
+- introduced the support for multiple languages in web models and variously extended the related tools
+- introduced the XYButton widget
+- redesigned and extensively reimplemented the Chart widget (the new version is not compatible with the previous one...) 
+- extended the support of the MatrixViewer widget by means of the SurfacePlotter library
+- introduced the automatic switch to the Nimbus LaF
+- introduced some more formatting for nodes (font family, font size, font color, number format) and partly redesigned the node dialog
+- restructured the commandline options
+- further enhanced the node expression editor, in particular with the autocomplete function
+- added the system variable "me"
+- added several system and user-defined functions
+- fixed some uncorrect behaviors of the status bar and enhanced the color chooser
+- improved edge visualization
+- improved the "live update" function
+- improved the check model functions, also for web
+- restructured the spring.xml action files for their more efficient handling
+- fixed several bugs
+
+<hr>
+<b>Version Spring10-Summer11</b>
+- modified the parser and the evaluator, so to allow implicit local variables (delimited by {} or separated by ;) in the same expression (it works also in functions defined in *.stf files)
+- removed the constraint on scalar initial states vs. vector transitions and vice versa, and enhanced the related error messages
+- introduced the "playmode" timeframe
+- restructured and extended, in particular with customizable sprites, the Chart widget, also with the isometric view
+- introduced the InputText and the OutputText widgets and the related custom properties 
+- restructured some configuration dialogs, in particular for nodes and the Chart widget
+- reimplemented the MatrixViewer widget by means of the SurfacePlotter library
+- better integrated the icon management for nodes
+- introduced a contextual menu (right click) for the node editor to expose its until now hidden configuration features
+- removed the automatic evaluation of expressions in the node expression editor, and correspondingly added a menu option, for better performances
+- fixed the zoom management, so to let edges be introduced / edited also on non-standard zoom level
+- introduced the drag and drop from file system functionality
+- improved the node selection window and tools
+- modified the ReadFromXLS function, so to allow reading on-the-fly modified xls files
+- extended the interpreter, that now for user-defined functions handles errors as strings written in multiple locales
+- extended the operators reduction, scan, and pair-scan, and the functions conc and dec to allow specifying the dimension along which the operation has to be performed
+- extended the function documenter utility, that now for user-defined functions handles multiple locales and generates the related pdf docs
+- introduced the "is for web" switch for models and a web-oriented (bizgame) localized documenter, analyzer, and calibrator helper, all put in a new menu
+- removed the tool for the visualization of documentation in pdf format
+- somehow polished the UI, in particular in the status bar to allow directly setting node name and output switch
+- further improved the error / exception handling by making the status bar clickable to select the current error node
+- variously simplified, in particular by removing the uncertainty management (...), and the option to change LaF and icon set
+- introduced the ListPane on the right of the main window to ease the selection of nodes, groups, and widgets
+- introduced an emphasized node selection mode 
+- switched the LaF from TinyLaF to InfoNode for better performance and more consistent UI
+- introduced more appealing splash and help windows
+- introduced an "easy mode" for a simplified UI and a "web mode" for web (biz game) editing
+- extended the exception messaging
+- added the "live update" function
+- better structured the Eclipse projects
+- moved to a svn repository (thanks Paolo)
+- set the open source license (finally...)
+- fixed several bugs
+
+<hr>
+<b>Version Spring09-Winter09</b>
+- completely restructured the internal data type handling, by a single Tensor class (exposed as array); in consequence, revised (almost) all functions
+- added the visualization of documentation in pdf format by means of the PDF Renderer library and integrated some documentation in a pdf file
+- introduced the Knob input widget
+- introduced the Gauge output widget
+- fixed some bugs
+
+<hr>
+<b>Version Spring08-Winter08</b>
+- introduced the APL-style meta-operators '/' (reduction), '\' (scan), and '|' (pair scan)
+- redefined the signature of the statistical distribution functions so to derive them all from the same superclass, and introduced some inverse cdf's
+- implemented some inverse cdf's (chisquare, gamma, gaussian, uniform)
+- improved the FFT function and introduced the inverse FFT
+- extended the chart widget with controllable grid step, log scales, and sprites
+- extended the datatable and inputtable widgets with some formatting options (changeable font size, alignment, ...)
+- refactored the node edit dialog classes, to make the dialogs non-modal
+- extended the polymorphism to matrices for several vector functions
+- added monadic '@' for size()
+- improved the text node by the Ekit library
+- extended the handling of interrupt conditions
+- removed the custom type nodes (derivative, integral, ...) and their handling classes
+- improved the polymorphic handling of matrices and introduced the "reduction behavior" for get() (i.e., wrong indexes are ignored)
+- parametrized the index origin, either 0 or 1, in the involved functions, and exposed it as a model property
+- introduced the visualization of node values directly in the graph
+- introduced the option to set the font size in the expression editor
+- improved the logic of node name assignment in node pasting
+- extended the STFunctionDocumenter class so to make it able to generate multilanguage documentation (currently EN and IT)
+- extended the I18N awareness (in error messages) of (my)JEP 
+- fixed some bugs, in particular a subtle bug related to state-with-output nodes in loops with RK integration algorithms
+
+<hr>
+<b>Version Summer07-Winter07</b>
+- introduced the experimental handling of uncertainty by the law of uncertainty propagation via automatic differentiation
+- introduced a "dynamic" dialog for submodels, allowing to saturate their inputs also by expressions, and correspondingly modified the saturation logic
+- introduced, together with the "standard" time basis, the instantaneous and the windowed time bases
+- introduced the possibility of defining new functions by external XML files
+- introduced the possibility of reentrant calls for the meta-functions 'function' and 'iter' by buffering their parameters
+- introduced the MatrixViewer output widget
+- introduced the PropertyChanger tool
+- introduced the Tracer tool
+- introduced some further statistical distribution functions (chi square, gamma, t, all by taking the relevant code by the Colt library), and made all more polymorphic by letting them operate also on vectors and matrices
+- improved / fixed some aspects of the error handling, particularly related to errors generated in submodels
+- improved / fixed some aspects of the Token Aware Editor
+- extended the chart widget
+- modified the behavior of the "save data" option, which now outputs to an xls file
+- extended the "global" option to all node types
+- introduced the alignment to grid also for widgets  
+- fixed the handling of stz files, even for models with submodels
+- fixed some aspects of the preferences
+- extended the documentation, also by an automatic generation tool based on IText
+- fixed some refresh problems, now allowing the correct visualization in Linux systems (tested in SuSe 10.3)
+- fixed some bugs
+
+<hr>
+<b>Version Fall06-Spring07</b>
+- aggregated auxiliary and state types into a single type "value", with an internal option to choose among aux, state, state with distinct output
+- refactored the handling of submodels, from a recursive to an iterative algorithm, by previously "flattening" the global model and the related lists: this way, finally it seems that submodels can be used exactly as nodes; furthermore, added a switch to allow maintaining the submodels hidden
+- introduced the handling of custom submodels, and introduced the first examples of custom submodels: queue and conveyor (see Stella...)
+- refactored the view classes of nodes and widgets
+- modified the preliminary checks and the simulation algorithm for a better handling of output functions in state nodes
+- (re)introduced and refactored the handling of custom node subtypes
+- refactored the handling of configuration properties
+- introduced a "batch run" button in the UI and integrated the corresponding configuration in the general configuration dialog
+- introduced in the File menu the list of recently opened files, and accordingly slightly modified the handling of the menu items
+- introduced an action to switch the visibility status of the whole graph
+- substituted the text box with a progress bar to monitor the current simulation step
+- removed the interactive definition of nodes in the status bar, and substituted with two spinners to control runtime params
+- removed the GetFromSource widget and substituted with a function readFromXLS()
+- introduced the visual distinction between non-constant and constant auxiliary nodes
+- improved the handling of edge labels, for a better model documentation
+- introduced the Library menu, allowing to dynamically deal with models as submodels 
+- introduced some interpolation functions (line, bline, sigmoid, spline)
+- introduced the experimental handling of zip data files (stz)
+- introduced the experimental handling of interrupt conditions
+- added the (hidden) option to pretty print the stg files
+- added an Analysis menu with some items / actions
+- fixed the applet handling and introduced the web start handling: self-signed the JARs
+- introduced a Tester class, based on a customized JUnit pattern
+- fixed some bugs
+
+<hr>
+<b>Version Summer06</b>
+<i>From version 0.9 (ported to JGraph 5.9, JEP 2.4, and Spring 2.0):</i>
+- transformed the input node type to an (automatic) attribute of auxiliary nodes
+- in the runtime properties introduced the option to continue the execution in the case of exception
+- in the runtime properties introduced the option to preinitialize all the variables in the case of critical connections
+- introduced an on-the-fly evaluator in the node definition dialogs
+- introduced the matrix type and accordingly extended / redefined all the functions to support polymorphism
+- introduced a few (meta)function: vector, matrix, iter
+- introduced the (meta)function function for defining macro-functions
+- introduced the option to make input nodes global
+- introduced the option to allow vectorial output nodes accumulate values into a matrix and modified accordingly the Chart and the DataTable widgets
+- restructured (once more...) the evaluation algorithm, to reduce the effects of simulation delays for subsystems
+- redefined the algorithm that establishes the evaluation order of the nodes, also by distinguishing between sequential and combinatorial subsystems
+- relaxed the controls on input widget definition, to allow them introduced even if not completely defined
+- introduced the InputTable widget which operates polymorphically with scalars, vectors, and matrices
+- extended the DataTable widget to deal with matrices and to better control visualization (column width and text alignment)
+- extended the GetFromSource widget to read values also from xls files, also vectors and matrices
+- fixed the rounding problem in the Slider widget and in the system time variable
+- added a function to copy the image of the graph or the selected widget to the clipboard
+- extended the controls in the window that handles the widgets
+- added some options for node visualization: icon (also with a default) and foreground / background transparency
+- introduced a visualization hint (currently dashed line) for non-valid nodes and accordingly modified the checkAllDefinitions() method
+- introduced the functionality to include some samples / examples in the system
+- introduced a few consistency checks
+- introduced the management of groups and group visibility
+- introduced an automatic generator to wrap submodels with their inputs and outputs
+- introduced a custom properties hash map to nodes, and some hypotheses about the related application protocol, in particular implemented in the node tooltip
+- introduced a "Java macro" functionality, enabling to automatically add to a specific submenu the classes of the it.liuc.stgraph.macros package
+- localized the JEP error messages by a resource bundle
+- slightly improved the documentation
+- fixed some GUI features
+- fixed some bugs
+
+<hr>
+<b>Version 0.9 (30 June 2005 - pre-summer 2006)</b>
+<i>From version 0.8 (introduced the Spring framework and ported to JGraph 5.8):</i>
+<b><i>system structure</i></b>
+- refactored some components (in particular: actions and related menubar and toolbar; functions) to introduce the dependency injection pattern based on Spring
+- redesigned the logic of the system that checks the graph correctness, and made it constantly operating in the background, so that simulations can now be executed only when the graph is correct; error messages are automatically displayed in the status bar; furthermore, integrated the error handling in the evaluation phase during the simulation
+- tentatively introduced some extensions for batch execution: a "sampling loop" and the batch (__x) variables
+- redefined some general variables as static
+
+<b><i>simulation engine</i></b>
+- redesigned the logic of execution: now node expressions are parsed before execution, with a gain of about an order of magnitude (!) in execution speed (one more, one year after...)
+- redesigned the logic of execution: now the integral() function can operate according to either Euler, RK2, or RK2(3) integration methods
+- improved the logic of execution: now initial states / values can depend also on auxiliary variabiles
+- modified the simulation algorithm: removed the recognized useless distinction between state transition and output function in state nodes
+- extended the "number of steps before pause" parameter also to timed execution, to obtain a much faster interactive execution
+- introduced a customizable exception handling
+
+<b><i>graph nodes</i></b>
+- redesigned the graphics of the input nodes, to make it homogeneous to auxiliary
+- extended the TextNode, with a custom, multiline editor; now it also supports images
+
+<b><i>graph widgets</i></b>
+- refactored the basic code to simplify it and for a better handling of inheritance
+- introduced a "get from source" widget, and correspondingly removed the "get data from file" button from the input node configuration dialog
+- extended / revised the chart widget, to allow customizing some series properties
+- extended / revised the datatable widget, to allow visualizing also only the last / current values of the series and to control the numeric format
+- extended / revised the toggle button (in particular by allowing the selection of three states) and indicator widgets
+
+<b><i>user interaction</i></b>
+- refactored the dialogs, to better exploit the inheritance from the STDialog classes and somehow redisegned them
+- refactored the handling of functions, to make their organization in menus more flexible
+- fixed the behavior of widgets for "non standard" look-and-feels
+- introduced the interactive evaluation in the token editor and an interactive evaluator window
+- improved the management of the icon sets
+- introduced the (trivial) management of hyperlinks in documentation files
+
+<b><i>misc</i></b>
+- introduced a simple help system for functions / operators integrated in the node dialogs
+- revised all the interpreter function definitions and the related documentation, extended the functions so to enable them of dealing with vectors of vectors (therefore in particular as matrices)
+- added several new functions: matrix transpose and product, a few statistical functions, a simple implementation of FFT, a switch control, a for control / vector generator
+- removed many of the method invocations based on reflection, thanks to a better usage of polymorphism
+- introduced a contextual help for actions (both menubar and toolbar items), via a proxy that intercepts action calls
+- slightly redesigned the node painting logic
+- introduced the edge label positioning
+- introduced a window to control the node list and improved the window controlling the widget list
+- added JLooks for increase the number of available look and feel
+- moved several configuration data to either the config.properties or the stgraph.basic.properties files, and handled the former by a preferences dialog
+- moved the data and configuration files to a subdirectory (and correspondingly updated the win installer) and fixed the behavior of the logging system, also relating to Spring logging
+- modified the dialog handling by a singleton-like pattern
+- modified the html editor to allow spaces and newlines for some formula formatting, and correspondingly added some fields in the data files
+- introduced a manual garbage collector
+- introduced the system name and description properties
+- made the error messaging somehow more homogeneous
+- fixed several bugs
+- extensively tested on both MSWindows (XP Pro) and (Mandriva / SuSe) Linux
+
+<hr>
+<b>Version 0.8 (4 December 2004 - 25 June 2005)</b>
+<i>From version 0.7 (introduced NanoXML-lite 2.2.3 and ported to JGraph 5.6):</i>
+
+<b><i>system structure</i></b>
+- rewritten the save and load methods to better control the XML file format (no more XML encoding and decoding: fast XML parsing and serialization by NanoXML-lite) and minimize the .stg file size (by about one order of magnitude...); temporarily maintained a method for loading files in the previous format
+- refactored the whole application, to allow calling and executing it from a Java app, typically with a custom UI, and created some related sample apps
+- refactored the front-end classes with a more elegant pattern: now the class to be called is the same in both cases of application and applet
+- introduced the first sample custom nodes (a sum node, extending the auxiliary type, and a deriv node, extending the state type), mainly to begin exploring the option
+
+<b><i>simulation engine</i></b>
+- better encapsulated the handling of subsystems
+- split the compute() method in the synchronous and the asynchronous components, thus fixing a wrong behavior in subsystem computation
+- modified the simulation algorithm so that initial states are computed during the first step instead of before it
+- modified the simulation algorithm to handle the distinction between state transition and output function in state nodes
+- extended the subsystem handling to allow the direct connection among subsystem nodes
+
+<b><i>graph nodes</i></b>
+- (re)introduced the distinction between state transition and output function in state nodes
+- added a simple "get data from file" button in the input node configuration dialog
+- fixed the behavior of input widgets: now operate also for non-stepped execution
+
+<b><i>graph widgets</i></b>
+- introduced the toggle button input widget and the toggle indicator output widget, also to verify the correct encapsulation of the related classes
+- improved the slider widget with the introduction of an associated text box
+- improved the data table widget, now displaying the row with the last computed values during the simulation
+- from efficiency reasons, written from scratch a chart visualizer (in the package it.liuc.stgraph.util.chart: thanks to JFreeChart for its useful services up to now!), and reimplemented the chart widget to allow the visualization of multiple independent series, even of different cardinalities
+- introduced the widget list window to better handle their minimization
+- slightly rewritten the output widgets to better separate the constant and the variable components
+- handled the saving and restoring of current value for input widgets
+
+<b><i>user interaction</i></b>
+- added the "number of steps before pause" parameter in the general configuration management
+- added a pre-evaluation phase immediately after the user input, and visualized the corresponding values
+- added the *.stg filtering in the file open dialog
+- somehow simplified by not showing the status bar for widgets
+- modified the interactivity logic during simulation: added a "stop" action (button + menu item) and made the graph non-editable during the run
+- introduced the management of multiple, alternative, icon sets
+
+<b><i>misc</i></b>
+- revised the whole application code, to remove some warnings as shown by the "all warnings on" option in Eclipse
+- fixed the behavior for applets downloaded from a web server
+- fixed the positioning of the dialogs
+- rewritten the functions related to boolean values to better encapsulate the handling of true and false values (now dealt with as doubles)
+- modified the automata-related functions, to allow their handling of autonomous automata
+- extended the HTML expression parser to handle the bracket pair matching
+- introduced a preliminary version of an expression viewer as parsed trees
+- added the functions vConcatenate(), vSort(), and vShift()
+- modified the definition of the operator * for vectors to return a vector instead of their inner product
+- introduced some logging (better late than never...), initially by means of Log4J, then by the Java native package (simpler but much lighter)
+- in the class org.nfunk.jep.ParserTokenManager, method getNextToken(), modified the exception thrown in the case of error when parsing some special (#, \, ...) characters; this implies the usage of a regenerated jar file
+- variously extended the grammar underlying JEP parser, to better deal with list generators and selectors
+- externalized some basic configuration properties to a text file
+- translated from en to it some more texts (also thanks to a ST student)
+- extended the win installer to allow double click on .std file activation 
+- fixed several bugs
+
+<hr>
+<b>Version 0.7 (4 November - 2 December 2004)</b>
+<i>From version 0.6 (and ported to JGraph 5.2):</i>
+- refactored with new subpackages node, widget, util, and actions, and correspondingly restructured the toolbar and menu management
+- refactored the node and widget classes to better encapsulate the access to their configuration dialog, view, info, value
+- introduced a property for node documentation and associated with node tooltips
+- modified the management of stepped and timed execution, to allow their correct interaction
+- introduced a marker in the chart widget showing the last point(s) computed in stepped / timed execution
+- subclassed JSlider to allow double values and displayed the current value in the title bar
+- introduced the "dotted notation" to refer to subsystem output variables from the supersystem, and correspondingly removed the, horrible, sGetVar() function
+- rewritten the initComputation() method, to correctly keep into account the initial states of subsystems
+- reorganized the management of operators and functions and their presentation in dialogs, and introduced a primitive form of related help
+- extended the JApplet behavior and customization
+- better formatted (by HTML) the pane showing the current node information
+- extended the logical operators and the if() function to deal also with vectors (thanks to some ST students for the suggestion))
+- fixed some peculiar behaviors of the parser editor
+- fixed the double click management of data table widget
+- fixed some bugs, in particular related to the JApplet behavior, stepped and timed execution, color chooser, dimensioning of text windows, value assignment of edges in stepped execution (thanks to some ST students for the suggestion))
+
+<hr>
+<b>Version 0.6 (20 September - 28 October 2004)</b>
+<i>From version 0.5 (and ported to JGraph 5.1 and JEP 2.3):</i>
+- handled node renaming / removal
+- reorganized the project directory structure, to separate src and bin
+- introduced a tokenizer for expressions in node dialogs
+- created a JApplet class alternative to the main JFrame class and introduced a common interface to allow freely switching them
+- added a menubar and correspondingly reduced the number of items in the toolbar
+- introduced a basic refactoring function, allowing to change the type of existing nodes
+- improved the control of model correctness before execution
+- filenames without extension correctly handled
+- made the behavior of chart widget somehow more stable
+- made the display of ports dynamic for a cleaner visualization
+- introduced the double click and the right click management for editing for all nodes and widgets
+- improved the user interaction in dialogs and added color management for nodes
+- fixed the logic of positioning of dialogs
+- fixed some features of the behavior of the chart widget (e.g., control of axis autosizing) and added the possibility to iconize the widgets, with the corresponding property to save the widget status (thanks to some ST students for the suggestion)
+- reorganized the link between the widget internal frames and the corresponding nodes
+- introduced some basic functions for automata handling
+- better formatted (by HTML) the pane showing the system information
+- reorganized the function and operator overloading of JEP, so to allow referencing the jar file instead of sources
+- fixed some bugs (in particular related to self edges: thanks to some ST students for the suggestion)
+
+<hr>
+<b>Version 0.5 (30 June - 18 September 2004)</b>
+<i>From version 0.4 (and ported to JGraph 5.0.2 and JFreeChart 0.9.21, with some implied changes):</i>
+- for efficiency reasons, substituted the expression interpreter, from Jython to JEP (vers.2.24), with a gain of about an order of magnitude (!) in execution speed
+- extended some JEP operators and functions to better deal with vectors
+- correspondingly rewritten the basic functions as classes in the new package it.liuc.stgraph.fun and created new functions, mainly related to vector management
+- introduced an initial management of subsystems, already recursive it its logic (the performance payoff seems to be not so bad, of about a factor x2 with respect to "flat" systems)
+- removed the parameter node type to make the input management simpler
+- removed the output node type and substituted with an option for auxiliary and state variables to make the output management simpler and more flexible
+- fully refactored (again!) to better encapsulate graph control and distinguish graph evaluation from UI management (required in particular for a reasonable handling of the recursive calls for subsystem execution)
+- fixed the activation of the buttons controlling the clipboard behavior and introduced some keyboard accelerators, including the arrows (and ctrl-arrows) for node positioning
+- introduced some further error checking, in particular related to the (univocity of) node names and correctness of node expressions
+- introduced the timed execution
+- introduced the management of output data saving
+- introduced the locale management with property files and a command line switch to force the default locale
+- introduced the check if system modified before closing / exiting
+- introduced dialogs for the editing of the selected node
+- introduced a dialog displaying the properties of the selected node
+- introduced a dialog displaying some info about the current system
+- customized the contextual popup menu
+- modified the .stg file format, to allow the storage of some new data and make it more flexible for possible future improvements
+- hidden the left pane, maintained only for debugging purposes
+- variously improved the usability
+- packed in a jar structure and created a win installer (by Nullsoft Scriptable Install System 2.0)
+- fixed several bugs
+
+<hr>
+<b>Version 0.4 (14 May - 30 May 2004)</b>
+<i>From version 0.3 (and ported to JGraph 4.0 and JFreeChart 0.9.20, with some implied changes):</i>
+- further transformed in OO structure, for example with the toolbar in an external class and model data trasferred from STUtils to STDesktop for better encapsulation (with still a Jython interpreter instance for each model)
+- introduced a tabbed pane and the corresponding logic to deal with several graphs open at the same time, each of them with independent timings
+- introduced some exception handling
+- integrated with some aspect-oriented programming tool, thanks to JAspect
+- modified several components so that node outputs are now Object variables (instead of Double): this allows to deal with lists in "internal" (i.e., non input, parameter, or output) vars and with strings
+- created the STswitch() Python function
+
+<hr>
+<b>Version 0.3 (30 April - 10 May 2004)</b>
+<i>From version 0.2 and my socket package:</i>
+- introduced a first prototype of external controller, communicating with the basic system through TCP sockets
+- introduced the visualization of node values as edge labels during step execution
+- introduced a desktop pane to handle charts and tables as active JComponents
+- correspondingly modified the save / load functions
+- created the chart-in-component node and the corresponding viewer
+- created the datatable-in-component node and the corresponding viewer
+- created the slider-in-component node and the corresponding viewer
+- fully transformed, to make the implementation of Swing frames / containers consistent with the application structure
+- fully refactored and cleaned
+- created the STconstant() Python function
+- fixed some minor bugs
+
+<hr>
+<b>Version 0.2 (12 - 26 April 2004)</b>
+<i>From version 0.1 and JFreeChart 0.9.18:</i>
+- modified the computational engine, to support sequential cyclic graphs
+- correspondingly created some simple sample models (switch, oscillator, ...)
+- fully transformed, to make the implementation somehow more OO by inheriting from both default nodes and default edges
+- introduced a text entity, to allow document the models
+- introduced the tool tips for the toolbar buttons
+- introduced a look and feel management
+- introduced a preliminary management of output visualization by means of charts, based on JFreeChart
+- introduced a preliminary management of time parameters
+- correspondingly modified the save / load functions
+- created the STintegral() and STif() Python functions
+- modified the data file format, to store also view (zoom) parameters
+- introduced the logic and basic UI tools for step running the simulation
+-- constraints for the state definition:
+--- the initial state cannot contain a reference to 'this' nor to other state variables
+--- the state transition function can contain scalars and references to 'this', parameters, input variables, state variables, auxiliary variables
+- fixed some minor bugs
+
+
+
+<hr>
+<b>Version 0.1 (15 March - 10 April 2004)</b>
+From JGraph 3.2 and its sample application graphed-1.0.3 and Jython 2.1:
+- removed several UI widgets, not useful / applicable in this case
+- created the class MyUtils, with some basic tools for both the topological and the computational control of the graph (in particular to guarantee the topological consistency of the graph)
+- created the basic tools (node class, view class, insert method, UI handler & raw icon) for each of the five nodes: input, parameter, state, auxiliary, output
+- added the functions for loading and saving models, with the corresponding (de)serialization required for Bezier edges
+- created some basic IO tools, just for testing purposes: a bar to enter node expressions and a label to display node (static and dynamic, i.e., construction-time and run-time) properties
+- created the topological analyzer for acyclic (both combinatorial and sequential) graphs
+- created a basic computational engine for acyclic (both combinatorial and sequential) graphs, based on Jython interpreter
+- defined and implemented the fundamental hypotheses specifying the behavior of the five types of nodes (the only data type currently supported is double):
+	-- parameter nodes (only out-edges): expression=value=a scalar (possibly generated as a random value)
+	-- input nodes (only out-edges): expression=a list with cardinality equal to the time base; value=a scalar corresponding to the i-th element of the list in the i-th loop of the simulation process
+	-- auxiliary nodes (both in- and out-edges): expression=an expression containing the symbolic references of the input nodes; value=a scalar corresponding to the evaluated expression
+	-- output nodes (only in-edges): expression=an expression containing the symbolic references of the input nodes; value=a list with cardinality equal to the time base corresponding to the evaluated expressions
+	-- state nodes (both in- and out-edges): initial state=a scalar (either explicit or as a reference); state transition=an expression containing the symbolic references of the input nodes; value=a scalar corresponding to the evaluated state expression in state nodes 'this' (or the state variable name itself) specifies the previous state value
+- created the basic timelist and indexlist Python variables, for setting the expression of input nodes
+- created some very simple sample models (adder, basic accumulator, malthus, delays, ...)
