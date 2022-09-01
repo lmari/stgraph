@@ -8,13 +8,13 @@ the version used and modified here was free open source software.
 
 This package is distributed as an Eclipse project:
 
-	http://www.eclipse.org/
+	https://www.eclipse.org
 
 and contains JEP 2.4 in a slightly modified version, with some extensions,
 and a new custom grammar file, to adapt it to its specific usage for
 the STGraph application:
 
-	http://cetic.liuc.it/stgraph
+	https://github.com/lmari/stgraph
 
 Hence this IS NOT intended to be a fork of the original version,
 whose unmodified license is included.
