@@ -24,3 +24,4 @@
 
 - Un esempio di <a href="samples/fern_by_ifs.stg">sistema frattale iterato</a>.
 
+- Un esempio di <a href="samples/qt/esempio3.stg">modello a code </a>.

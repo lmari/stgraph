@@ -1,0 +1,378 @@
+<stgraph class="STGraph.decoder" version="STGraph build 8.3.13">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="1.0" maxSteps="1" batchSteps="1" width="1092" height="681" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forWeb="false" webModelLocale="" webModelDescription="" webModelGroups="" webModelAllLocales="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="eventiIn" type="ValueNode" pos-x="20" pos-y="50" width="75" height="45">
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub_generatore.gen</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub_generatore.gen</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=eventiIn</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="eventiOut1" type="ValueNode" pos-x="380" pos-y="10" width="75" height="45">
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub_server1.srv</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub_server1.srv</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=eventiOut</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="eventiOut2" type="ValueNode" pos-x="380" pos-y="260" width="75" height="45">
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub_server2.srv</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub_server2.srv</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=eventiOut</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="luncoda" type="ValueNode" pos-x="130" pos-y="50" width="75" height="45">
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>sub_coda.coda</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>sub_coda.coda</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=luncoda</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="per" type="ValueNode" pos-x="20" pos-y="210" width="75" height="45">
+            <documentation>parametro del generatore: periodo medio inter-generazione</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>5</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>5</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=kappa</customprops>
+            <valueType>0</valueType>
+            <forecol-r>255</forecol-r>
+        </node>
+        <node name="per1" type="ValueNode" pos-x="290" pos-y="70" width="75" height="45">
+            <documentation>parametro del server: tempo (deterministico) necessario per gestire un singolo evento</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>10</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>10</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=kappa</customprops>
+            <valueType>0</valueType>
+            <forecol-r>255</forecol-r>
+        </node>
+        <node name="per2" type="ValueNode" pos-x="290" pos-y="200" width="75" height="45">
+            <documentation>parametro del server: tempo (deterministico) necessario per gestire un singolo evento</documentation>
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>15</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>15</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>0</backcol-b>
+            <customprops>Name=kappa</customprops>
+            <valueType>0</valueType>
+            <forecol-r>255</forecol-r>
+        </node>
+        <node name="sub_coda" type="ModelNode" pos-x="130" pos-y="130" width="75" height="45">
+            <subvisible>false</subvisible>
+            <systemName>coda.stg</systemName>
+            <superExpression1>sub_distrib.preleva</superExpression1>
+            <documentation/>
+            <superExpression0>sub_generatore.gen</superExpression0>
+            <forecol-g>0</forecol-g>
+            <backcol-r>255</backcol-r>
+            <forecol-b>0</forecol-b>
+            <backcol-g>255</backcol-g>
+            <subVarNames>in,out</subVarNames>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=coda</customprops>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="sub_distrib" type="ModelNode" pos-x="260" pos-y="130" width="75" height="45">
+            <subvisible>false</subvisible>
+            <systemName>distributore.stg</systemName>
+            <superExpression2>sub_server2.disponibile</superExpression2>
+            <superExpression1>sub_server1.disponibile</superExpression1>
+            <documentation/>
+            <superExpression0>sub_coda.coda</superExpression0>
+            <forecol-g>0</forecol-g>
+            <backcol-r>255</backcol-r>
+            <forecol-b>0</forecol-b>
+            <backcol-g>255</backcol-g>
+            <subVarNames>codaIn,disp1,disp2</subVarNames>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=distributore</customprops>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="sub_generatore" type="ModelNode" pos-x="20" pos-y="130" width="75" height="45">
+            <subvisible>false</subvisible>
+            <superExpression0>per</superExpression0>
+            <forecol-b>0</forecol-b>
+            <forecol-r>0</forecol-r>
+            <systemName>generatore.stg</systemName>
+            <backcol-g>255</backcol-g>
+            <customprops>Name=generatore</customprops>
+            <backcol-b>255</backcol-b>
+            <backcol-r>255</backcol-r>
+            <forecol-g>0</forecol-g>
+            <subVarNames>periodo</subVarNames>
+            <documentation/>
+        </node>
+        <node name="sub_server1" type="ModelNode" pos-x="380" pos-y="70" width="75" height="45">
+            <subvisible>false</subvisible>
+            <systemName>server.stg</systemName>
+            <superExpression1>per1</superExpression1>
+            <documentation/>
+            <superExpression0>sub_distrib.out1</superExpression0>
+            <forecol-g>0</forecol-g>
+            <backcol-r>255</backcol-r>
+            <forecol-b>0</forecol-b>
+            <backcol-g>255</backcol-g>
+            <subVarNames>codaIn,periodo</subVarNames>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=server</customprops>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="sub_server2" type="ModelNode" pos-x="380" pos-y="200" width="75" height="45">
+            <subvisible>false</subvisible>
+            <systemName>server.stg</systemName>
+            <superExpression1>per2</superExpression1>
+            <documentation/>
+            <superExpression0>sub_distrib.out2</superExpression0>
+            <forecol-g>0</forecol-g>
+            <backcol-r>255</backcol-r>
+            <forecol-b>0</forecol-b>
+            <backcol-g>255</backcol-g>
+            <subVarNames>codaIn,periodo</subVarNames>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=server</customprops>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="20" pos-y="10" width="361" height="41" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;font size=&quot;4&quot;&gt;Sistema pi&amp;#249; sofisticato gen-coda-distrib-2srv(parall)&lt;/font&gt;     &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;(vedi la documentazione per ogni sottomodello)&lt;/small&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="per1" target="sub_server1" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="47.5" p0y="362.5" p1x="157.5" p1y="362.5" numpoints="2"/>
+        <edge source="sub_generatore" target="eventiIn" label="(...)" p0x="157.5" p0y="122.5" p1x="277.5" p1y="122.5" numpoints="2"/>
+        <edge source="sub_server1" target="eventiOut1" label="(...)" p0x="157.5" p0y="362.5" p1x="277.5" p1y="362.5" numpoints="2"/>
+        <edge source="per" target="sub_generatore" label="(...)" p0x="57.5" p0y="232.5" p1x="57.5" p1y="152.5" numpoints="2"/>
+        <edge source="sub_coda" target="luncoda" label="(...)" p0x="157.5" p0y="232.5" p1x="277.5" p1y="182.5" numpoints="2"/>
+        <edge source="sub_generatore" target="sub_coda" label="(...)" p0x="157.5" p0y="122.5" p1x="157.5" p1y="232.5" numpoints="2"/>
+        <edge source="sub_coda" target="sub_distrib" label="(...)"/>
+        <edge source="sub_distrib" target="sub_server1" label="(...)"/>
+        <edge source="sub_distrib" target="sub_coda" label="(...)"/>
+        <edge source="sub_distrib" target="sub_server2" label="(...)"/>
+        <edge source="per2" target="sub_server2" label="(...)"/>
+        <edge source="sub_server2" target="eventiOut2" label="(...)"/>
+        <edge source="sub_server1" target="sub_distrib" label="(...)"/>
+        <edge source="sub_server2" target="sub_distrib" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="10" pos-y="320" width="310" height="140">
+            <title>Eventi IN</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>eventiIn</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="630" pos-y="370" width="310" height="150">
+            <title>Server 2</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>eventiOut2</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="630" pos-y="220" width="310" height="150">
+            <title>Server 1</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>eventiOut1</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="320" pos-y="320" width="310" height="140">
+            <title>Lunghezza Coda</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>luncoda</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

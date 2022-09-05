@@ -1,0 +1,53 @@
+<stgraph class="STGraph.decoder" version="STGraph build 21.10">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="1.0" maxSteps="1" batchSteps="1" width="1092" height="575" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="gen" type="ValueNode" pos-x="260" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Genera eventi booleani, secondo una distribuzione statistica esponenziale con parametro periodo medio inter-generazione di eventi dato.
+La variabile di stato opera come un countdown: ogni volta che il valore arriva a zero si genera un evento, e quindi si rende disponibile una nuova entit&#xe0;, e si rivaluta la distribuzione.</documentation>
+            <isOut>true</isOut>
+            <fStateInit>round(exponential([1/periodo]),0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>this==0</fExpression>
+            <fStateTrans>if(this==0,round(exponential([1/periodo]),0),this-1)</fStateTrans>
+            <expression>this==0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>round(exponential([1/periodo]),0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(this==0,round(exponential([1/periodo]),0),this-1)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=generatore di eventi</customprops>
+            <valueType>2</valueType>
+        </node>
+        <node name="periodo" type="ValueNode" pos-x="150" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <documentation>Parametro della distribuzione esponenziale: periodo medio inter-generazione di eventi (1/lambda)
+[default: 2].</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>2</fExpression>
+            <fStateTrans/>
+            <expression>2</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=periodo inter-eventi</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="periodo" target="gen" label="(...)" p0x="187.5" p0y="112.5" p1x="297.5" p1y="112.5" numpoints="2"/>
+    </edges>
+    <widgets/>
+    <groups/>
+    <reports/>
+</stgraph>

@@ -1,0 +1,328 @@
+<stgraph class="STGraph.decoder" version="STGraph build 21.10">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="1.0" maxSteps="1" batchSteps="1" width="1092" height="789" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="coda" type="ValueNode" pos-x="130" pos-y="190" width="75" height="55">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Numero di eventi in coda
+(implementazione come accumulatore).</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>#this</fExpression>
+            <fStateTrans>pos(this+gen-(srv==kappa))</fStateTrans>
+            <expression>#this</expression>
+            <iconfile>coda.png</iconfile>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>pos(this+gen-(srv==kappa))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=coda</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="gen" type="ValueNode" pos-x="130" pos-y="70" width="75" height="65">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Genera eventi booleani, secondo una distribuzione esponenziale negativa con parametro lambda (nota che il parametro va specificato come frequenza, dunque 1/lambda).
+La variabile di stato opera come un countdown: ogni volta che il valore arriva a zero si genera un evento, e quindi si rende disponibile un nuovo evento rivalutando la distribuzione.</documentation>
+            <isOut>true</isOut>
+            <fStateInit>round(exponential([1/lambda]),0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>this==0</fExpression>
+            <fStateTrans>if(this==0,round(exponential([1/lambda]),0),this-1)</fStateTrans>
+            <expression>this==0</expression>
+            <iconfile>generatore.png</iconfile>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>round(exponential([1/lambda]),0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(this==0,round(exponential([1/lambda]),0),this-1)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=generatore di eventi</customprops>
+            <valueType>2</valueType>
+        </node>
+        <node name="kappa" type="ValueNode" pos-x="20" pos-y="330" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <documentation>Parametro del server: tempo (deterministico, in questo caso) necessario per gestire un singolo evento.</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>5</fExpression>
+            <fStateTrans/>
+            <expression>5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=kappa</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="lambda" type="ValueNode" pos-x="20" pos-y="80" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <documentation>Parametro del generatore: periodo medio inter-generazione.</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>10</fExpression>
+            <fStateTrans/>
+            <expression>10</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=lambda</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="out" type="ValueNode" pos-x="240" pos-y="330" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Evento in uscita
+(se il server era occupato e ora &#xe8; libero).</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>srv==0&amp;&amp;srv_prec&gt;0</fExpression>
+            <fStateTrans/>
+            <expression>srv==0&amp;&amp;srv_prec&gt;0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=out</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="perc_occ" type="ValueNode" pos-x="200" pos-y="240" width="115" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Percentuale di occupazione di tempo del server
+(un possibile KPI del sistema).</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>100*this/(time+1)</fExpression>
+            <fStateTrans>if(srv&gt;0,this+1,this)</fStateTrans>
+            <expression>100*this/(time+1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(srv&gt;0,this+1,this)</stateTrans>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=tasso_occ</customprops>
+            <valueType>2</valueType>
+        </node>
+        <node name="srv" type="ValueNode" pos-x="130" pos-y="320" width="75" height="65">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Implementazione basata su questa logica: 
+- se sei disponibile e c&apos;&#xe8; qualcuno in coda, diventa occupato; 
+- altrimenti se sei impegnato e non avevi finito, continua; 
+- altrimenti rimani disponibile. 
+La transizione di stato opera come un countdown: ogni volta che il valore arriva a zero il server diventa disponibile a gestire una nuova entit&#xe0;.</documentation>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>this==kappa</fExpression>
+            <fStateTrans>if(this==0&amp;&amp;coda&gt;0,kappa,this&gt;0,this-1,0)</fStateTrans>
+            <expression>this==kappa</expression>
+            <iconfile>server.png</iconfile>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(this==0&amp;&amp;coda&gt;0,kappa,this&gt;0,this-1,0)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=server</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="srv_prec" type="ValueNode" pos-x="130" pos-y="420" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Ritardatore dello stato del server
+(per stabilire se il server ha completato la gestione di un&apos;evento).</documentation>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>srv</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>srv</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=srvprec</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="40" pos-y="20" width="261" height="41" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       Sistema semplice gen-coda-srv     &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;(vedi la documentazione per ogni variabile)&lt;/small&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="srv" target="perc_occ" label="(...)"/>
+        <edge source="srv_prec" target="out" label="(...)"/>
+        <edge source="srv" target="out" label="(...)"/>
+        <edge source="gen" target="coda" label="(...)" p0x="167.5" p0y="112.5" p1x="167.5" p1y="232.5" numpoints="2"/>
+        <edge source="coda" target="srv" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="167.5" p0y="255.0" p1x="167.5" p1y="340.0" numpoints="2"/>
+        <edge source="kappa" target="srv" label="(...)" p0x="57.5" p0y="362.5" p1x="167.5" p1y="362.5" numpoints="2"/>
+        <edge source="lambda" target="gen" label="(...)" p0x="57.5" p0y="112.5" p1x="167.5" p1y="112.5" numpoints="2"/>
+        <edge source="srv" target="srv_prec" label="(...)"/>
+        <edge source="kappa" target="coda" label="(...)"/>
+        <edge source="srv" target="coda" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="330" pos-y="0" width="610" height="140">
+            <title>eventi in input</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>true</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>gen</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#2</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="330" pos-y="290" width="610" height="150">
+            <title>eventi in output</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>true</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>out</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#2</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="330" pos-y="140" width="610" height="150">
+            <title>lunghezza della coda</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>coda</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="330" pos-y="440" width="610" height="190">
+            <title>percentuale di occupazione del server</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>perc_occ</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

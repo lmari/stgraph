@@ -1,0 +1,359 @@
+<stgraph class="STGraph.decoder" version="STGraph build 21.10">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="1.0" maxSteps="1" batchSteps="1" width="1092" height="789" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="entIn" type="ValueNode" pos-x="240" pos-y="100" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>sub_generatore.gen</fExpression>
+            <fStateTrans/>
+            <expression>sub_generatore.gen</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=entit&#xe0; in ingresso</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="entOut" type="ValueNode" pos-x="240" pos-y="340" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>sub_server.out</fExpression>
+            <fStateTrans/>
+            <expression>sub_server.out</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=entit&#xe0; in uscita</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="kappa" type="ValueNode" pos-x="10" pos-y="340" width="75" height="45">
+            <forecol>255,0,0</forecol>
+            <documentation>parametro del server: tempo (deterministico) necessario per gestire un singolo evento</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>10</fExpression>
+            <fStateTrans/>
+            <expression>10</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=kappa</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="luncoda" type="ValueNode" pos-x="20" pos-y="170" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>sub_coda.coda</fExpression>
+            <expression>sub_coda.coda</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=lunghezza istantanea della coda</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="lunghezzaMassima" type="ValueNode" pos-x="240" pos-y="160" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>sub_coda.lungMax</fExpression>
+            <fStateTrans/>
+            <expression>sub_coda.lungMax</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=lunghezza massima della coda</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="periodo" type="ValueNode" pos-x="10" pos-y="100" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <documentation>parametro del generatore: periodo medio inter-generazione</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>10</fExpression>
+            <fStateTrans/>
+            <expression>10</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=periodo</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="sub_coda" type="ModelNode" pos-x="120" pos-y="210" width="75" height="45">
+            <subvisible>false</subvisible>
+            <superExpression1>sub_server.nuovoevento</superExpression1>
+            <superExpression0>sub_generatore.gen</superExpression0>
+            <format>0.0##</format>
+            <fontcol>0,0,255</fontcol>
+            <systemName>coda.stg</systemName>
+            <forecol>0,0,0</forecol>
+            <customprops>Name=coda</customprops>
+            <backcol>255,255,255</backcol>
+            <font>Serif,12</font>
+            <subVarNames>in,out</subVarNames>
+        </node>
+        <node name="sub_generatore" type="ModelNode" pos-x="120" pos-y="100" width="75" height="45">
+            <subvisible>false</subvisible>
+            <superExpression0>periodo</superExpression0>
+            <format>0.0##</format>
+            <fontcol>0,0,255</fontcol>
+            <systemName>generatore.stg</systemName>
+            <forecol>0,0,0</forecol>
+            <customprops>Name=generatore</customprops>
+            <backcol>255,255,255</backcol>
+            <font>Serif,12</font>
+            <subVarNames>periodo</subVarNames>
+        </node>
+        <node name="sub_server" type="ModelNode" pos-x="120" pos-y="340" width="75" height="45">
+            <subvisible>false</subvisible>
+            <superExpression1>kappa</superExpression1>
+            <superExpression0>sub_coda.coda</superExpression0>
+            <format>0.0##</format>
+            <fontcol>0,0,255</fontcol>
+            <systemName>server.stg</systemName>
+            <forecol>0,0,0</forecol>
+            <customprops>Name=server</customprops>
+            <backcol>255,255,255</backcol>
+            <font>Serif,12</font>
+            <subVarNames>codaIn,periodo</subVarNames>
+        </node>
+        <node name="temcoda" type="ValueNode" pos-x="20" pos-y="230" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>sub_coda.tempiInCoda</fExpression>
+            <expression>sub_coda.tempiInCoda</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=tempi in coda</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tempoMassimo" type="ValueNode" pos-x="240" pos-y="260" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>sub_coda.tempoMax</fExpression>
+            <expression>sub_coda.tempoMax</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=tempo massimo in coda</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tempoMedio" type="ValueNode" pos-x="240" pos-y="210" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>sub_coda.tempoMed</fExpression>
+            <expression>sub_coda.tempoMed</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=tempo medio in coda</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="20" pos-y="30" width="291" height="41" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;font size=&quot;4&quot;&gt;Sistema pi&amp;#249; sofisticato gen-coda-srv&lt;/font&gt;     &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;(vedi la documentazione per ogni sottomodello)&lt;/small&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="sub_coda" target="lunghezzaMassima" label="(...)"/>
+        <edge source="sub_coda" target="tempoMassimo" label="(...)" p0x="157.5" p0y="232.5" p1x="277.5" p1y="302.5" numpoints="2"/>
+        <edge source="sub_coda" target="tempoMedio" label="(...)" p0x="157.5" p0y="232.5" p1x="277.5" p1y="262.5" numpoints="2"/>
+        <edge source="sub_coda" target="temcoda" label="(...)" p0x="157.5" p0y="232.5" p1x="277.5" p1y="222.5" numpoints="2"/>
+        <edge source="sub_generatore" target="sub_coda" label="(...)" p0x="157.5" p0y="122.5" p1x="157.5" p1y="232.5" numpoints="2"/>
+        <edge source="sub_coda" target="luncoda" label="(...)" p0x="157.5" p0y="232.5" p1x="277.5" p1y="182.5" numpoints="2"/>
+        <edge source="sub_coda" target="sub_server" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="157.5" p0y="232.5" p1x="180.0" p1y="300.0" p2x="157.5" p2y="362.5" numpoints="3"/>
+        <edge source="periodo" target="sub_generatore" label="(...)" p0x="47.5" p0y="122.5" p1x="157.5" p1y="122.5" numpoints="2"/>
+        <edge source="sub_server" target="entOut" label="(...)" p0x="157.5" p0y="362.5" p1x="277.5" p1y="362.5" numpoints="2"/>
+        <edge source="sub_server" target="sub_coda" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="157.5" p0y="362.5" p1x="140.0" p1y="300.0" p2x="157.5" p2y="232.5" numpoints="3"/>
+        <edge source="sub_generatore" target="entIn" label="(...)" p0x="157.5" p0y="122.5" p1x="277.5" p1y="122.5" numpoints="2"/>
+        <edge source="kappa" target="sub_server" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="47.5" p0y="362.5" p1x="157.5" p1y="362.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="330" pos-y="0" width="650" height="140">
+            <title>eventi in input</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>true</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>entIn</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#2</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="330" pos-y="280" width="650" height="140">
+            <title>eventi in output</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>true</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>entOut</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#2</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="330" pos-y="140" width="650" height="140">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GREEN</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>luncoda,lunghezzaMassima</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#1,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false,false</showdots>
+            <xsourcena>vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="330" pos-y="420" width="650" height="200">
+            <title>tempo medio in coda</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>tempoMedio</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>
