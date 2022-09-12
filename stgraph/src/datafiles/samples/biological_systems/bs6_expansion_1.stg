@@ -1,0 +1,309 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="1000.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1102" height="685" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Pop0" type="ValueNode" pos-x="140" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Popolazione iniziale</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>set(array([n,n],0),randInt(n),randInt(n),200)</fExpression>
+            <fStateTrans/>
+            <expression>set(array([n,n],0),randInt(n),randInt(n),200)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Pop0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="30" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Ampiezza del territorio</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>15</fExpression>
+            <fStateTrans/>
+            <expression>15</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="new_in" type="ValueNode" pos-x="140" pos-y="380" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if(new_out[$i0+x_mov[$i0,$i1],$i1+y_mov[$i0,$i1]]==1,1,0))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if(new_out[$i0+x_mov[$i0,$i1],$i1+y_mov[$i0,$i1]]==1,1,0))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Azione</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="new_out" type="ValueNode" pos-x="280" pos-y="380" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if(rand()&lt;prob_transf[$i0,$i1],1,0))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if(rand()&lt;prob_transf[$i0,$i1],1,0))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=new_out</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="pop" type="ValueNode" pos-x="140" pos-y="230" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>Pop0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this*(1+(t-t*(this/pop_max)))-new_out*20+new_in*20</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Pop0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this*(1+(t-t*(this/pop_max)))-new_out*20+new_in*20</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Territorio</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="pop_max" type="ValueNode" pos-x="280" pos-y="230" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>POpolazione massima per porzione di territorio</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>2000</fExpression>
+            <fStateTrans/>
+            <expression>2000</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Pmax</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="pop_ts" type="ValueNode" pos-x="280" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>+/+/pop</fExpression>
+            <fStateTrans/>
+            <expression>+/+/pop</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=pop_ts</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="prob_transf" type="ValueNode" pos-x="280" pos-y="310" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Avvenimento o meno del passaggio, con probabilit&#xe0; dentro l&apos;equazione modellizzata come un&apos;esponenziale negativa</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],0.1*rand()*pop[$i0,$i1]/pop_max)</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],0.1*rand()*pop[$i0,$i1]/pop_max)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=pTr</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="t" type="ValueNode" pos-x="30" pos-y="230" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Tasso di crescita della popolazione</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.1</fExpression>
+            <fStateTrans/>
+            <expression>0.1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=t</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="x_mov" type="ValueNode" pos-x="30" pos-y="310" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if($i1==0,if(rand()&gt;0.5,0,1),$i1==n-1,if(rand()&gt;0.5,0,-1),randInt(3)-1))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if($i1==0,if(rand()&gt;0.5,0,1),$i1==n-1,if(rand()&gt;0.5,0,-1),randInt(3)-1))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x_mov</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="y_mov" type="ValueNode" pos-x="30" pos-y="380" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if($i0==0,1,$i0==n-1,-1,if(rand()&gt;0.5,1,-1)))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if($i0==0,1,$i0==n-1,-1,if(rand()&gt;0.5,1,-1)))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=y_mov</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="30" pos-y="10" width="401" height="111" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      A simple model of expansion of a population on a squared area, where the 
+      dynamic of the gpopulation growth in each cell is given by a logistic map
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="pop" target="pop_ts" label="(...)" p0x="177.5" p0y="252.5" p1x="317.5" p1y="172.5" numpoints="2"/>
+        <edge source="pop_max" target="prob_transf" label="(...)" p0x="317.5" p0y="252.5" p1x="317.5" p1y="332.5" numpoints="2"/>
+        <edge source="pop" target="prob_transf" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="177.5" p0y="252.5" p1x="317.5" p1y="332.5" numpoints="2"/>
+        <edge source="new_out" target="pop" label="(...)" p0x="317.5" p0y="402.5" p1x="177.5" p1y="252.5" numpoints="2"/>
+        <edge source="new_in" target="pop" label="(...)" p0x="177.5" p0y="402.5" p1x="177.5" p1y="252.5" numpoints="2"/>
+        <edge source="t" target="pop" label="(...)" p0x="67.5" p0y="252.5" p1x="177.5" p1y="252.5" numpoints="2"/>
+        <edge source="Pop0" target="pop" label="(...)" p0x="177.5" p0y="172.5" p1x="177.5" p1y="252.5" numpoints="2"/>
+        <edge source="pop_max" target="pop" label="(...)" p0x="317.5" p0y="252.5" p1x="177.5" p1y="252.5" numpoints="2"/>
+        <edge source="pop" target="new_in" label="(...)" p0x="177.5" p0y="252.5" p1x="177.5" p1y="402.5" numpoints="2"/>
+        <edge source="x_mov" target="new_in" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="67.5" p0y="332.5" p1x="177.5" p1y="402.5" numpoints="2"/>
+        <edge source="y_mov" target="new_in" label="(...)" p0x="67.5" p0y="402.5" p1x="177.5" p1y="402.5" numpoints="2"/>
+        <edge source="prob_transf" target="new_out" label="(...)" p0x="317.5" p0y="332.5" p1x="317.5" p1y="402.5" numpoints="2"/>
+        <edge source="new_out" target="new_in" label="(...)" p0x="317.5" p0y="402.5" p1x="177.5" p1y="402.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="MatrixViewerWidget" pos-x="480" pos-y="240" width="400" height="300">
+            <autoscalez>true</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>8.0</projelevationangle>
+            <plotcolor>SPECTRUM</plotcolor>
+            <proj2dscaling>15.0</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>107.0</projrotationangle>
+            <displayz>false</displayz>
+            <sourcena>pop</sourcena>
+            <plottype>CONTOUR</plottype>
+            <showtitlebar>true</showtitlebar>
+            <title>pop</title>
+            <boxed>false</boxed>
+        </widget>
+        <widget type="ChartWidget" pos-x="480" pos-y="20" width="400" height="220">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>pop_ts</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

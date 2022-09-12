@@ -1,0 +1,423 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="200.0" timeD="0.1" maxSteps="10" batchSteps="1" width="1301" height="766" scale="1.0" simulationDelay="5" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Par_predat" type="ValueNode" pos-x="430" pos-y="420" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[gaussian([-0.5,0.5*init_variability]),gaussian([0.004,0.004*init_variability])]</fExpression>
+            <fStateTrans/>
+            <expression>[gaussian([-0.5,0.5*init_variability]),gaussian([0.004,0.004*init_variability])]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=c</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Par_prede" type="ValueNode" pos-x="430" pos-y="360" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[gaussian([1,1*init_variability]),gaussian([-0.01,0.01*init_variability])]</fExpression>
+            <fStateTrans/>
+            <expression>[gaussian([1,1*init_variability]),gaussian([-0.01,0.01*init_variability])]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=a</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="init_variability" type="ValueNode" pos-x="210" pos-y="540" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.33</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Variabilita</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="300" pos-y="540" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>19.0</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="neighbours" type="ValueNode" pos-x="210" pos-y="390" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>0</fExpression>
+            <expression>0.4</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="predator_SM" type="ModelNode" pos-x="210" pos-y="480" width="75" height="45">
+            <superExpression2>n</superExpression2>
+            <subvisible>false</subvisible>
+            <superExpression1>neighbours</superExpression1>
+            <superExpression0>predators</superExpression0>
+            <format>0.0##</format>
+            <fontcol>0,0,255</fontcol>
+            <systemName>Sottomodello LVA 2.stg</systemName>
+            <forecol>0,0,0</forecol>
+            <customprops>Name=Predatori_SM</customprops>
+            <backcol>255,255,255</backcol>
+            <font>Serif,12</font>
+            <subVarNames>Input,Vicini,n</subVarNames>
+        </node>
+        <node name="predators" type="ValueNode" pos-x="350" pos-y="480" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array([n,n],gaussian([predators_0,predators_0*init_variability]))</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>max(integral(predator_SM.output*Par_predat[0]+predator_SM.output*Par_predat[1]*prey_SM.output),0)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array([n,n],gaussian([predators_0,predators_0*init_variability]))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>max(integral(predator_SM.output*Par_predat[0]+predator_SM.output*Par_predat[1]*prey_SM.output),0)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Predatori</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="predators_0" type="ValueNode" pos-x="430" pos-y="480" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>19.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Predatore0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="prey_0" type="ValueNode" pos-x="430" pos-y="310" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>170.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Zeri</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="prey_SM" type="ModelNode" pos-x="210" pos-y="310" width="75" height="45">
+            <subvisible>false</subvisible>
+            <superExpression1>n</superExpression1>
+            <superExpression0>preys</superExpression0>
+            <format>0.0##</format>
+            <fontcol>0,0,255</fontcol>
+            <systemName>Sottomodello LVA 2.stg</systemName>
+            <forecol>0,0,0</forecol>
+            <customprops>Name=Prede_SM</customprops>
+            <backcol>255,255,255</backcol>
+            <font>Serif,12</font>
+            <subVarNames>Input,n</subVarNames>
+            <documentation/>
+        </node>
+        <node name="preys" type="ValueNode" pos-x="350" pos-y="310" width="75" height="41">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array([n,n],gaussian([prey_0,prey_0*init_variability]))</fStateInit>
+            <format>0.0##</format>
+            <fExpression>$i0</fExpression>
+            <fStateTrans>max(integral(prey_SM.output*Par_prede[0]+predator_SM.output*Par_prede[1]*prey_SM.output),0)</fStateTrans>
+            <expression>$i0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array([n,n],gaussian([prey_0,prey_0*init_variability]))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>max(integral(prey_SM.output*Par_prede[0]+predator_SM.output*Par_prede[1]*prey_SM.output),0)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Prede</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="tot_predators" type="ValueNode" pos-x="410" pos-y="540" width="101" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>+/+/predators</fExpression>
+            <fStateTrans/>
+            <expression>+/+/predators</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Predatori_66</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tot_preys" type="ValueNode" pos-x="410" pos-y="260" width="111" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>+/+/(preys)</fExpression>
+            <fStateTrans/>
+            <expression>+/+/(preys)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Prede_66</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="0" pos-y="10" width="571" height="211" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;b&gt;Hybrid Lotka-Volterra Model&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font size=&quot;4&quot;&gt;This is an        hybrid implementation of the classic Lotka-Volterra model. The stock of        preys and predators is computed for each cell of the matrix with classic        Lotka-Volterra equations. In addition, preys and predators can migrate        to near cells, so that the stocks of a cell is affected also by the        values of the others.&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font size=&quot;4&quot;&gt;The weight of the        migration is given by the input neighbour, while the input        init_variability assess the initial difference in the stocks for each        cell: can you understand their effects on the dynamic of the model?&lt;/font&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="predator_SM" target="preys" label="(...)" p0x="247.5" p0y="502.5" p1x="387.5" p1y="330.5" numpoints="2"/>
+        <edge source="prey_SM" target="predators" label="(...)" p0x="247.5" p0y="332.5" p1x="387.5" p1y="502.5" numpoints="2"/>
+        <edge source="preys" target="prey_SM" label="(...)" p0x="387.5" p0y="330.5" p1x="247.5" p1y="332.5" numpoints="2"/>
+        <edge source="predators" target="predator_SM" label="(...)" p0x="387.5" p0y="502.5" p1x="247.5" p1y="502.5" numpoints="2"/>
+        <edge source="predators" target="tot_predators" label="(...)" p0x="387.5" p0y="502.5" p1x="460.5" p1y="562.5" numpoints="2"/>
+        <edge source="preys" target="tot_preys" label="(...)" p0x="387.5" p0y="330.5" p1x="395.5" p1y="262.5" numpoints="2"/>
+        <edge source="Par_prede" target="preys" label="(...)" p0x="467.5" p0y="382.5" p1x="387.5" p1y="330.5" numpoints="2"/>
+        <edge source="Par_predat" target="predators" label="(...)" p0x="467.5" p0y="442.5" p1x="387.5" p1y="502.5" numpoints="2"/>
+        <edge source="preys" target="predators" label="(...)" p0x="387.5" p0y="330.5" p1x="387.5" p1y="502.5" numpoints="2"/>
+        <edge source="predators" target="preys" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="387.5" p0y="502.5" p1x="387.5" p1y="330.5" numpoints="2"/>
+        <edge source="prey_SM" target="preys" label="(...)" p0x="247.5" p0y="332.5" p1x="387.5" p1y="330.5" numpoints="2"/>
+        <edge source="predator_SM" target="predators" label="(...)" p0x="247.5" p0y="502.5" p1x="387.5" p1y="502.5" numpoints="2"/>
+        <edge source="neighbours" target="prey_SM" label="(...)" p0x="247.5" p0y="412.5" p1x="247.5" p1y="332.5" numpoints="2"/>
+        <edge source="neighbours" target="predator_SM" label="(...)" p0x="247.5" p0y="412.5" p1x="247.5" p1y="502.5" numpoints="2"/>
+        <edge source="prey_0" target="preys" label="(...)" p0x="467.5" p0y="332.5" p1x="387.5" p1y="330.5" numpoints="2"/>
+        <edge source="predators_0" target="predators" label="(...)" p0x="467.5" p0y="502.5" p1x="387.5" p1y="502.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="880" pos-y="20" width="370" height="220">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GREEN</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>tot_predators,tot_preys</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#1,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false,false</showdots>
+            <xsourcena>vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false</dotslastonly>
+        </widget>
+        <widget type="MatrixViewerWidget" pos-x="530" pos-y="270" width="370" height="320">
+            <autoscalez>true</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>10.0</projelevationangle>
+            <plotcolor>SPECTRUM</plotcolor>
+            <proj2dscaling>15.0</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>125.0</projrotationangle>
+            <displayz>false</displayz>
+            <sourcena>predators</sourcena>
+            <plottype>CONTOUR</plottype>
+            <showtitlebar>true</showtitlebar>
+            <title>predators</title>
+            <boxed>false</boxed>
+        </widget>
+        <widget type="MatrixViewerWidget" pos-x="900" pos-y="270" width="350" height="330">
+            <autoscalez>false</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>10.0</projelevationangle>
+            <plotcolor>SPECTRUM</plotcolor>
+            <proj2dscaling>15.0</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>124.0</projrotationangle>
+            <displayz>false</displayz>
+            <sourcena>preys</sourcena>
+            <plottype>CONTOUR</plottype>
+            <showtitlebar>true</showtitlebar>
+            <title>preys</title>
+            <boxed>true</boxed>
+        </widget>
+        <widget type="SliderWidget" pos-x="0" pos-y="480" width="200" height="70">
+            <0>0</0>
+            <widgetvalue>0.4</widgetvalue>
+            <max>0.99</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>neighbours</source>
+            <delta>0.01</delta>
+            <iconized>false</iconized>
+            <title>neighbours: 0.4</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="630" pos-y="20" width="250" height="220">
+            <title/>
+            <dotscolors>__BLUE</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>tot_preys</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#3</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>tot_predators</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+        <widget type="SliderWidget" pos-x="0" pos-y="400" width="200" height="80">
+            <0>0</0>
+            <widgetvalue>0.33</widgetvalue>
+            <max>1.0</max>
+            <min>0.01</min>
+            <showtitlebar>true</showtitlebar>
+            <source>init_variability</source>
+            <delta>0.01</delta>
+            <iconized>false</iconized>
+            <title>init_variability: 0.33</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="0" pos-y="550" width="200" height="70">
+            <0>0</0>
+            <widgetvalue>19.0</widgetvalue>
+            <max>100.0</max>
+            <min>5.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>n</source>
+            <delta>1.0</delta>
+            <iconized>false</iconized>
+            <title>n: 19.0</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="0" pos-y="330" width="200" height="70">
+            <0>0</0>
+            <widgetvalue>19.0</widgetvalue>
+            <max>1000.0</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>predators_0</source>
+            <delta>1.0</delta>
+            <iconized>false</iconized>
+            <title>predators_0: 19.0</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="0" pos-y="260" width="200" height="70">
+            <0>0</0>
+            <widgetvalue>170.0</widgetvalue>
+            <max>1000.0</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>prey_0</source>
+            <delta>1.0</delta>
+            <iconized>false</iconized>
+            <title>prey_0: 170.0</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

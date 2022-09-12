@@ -1,0 +1,547 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1280" height="723" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="C" type="ValueNode" pos-x="780" pos-y="180" width="41" height="31">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Matrice che contiene il consumo per periodo di erba di ciascuna tartaruga</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if($i0==T[0,0]&amp;&amp;$i1==T[0,1],tc,0))+array([n,n],if($i0==T[1,0]&amp;&amp;$i1==T[1,1]&amp;&amp;m&gt;1,tc,0))+array([n,n],if($i0==T[2,0]&amp;&amp;$i1==T[2,1]&amp;&amp;m&gt;2,tc,0))+array([n,n],if($i0==T[3,0]&amp;&amp;$i1==T[3,1]&amp;&amp;m&gt;3,tc,0))+array([n,n],if($i0==T[4,0]&amp;&amp;$i1==T[4,1]&amp;&amp;m&gt;4,tc,0))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if($i0==T[0,0]&amp;&amp;$i1==T[0,1],tc,0))+array([n,n],if($i0==T[1,0]&amp;&amp;$i1==T[1,1]&amp;&amp;m&gt;1,tc,0))+array([n,n],if($i0==T[2,0]&amp;&amp;$i1==T[2,1]&amp;&amp;m&gt;2,tc,0))+array([n,n],if($i0==T[3,0]&amp;&amp;$i1==T[3,1]&amp;&amp;m&gt;3,tc,0))+array([n,n],if($i0==T[4,0]&amp;&amp;$i1==T[4,1]&amp;&amp;m&gt;4,tc,0))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=C</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="P" type="ValueNode" pos-x="880" pos-y="170" width="131" height="65">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Livello dell&apos;erba nel giardino</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array([n,n],1)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>min(max(this-C+this*tcr,0),1)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array([n,n],1)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>min(max(this-C+this*tcr,0),1)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=P</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="PD" type="ValueNode" pos-x="610" pos-y="250" width="41" height="31">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Vettore di vettori che contiene il valore di Prato per tutte le quattro caselle adiacenti alla tartaruga</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[[P[T[0,0],(T[0,1]-1)],P[(T[0,0]-1),T[0,1]],P[T[0,0],(T[0,1]+1)],P[T[0,0]+1,T[0,1]]],if(m&gt;1,[P[T[1,0],(T[1,1]-1)],P[(T[1,0]-1),T[1,1]],P[T[1,0],(T[1,1]+1)],P[T[1,0]+1,T[1,1]]],array(4,0)),if(m&gt;2,[P[T[2,0],(T[2,1]-1)],P[(T[2,0]-1),T[2,1]],P[T[2,0],(T[2,1]+1)],P[T[2,0]+1,T[2,1]]],array(4,0)),if(m&gt;3,[P[T[3,0],(T[3,1]-1)],P[(T[3,0]-1),T[3,1]],P[T[3,0],(T[3,1]+1)],P[T[3,0]+1,T[3,1]]],array(4,0)),if(m&gt;4,[P[T[4,0],(T[4,1]-1)],P[(T[4,0]-1),T[4,1]],P[T[4,0],(T[4,1]+1)],P[T[4,0]+1,T[4,1]]],array(4,0))]</fExpression>
+            <fStateTrans/>
+            <expression>[[P[T[0,0],(T[0,1]-1)],P[(T[0,0]-1),T[0,1]],P[T[0,0],(T[0,1]+1)],P[T[0,0]+1,T[0,1]]],if(m&gt;1,[P[T[1,0],(T[1,1]-1)],P[(T[1,0]-1),T[1,1]],P[T[1,0],(T[1,1]+1)],P[T[1,0]+1,T[1,1]]],array(4,0)),if(m&gt;2,[P[T[2,0],(T[2,1]-1)],P[(T[2,0]-1),T[2,1]],P[T[2,0],(T[2,1]+1)],P[T[2,0]+1,T[2,1]]],array(4,0)),if(m&gt;3,[P[T[3,0],(T[3,1]-1)],P[(T[3,0]-1),T[3,1]],P[T[3,0],(T[3,1]+1)],P[T[3,0]+1,T[3,1]]],array(4,0)),if(m&gt;4,[P[T[4,0],(T[4,1]-1)],P[(T[4,0]-1),T[4,1]],P[T[4,0],(T[4,1]+1)],P[T[4,0]+1,T[4,1]]],array(4,0))]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=PD</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="PD1" type="ValueNode" pos-x="610" pos-y="310" width="41" height="35">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Probabilit&#xe0; per ciascuna casella adiacente a ciascuna tartaruga che la tartaruga vi si trasferisca.</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[(PD[0]/PV[0]),if(m&gt;1,(PD[1]/PV[1]),array(4,0)),if(m&gt;2,(PD[2]/PV[2]),array(4,0)),if(m&gt;3,(PD[3]/PV[3]),array(4,0)),if(m&gt;4,(PD[4]/PV[4]),array(4,0))]</fExpression>
+            <fStateTrans/>
+            <expression>[(PD[0]/PV[0]),if(m&gt;1,(PD[1]/PV[1]),array(4,0)),if(m&gt;2,(PD[2]/PV[2]),array(4,0)),if(m&gt;3,(PD[3]/PV[3]),array(4,0)),if(m&gt;4,(PD[4]/PV[4]),array(4,0))]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=PD1</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="PM" type="ValueNode" pos-x="760" pos-y="90" width="51" height="41">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Probabilit&#xe0; che una tartaruga decida di spostarsi dalla propria posizione</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[if(P[T[0,0],T[0,1]]&lt;g[0],[1,1],[0,0]),if(m&gt;1,if(P[T[1,0],T[1,1]]&lt;g[1],[1,1],[0,0]),[-1,-1]),if(m&gt;2,if(P[T[2,0],T[2,1]]&lt;g[2],[1,1],[0,0]),[-1,-1]),if(m&gt;3,if(P[T[3,0],T[3,1]]&lt;g[3],[1,1],[0,0]),[-1,-1]),if(m&gt;4,if(P[T[4,0],T[4,1]]&lt;g[4],[1,1],[0,0]),[-1-1])]</fExpression>
+            <fStateTrans/>
+            <expression>[if(P[T[0,0],T[0,1]]&lt;g[0],[1,1],[0,0]),if(m&gt;1,if(P[T[1,0],T[1,1]]&lt;g[1],[1,1],[0,0]),[-1,-1]),if(m&gt;2,if(P[T[2,0],T[2,1]]&lt;g[2],[1,1],[0,0]),[-1,-1]),if(m&gt;3,if(P[T[3,0],T[3,1]]&lt;g[3],[1,1],[0,0]),[-1,-1]),if(m&gt;4,if(P[T[4,0],T[4,1]]&lt;g[4],[1,1],[0,0]),[-1-1])]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=PM</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="PM2" type="ValueNode" pos-x="600" pos-y="80" width="51" height="41">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Probabilit&#xe0; che una tartaruga si muova dalla propria posizione</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>transpose((transpose(PM)##(5-m)))</fExpression>
+            <fStateTrans/>
+            <expression>transpose((transpose(PM)##(5-m)))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=PM2</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="PV" type="ValueNode" pos-x="930" pos-y="310" width="41" height="35">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Vettore contenente la somma della quantrit&#xe0; d&apos;erba vicino ad ogni tartaruga.</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>(P[T[0,0],(T[0,1]-1)]+P[(T[0,0]-1),T[0,1]]+P[T[0,0],(T[0,1]+1)]+P[T[0,0]+1,T[0,1]])#if(m&gt;1,P[T[1,0],(T[1,1]-1)]+P[(T[1,0]-1),T[1,1]]+P[T[1,0],(T[1,1]+1)]+P[T[1,0]+1,T[1,1]],array(0,0))#if(m&gt;2,P[T[2,0],(T[2,1]-1)]+P[(T[2,0]-1),T[2,1]]+P[T[2,0],(T[2,1]+1)]+P[T[2,0]+1,T[2,1]],array(0,0))#if(m&gt;3,P[T[3,0],(T[3,1]-1)]+P[(T[3,0]-1),T[3,1]]+P[T[3,0],(T[3,1]+1)]+P[T[3,0]+1,T[3,1]],array(0,0))#if(m&gt;4,P[T[4,0],(T[4,1]-1)]+P[(T[4,0]-1),T[4,1]]+P[T[4,0],(T[4,1]+1)]+P[T[4,0]+1,T[4,1]],array(0,0))</fExpression>
+            <fStateTrans/>
+            <expression>(P[T[0,0],(T[0,1]-1)]+P[(T[0,0]-1),T[0,1]]+P[T[0,0],(T[0,1]+1)]+P[T[0,0]+1,T[0,1]])#if(m&gt;1,P[T[1,0],(T[1,1]-1)]+P[(T[1,0]-1),T[1,1]]+P[T[1,0],(T[1,1]+1)]+P[T[1,0]+1,T[1,1]],array(0,0))#if(m&gt;2,P[T[2,0],(T[2,1]-1)]+P[(T[2,0]-1),T[2,1]]+P[T[2,0],(T[2,1]+1)]+P[T[2,0]+1,T[2,1]],array(0,0))#if(m&gt;3,P[T[3,0],(T[3,1]-1)]+P[(T[3,0]-1),T[3,1]]+P[T[3,0],(T[3,1]+1)]+P[T[3,0]+1,T[3,1]],array(0,0))#if(m&gt;4,P[T[4,0],(T[4,1]-1)]+P[(T[4,0]-1),T[4,1]]+P[T[4,0],(T[4,1]+1)]+P[T[4,0]+1,T[4,1]],array(0,0))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=PV</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="S" type="ValueNode" pos-x="490" pos-y="310" width="41" height="35">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Direzione verso la quale la tartaruga si sposta, se si sposta</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[if(PD1[0,0]&gt;r[0],1,PD1[0,1]+PD1[0,0]&gt;r[0],2,PD1[0,2]+PD1[0,1]+PD1[0,0]&gt;r[0],3,4),if(PD1[1,0]&gt;r[1],1,PD1[1,1]+PD1[1,0]&gt;r[1],2,PD1[1,2]+PD1[1,1]+PD1[1,0]&gt;r[1],3,4),if(PD1[2,0]&gt;r[2],1,PD1[2,1]+PD1[2,0]&gt;r[2],2,PD1[2,2]+PD1[2,1]+PD1[2,0]&gt;r[2],3,4),if(PD1[3,0]&gt;r[3],1,PD1[3,1]+PD1[3,0]&gt;r[3],2,PD1[3,2]+PD1[3,1]+PD1[3,0]&gt;r[3],3,4),if(PD1[4,0]&gt;r[4],1,PD1[4,1]+PD1[4,0]&gt;r[4],2,PD1[4,2]+PD1[4,1]+PD1[4,0]&gt;r[4],3,4)]</fExpression>
+            <fStateTrans/>
+            <expression>[if(PD1[0,0]&gt;r[0],1,PD1[0,1]+PD1[0,0]&gt;r[0],2,PD1[0,2]+PD1[0,1]+PD1[0,0]&gt;r[0],3,4),if(PD1[1,0]&gt;r[1],1,PD1[1,1]+PD1[1,0]&gt;r[1],2,PD1[1,2]+PD1[1,1]+PD1[1,0]&gt;r[1],3,4),if(PD1[2,0]&gt;r[2],1,PD1[2,1]+PD1[2,0]&gt;r[2],2,PD1[2,2]+PD1[2,1]+PD1[2,0]&gt;r[2],3,4),if(PD1[3,0]&gt;r[3],1,PD1[3,1]+PD1[3,0]&gt;r[3],2,PD1[3,2]+PD1[3,1]+PD1[3,0]&gt;r[3],3,4),if(PD1[4,0]&gt;r[4],1,PD1[4,1]+PD1[4,0]&gt;r[4],2,PD1[4,2]+PD1[4,1]+PD1[4,0]&gt;r[4],3,4)]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=S</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="S1" type="ValueNode" pos-x="490" pos-y="250" width="45" height="35">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Direzione verso la quale la tartaruga si sposta, se si sposta</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[if(S[0]==0,[0,0],S[0]==1,[0,-1],S[0]==2,[1,0],S[0]==3,[0,1],[-1,0]),if(S[1]==0,[0,0],S[1]==1,[0,-1],S[1]==2,[1,0],S[1]==3,[0,1],[-1,0]),if(S[2]==0,[0,0],S[2]==1,[0,-1],S[2]==2,[1,0],S[2]==3,[0,1],[-1,0]),if(S[3]==0,[0,0],S[3]==1,[0,-1],S[3]==2,[1,0],S[3]==3,[0,1],[-1,0]),if(S[4]==0,[0,0],S[4]==1,[0,-1],S[4]==2,[1,0],S[4]==3,[0,1],[-1,0])]</fExpression>
+            <fStateTrans/>
+            <expression>[if(S[0]==0,[0,0],S[0]==1,[0,-1],S[0]==2,[1,0],S[0]==3,[0,1],[-1,0]),if(S[1]==0,[0,0],S[1]==1,[0,-1],S[1]==2,[1,0],S[1]==3,[0,1],[-1,0]),if(S[2]==0,[0,0],S[2]==1,[0,-1],S[2]==2,[1,0],S[2]==3,[0,1],[-1,0]),if(S[3]==0,[0,0],S[3]==1,[0,-1],S[3]==2,[1,0],S[3]==3,[0,1],[-1,0]),if(S[4]==0,[0,0],S[4]==1,[0,-1],S[4]==2,[1,0],S[4]==3,[0,1],[-1,0])]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=S1</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="S2" type="ValueNode" pos-x="490" pos-y="170" width="51" height="41">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Direzione verso la quale la tartaruga si sposta, se si sposta</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>transpose((transpose(S1))##(5-m))</fExpression>
+            <fStateTrans/>
+            <expression>transpose((transpose(S1))##(5-m))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Spost</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="T" type="ValueNode" pos-x="570" pos-y="160" width="121" height="61">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Posizione delle tartarughe</documentation>
+            <isOut>true</isOut>
+            <fStateInit>T0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>min(max(this+S2*PM2,2),18)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>T0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>min(max(this+S2*PM2,2),18)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=T</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="T0" type="ValueNode" pos-x="550" pos-y="90" width="31" height="25">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Posizione iniziale delle tartarughe</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([m,2],randInt(n-3)+2)</fExpression>
+            <fStateTrans/>
+            <expression>array([m,2],randInt(n-3)+2)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=T0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="g" type="ValueNode" pos-x="780" pos-y="30" width="35" height="25">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Vettore di numeri casuali presi da una gaussiana di media ts e varianza vs</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(4,iter(ts2,gaussian([ts2[$i0],vs]),3))</fExpression>
+            <fStateTrans/>
+            <expression>array(4,iter(ts2,gaussian([ts2[$i0],vs]),3))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=g</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="m" type="ValueNode" pos-x="610" pos-y="20" width="41" height="41">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Numero di tartarughe</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>64,64,64</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="540" pos-y="20" width="41" height="41">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Ampiezza del giardino</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>20</fExpression>
+            <fStateTrans/>
+            <expression>20</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>64,64,64</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="r" type="ValueNode" pos-x="560" pos-y="250" width="31" height="31">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Vettore di numeri random</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(5,rand())</fExpression>
+            <fStateTrans/>
+            <expression>array(5,rand())</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=r</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tc" type="ValueNode" pos-x="780" pos-y="140" width="31" height="21">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Tasso di consumo dell&apos;erba per ciascuna tartaruga</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=tc</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tcr" type="ValueNode" pos-x="930" pos-y="110" width="31" height="25">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Tasso di crescita dell&apos;erba</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=t_crescita</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="ts" type="ValueNode" pos-x="940" pos-y="30" width="25" height="25">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=ts</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="ts2" type="ValueNode" pos-x="860" pos-y="30" width="41" height="25">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(5,ts)</fExpression>
+            <fStateTrans/>
+            <expression>array(5,ts)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=ts2</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="vs" type="ValueNode" pos-x="690" pos-y="30" width="35" height="25">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Varianza della possibilit&#xe0; di spostamento</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=vs</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="10" pos-y="20" width="301" height="351" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;b&gt;Turtles in the garden&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;small&gt;&lt;font size=&quot;4&quot;&gt;The model        implements m turtles that move on a squared garden of size n, divided in        n^2 squared patches. The turtles eat the grass (matrix P) at a rate tc.        The grass regenerate at rate tcr. Ts and Vs stands for the mean and        standard deviation of the moving rate of each turtle from a patch. &lt;/font&gt;&lt;/small&gt;&lt;br&gt;&lt;font size=&quot;4&quot;&gt;&lt;br&gt;In        this model, each agent is a given row of the matrix T.&lt;/font&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="vs" target="g" label="(...)" p0x="707.5" p0y="42.5" p1x="797.5" p1y="42.5" numpoints="2"/>
+        <edge source="ts2" target="g" label="(...)" p0x="877.5" p0y="42.5" p1x="797.5" p1y="42.5" numpoints="2"/>
+        <edge source="ts" target="ts2" label="(...)" p0x="952.5" p0y="42.5" p1x="877.5" p1y="42.5" numpoints="2"/>
+        <edge source="g" target="PM" label="(...)" p0x="797.5" p0y="42.5" p1x="795.5" p1y="100.5" numpoints="2"/>
+        <edge source="PM2" target="T" label="(...)" p0x="625.5" p0y="100.5" p1x="630.5" p1y="190.5" numpoints="2"/>
+        <edge source="PM" target="PM2" label="(...)" p0x="795.5" p0y="100.5" p1x="625.5" p1y="100.5" numpoints="2"/>
+        <edge source="T" target="PM" label="(...)" p0x="630.5" p0y="190.5" p1x="795.5" p1y="100.5" numpoints="2"/>
+        <edge source="PD1" target="S" label="(...)" p0x="630.5" p0y="327.5" p1x="510.5" p1y="327.5" numpoints="2"/>
+        <edge source="r" target="S" label="(...)" p0x="575.5" p0y="275.5" p1x="510.5" p1y="327.5" numpoints="2"/>
+        <edge source="PV" target="PD1" label="(...)" p0x="950.5" p0y="317.5" p1x="630.5" p1y="327.5" numpoints="2"/>
+        <edge source="PD" target="PD1" label="(...)" p0x="630.5" p0y="265.5" p1x="630.5" p1y="327.5" numpoints="2"/>
+        <edge source="T0" target="T" label="(...)" p0x="565.5" p0y="102.5" p1x="630.5" p1y="190.5" numpoints="2"/>
+        <edge source="S2" target="T" label="(...)" p0x="515.5" p0y="190.5" p1x="630.5" p1y="190.5" numpoints="2"/>
+        <edge source="P" target="PD" label="(...)" p0x="945.5" p0y="202.5" p1x="630.5" p1y="265.5" numpoints="2"/>
+        <edge source="T" target="PD" label="(...)" p0x="630.5" p0y="190.5" p1x="630.5" p1y="265.5" numpoints="2"/>
+        <edge source="P" target="PV" label="(...)" p0x="945.5" p0y="202.5" p1x="950.5" p1y="317.5" numpoints="2"/>
+        <edge source="T" target="PV" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="630.5" p0y="190.5" p1x="950.5" p1y="317.5" numpoints="2"/>
+        <edge source="T" target="C" label="(...)" p0x="630.5" p0y="190.5" p1x="800.5" p1y="195.5" numpoints="2"/>
+        <edge source="C" target="P" label="(...)" p0x="800.5" p0y="195.5" p1x="945.5" p1y="202.5" numpoints="2"/>
+        <edge source="P" target="PM" label="(...)" p0x="945.5" p0y="202.5" p1x="795.5" p1y="100.5" numpoints="2"/>
+        <edge source="tcr" target="P" label="(...)" p0x="945.5" p0y="122.5" p1x="945.5" p1y="202.5" numpoints="2"/>
+        <edge source="tc" target="C" label="(...)" p0x="795.5" p0y="150.5" p1x="800.5" p1y="195.5" numpoints="2"/>
+        <edge source="S" target="S1" label="(...)" p0x="510.5" p0y="327.5" p1x="512.5" p1y="257.5" numpoints="2"/>
+        <edge source="S1" target="S2" label="(...)" p0x="512.5" p0y="257.5" p1x="515.5" p1y="190.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="SliderWidget" pos-x="1060" pos-y="0" width="200" height="70">
+            <0>0</0>
+            <widgetvalue>4.0</widgetvalue>
+            <max>4.0</max>
+            <min>1.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>m</source>
+            <delta>1.0</delta>
+            <iconized>false</iconized>
+            <title>m: 4.0</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="1060" pos-y="140" width="200" height="70">
+            <0>0</0>
+            <widgetvalue>0.047</widgetvalue>
+            <max>0.2</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>tcr</source>
+            <delta>0.001</delta>
+            <iconized>false</iconized>
+            <title>tcr: 0.047</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="1060" pos-y="70" width="200" height="70">
+            <0>0</0>
+            <widgetvalue>0.355</widgetvalue>
+            <max>1.0</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>tc</source>
+            <delta>0.001</delta>
+            <iconized>false</iconized>
+            <title>tc: 0.355</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="1060" pos-y="210" width="200" height="60">
+            <0>0</0>
+            <widgetvalue>1.0</widgetvalue>
+            <max>1.0</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>ts</source>
+            <delta>0.001</delta>
+            <iconized>false</iconized>
+            <title>ts: 1.0</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="1060" pos-y="270" width="200" height="80">
+            <0>0</0>
+            <widgetvalue>0.001</widgetvalue>
+            <max>0.2</max>
+            <min>0.001</min>
+            <showtitlebar>true</showtitlebar>
+            <source>vs</source>
+            <delta>0.001</delta>
+            <iconized>false</iconized>
+            <title>vs: 0.001</title>
+        </widget>
+        <widget type="MatrixViewerWidget" pos-x="700" pos-y="370" width="290" height="230">
+            <autoscalez>true</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>10.0</projelevationangle>
+            <plotcolor>SPECTRUM</plotcolor>
+            <proj2dscaling>15.0</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>126.0</projrotationangle>
+            <displayz>false</displayz>
+            <sourcena>P</sourcena>
+            <plottype>CONTOUR</plottype>
+            <showtitlebar>true</showtitlebar>
+            <title>P</title>
+            <boxed>false</boxed>
+        </widget>
+        <widget type="MatrixViewerWidget" pos-x="990" pos-y="370" width="280" height="230">
+            <autoscalez>true</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>10.0</projelevationangle>
+            <plotcolor>SPECTRUM</plotcolor>
+            <proj2dscaling>15.0</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>125.0</projrotationangle>
+            <displayz>false</displayz>
+            <sourcena>C</sourcena>
+            <plottype>CONTOUR</plottype>
+            <showtitlebar>true</showtitlebar>
+            <title>C</title>
+            <boxed>false</boxed>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

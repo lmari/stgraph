@@ -1,0 +1,277 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="400.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1276" height="709" scale="1.0" simulationDelay="30" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="true" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Alb" type="ValueNode" pos-x="190" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Il numero degli alberi presenti sull&apos;isola. Senza alberi non si possono costruire barche, necessarie per ottenere cibo.</documentation>
+            <isOut>true</isOut>
+            <fStateInit>1000</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>int(max(this*(1+ta)-max(Bar-Bar1,0),0))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>1000</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>int(max(this*(1+ta)-max(Bar-Bar1,0),0))</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=Alberi</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Bar" type="ValueNode" pos-x="290" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Numero di barche presenti al momento t. Le barch&#xe9; crescono con la crescita dello sviluppo, ma solo finch&#xe9; ci sono alberi disponibili, che ne costituiscono la materia prima.</documentation>
+            <isOut>false</isOut>
+            <fStateInit>Pop/10</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>int(if(Alb==0,this*0.95,this*0.95&gt;=Pop/10,this*0.95,Pop/10))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Pop/10</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>int(if(Alb==0,this*0.95,this*0.95&gt;=Pop/10,this*0.95,Pop/10))</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=Barche</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Bar1" type="ValueNode" pos-x="290" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>Bar</fStateInit>
+            <format>0.0##</format>
+            <fExpression>integral(Bar)</fExpression>
+            <fStateTrans>Bar</fStateTrans>
+            <expression>integral(Bar)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Bar</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>Bar</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=B</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Cibo" type="ValueNode" pos-x="210" pos-y="250" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Livello del cibo per persona. Dipende dalle barch&#xe9;: &#xe8; massimo quando ci sono 10 persone per ciascuna barca. </documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>((10*Bar)/Pop)*0.8</fExpression>
+            <fStateTrans/>
+            <expression>((10*Bar)/Pop)*0.8</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Cibo</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Pop" type="ValueNode" pos-x="90" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Livello della popolazione al momento t</documentation>
+            <isOut>true</isOut>
+            <fStateInit>1000</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>int(this*(1+tp))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>1000</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>int(this*(1+tp))</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>OnZero=end(&quot;la popolazione dell&apos;isola si &#xe8; estinta&quot;);Name=Pop</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="ta" type="ValueNode" pos-x="90" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Tasso di crescita degli alberi</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.01</fExpression>
+            <fStateTrans/>
+            <expression>0.01</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=ta</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tp" type="ValueNode" pos-x="90" pos-y="250" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Tasso di crescita della popolazione. DIpende dal numero di cibo (la popolazione cresce se c&apos;&#xe8; da mangiare, decresce se non c&apos;&#xe8; pi&#xf9; cibo per via dell&apos;inedia)</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>(-0.5+Cibo)/10</fExpression>
+            <fStateTrans/>
+            <expression>(-0.5+Cibo)/10</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=tc</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="10" pos-y="340" width="531" height="231" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;big&gt;&lt;b&gt;Isola di Pasqua&lt;/b&gt;&lt;/big&gt;&lt;br&gt;&lt;br&gt;All&apos;inizio del secondo millenio 
+      un gruppo di coloni polinesiani, arrivati sull&apos;isola, cominciano a 
+      prosperare grazie alla grande quantit&amp;#224; di pesce pescato utilizzando 
+      barco sostruite con il legno delle palme giganti.&lt;br&gt;&lt;br&gt;Con l&apos;aumento 
+      della popolazione gli alberi diminuirono bruscamente, fino a scomparire. 
+      Senza la possibilit&amp;#224; di pescare in alto mare la popolazione ebbe un 
+      brusco tracollo.
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="ta" target="Alb" label="(...)" p0x="127.5" p0y="62.5" p1x="227.5" p1y="62.5" numpoints="2"/>
+        <edge source="Bar" target="Bar1" label="(...)" p0x="327.5" p0y="152.5" p1x="327.5" p1y="62.5" numpoints="2"/>
+        <edge source="Bar" target="Alb" label="(...)" p0x="327.5" p0y="152.5" p1x="227.5" p1y="62.5" numpoints="2"/>
+        <edge source="tp" target="Pop" label="(...)" p0x="127.5" p0y="272.5" p1x="127.5" p1y="152.5" numpoints="2"/>
+        <edge source="Cibo" target="tp" label="(...)" p0x="247.5" p0y="272.5" p1x="127.5" p1y="272.5" numpoints="2"/>
+        <edge source="Pop" target="Cibo" label="(...)" p0x="127.5" p0y="152.5" p1x="247.5" p1y="272.5" numpoints="2"/>
+        <edge source="Bar" target="Cibo" label="(...)" p0x="327.5" p0y="152.5" p1x="247.5" p1y="272.5" numpoints="2"/>
+        <edge source="Alb" target="Bar" label="(...)" p0x="227.5" p0y="62.5" p1x="327.5" p1y="152.5" numpoints="2"/>
+        <edge source="Pop" target="Bar" label="(...)" p0x="127.5" p0y="152.5" p1x="327.5" p1y="152.5" numpoints="2"/>
+        <edge source="Pop" target="Alb" label="(...)" p0x="127.5" p0y="152.5" p1x="227.5" p1y="62.5" numpoints="2"/>
+        <edge source="Bar1" target="Alb" label="(...)" p0x="327.5" p0y="62.5" p1x="227.5" p1y="62.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="540" pos-y="0" width="720" height="320">
+            <title/>
+            <dotscolors>__BLUE</dotscolors>
+            <linewidths>#2</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__BLUE</linecolors>
+            <barscolors>__GREEN</barscolors>
+            <dotsstyles>__style3</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>false</autolegendy>
+            <ysourcena>Pop</ysourcena>
+            <autolegendx>false</autolegendx>
+            <typey>2</typey>
+            <legendy>Livello della popolazione</legendy>
+            <typex>2</typex>
+            <legendx>Anni</legendx>
+            <linestyles>__style1</linestyles>
+            <maxy>27000.0</maxy>
+            <maxx>310.0</maxx>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <miny>0.0</miny>
+            <minx>0.0</minx>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#10</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>10000.0</stepy>
+            <stepx>50.0</stepx>
+            <showdots>true</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="540" pos-y="320" width="720" height="260">
+            <title/>
+            <dotscolors>__GREEN</dotscolors>
+            <linewidths>#2</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__GREEN</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>false</autolegendy>
+            <ysourcena>Alb</ysourcena>
+            <autolegendx>false</autolegendx>
+            <typey>2</typey>
+            <legendy>Numero di alberi</legendy>
+            <typex>2</typex>
+            <legendx>Anni dall&apos;arrivo</legendx>
+            <linestyles>__style1</linestyles>
+            <maxy>1400.0</maxy>
+            <maxx>310.0</maxx>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <miny>0.0</miny>
+            <minx>0.0</minx>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#10</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>400.0</stepy>
+            <stepx>50.0</stepx>
+            <showdots>true</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+    </widgets>
+    <groups>
+        <group name="Stati">
+            <comp name="Alb"/>
+            <comp name="Bar1"/>
+            <comp name="Bar"/>
+            <comp name="Pop"/>
+        </group>
+        <group name="Variabili algebriche">
+            <comp name="Cibo"/>
+            <comp name="tp"/>
+        </group>
+        <group name="Parametro">
+            <comp name="ta"/>
+        </group>
+    </groups>
+    <reports/>
+</stgraph>

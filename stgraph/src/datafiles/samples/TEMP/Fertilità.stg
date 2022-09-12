@@ -1,0 +1,207 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="1000.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1279" height="751" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="C" type="ValueNode" pos-x="420" pos-y="240" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>max(P/10,0)</fExpression>
+            <fStateTrans/>
+            <expression>max(P/10,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=C</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="F" type="ValueNode" pos-x="280" pos-y="240" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Fertilit&#xe0; del terreno</documentation>
+            <isOut>true</isOut>
+            <fStateInit>1000</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>integral(max(abs(this*0.02),1)-C)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>1000</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral(max(abs(this*0.02),1)-C)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=F</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="K" type="ValueNode" pos-x="670" pos-y="240" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Uccisione di popolazione</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=K</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="P" type="ValueNode" pos-x="550" pos-y="240" width="81" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Popolazione che vive sul territorio</documentation>
+            <isOut>true</isOut>
+            <fStateInit>100</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>integral(this*tn-if(K==1,this*0.1,0))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>100</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral(this*tn-if(K==1,this*0.1,0))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=P</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="tn" type="ValueNode" pos-x="430" pos-y="360" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Cibo estratto dal terreno</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(F&gt;0,0.02,0.02+(F/1000))</fExpression>
+            <fStateTrans/>
+            <expression>if(F&gt;0,0.02,0.02+(F/1000))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=C</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="10" pos-y="20" width="191" height="71" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;small&gt;Ciascun sistema sociale nel quale la popolazione cresce a un 
+      tasso pi&amp;#249; alto rispetto alla crescita delle risorse &amp;#232; destinato ad 
+      estinguersi&lt;/small&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="K" target="P" label="(...)"/>
+        <edge source="P" target="C" label="(...)"/>
+        <edge source="F" target="tn" label="(...)"/>
+        <edge source="tn" target="P" label="(...)"/>
+        <edge source="P" target="tn" label="(...)"/>
+        <edge source="tn" target="F" label="(...)"/>
+        <edge source="C" target="F" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="940" pos-y="10" width="300" height="200">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>F</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#3</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="950" pos-y="220" width="300" height="200">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>P</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#3</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="810" pos-y="10" width="150" height="100">
+            <action>2</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>K</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>K - false</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

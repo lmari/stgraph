@@ -1,0 +1,124 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1221" height="723" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="A" type="ValueNode" pos-x="90" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[1:10]</fExpression>
+            <fStateTrans/>
+            <expression>[1:10]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=A</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="left1" type="ValueNode" pos-x="250" pos-y="200" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>lpad(A,3)</fExpression>
+            <fStateTrans/>
+            <expression>lpad(A,3)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=C</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="left2" type="ValueNode" pos-x="250" pos-y="260" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>7##A</fExpression>
+            <fStateTrans/>
+            <expression>7##A</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=left2</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="right_1" type="ValueNode" pos-x="250" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>resize(A,[3])</fExpression>
+            <fStateTrans/>
+            <expression>resize(A,[3])</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo2</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="right_2" type="ValueNode" pos-x="250" pos-y="60" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>A##7</fExpression>
+            <fStateTrans/>
+            <expression>A##7</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=right_2</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="A" target="left1" label="(...)"/>
+        <edge source="A" target="right_1" label="(...)"/>
+        <edge source="A" target="right_2" label="(...)"/>
+        <edge source="A" target="left2" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="530" pos-y="50" width="360" height="320">
+            <fontsize>20</fontsize>
+            <colwidth>69,69,71,71,70</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>1,0,1,1,1</colalignment>
+            <colformat>0,0,0,0,0</colformat>
+            <title>A right_1 right_2 left1 left2 </title>
+            <lastonly>true</lastonly>
+            <sourcena>A,right_1,right_2,left1,left2</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

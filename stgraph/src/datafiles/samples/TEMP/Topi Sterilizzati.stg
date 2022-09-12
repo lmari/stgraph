@@ -1,0 +1,369 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="200.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1280" height="752" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Age" type="ValueNode" pos-x="190" pos-y="180" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array(n0,int(uniform([10,3])))</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>(remove(this,Died2)#Borned2)+1</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n0,int(uniform([10,3])))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>(remove(this,Died2)#Borned2)+1</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Age</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Borned" type="ValueNode" pos-x="190" pos-y="310" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(n,if(Age[$i0]&lt;6,0,Sterili2[$i0]*poisson([r*(60-Age[$i0])/250])))</fExpression>
+            <fStateTrans/>
+            <expression>array(n,if(Age[$i0]&lt;6,0,Sterili2[$i0]*poisson([r*(60-Age[$i0])/250])))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Borned</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Borned2" type="ValueNode" pos-x="30" pos-y="310" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(select(Borned,&quot;Borned[$i]&gt;0&quot;)&gt;0,1,1)</fExpression>
+            <fStateTrans/>
+            <expression>if(select(Borned,&quot;Borned[$i]&gt;0&quot;)&gt;0,1,1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Borned2</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Died" type="ValueNode" pos-x="430" pos-y="230" width="81" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(n,poisson([(3*Age[$i0])/240]))</fExpression>
+            <fStateTrans/>
+            <expression>array(n,poisson([(3*Age[$i0])/240]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=m</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Died2" type="ValueNode" pos-x="390" pos-y="310" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>getIndex(1,Died)</fExpression>
+            <fStateTrans/>
+            <expression>getIndex(1,Died)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Died2</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Mean_Age" type="ValueNode" pos-x="290" pos-y="100" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>mean(Age)</fExpression>
+            <fStateTrans/>
+            <expression>mean(Age)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Av_Age</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="On" type="ValueNode" pos-x="30" pos-y="540" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>0</fExpression>
+            <expression>1.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="Perc" type="ValueNode" pos-x="160" pos-y="540" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>0</fExpression>
+            <expression>0.01</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="StdDev_Age" type="ValueNode" pos-x="320" pos-y="160" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>stdDev(Age)</fExpression>
+            <fStateTrans/>
+            <expression>stdDev(Age)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=StdDev_Age</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Sterili" type="ValueNode" pos-x="90" pos-y="460" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array(n0,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>array(n,poisson([(On+0.00001)*Perc]))</fExpression>
+            <fStateTrans>array(n,if(this[$i0]==1,1,poisson([(On+0.00001)*Perc])))</fStateTrans>
+            <expression>array(n,poisson([(On+0.00001)*Perc]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n0,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>array(n,if(this[$i0]==1,1,poisson([(On+0.00001)*Perc])))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Sterili</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Sterili2" type="ValueNode" pos-x="190" pos-y="440" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array(n0,1)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans>remove(max(this-Sterili,0),Died2)#array(@Borned2,1)</fStateTrans>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n0,1)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>remove(max(this-Sterili,0),Died2)#array(@Borned2,1)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Sterili2</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="270" pos-y="280" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>@Age</fExpression>
+            <fStateTrans/>
+            <expression>@Age</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n0" type="ValueNode" pos-x="80" pos-y="100" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>500</fExpression>
+            <fStateTrans/>
+            <expression>500</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="r" type="ValueNode" pos-x="310" pos-y="410" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1.1-(n/3000)</fExpression>
+            <fStateTrans/>
+            <expression>1.1-(n/3000)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=r</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="Died2" target="Sterili2" label="(...)"/>
+        <edge source="Borned2" target="Sterili2" label="(...)"/>
+        <edge source="Sterili" target="Sterili2" label="(...)"/>
+        <edge source="n0" target="Sterili2" label="(...)"/>
+        <edge source="Borned2" target="Sterili" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="67.5" p0y="332.5" p1x="127.5" p1y="482.5" numpoints="2"/>
+        <edge source="Died" target="Died2" label="(...)"/>
+        <edge source="Borned" target="Borned2" label="(...)"/>
+        <edge source="r" target="Borned" label="(...)"/>
+        <edge source="Age" target="Borned" label="(...)"/>
+        <edge source="n0" target="Age" label="(...)"/>
+        <edge source="Age" target="n" label="(...)"/>
+        <edge source="Borned2" target="Age" label="(...)"/>
+        <edge source="Age" target="Died" label="(...)"/>
+        <edge source="Died2" target="Age" label="(...)"/>
+        <edge source="n" target="r" label="(...)"/>
+        <edge source="Age" target="Mean_Age" label="(...)"/>
+        <edge source="Age" target="StdDev_Age" label="(...)"/>
+        <edge source="Perc" target="Sterili" label="(...)"/>
+        <edge source="On" target="Sterili" label="(...)"/>
+        <edge source="n0" target="Sterili" label="(...)"/>
+        <edge source="Sterili2" target="Borned" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="990" pos-y="10" width="260" height="600">
+            <fontsize>10</fontsize>
+            <colwidth>31,30,31,29,30,34,53</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0,0,0,0,0,0,0</colalignment>
+            <colformat>###0.0###,###0.0###,###0.0###,###0.0###,###0.0###,###0.0###,###0.0###</colformat>
+            <title>Age Borned Borned2 Died Died2 Sterili Sterili2 </title>
+            <lastonly>false</lastonly>
+            <sourcena>Age,Borned,Borned2,Died,Died2,Sterili,Sterili2</sourcena>
+        </widget>
+        <widget type="ChartWidget" pos-x="620" pos-y="10" width="340" height="240">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#2</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>n</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="820" pos-y="250" width="150" height="100">
+            <action>1</action>
+            <widgetvalue>1.0</widgetvalue>
+            <source>On</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>On - true</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="620" pos-y="250" width="200" height="100">
+            <0>0</0>
+            <widgetvalue>0.01</widgetvalue>
+            <max>0.05</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>Perc</source>
+            <delta>0.001</delta>
+            <iconized>false</iconized>
+            <title>Perc: 0.01</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

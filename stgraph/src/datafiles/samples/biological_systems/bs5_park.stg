@@ -1,0 +1,243 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.08">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="1000.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1335" height="729" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="ducks" type="ValueNode" pos-x="520" pos-y="120" width="101" height="51">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>80</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>pos(integral((this*visitors*0.00018)-(0.025*foxes)))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>80</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans>pos(integral((this*visitors*0.00018)-(0.025*foxes)))</stateTrans>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=Papere</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="foxes" type="ValueNode" pos-x="630" pos-y="190" width="91" height="51">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>5</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>pos(integral(((0.02076*ducks)*(1-(this/2000)))-0.04*this))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>5</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans>pos(integral(((0.02076*ducks)*(1-(this/2000)))-0.04*this))</stateTrans>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=Volpi</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="pidgeons" type="ValueNode" pos-x="730" pos-y="110" width="110" height="55">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>10</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>pos(integral((this*visitors*0.0006)-(this*0.026)-(this*foxes*0.0002)))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>10</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans>pos(integral((this*visitors*0.0006)-(this*0.026)-(this*foxes*0.0002)))</stateTrans>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=Piccioni</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="visitors" type="ValueNode" pos-x="620" pos-y="30" width="117" height="55">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>120</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>pos(integral((this*ducks*0.000339953)*(1-(this/2000))-this*pidgeons*0.001))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>120</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans>pos(integral((this*ducks*0.000339953)*(1-(this/2000))-this*pidgeons*0.001))</stateTrans>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=Visitatori</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="10" pos-y="10" width="411" height="431" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;big&gt;&lt;b&gt;A CITY PARK ECOSYSTEM&lt;/b&gt;&lt;/big&gt;&lt;br&gt;&lt;br&gt;The model simulates a 
+      simple ecosystem (a city park) in which there are four kind of entities: 
+      ducks, visitors, pidgeons and foxes.&lt;br&gt;
+    &lt;/p&gt;
+    &lt;br&gt;
+    &lt;b&gt;Ducks&lt;/b&gt; grow with the visitors (who feed them) and decrease with 
+    foxes (their predators);&lt;br&gt;&lt;b&gt;Foxes&lt;/b&gt; grow with the ducks (their preys) 
+    and decrease by themselves;&lt;br&gt;&lt;b&gt;Pidgeons&lt;/b&gt; grow with the visitors (who 
+    feed them) and decrease with the foxes (their predators);&lt;br&gt;&lt;b&gt;Visitors&lt;/b&gt; 
+    grow with the ducks (which entertain them) and decrease with the pidgeons 
+    (which annoy them).&lt;br&gt;&lt;br&gt;What does it happen if you modify the 
+    parameters of the four state variables?&lt;br&gt;&lt;br&gt;
+
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      
+    &lt;/p&gt;
+    &lt;ul&gt;
+      
+    &lt;/ul&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &amp;#160;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="foxes" target="ducks" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="657.5" p0y="212.5" p1x="650.0" p1y="160.0" p2x="577.5" p2y="142.5" numpoints="3"/>
+        <edge source="ducks" target="visitors" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="621.0" p0y="131.11173184357543" p1x="660.0" p1y="120.0" p2x="670.36" p2y="85.0" numpoints="3"/>
+        <edge source="ducks" target="foxes" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="577.5" p0y="142.5" p1x="590.0" p1y="200.0" p2x="657.5" p2y="212.5" numpoints="3"/>
+        <edge source="pidgeons" target="visitors" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="782.1052631578947" p0y="110.0" p1x="780.0" p1y="90.0" p2x="737.0" p2y="76.23152709359606" numpoints="3"/>
+        <edge source="foxes" target="pidgeons" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="721.0" p0y="208.03703703703704" p1x="770.0" p1y="200.0" p2x="778.4" p2y="165.0" numpoints="3"/>
+        <edge source="pidgeons" target="foxes" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="767.5" p0y="142.5" p1x="680.0" p1y="150.0" p2x="657.5" p2y="212.5" numpoints="3"/>
+        <edge source="visitors" target="ducks" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="667.5" p0y="62.5" p1x="590.0" p1y="90.0" p2x="577.5" p2y="142.5" numpoints="3"/>
+        <edge source="visitors" target="pidgeons" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="667.5" p0y="62.5" p1x="680.0" p1y="110.0" p2x="767.5" p2y="142.5" numpoints="3"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="880" pos-y="0" width="380" height="310">
+            <title/>
+            <dotscolors>__RED,__GREEN,__BLUE,__BLACK</dotscolors>
+            <linewidths>#1,#1,#1,#1</linewidths>
+            <showline>true,true,true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GREEN,__BLUE,__BLACK</linecolors>
+            <barscolors>__RED,__GREEN,__BLUE,__BLACK</barscolors>
+            <dotsstyles>__style1,__style1,__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1,#1,#1</dotsxscales>
+            <showbars>false,false,false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>ducks,pidgeons,visitors,foxes</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1,__style1,__style1</linestyles>
+            <dotstype>dot,dot,dot,dot</dotstype>
+            <dotsyscales>#1,#1,#1,#1</dotsyscales>
+            <dotsangles>#0,#0,#0,#0</dotsangles>
+            <dotssizes>#8,#8,#8,#8</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1,#1,#1</barswidths>
+            <dotshilast>false,false,false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true,true,true,true</showdots>
+            <xsourcena>vTime,vTime,vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true,true,true,true</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="880" pos-y="310" width="380" height="270">
+            <title/>
+            <dotscolors>__GREEN</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__GREEN</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>ducks</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <maxy>215.0</maxy>
+            <maxx>175.0</maxx>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <miny>0.0</miny>
+            <minx>0.0</minx>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#8</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>50.0</stepy>
+            <stepx>50.0</stepx>
+            <showdots>true</showdots>
+            <xsourcena>visitors</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="520" pos-y="310" width="360" height="270">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>foxes</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <maxy>100.0</maxy>
+            <maxx>130.0</maxx>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <miny>0.0</miny>
+            <minx>0.0</minx>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#8</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>50.0</stepy>
+            <stepx>50.0</stepx>
+            <showdots>true</showdots>
+            <xsourcena>pidgeons</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

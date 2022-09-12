@@ -1,0 +1,295 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="3000.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1270" height="802" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="density" type="ValueNode" pos-x="350" pos-y="230" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.8</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=density</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="hh" type="ValueNode" pos-x="350" pos-y="340" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Households</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array([n,n],if(rand()&gt;density,0,if(rand()&lt;prop,-1,1)))</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>set(set(this,old_pos[0],old_pos[1],[0]),new_pos[0],new_pos[1],[this[old_pos[0],old_pos[1]]])</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array([n,n],if(rand()&gt;density,0,if(rand()&lt;prop,-1,1)))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>set(set(this,old_pos[0],old_pos[1],[0]),new_pos[0],new_pos[1],[this[old_pos[0],old_pos[1]]])</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=city</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="hh_pad" type="ValueNode" pos-x="460" pos-y="340" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n+2,n+2],hh[wrap($i0-1,n),wrap($i1-1,n)])</fExpression>
+            <fStateTrans/>
+            <expression>array([n+2,n+2],hh[wrap($i0-1,n),wrap($i1-1,n)])</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=moving</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="hh_pad_abs" type="ValueNode" pos-x="470" pos-y="480" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n+2,n+2],abs(hh[wrap($i0-1,n),wrap($i1-1,n)]))</fExpression>
+            <fStateTrans/>
+            <expression>array([n+2,n+2],abs(hh[wrap($i0-1,n),wrap($i1-1,n)]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=hh_pad_abs</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="moving" type="ValueNode" pos-x="150" pos-y="480" width="75" height="41">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if(hh[$i0,$i1]==0,0,hh[$i0,$i1]&lt;0,if(share[$i0,$i1]&gt;-0.5,1,0),if(share[$i0,$i1]&lt;0.5,1,0)))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if(hh[$i0,$i1]==0,0,hh[$i0,$i1]&lt;0,if(share[$i0,$i1]&gt;-0.5,1,0),if(share[$i0,$i1]&lt;0.5,1,0)))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=moving</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="240" pos-y="230" width="81" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>40.0</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="new_pos" type="ValueNode" pos-x="140" pos-y="230" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>get(transpose(getIndex(0,hh)),randInt(numCols(getIndex(0,hh))))</fExpression>
+            <fStateTrans/>
+            <expression>get(transpose(getIndex(0,hh)),randInt(numCols(getIndex(0,hh))))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=hh0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="old_pos" type="ValueNode" pos-x="150" pos-y="340" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>get(shuffle(transpose(getIndex(1,moving))),1)</fExpression>
+            <fStateTrans/>
+            <expression>get(shuffle(transpose(getIndex(1,moving))),1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=old_pos</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="prop" type="ValueNode" pos-x="450" pos-y="230" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>0</fExpression>
+            <expression>0.5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="share" type="ValueNode" pos-x="350" pos-y="480" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if(hh[$i0,$i1]==0,0,((+/+/hh_pad[[$i0:$i0+2],[$i1:$i1+2]])-hh_pad[$i0+1,$i1+1])/((+/+/hh_pad_abs[[$i0:$i0+2],[$i1:$i1+2]])-hh_pad_abs[$i0+1,$i1+1])))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if(hh[$i0,$i1]==0,0,((+/+/hh_pad[[$i0:$i0+2],[$i1:$i1+2]])-hh_pad[$i0+1,$i1+1])/((+/+/hh_pad_abs[[$i0:$i0+2],[$i1:$i1+2]])-hh_pad_abs[$i0+1,$i1+1])))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=moving</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="30" pos-y="20" width="541" height="171" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      An implementation of the classic Schelling&apos;s segregation model, where 
+      the households migrate to get an higher homogeneity in the neighbourhood.&lt;br&gt;- 
+      n: size of the area&lt;br&gt;- pro: proportion of type 1 households&lt;br&gt;- 
+      density: number of patches occupied by households
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="old_pos" target="hh" label="(...)" p0x="187.5" p0y="362.5" p1x="387.5" p1y="362.5" numpoints="2"/>
+        <edge source="new_pos" target="hh" label="(...)" p0x="177.5" p0y="252.5" p1x="387.5" p1y="362.5" numpoints="2"/>
+        <edge source="share" target="moving" label="(...)" p0x="387.5" p0y="502.5" p1x="187.5" p1y="510.5" numpoints="2"/>
+        <edge source="hh" target="moving" label="(...)" p0x="387.5" p0y="362.5" p1x="187.5" p1y="510.5" numpoints="2"/>
+        <edge source="hh_pad_abs" target="share" label="(...)" p0x="507.5" p0y="502.5" p1x="387.5" p1y="502.5" numpoints="2"/>
+        <edge source="hh" target="hh_pad_abs" label="(...)" p0x="387.5" p0y="362.5" p1x="507.5" p1y="502.5" numpoints="2"/>
+        <edge source="hh_pad" target="share" label="(...)" p0x="497.5" p0y="362.5" p1x="387.5" p1y="502.5" numpoints="2"/>
+        <edge source="hh" target="hh_pad" label="(...)" p0x="387.5" p0y="362.5" p1x="497.5" p1y="362.5" numpoints="2"/>
+        <edge source="prop" target="hh" label="(...)" p0x="487.5" p0y="252.5" p1x="387.5" p1y="362.5" numpoints="2"/>
+        <edge source="density" target="hh" label="(...)" p0x="377.5" p0y="252.5" p1x="387.5" p1y="362.5" numpoints="2"/>
+        <edge source="hh" target="new_pos" label="(...)" p0x="387.5" p0y="362.5" p1x="177.5" p1y="252.5" numpoints="2"/>
+        <edge source="moving" target="old_pos" label="(...)" p0x="187.5" p0y="510.5" p1x="187.5" p1y="362.5" numpoints="2"/>
+        <edge source="hh" target="share" label="(...)" p0x="387.5" p0y="362.5" p1x="387.5" p1y="502.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="SliderWidget" pos-x="590" pos-y="310" width="300" height="70">
+            <0>0</0>
+            <widgetvalue>40.0</widgetvalue>
+            <max>50.0</max>
+            <min>10.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>n</source>
+            <delta>10</delta>
+            <iconized>false</iconized>
+            <title>n: 40.0</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="590" pos-y="380" width="300" height="70">
+            <0>0</0>
+            <widgetvalue>0.5</widgetvalue>
+            <max>0.95</max>
+            <min>0.05</min>
+            <showtitlebar>true</showtitlebar>
+            <source>prop</source>
+            <delta>0.05</delta>
+            <iconized>false</iconized>
+            <title>prop: 0.5</title>
+        </widget>
+        <widget type="MatrixViewerWidget" pos-x="590" pos-y="10" width="300" height="300">
+            <autoscalez>false</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>9.0</projelevationangle>
+            <plotcolor>SPECTRUM</plotcolor>
+            <proj2dscaling>15.0</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>125.0</projrotationangle>
+            <displayz>false</displayz>
+            <sourcena>hh</sourcena>
+            <plottype>DENSITY</plottype>
+            <showtitlebar>true</showtitlebar>
+            <title>hh</title>
+            <boxed>false</boxed>
+        </widget>
+        <widget type="SliderWidget" pos-x="590" pos-y="450" width="300" height="80">
+            <0>0</0>
+            <widgetvalue>0.8</widgetvalue>
+            <max>0.9</max>
+            <min>0.1</min>
+            <showtitlebar>true</showtitlebar>
+            <source>density</source>
+            <delta>0.1</delta>
+            <iconized>false</iconized>
+            <title>density: 0.8</title>
+        </widget>
+        <widget type="DataTableWidget" pos-x="620" pos-y="100" width="160" height="80">
+            <fontsize>10</fontsize>
+            <colwidth>75,75</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0,0</colalignment>
+            <colformat>###0.0###,###0.0###</colformat>
+            <title>new_pos old_pos </title>
+            <lastonly>false</lastonly>
+            <sourcena>new_pos,old_pos</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

@@ -1,0 +1,65 @@
+<stgraph class="STGraph.decoder" version="STGraph build 7.3.12">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="1.0" maxSteps="10" batchSteps="1" width="774" height="450" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forWeb="false" webModelLocale="" webModelDescription="" webModelGroups="" webModelAllLocales="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="nodo1" type="ValueNode" pos-x="200" pos-y="100" width="75" height="45">
+            <isOut>false</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>nodo2*2</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>nodo2*2</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=nodo1</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+        <node name="nodo2" type="ValueNode" pos-x="380" pos-y="100" width="75" height="45">
+            <isOut>true</isOut>
+            <forecol-g>0</forecol-g>
+            <fStateInit/>
+            <fExpression>nodo1/2</fExpression>
+            <fStateTrans/>
+            <backcol-r>255</backcol-r>
+            <expression>nodo1/2</expression>
+            <forecol-b>0</forecol-b>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <backcol-g>255</backcol-g>
+            <stateTrans/>
+            <backcol-b>255</backcol-b>
+            <customprops>Name=nodo2</customprops>
+            <valueType>0</valueType>
+            <forecol-r>0</forecol-r>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="200" pos-y="30" width="161" height="35" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      non funziona...
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="nodo1" target="nodo2" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="275.0" p0y="129.59459459459458" p1x="330.0" p1y="140.0" p2x="380.0" p2y="130.0" numpoints="3"/>
+        <edge source="nodo2" target="nodo1" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="417.5" p0y="122.5" p1x="330.0" p1y="100.0" p2x="237.5" p2y="122.5" numpoints="3"/>
+    </edges>
+    <widgets/>
+    <groups/>
+    <reports/>
+</stgraph>

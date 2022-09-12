@@ -1,0 +1,319 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.08">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="3" time0="0.0" time1="1.7976931348623157E308" timeD="1.0" maxSteps="1" batchSteps="0" width="1134" height="746" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="anglex" type="ValueNode" pos-x="740" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <expression>1.5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=anglex</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="angley" type="ValueNode" pos-x="740" pos-y="100" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <expression>0.5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=angley</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="kx" type="ValueNode" pos-x="290" pos-y="20" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>5</fExpression>
+            <fStateTrans/>
+            <expression>5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=kx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="ky" type="ValueNode" pos-x="290" pos-y="70" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>15</fExpression>
+            <fStateTrans/>
+            <expression>15</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=ky</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="kz" type="ValueNode" pos-x="290" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=kz</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="lorenz" type="ValueNode" pos-x="401" pos-y="70" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>iter(n,$0#($0[[],$i]+[kx*($0[1,$i]-$0[0,$i]),-$0[0,$i]*$0[2,$i]+ky*$0[0,$i]-$0[1,$i],-kz*$0[2,$i]+$0[0,$i]*$0[1,$i]]*0.03),[[0],[1],[1]])</fExpression>
+            <fStateTrans/>
+            <expression>iter(n,$0#($0[[],$i]+[kx*($0[1,$i]-$0[0,$i]),-$0[0,$i]*$0[2,$i]+ky*$0[0,$i]-$0[1,$i],-kz*$0[2,$i]+$0[0,$i]*$0[1,$i]]*0.03),[[0],[1],[1]])</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=lorenz</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="400" pos-y="10" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1500</fExpression>
+            <fStateTrans/>
+            <expression>1500</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="x" type="ValueNode" pos-x="510" pos-y="20" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>lorenz[0]</fExpression>
+            <fStateTrans/>
+            <expression>lorenz[0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=lx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="x3d" type="ValueNode" pos-x="630" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>x+z*sin(anglex)</fExpression>
+            <fStateTrans/>
+            <expression>x+z*sin(anglex)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x3d</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="y" type="ValueNode" pos-x="510" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>lorenz[1]</fExpression>
+            <fStateTrans/>
+            <expression>lorenz[1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=lx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="y3d" type="ValueNode" pos-x="630" pos-y="100" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>y+z*sin(angley)</fExpression>
+            <fStateTrans/>
+            <expression>y+z*sin(angley)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=y3d</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="z" type="ValueNode" pos-x="510" pos-y="70" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>lorenz[2]</fExpression>
+            <fStateTrans/>
+            <expression>lorenz[2]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=lx</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="41" pos-y="50" width="220" height="241" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;big&gt;&lt;b&gt;Interactive Lorenz fractal attractor&lt;/b&gt;&lt;/big&gt;&lt;br&gt;&lt;br&gt;This is 
+      one of the most famous fractal attractors, here precomputed in vector 
+      algebraic variables so as to make its orbit interactively explorable.
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="y" target="y3d" label="(...)" p0x="547.5" p0y="142.5" p1x="667.5" p1y="122.5" numpoints="2"/>
+        <edge source="z" target="y3d" label="(...)" p0x="547.5" p0y="92.5" p1x="667.5" p1y="122.5" numpoints="2"/>
+        <edge source="z" target="x3d" label="(...)" p0x="547.5" p0y="92.5" p1x="667.5" p1y="62.5" numpoints="2"/>
+        <edge source="x" target="x3d" label="(...)" p0x="547.5" p0y="42.5" p1x="667.5" p1y="62.5" numpoints="2"/>
+        <edge source="n" target="lorenz" label="(...)" p0x="437.5" p0y="32.5" p1x="438.5" p1y="92.5" numpoints="2"/>
+        <edge source="lorenz" target="z" label="(...)" p0x="438.5" p0y="92.5" p1x="547.5" p1y="92.5" numpoints="2"/>
+        <edge source="lorenz" target="y" label="(...)" p0x="438.5" p0y="92.5" p1x="547.5" p1y="142.5" numpoints="2"/>
+        <edge source="lorenz" target="x" label="(...)" p0x="438.5" p0y="92.5" p1x="547.5" p1y="42.5" numpoints="2"/>
+        <edge source="ky" target="lorenz" label="(...)" p0x="327.5" p0y="92.5" p1x="438.5" p1y="92.5" numpoints="2"/>
+        <edge source="kx" target="lorenz" label="(...)" p0x="327.5" p0y="42.5" p1x="438.5" p1y="92.5" numpoints="2"/>
+        <edge source="kz" target="lorenz" label="(...)" p0x="327.5" p0y="142.5" p1x="438.5" p1y="92.5" numpoints="2"/>
+        <edge source="anglex" target="x3d" label="(...)" p0x="777.5" p0y="62.5" p1x="667.5" p1y="62.5" numpoints="2"/>
+        <edge source="angley" target="y3d" label="(...)" p0x="777.5" p0y="122.5" p1x="667.5" p1y="122.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="380" pos-y="180" width="470" height="310">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <autolegendy>true</autolegendy>
+            <ysourcena>y3d</ysourcena>
+            <typey>2</typey>
+            <autolegendx>true</autolegendx>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>x3d</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="SliderWidget" pos-x="450" pos-y="490" width="370" height="60">
+            <0>0</0>
+            <widgetvalue>1.5</widgetvalue>
+            <max>1.5</max>
+            <min>-1.5</min>
+            <showtitlebar>true</showtitlebar>
+            <source>anglex</source>
+            <delta>0.1</delta>
+            <iconized>false</iconized>
+            <title>anglex: 1.5</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="280" pos-y="200" width="100" height="260">
+            <0>1</0>
+            <widgetvalue>0.5</widgetvalue>
+            <max>1.5</max>
+            <min>-1.5</min>
+            <showtitlebar>true</showtitlebar>
+            <source>angley</source>
+            <delta>0.1</delta>
+            <iconized>false</iconized>
+            <title>angley: 0.5</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

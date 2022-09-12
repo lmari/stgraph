@@ -1,0 +1,296 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="20.0" timeD="1.0" maxSteps="1" batchSteps="1" width="993" height="677" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="0" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="false"/>
+    <nodes>
+        <node name="a" type="ValueNode" pos-x="90" pos-y="395" width="50" height="30">
+            <forecol>245,245,245</forecol>
+            <documentation>base costante della domanda</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>100</fExpression>
+            <fStateTrans/>
+            <expression>100</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=a</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="b" type="ValueNode" pos-x="40" pos-y="395" width="51" height="30">
+            <forecol>245,245,245</forecol>
+            <documentation>sensibilit&#xe0; della domanda al prezzo</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>-0.5</fExpression>
+            <fStateTrans/>
+            <expression>-0.5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=b</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="c" type="ValueNode" pos-x="355" pos-y="395" width="75" height="30">
+            <forecol>245,245,245</forecol>
+            <documentation>base costante dell&apos;offerta</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>50</fExpression>
+            <fStateTrans/>
+            <expression>50</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=c</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="d" type="ValueNode" pos-x="260" pos-y="395" width="75" height="30">
+            <forecol>245,245,245</forecol>
+            <documentation>sensibilit&#xe0; dell&apos;offerta al prezzo precedente</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.5</fExpression>
+            <fStateTrans/>
+            <expression>0.5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=d</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="demand" type="ValueNode" pos-x="50" pos-y="330" width="75" height="35">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>a+price*b</fExpression>
+            <fStateTrans/>
+            <expression>a+price*b</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=domanda</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="demand_delay" type="ValueNode" pos-x="180" pos-y="390" width="81" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>a</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>demand</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>a</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>demand</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=domandaPrec</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="diff_demand_supply" type="ValueNode" pos-x="180" pos-y="320" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>demand_delay-supply</fExpression>
+            <expression>demand_delay-supply</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=diffDomOff</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="f" type="ValueNode" pos-x="50" pos-y="245" width="81" height="30">
+            <font>Serif,12</font>
+            <forecol>245,245,245</forecol>
+            <documentation>sensibilit&#xe0; del prezzo
+dalla distanza dall&apos;equilibrio</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.5</fExpression>
+            <fStateTrans/>
+            <expression>0.5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>245,245,245</backcol>
+            <customprops>Name=f</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="p0" type="ValueNode" pos-x="60" pos-y="190" width="65" height="41">
+            <font>Serif,12</font>
+            <forecol>245,245,245</forecol>
+            <documentation>se vettoriale, consente di fare analisi di sensitivit&#xe0; &quot;ceteris paribus&quot;</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[1:30]</fExpression>
+            <fStateTrans/>
+            <expression>[1:30]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=prezzo iniziale</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="price" type="ValueNode" pos-x="180" pos-y="250" width="91" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>p0</fStateInit>
+            <format>0.0##</format>
+            <fStateTrans>pos(this+f*(demand-supply))</fStateTrans>
+            <fExpression>f*diff_demand_supply</fExpression>
+            <expression>f*diff_demand_supply</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>p0</stateInit>
+            <isVectorOut>true</isVectorOut>
+            <stateTrans>pos(this+f*(demand-supply))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=prezzo</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="price_prec" type="ValueNode" pos-x="171" pos-y="140" width="100" height="55">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>p0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>price</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>p0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>price</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=prezzo precedente</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="supply" type="ValueNode" pos-x="310" pos-y="320" width="75" height="35">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>c+d*price_prec</fExpression>
+            <expression>c+d*price_prec</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=offerta</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="450" pos-y="340" width="411" height="101" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h2&gt;
+      Features:&lt;br&gt;&lt;font size=&quot;3&quot;&gt;- demand decreases with the price&lt;/font&gt;&lt;br&gt;&lt;font size=&quot;3&quot;&gt;- 
+      price increases with the difference between demand and supply&lt;br&gt;- the 
+      supply at time t depends from the price at time t-1&lt;/font&gt;
+    &lt;/h2&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+        <text name="*text2" pos-x="110" pos-y="25" width="311" height="31" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;font size=&quot;+2&quot; color=&quot;blue&quot;&gt;price, demand, supply&lt;/font&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="demand_delay" target="diff_demand_supply" label="(...)"/>
+        <edge source="diff_demand_supply" target="price" label="(...)"/>
+        <edge source="p0" target="price_prec" label="(...)" p0x="227.5" p0y="132.5" p1x="326.0" p1y="210.0" numpoints="2"/>
+        <edge source="p0" target="price" label="(...)" p0x="227.5" p0y="132.5" p1x="127.5" p1y="210.0" numpoints="2"/>
+        <edge source="f" target="price" label="(...)" p0x="127.5" p0y="110.0" p1x="127.5" p1y="210.0" numpoints="2"/>
+        <edge source="price_prec" target="supply" label="(...)" p0x="326.0" p0y="210.0" p1x="327.5" p1y="337.5" numpoints="2"/>
+        <edge source="price" target="price_prec" label="(...)" p0x="127.5" p0y="210.0" p1x="326.0" p1y="210.0" numpoints="2"/>
+        <edge source="c" target="supply" label="(...)" p0x="392.5" p0y="410.0" p1x="347.5" p1y="337.5" numpoints="2"/>
+        <edge source="d" target="supply" label="(...)" p0x="297.5" p0y="410.0" p1x="347.5" p1y="337.5" numpoints="2"/>
+        <edge source="b" target="demand" label="(...)" p0x="137.5" p0y="420.0" p1x="97.5" p1y="347.5" numpoints="2"/>
+        <edge source="a" target="demand" label="(...)" p0x="42.5" p0y="420.0" p1x="97.5" p1y="347.5" numpoints="2"/>
+        <edge source="supply" target="diff_demand_supply" label="(...)" p0x="347.5" p0y="337.5" p1x="217.5" p1y="342.5" numpoints="2"/>
+        <edge source="price" target="demand" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="194.27419354838707" p0y="285.0" p1x="124.5967741935484" p1y="330.0" numpoints="2"/>
+        <edge source="demand" target="demand_delay" label="(...)"/>
+        <edge source="a" target="demand_delay" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="460" pos-y="10" width="460" height="310">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>true,true</showline>
+            <showtitlebar>false</showtitlebar>
+            <linecolors>__RED,__GREEN</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>price,price_prec</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#1,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false,false</showdots>
+            <xsourcena>vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

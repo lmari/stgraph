@@ -1,0 +1,194 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="1000.0" timeD="0.1" maxSteps="10" batchSteps="1" width="1280" height="709" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Indice" type="ValueNode" pos-x="10" pos-y="20" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0:30]</fExpression>
+            <fStateTrans/>
+            <expression>[0:30]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Indice</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="M1" type="ValueNode" pos-x="370" pos-y="180" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Vettore che ricorda il numero di sere che un certo numero di persone &#xe8; stato presente.</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array(31,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>set(this,P,this[P]+1)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(31,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>set(this,P,this[P]+1)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=M1</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="M2" type="ValueNode" pos-x="370" pos-y="100" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Vettore che ricorda le volte che un certo numero di persone &#xe8; stato presente e la serata dopo &#xe8; stata piacevole.</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array(31,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>if(M1==0,1,me/M1)</fExpression>
+            <fStateTrans>set(this,P1,if(P1&gt;s,0,1))</fStateTrans>
+            <expression>if(M1==0,1,me/M1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(31,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>set(this,P1,if(P1&gt;s,0,1))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=M2</customprops>
+            <valueType>2</valueType>
+        </node>
+        <node name="P" type="ValueNode" pos-x="190" pos-y="140" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Persone che naoo al bar al periodo t</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>randInt(31)</fExpression>
+            <fStateTrans/>
+            <expression>randInt(31)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=P</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="P1" type="ValueNode" pos-x="190" pos-y="50" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>P</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>P</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>P</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>P</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=P1</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="S" type="ValueNode" pos-x="240" pos-y="340" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(M2[P]&lt;0.5,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(M2[P]&lt;0.5,1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=S</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Sip" type="ValueNode" pos-x="150" pos-y="240" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(P&lt;s,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(P&lt;s,1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=S</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="s" type="ValueNode" pos-x="490" pos-y="270" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Soglia di soddisfacimento</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>15</fExpression>
+            <fStateTrans/>
+            <expression>15</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=s</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="M1" target="M2" label="(...)"/>
+        <edge source="s" target="M2" label="(...)"/>
+        <edge source="P" target="P1" label="(...)"/>
+        <edge source="s" target="Sip" label="(...)"/>
+        <edge source="P" target="M1" label="(...)"/>
+        <edge source="P" target="M2" label="(...)"/>
+        <edge source="P" target="Sip" label="(...)"/>
+        <edge source="P1" target="M2" label="(...)"/>
+        <edge source="P" target="S" label="(...)"/>
+        <edge source="M2" target="S" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="1040" pos-y="10" width="210" height="410">
+            <fontsize>10</fontsize>
+            <colwidth>61,59,68</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0,0,0</colalignment>
+            <colformat>###0.0###,###0.0###,###0.0###</colformat>
+            <title>Indice M1 M2 </title>
+            <lastonly>false</lastonly>
+            <sourcena>Indice,M1,M2</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

@@ -1,26 +1,191 @@
 <h2>STGraph - Samples & Examples</h2>
 
+
 <b>Some models, suggesting a few ideas of what can be done with STGraph...</b>
 
-- The classical <a href="samples/lorenz.stg">Lorenz attractor</a>, also implemented as a <a href="samples/lorenz_sync.stg">vector synchronous model</a>.
 
-- The <a href="samples/verhulst.stg">Verhulst system</a>, a classical dynamic system, which becomes chaotic when both the time step and the growth parameter are large enough. By modifying the growth parameter, the obtained behavior is either stable, oscillating, or fractal.
+<h3>Models of physical systems</h3>
 
-- A simple example showing <a href="samples/fft.stg">the power spectrum</a> of a noisy signal computed by the Fast Fourier Transform.
+- A simple model of a <a href="samples/physical_systems/ps1_bathtube_volumes.stg">bathtube</a> which level varies in time with inflow and outflow variations. 
 
-- A simple model showing that <a href="samples/equiv_state_delay.stg">a state is equivalent to a delayed function in feedback</a> with itself.
+- The <a href="samples/physical_systems/ps2_lorenz.stg">Lorentz's attractor</a>, also implemented as a<a href="samples/physical_systems/ps3_lorentz_int.stg">vector synchronous model</a>.
 
-- An example showing three different ways to implement and compute the <a href="samples/factorial.stg">factorial product</a> function.
+- A simple example showing <a href="samples/ps4_physical_systems/fft.stg">the power spectrum</a> of a noisy signal computed by the Fast Fourier Transform.
 
-- In a completely polymorphic way, a model simulating <a href="samples/freebodies.stg">n bodies moving in a bounded 2D space</a>.
+- In a completely polymorphic way, a model simulating <a href="samples/physical_systems/ps5_freebodies.stg">n bodies moving in a bounded 2D space</a>.
 
-- A model showing the <a href="samples/brownian.stg">irreversibility of brownian motion</a> of n particles, in particular by displaying how the area of their bounding box statistically increases during the simulation.
+- A model showing the <a href="samples/physical_systems/ps6_brownian.stg">irreversibility of brownian motion</a> of n particles, in particular by displaying how the area of their bounding box statistically increases during the simulation.
 
-- A basic <a href="samples/cell_automaton_1D.stg">one dimensional cellular automaton</a>.
+- The <a href="samples/physical_systems/ps7_heat_equation.stg">ourier heat equation</a>, a simple partial differential equation.
 
-- The <a href="samples/heat_equation.stg">Fourier heat equation</a>, a simple partial differential equation.
+- The example of an <a href="samples/physical_systems/ps8_fern_by_ifs.stg">iterated fractal system</a>.
 
-- A tricky implementation of the <a href="samples/galton_machine.stg">Galton machine</a>.
+- The example of an <a href="samples/physical_systems/ps9_damper.stg">damper</a> .
 
-- The example of an <a href="samples/fern_by_ifs.stg">iterated fractal system</a>.
+- A model showing the <a href="samples/physical_systems/ps10_gravitation_2d.stg">dynamic of a point</a> in a bidimensional gravity field.
+
+- The example of a <a href="samples/physical_systems/ps11_mandelbrot.stg">Mandelbrot set</a>. 
+
+- A model of <a href="samples/physical_systems/ps12_wave_equation_2D.stg">wave diffusion</a> in a two-dimension space.
+
+
+<h3>Examples of various applications</h3>
+
+- A simple model showing that <a href="samples/applications/app1_equiv_state_delay.stg">a state is equivalent to a delayed function in feedback</a> with itself.
+
+- An example showing three different ways to implement and compute the <a href="samples/applications/app2_factorial.stg">factorial product<</a> function.
+
+- A tricky implementation of the  <a href="samples/applications/app3_galton_machine.stg">Galton machine</a>.
+
+- A simple implementation of a  <a href="samples/applications/app4_cardioid.stg">point following a cardioid-shaped traiectory</a>. 
+
+- A trivial implementation of two <a href="samples/applications/app5_asyncronous_time.stg">asynchronous chronometers</a>..
+
+- The example of a <a href="samples/applications/app6_calendar.stg">calendar</a>.. 
+
+- The implementation of a <a href="samples/applications/app7_follower.stg">follower</a> aiming at a moving point.
+
+- An example of <a href="samples/applications/app8_sculpture.stg">3D dynamic modelling</a>.
+
+- The example of a <a href="samples/applications/app9_random_walk_1d.stg">one dimension random walk</a>, in which the direction depends from the past.
+
+- An example of <a href="samples/applications/app10_bistable_controller.stg">bistable controller</a>.
+
+- A simple <a href="samples/applications/app11_square_wave.stg">squared waves generator</a>.
+
+- An implementation of <a href="samples/applications/app12_zeros_newton.stg">Newton method</a> to find the zeros of a polynomial.
+
+
+<h3>Examples of queue theory</h3>
+
+- A first example of <a href="samples/queue_theory/que1_esempio1.stg">model with a queue</a>.
+
+- A second example of <a href="samples/queue_theory/que2_esempio2.stg">model with a queue</a>.
+
+- A third example of <a href="samples/queue_theory/que3_esempio3.stg">model with a queue</a>.
+
+- An example of  <a href="samples/queue_theory/que4_distribuzioni.stg">probability distribution</a> generated with a queue.
+
+
+<h3>Examples of cellular automata</h3>
+
+- A basic  <a href="samples/cellular_automata/ac1_cell_automaton_1D.stg">one dimensional cellular automaton</a>.
+
+- An implementation of the well-known <a href="samples/ac2_cellular_automata/life.stg">game of life</a>.
+
+
+<h3>Examples of agent-based modelling</h3>
+
+- A simple example of <a href="samples/agent_based_modesl/abm1_bouncing_balls.stg">two points</a> moving on a 2D-plain bouncing on the walls.
+
+- The examples of <a href="samples/agent_based_modesl/abm2_turtles.stg"> few turtles</a> moving in a garden and feeding with the grass
+
+- A very simple model of a <a href="samples/agent_based_modesl/abm3_swarm_1.stg">swarm</a>.
+
+- The example of a <a href="samples/agent_based_modesl/abm4_turtle.stg">geometric figure construction</a> using a ''turtle'' (in the sense of Logo programming language).
+
+
+<h3>Data science applications</h3>
+
+- An example of a <a href="samples/data_science/ds1_regression.stg">regression line</a> dynamically computed with the growth of sampled points.
+
+- A <a href="samples/data_science/ds2_pi_montecarlo.stg">Monte Carlo pi estimator</a>.
+
+- A simple implementation of a <a href="samples/data_science/ds3_prob_distributions.stg">probability distribution sampler</a>.
+
+
+<h3>Models of social systems</h3>
+
+- The model of a  <a href="samples/social_systems/ss1_hom_firm.stg">firm</a> adjusting product price and quality to maximize profit.
+
+- A model of <a href="samples/social_systems/ss2_innov_diff.stg">innovation diffusion</a>  where two firms compete for the same market with an undifferentiated product. 
+
+- A simple model of <a href="samples/social_systems/ss3_project.stg">project management</a>.
+
+- The model of an <a href="samples/social_systems/ss4_emergency_care.stg">emergency care room</a> to manage queue and personel cost.
+
+- Some epidemiologic models, an <a href="samples/social_systems/ss5_epidemiologic_SIS.stg">hybrid SIR/SIS</a> and an <a href="samples/social_systems/ss6_epidemiologic_policy.stg">hybrid SIR/SIS with policy making</a>.
+
+- An example of <a href="samples/social_systems/ss7_bottlenecks.stg">production process with bottlenecks</a>.
+
+- A simple model of <a href="samples/social_systems/ss8_demand_forecast.stg">demand forecast</a>.
+
+- A stock-flow calculator of <a href="samples/social_systems/ss9_inflation.stg">inflation effects on savings</a> during a given time range. 
+
+- A model of <a href="samples/social_systems/ss10_price_demand_supply.stg">price, demand and supply dynamics</a> in a simple economy.
+
+- An implementation of the classic<a href="samples/social_systems/ss11_el_farol.stg">El Farol bar problem</a>. 
+
+- An example of how <a href="samples/social_systems/ss12_wealth_distribution.stg">inequalities</a> emerges from simple rules.
+
+- A model simulating the <a href="samples/social_systems/ss13_spatial_market_2D.stg">behaviour of firms competing on a 2D spatially-defined market</a> without product differentiation.
+
+- An implementation of the classic <a href="samples/social_systems/ss14_schelling.stg">Schelling segregation model</a>.
+
+- A model that estimates <a href="samples/social_systems/ss15_football1.stg">football matches results</a> using expected goals, a <a href="samples/social_systems/ss16_football2.stg">more sophisticated second mode l</a> and a <a href="samples/social_systems/ss17_football3.stg">third model</a> that estimates the final standing of a championship simulating the results of missing matches.
+
+
+<h3>Models of biological systems</h3>
+
+- The prey-predator model depicted by Lotka-Volterra equations: a<a href="samples/biological_systems/bs1_lotka_volterra.stg">standard implementation</a>, a <a href="samples/biological_systems/bs2_lotka_volterra_inputs.stg">second implemtation</a>,where the user can modify the values of the stock, and a <a href="samples/biological_systems/bs3_lotka_volterra_hybrid.stg.stg">third implementation</a> where the population is distributed on a squared surface divided into cells and varies in time also according to stocks in nearer areas.
+
+-The <a href="samples/biological_systems/bs4_verhulst.stg">Verhulst system</a>, , a classical dynamic system, which becomes chaotic when both the time step and the growth parameter are large enough. By modifying the growth parameter, the obtained behavior is either stable, oscillating, or fractal.
+
+- A model of a <a href="samples/biological_systems/bs5_park.stg">city park ecosystem</a>, where four kind of entities affects each other in a non-trivial way.
+
+- A model of  <a href="samples/biological_systems/bs6_expansion_1.stg">population expansion</a> following a logistic map, and an<a href="samples/biological_systems/bs7_expansion_2.stg">extension</a> where the maximum population size in each cell depends on the grass level (so, if the grass finishes, the population can estinguish).
+
+
+<h3>Games</h3>
+
+- An implementation of the popular retro videogame <a href="samples/games/gm1_pong.stg">Pong</a>.
+
+- An implementation of the popular smartphone videogame <a href="samples/games/gm2_flappy_bird.stg">Flappy Bird</a>.
+
+- A <a href="samples/games/gm3_serenissima.stg">history-themed serious game</a>, where the user plays a maritime republic that has to survive to enemy's attacks without consuming all its renewable resources. 
+
+
+<h3>Various examples of functions and structures</h3>
+
+-5 simple examples to open to test the understanding regariding the software mechanisms (<a href="samples/examples/ex1_ex1.stg">here</a>, <a href="samples/examples/ex2_ex2.stg">here</a>, <a href="samples/examples/ex3_ex3.stg">here</a>, <a href="samples/examples/ex4_ex4.stg">here</a> e <a href="samples/examples/ex5_ex5.stg">here</a>).
+
+- Other 10 challenging examples to observe common mistakes in the model developement  (<a href="samples/examples/ex6_mod1.stg">here</a>, <a href="samples/examples/ex7_mod2.stg">here</a>, <a href="samples/examples/ex8_mod3.stg">here</a>, <a href="samples/examples/ex9_mod4.stg">here</a>, <a href="samples/examples/ex10_mod5.stg">here</a>, <a href="samples/examples/ex11_mod6.stg">here</a>, <a href="samples/examples/ex12_mod7.stg">here</a>, <a href="samples/examples/ex13_mod8.stg">here</a>, <a href="samples/examples/ex14_mod9.stg">here</a>, <a href="samples/examples/ex15_mod10.stg">here</a>)
+
+- A simple example of how <a href="samples/examples/ex16_create_function.stg">to create and to use a function</a>.
+
+- An example of <a href="samples/examples/ex17_count_elements_matrix.stg">counting the elements of a matric</a>, showing the frequence of each category on a histogram.
+
+- An example of an <a href="samples/examples/ex18_conditions_array.stg">array created with a condition over other two arrays</a>.
+
+- A simple example of <a href="samples/examples/ex19_excel_test.stg">reading data from a spreadsheet</a>. 
+
+- A trivial example of using <a href="samples/examples/ex20_get_data.stg">the GetData function</a>.
+
+- A trivial example of using <a href="samples/examples/ex21_dollar_use.stg">$i0 e $i1</a>.
+
+- A simple example of implementing a <a href="samples/examples/ex22_impulse_delay.stg">delay</a>.
+
+- A simple example of using the <a href="samples/examples/ex23_and.stg">AND condition</a>.
+
+- A simple example of using the <a href="samples/examples/ex24_integral.stg">integral function</a>.
+
+- A simple example of using the <a href="samples/examples/ex25_max_array.stg">iter function</a> to compute the maximum value of an array.
+
+- A model with <a href="samples/examples/ex26_shorten_array.stg">four different ways to shorten an array</a>.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

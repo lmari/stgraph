@@ -1,0 +1,302 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1270" height="723" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Casuale_morte" type="ValueNode" pos-x="480" pos-y="510" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(@Mortalita,rand())</fExpression>
+            <fStateTrans/>
+            <expression>array(@Mortalita,rand())</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Casuale_morte</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Eta" type="ValueNode" pos-x="150" pos-y="230" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>Eta0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>(Numero_Morti[0]##sort(this*Morte))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Eta0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>(Numero_Morti[0]##sort(this*Morte))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Pop</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Eta0" type="ValueNode" pos-x="480" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(n0,max(int(gaussian([25,9])),0))</fExpression>
+            <fStateTrans/>
+            <expression>array(n0,max(int(gaussian([25,9])),0))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Pop0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Geni" type="ValueNode" pos-x="240" pos-y="140" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>Geni0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>Numero_Morti[0]##sort(this*Morte)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Geni0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>Numero_Morti[0]##sort(this*Morte)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Geni</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Geni0" type="ValueNode" pos-x="370" pos-y="70" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n0,Ngeni],randInt(20)+1)</fExpression>
+            <fStateTrans/>
+            <expression>array([n0,Ngeni],randInt(20)+1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Genetic0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Mortalita" type="ValueNode" pos-x="180" pos-y="400" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>Eta</fStateInit>
+            <format>0.0##</format>
+            <fExpression>Eta/Tasso_mort</fExpression>
+            <fStateTrans>poisson([Eta/Tasso_mort])</fStateTrans>
+            <expression>Eta/Tasso_mort</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Eta</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>poisson([Eta/Tasso_mort])</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Mortalita</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Morte" type="ValueNode" pos-x="310" pos-y="280" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(Mortalita&lt;Casuale_morte,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(Mortalita&lt;Casuale_morte,1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Morte</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Ngeni" type="ValueNode" pos-x="310" pos-y="10" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>10</fExpression>
+            <fStateTrans/>
+            <expression>10</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Num_geni</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Numero_Morti" type="ValueNode" pos-x="490" pos-y="210" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>(countIf(Morte,[0]))</fExpression>
+            <fStateTrans/>
+            <expression>(countIf(Morte,[0]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Numero_Morti</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Tasso_mort" type="ValueNode" pos-x="130" pos-y="530" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>1000.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Tasso</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Tasso_nat" type="ValueNode" pos-x="50" pos-y="190" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Tasso_nat</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n0" type="ValueNode" pos-x="460" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>20</fExpression>
+            <fStateTrans/>
+            <expression>20</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n0</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="Numero_Morti" target="Geni" label="(...)"/>
+        <edge source="Morte" target="Geni" label="(...)"/>
+        <edge source="n0" target="Geni0" label="(...)"/>
+        <edge source="Numero_Morti" target="Eta" label="(...)" p0x="447.5" p0y="262.5" p1x="277.5" p1y="202.5" numpoints="2"/>
+        <edge source="Morte" target="Numero_Morti" label="(...)" p0x="447.5" p0y="342.5" p1x="447.5" p1y="262.5" numpoints="2"/>
+        <edge source="Casuale_morte" target="Morte" label="(...)" p0x="447.5" p0y="402.5" p1x="447.5" p1y="342.5" numpoints="2"/>
+        <edge source="Mortalita" target="Casuale_morte" label="(...)" p0x="277.5" p0y="302.5" p1x="447.5" p1y="402.5" numpoints="2"/>
+        <edge source="Morte" target="Eta" label="(...)" p0x="447.5" p0y="342.5" p1x="277.5" p1y="202.5" numpoints="2"/>
+        <edge source="Mortalita" target="Morte" label="(...)" p0x="277.5" p0y="302.5" p1x="447.5" p1y="342.5" numpoints="2"/>
+        <edge source="n0" target="Eta0" label="(...)" p0x="447.5" p0y="122.5" p1x="447.5" p1y="202.5" numpoints="2"/>
+        <edge source="Tasso_mort" target="Mortalita" label="(...)" p0x="277.5" p0y="402.5" p1x="277.5" p1y="302.5" numpoints="2"/>
+        <edge source="Eta0" target="Eta" label="(...)" p0x="447.5" p0y="202.5" p1x="277.5" p1y="202.5" numpoints="2"/>
+        <edge source="Eta" target="Mortalita" label="(...)" p0x="277.5" p0y="202.5" p1x="277.5" p1y="302.5" numpoints="2"/>
+        <edge source="Ngeni" target="Geni0" label="(...)"/>
+        <edge source="Geni0" target="Geni" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="710" pos-y="0" width="300" height="280">
+            <fontsize>10</fontsize>
+            <colwidth>107,88,98</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0,0,0</colalignment>
+            <colformat>###0.0###,###0.0###,###0.0###</colformat>
+            <title>Eta Mortalita Morte </title>
+            <lastonly>false</lastonly>
+            <sourcena>Eta,Mortalita,Morte</sourcena>
+        </widget>
+        <widget type="SliderWidget" pos-x="1040" pos-y="10" width="200" height="100">
+            <0>0</0>
+            <widgetvalue>1000.0</widgetvalue>
+            <max>2000.0</max>
+            <min>500.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>Tasso_mort</source>
+            <delta>20.0</delta>
+            <iconized>false</iconized>
+            <title>Tasso_mort: 1000.0</title>
+        </widget>
+        <widget type="DataTableWidget" pos-x="650" pos-y="310" width="520" height="250">
+            <fontsize>7</fontsize>
+            <colwidth>51,52,51,51,51,51,52,51,52,51</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0</colalignment>
+            <colformat>###0.0###</colformat>
+            <title>Geni </title>
+            <lastonly>false</lastonly>
+            <sourcena>Geni</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

@@ -1,0 +1,152 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="30.0" timeD="1.0" maxSteps="1" batchSteps="1" width="965" height="572" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="cx" type="ValueNode" pos-x="100" pos-y="130" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>array([n*40+1,n*40+1],$i1/(n*10)-2)</fExpression>
+            <expression>array([n*40+1,n*40+1],$i1/(n*10)-2)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=cx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="cy" type="ValueNode" pos-x="100" pos-y="250" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>array([n*40+1,n*40+1],$i0/(n*10)-2)</fExpression>
+            <expression>array([n*40+1,n*40+1],$i0/(n*10)-2)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=cy</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="d" type="ValueNode" pos-x="310" pos-y="190" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>min(100,(x^2+y^2)/2)</fExpression>
+            <expression>min(100,(x^2+y^2)/2)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=d</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="20" pos-y="190" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>6</fExpression>
+            <expression>6</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="x" type="ValueNode" pos-x="210" pos-y="130" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>cx</fStateInit>
+            <format>0.0##</format>
+            <fStateTrans>this^2-y^2+cx</fStateTrans>
+            <fExpression>matrix(21,21,$c/10-1)</fExpression>
+            <expression>matrix(21,21,$c/10-1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>cx</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans>this^2-y^2+cx</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="y" type="ValueNode" pos-x="210" pos-y="250" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>cy</fStateInit>
+            <format>0.0##</format>
+            <fStateTrans>2*x*this+cy</fStateTrans>
+            <fExpression>2</fExpression>
+            <expression>2</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>cy</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans>2*x*this+cy</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="20" pos-y="20" width="321" height="51" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h2&gt;
+      &lt;big&gt;&lt;font size=&quot;6&quot;&gt;Mandelbrot&apos;s set&lt;/font&gt;&lt;/big&gt;
+    &lt;/h2&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="n" target="cy" label="(...)"/>
+        <edge source="n" target="cx" label="(...)"/>
+        <edge source="y" target="d" label="(...)" p0x="247.5" p0y="272.5" p1x="347.5" p1y="212.5" numpoints="2"/>
+        <edge source="x" target="d" label="(...)" p0x="247.5" p0y="152.5" p1x="347.5" p1y="212.5" numpoints="2"/>
+        <edge source="cy" target="y" label="(...)" p0x="137.5" p0y="272.5" p1x="247.5" p1y="272.5" numpoints="2"/>
+        <edge source="cx" target="x" label="(...)" p0x="137.5" p0y="152.5" p1x="247.5" p1y="152.5" numpoints="2"/>
+        <edge source="y" target="x" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="247.5" p0y="272.5" p1x="260.0" p1y="210.0" p2x="247.5" p2y="152.5" numpoints="3"/>
+        <edge source="x" target="y" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="247.5" p0y="152.5" p1x="240.0" p1y="210.0" p2x="247.5" p2y="272.5" numpoints="3"/>
+    </edges>
+    <widgets>
+        <widget type="MatrixViewerWidget" pos-x="420" pos-y="10" width="470" height="410">
+            <autoscalez>true</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>74.0</projelevationangle>
+            <plotcolor>SPECTRUM</plotcolor>
+            <proj2dscaling>15.938091</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>151.0</projrotationangle>
+            <displayz>false</displayz>
+            <sourcena>d</sourcena>
+            <plottype>SURFACE</plottype>
+            <showtitlebar>true</showtitlebar>
+            <title>d</title>
+            <boxed>false</boxed>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

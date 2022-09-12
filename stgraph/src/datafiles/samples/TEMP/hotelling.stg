@@ -1,0 +1,400 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1282" height="806" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="dist" type="ValueNode" pos-x="380" pos-y="110" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([s,s,n],s-sqrt((p_x[$i2]-$i0)^2+(p_y[$i2]-$i1)^2))</fExpression>
+            <fStateTrans/>
+            <expression>array([s,s,n],s-sqrt((p_x[$i2]-$i0)^2+(p_y[$i2]-$i1)^2))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=mkt</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="dist_move" type="ValueNode" pos-x="370" pos-y="190" width="101" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([s,s,n,numRows(dm)],s-sqrt((p_x[$i2]+dm[$i3,0]-$i0)^2+(p_y[$i2]+dm[$i3,1]-$i1)^2))</fExpression>
+            <fStateTrans/>
+            <expression>array([s,s,n,numRows(dm)],s-sqrt((p_x[$i2]+dm[$i3,0]-$i0)^2+(p_y[$i2]+dm[$i3,1]-$i1)^2))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=dist_move</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="dm" type="ValueNode" pos-x="380" pos-y="290" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Dictionary with the position of the movements (1: up, 2: right, 3: down, 4: left, 5: don&apos;t move)</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[[0,1],[1,0],[0,-1],[-1,0],[0,0]]</fExpression>
+            <fStateTrans/>
+            <expression>[[0,1],[1,0],[0,-1],[-1,0],[0,0]]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=dict_move</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="mkt" type="ValueNode" pos-x="250" pos-y="110" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([s,s],getData([0],getIndex(iter(dist[$i0,$i1],max($0,$1),1),dist[$i0,$i1])))</fExpression>
+            <fStateTrans/>
+            <expression>array([s,s],getData([0],getIndex(iter(dist[$i0,$i1],max($0,$1),1),dist[$i0,$i1])))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=mkt</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="mkt_flat" type="ValueNode" pos-x="20" pos-y="110" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>flatten(mkt)</fExpression>
+            <fStateTrans/>
+            <expression>flatten(mkt)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=mkt_flat</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="mkt_share" type="ValueNode" pos-x="120" pos-y="190" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(n,get(countIf(mkt_flat,[$i0]),0))`</fExpression>
+            <fStateTrans/>
+            <expression>array(n,get(countIf(mkt_flat,[$i0]),0))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=mkt_share</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="130" pos-y="450" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>3.0</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="nodo23" type="ValueNode" pos-x="250" pos-y="280" width="71" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(time&lt;100,0,array([s,s,`numRows(dm)],getData([0],getIndex(iter(dist_move[$i0,$i1,$i2],max($0,$1),1),dist_move[$i0,$i1,$i2]))))</fExpression>
+            <fStateTrans/>
+            <expression>if(time&lt;100,0,array([s,s,numRows(dm)],getData([0],getIndex(iter(dist_move[$i0,$i1,$i2],max($0,$1),1),dist_move[$i0,$i1,$i2]))))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo23</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="nodo24" type="ValueNode" pos-x="310" pos-y="360" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>numRows(dm)</fExpression>
+            <fStateTrans/>
+            <expression>numRows(dm)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo24</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="p_x" type="ValueNode" pos-x="250" pos-y="190" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array(n,randInt(s))</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>array(n,if(mkt_share[$i0]&lt;mean(mkt_share)*0.8,max(min(this[$i0]+randInt(3)-1,s),0),this[$i0]))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n,randInt(s))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>array(n,if(mkt_share[$i0]&lt;mean(mkt_share)*0.8,max(min(this[$i0]+randInt(3)-1,s),0),this[$i0]))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=p</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="p_y" type="ValueNode" pos-x="250" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array(n,randInt(s))</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>array(n,if(mkt_share[$i0]&lt;mean(mkt_share)*0.8,max(min(this[$i0]+randInt(3)-1,s),0),this[$i0]))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n,randInt(s))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>array(n,if(mkt_share[$i0]&lt;mean(mkt_share)*0.8,max(min(this[$i0]+randInt(3)-1,s),0),this[$i0]))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=p_y</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="s" type="ValueNode" pos-x="120" pos-y="520" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>10.0</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=l</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="s_x" type="ValueNode" pos-x="20" pos-y="440" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0,s]</fExpression>
+            <fStateTrans/>
+            <expression>[0,s]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=s_min</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="s_y" type="ValueNode" pos-x="20" pos-y="520" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0,s]</fExpression>
+            <fStateTrans/>
+            <expression>[0,s]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=s_max</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="mkt_share" target="p_x" label="(...)"/>
+        <edge source="mkt_share" target="p_y" label="(...)"/>
+        <edge source="dm" target="nodo24" label="(...)"/>
+        <edge source="p_x" target="dist_move" label="(...)" p0x="287.5" p0y="212.5" p1x="417.5" p1y="212.5" numpoints="2"/>
+        <edge source="p_y" target="dist_move" label="(...)" p0x="287.5" p0y="62.5" p1x="417.5" p1y="212.5" numpoints="2"/>
+        <edge source="mkt_flat" target="mkt_share" label="(...)"/>
+        <edge source="mkt" target="mkt_flat" label="(...)"/>
+        <edge source="dist" target="mkt" label="(...)" p0x="417.5" p0y="132.5" p1x="287.5" p1y="132.5" numpoints="2"/>
+        <edge source="p_x" target="dist" label="(...)" p0x="287.5" p0y="212.5" p1x="417.5" p1y="132.5" numpoints="2"/>
+        <edge source="p_y" target="dist" label="(...)" p0x="287.5" p0y="62.5" p1x="417.5" p1y="132.5" numpoints="2"/>
+        <edge source="dm" target="dist_move" label="(...)"/>
+        <edge source="dist_move" target="nodo23" label="(...)"/>
+        <edge source="dm" target="nodo23" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="SliderWidget" pos-x="640" pos-y="10" width="100" height="240">
+            <0>1</0>
+            <min>5.0</min>
+            <max>50.0</max>
+            <showtitlebar>true</showtitlebar>
+            <delta>5</delta>
+            <iconized>false</iconized>
+            <title>non assegnato</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="740" pos-y="10" width="90" height="240">
+            <0>1</0>
+            <widgetvalue>3.0</widgetvalue>
+            <max>10.0</max>
+            <min>2.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>n</source>
+            <delta>1.0</delta>
+            <iconized>false</iconized>
+            <title>n: 3.0</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="990" pos-y="280" width="220" height="290">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>false,false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GREEN</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style2,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>p_y,s_y</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#3,#0</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true,true</showdots>
+            <xsourcena>p_x,s_x</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,true</dotslastonly>
+        </widget>
+        <widget type="DataTableWidget" pos-x="840" pos-y="30" width="440" height="220">
+            <fontsize>10</fontsize>
+            <colwidth>137,33,33,32,33,32,33,32,33,32</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0</colalignment>
+            <colformat>0.0</colformat>
+            <title>mkt </title>
+            <lastonly>false</lastonly>
+            <sourcena>mkt</sourcena>
+        </widget>
+        <widget type="MatrixViewerWidget" pos-x="630" pos-y="280" width="350" height="290">
+            <autoscalez>true</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>11.0</projelevationangle>
+            <plotcolor>SPECTRUM</plotcolor>
+            <proj2dscaling>15.0</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>126.0</projrotationangle>
+            <displayz>true</displayz>
+            <sourcena>mkt</sourcena>
+            <plottype>CONTOUR</plottype>
+            <showtitlebar>true</showtitlebar>
+            <title>mkt</title>
+            <boxed>false</boxed>
+        </widget>
+        <widget type="DataTableWidget" pos-x="460" pos-y="410" width="150" height="300">
+            <fontsize>10</fontsize>
+            <colwidth>140</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0</colalignment>
+            <colformat>###0.0###</colformat>
+            <title>mkt_share </title>
+            <lastonly>false</lastonly>
+            <sourcena>mkt_share</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

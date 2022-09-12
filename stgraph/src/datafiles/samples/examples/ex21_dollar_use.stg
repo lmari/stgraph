@@ -1,0 +1,77 @@
+<stgraph class="STGraph.decoder" version="STGraph build 18.02">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1280" height="702" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="a" type="ValueNode" pos-x="268" pos-y="23" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Matrix of zeros, with one in the position defined by the parameter ps</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([4,4],if($i0==ps[0]&amp;&amp;$i1==ps[1],1,0))</fExpression>
+            <fStateTrans/>
+            <expression>array([4,4],if($i0==ps[0]&amp;&amp;$i1==ps[1],1,0))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=A</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="ps" type="ValueNode" pos-x="266" pos-y="122" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Position desired for the &quot;special value&quot;</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[2,2]</fExpression>
+            <fStateTrans/>
+            <expression>[2,2]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=B</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="6" pos-y="28" width="181" height="149" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;b&gt;How to use $i0 and $i1?&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;small&gt;They can be used to get or 
+    set a peculiar value from a matrix. In this case they are used to set to 1 
+    a specifical element of the matrix a, in position defined by parameter ps.&lt;/small&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="ps" target="a" label="(...)" p0x="307.5" p0y="143.5" p1x="305.5" p1y="45.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="424" pos-y="46" width="187" height="98">
+            <fontsize>10</fontsize>
+            <colwidth>40,47,47,46</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0</colalignment>
+            <colformat>###0.0###</colformat>
+            <title>a </title>
+            <lastonly>false</lastonly>
+            <sourcena>a</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

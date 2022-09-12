@@ -1,0 +1,242 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="0.1" maxSteps="1" batchSteps="1" width="1008" height="573" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="controller" type="ValueNode" pos-x="180" pos-y="130" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fStateTrans>if(err&lt;sogliaErrLo,0,err&gt;sogliaErrHi,1,this)</fStateTrans>
+            <fExpression/>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans>if(err&lt;sogliaErrLo,0,err&gt;sogliaErrHi,1,this)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=controller</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="effAtt" type="ValueNode" pos-x="390" pos-y="200" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>0.06</fExpression>
+            <expression>0.06</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=efficienza dell&apos;attuatore</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="effSis" type="ValueNode" pos-x="520" pos-y="70" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>50</fExpression>
+            <expression>50</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=efficienza del sistema</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="err" type="ValueNode" pos-x="180" pos-y="210" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>tempSis-setpoint</fExpression>
+            <expression>tempSis-setpoint</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=errore</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="setpoint" type="ValueNode" pos-x="20" pos-y="210" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>20</fExpression>
+            <expression>20</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=setpoint</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="sogliaErrHi" type="ValueNode" pos-x="240" pos-y="70" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>1</fExpression>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=soglia superiore</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="sogliaErrLo" type="ValueNode" pos-x="120" pos-y="70" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>-1</fExpression>
+            <expression>-1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=soglia inferiore</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tempAmb" type="ValueNode" pos-x="380" pos-y="70" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <documentation>Temperatura dell&apos;ambiente esterno</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>30</fExpression>
+            <fStateTrans/>
+            <expression>30</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=temperatura ambiente</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tempAtt" type="ValueNode" pos-x="300" pos-y="180" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <documentation>Temperatura di raffreddamento dell&apos;attuatore</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>15</fExpression>
+            <fStateTrans/>
+            <expression>15</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=temperatura dell&apos;attuatore</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tempSis" type="ValueNode" pos-x="440" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>15</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>integral((tempAmb-this)/effSis+controller*effAtt*(tempAtt-this))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>15</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral((tempAmb-this)/effSis+controller*effAtt*(tempAtt-this))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=temperatura del sistema</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text2" pos-x="70" pos-y="30" width="341" height="35" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;font size=&quot;5&quot;&gt;Controller bistabile a due posizioni&lt;/font&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="effAtt" target="tempSis" label="(...)"/>
+        <edge source="tempAmb" target="tempSis" label="(...)" p0x="417.5" p0y="92.5" p1x="477.5" p1y="152.5" numpoints="2"/>
+        <edge source="sogliaErrLo" target="controller" label="(...)" p0x="157.5" p0y="92.5" p1x="217.5" p1y="152.5" numpoints="2"/>
+        <edge source="sogliaErrHi" target="controller" label="(...)" p0x="277.5" p0y="92.5" p1x="217.5" p1y="152.5" numpoints="2"/>
+        <edge source="effSis" target="tempSis" label="(...)" p0x="557.5" p0y="92.5" p1x="477.5" p1y="152.5" numpoints="2"/>
+        <edge source="tempSis" target="err" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="477.5" p0y="152.5" p1x="380.0" p1y="220.0" p2x="217.5" p2y="232.5" numpoints="3"/>
+        <edge source="setpoint" target="err" label="(...)" p0x="57.5" p0y="232.5" p1x="217.5" p1y="232.5" numpoints="2"/>
+        <edge source="err" target="controller" label="(...)" p0x="217.5" p0y="232.5" p1x="217.5" p1y="152.5" numpoints="2"/>
+        <edge source="tempAtt" target="tempSis" label="(...)" p0x="337.5" p0y="202.5" p1x="477.5" p1y="152.5" numpoints="2"/>
+        <edge source="controller" target="tempSis" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="620" pos-y="40" width="300" height="200">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__BLACK</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>controller</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#5</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>tempSis</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

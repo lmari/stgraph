@@ -1,0 +1,457 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.08">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="250.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1392" height="758" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="A" type="ValueNode" pos-x="39" pos-y="414" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Total unit of product sold by firm A</documentation>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+new_A+if(this==0,start_A*100,0)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+new_A+if(this==0,start_A*100,0)</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=A</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="A_cost" type="ValueNode" pos-x="154" pos-y="357" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Cost of production of firm A</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+new_A*prod_cost/1000</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+new_A*prod_cost/1000</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=A_cost</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="A_income" type="ValueNode" pos-x="156" pos-y="512" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Income from product sales of firm A</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+new_A*par[3]/1000</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+new_A*par[3]/1000</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=A_income</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="A_profit" type="ValueNode" pos-x="155" pos-y="433" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Profit of firm A</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>A_income-A_cost</fExpression>
+            <fStateTrans/>
+            <expression>A_income-A_cost</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=A_profit</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="B" type="ValueNode" pos-x="479" pos-y="412" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+new_B+if(time==start_B,100,0)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+new_B+if(time==start_B,100,0)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=A</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="B_cost" type="ValueNode" pos-x="365" pos-y="353" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Cost of production of firm B</documentation>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+new_B*prod_cost/1000</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+new_B*prod_cost/1000</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=B_cost</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="B_income" type="ValueNode" pos-x="369" pos-y="513" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Income from product sales of firm B</documentation>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+new_B*par[3]/1000</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+new_B*par[3]/1000</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=B_income</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="B_profit" type="ValueNode" pos-x="370" pos-y="435" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Profit of firm B</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>B_income-B_cost</fExpression>
+            <fStateTrans/>
+            <expression>B_income-B_cost</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=B_profit</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="new_A" type="ValueNode" pos-x="38" pos-y="306" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Unit of product sold by firm A at time t</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(A&gt;0,(par[0]*(A/total_market_A)*(total_market_A-A))+(par[1]*(total_market_A-A)),0)</fExpression>
+            <fStateTrans/>
+            <expression>if(A&gt;0,(par[0]*(A/total_market_A)*(total_market_A-A))+(par[1]*(total_market_A-A)),0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=new_A</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="new_B" type="ValueNode" pos-x="477" pos-y="307" width="81" height="48">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(B&gt;0,(par[0]*(B/total_market_B)*(total_market_B-B))+(par[1]*(total_market_B-B)),0)</fExpression>
+            <fStateTrans/>
+            <expression>if(B&gt;0,(par[0]*(B/total_market_B)*(total_market_B-B))+(par[1]*(total_market_B-B)),0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=new_A</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="par" type="ValueNode" pos-x="263" pos-y="436" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0.05,0.0001,100000,250]</fExpression>
+            <fStateTrans/>
+            <expression>[0.05,0.0001,100000,250]</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>64,64,64</backcol>
+            <customprops>Name=par</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="potential_market" type="ValueNode" pos-x="242" pos-y="180" width="129" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>par[2]</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this-new_A-new_B</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>par[2]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans>this-new_A-new_B</stateTrans>
+            <backcol>64,64,64</backcol>
+            <customprops>Name=potential_market</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="prod_cost" type="ValueNode" pos-x="259" pos-y="355" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>50`+`max(50-time,0)</fExpression>
+            <fStateTrans/>
+            <expression>50+max(50-time,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>64,64,64</backcol>
+            <customprops>Name=prod_cost</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="start_A" type="ValueNode" pos-x="40" pos-y="511" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Beginning of sales of firm A</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>1.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=start_A</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="start_B" type="ValueNode" pos-x="481" pos-y="514" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Beginning of sales of firm B</documentation>
+            <isOut>false</isOut>
+            <fStateInit>int(exponential([0.05]))</fStateInit>
+            <format>0.0##</format>
+            <fExpression>exponential([1])</fExpression>
+            <fStateTrans>this</fStateTrans>
+            <expression>exponential([1])</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>int(exponential([0.05]))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=start_A</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="total_market_A" type="ValueNode" pos-x="21" pos-y="181" width="103" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>par[2]</fStateInit>
+            <format>0.0##</format>
+            <fExpression>100000</fExpression>
+            <fStateTrans>this-new_B</fStateTrans>
+            <expression>100000</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>par[2]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this-new_B</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=total_market</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="total_market_B" type="ValueNode" pos-x="468" pos-y="174" width="103" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>par[2]</fStateInit>
+            <format>0.0##</format>
+            <fExpression>100000</fExpression>
+            <fStateTrans>this-new_A</fStateTrans>
+            <expression>100000</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>par[2]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this-new_A</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=total_market</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="10" pos-y="20" width="456" height="47" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;b&gt;&lt;big&gt;Innovation diffusion with competition&lt;/big&gt;&lt;/b&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+        <text name="*text2" pos-x="586" pos-y="11" width="740" height="152" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     The model simulates competition between two firms which compete in a      single market to sell an undifferentiable product. The user of the model      controls the moment at which firm A starts selling the product. The      overall number of products sold depends on the intersection of the two      firm strategies: the more a firm advance another in the market, the more      it will be able to sell. But in the earlier phase of the commercialization      the production cost is higher. Can you find the strategy that maximizes      the profit?   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="B_income" target="B_profit" label="(...)" p0x="406.5" p0y="535.5" p1x="407.5" p1y="457.5" numpoints="2"/>
+        <edge source="B_cost" target="B_profit" label="(...)" p0x="402.5" p0y="375.5" p1x="407.5" p1y="457.5" numpoints="2"/>
+        <edge source="A_cost" target="A_profit" label="(...)" p0x="191.5" p0y="379.5" p1x="192.5" p1y="455.5" numpoints="2"/>
+        <edge source="A_income" target="A_profit" label="(...)" p0x="193.5" p0y="534.5" p1x="192.5" p1y="455.5" numpoints="2"/>
+        <edge source="new_B" target="B_income" label="(...)" p0x="517.5" p0y="331.0" p1x="406.5" p1y="535.5" numpoints="2"/>
+        <edge source="prod_cost" target="B_cost" label="(...)" p0x="296.5" p0y="377.5" p1x="402.5" p1y="375.5" numpoints="2"/>
+        <edge source="prod_cost" target="A_cost" label="(...)" p0x="296.5" p0y="377.5" p1x="191.5" p1y="379.5" numpoints="2"/>
+        <edge source="new_B" target="B_cost" label="(...)" p0x="517.5" p0y="331.0" p1x="402.5" p1y="375.5" numpoints="2"/>
+        <edge source="new_A" target="A_cost" label="(...)" p0x="75.5" p0y="328.5" p1x="191.5" p1y="379.5" numpoints="2"/>
+        <edge source="new_B" target="potential_market" label="(...)" p0x="517.5" p0y="331.0" p1x="306.5" p1y="202.5" numpoints="2"/>
+        <edge source="start_B" target="B" label="(...)" p0x="518.5" p0y="536.5" p1x="516.5" p1y="434.5" numpoints="2"/>
+        <edge source="start_A" target="A" label="(...)" p0x="77.5" p0y="533.5" p1x="76.5" p1y="436.5" numpoints="2"/>
+        <edge source="potential_market" target="new_A" label="(...)" p0x="306.5" p0y="202.5" p1x="75.5" p1y="328.5" numpoints="2"/>
+        <edge source="A" target="new_A" label="(...)" p0x="76.5" p0y="436.5" p1x="75.5" p1y="328.5" numpoints="2"/>
+        <edge source="new_A" target="potential_market" label="(...)" p0x="75.5" p0y="328.5" p1x="306.5" p1y="202.5" numpoints="2"/>
+        <edge source="new_A" target="A" label="(...)" p0x="75.5" p0y="328.5" p1x="76.5" p1y="436.5" numpoints="2"/>
+        <edge source="total_market_A" target="new_A" label="(...)" p0x="72.5" p0y="203.5" p1x="75.5" p1y="328.5" numpoints="2"/>
+        <edge source="B" target="new_B" label="(...)" p0x="516.5" p0y="434.5" p1x="517.5" p1y="331.0" numpoints="2"/>
+        <edge source="new_B" target="B" label="(...)" p0x="517.5" p0y="331.0" p1x="516.5" p1y="434.5" numpoints="2"/>
+        <edge source="total_market_B" target="new_B" label="(...)" p0x="519.5" p0y="196.5" p1x="517.5" p1y="331.0" numpoints="2"/>
+        <edge source="new_A" target="total_market_B" label="(...)" p0x="75.5" p0y="328.5" p1x="519.5" p1y="196.5" numpoints="2"/>
+        <edge source="new_B" target="total_market_A" label="(...)" p0x="517.5" p0y="331.0" p1x="72.5" p1y="203.5" numpoints="2"/>
+        <edge source="new_A" target="A_income" label="(...)" p0x="75.5" p0y="328.5" p1x="193.5" p1y="534.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="580" pos-y="290" width="370" height="250">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__BLUE</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>new_A,new_B</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#1,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false,false</showdots>
+            <xsourcena>vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false</dotslastonly>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="580" pos-y="190" width="170" height="90">
+            <action>1</action>
+            <widgetvalue>1.0</widgetvalue>
+            <source>start_A</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>start_A - true</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="960" pos-y="290" width="370" height="250">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__BLACK</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>potential_market</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="DataTableWidget" pos-x="750" pos-y="190" width="570" height="90">
+            <fontsize>25</fontsize>
+            <colwidth>185,188,187</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>1,1,1</colalignment>
+            <colformat>0,0,0</colformat>
+            <title>A_income A_cost A_profit </title>
+            <lastonly>true</lastonly>
+            <sourcena>A_income,A_cost,A_profit</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

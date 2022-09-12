@@ -1,0 +1,127 @@
+<stgraph class="STGraph.decoder" version="STGraph build 16.3.15">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="1" time0="0.0" time1="0.0" timeD="1.0" maxSteps="10" batchSteps="0" width="774" height="450" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="nodo1" type="ValueNode" pos-x="70" pos-y="110" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(100,rand())</fExpression>
+            <fStateTrans/>
+            <expression>array(100,rand())</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo1</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="nodo2" type="ValueNode" pos-x="210" pos-y="110" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(nodo1&lt;0.2,0,nodo1&lt;0.5,1,2)</fExpression>
+            <fStateTrans/>
+            <expression>if(nodo1&lt;0.2,0,nodo1&lt;0.5,1,2)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo2</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="nodo3" type="ValueNode" pos-x="350" pos-y="110" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>frequency(nodo2,nodo4)</fExpression>
+            <fStateTrans/>
+            <expression>frequency(nodo2,nodo4)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo3</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="nodo4" type="ValueNode" pos-x="210" pos-y="180" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>[0:2]</fExpression>
+            <expression>[0:2]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo4</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="80" pos-y="60" width="321" height="35" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       qual &amp;#232; il significato dei valori in nodo3?     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="nodo2" target="nodo3" label="(...)" p0x="247.5" p0y="132.5" p1x="387.5" p1y="132.5" numpoints="2"/>
+        <edge source="nodo1" target="nodo2" label="(...)" p0x="107.5" p0y="132.5" p1x="247.5" p1y="132.5" numpoints="2"/>
+        <edge source="nodo4" target="nodo3" label="(...)" p0x="247.5" p0y="202.5" p1x="387.5" p1y="132.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="440" pos-y="60" width="300" height="200">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>false</showline>
+            <showtitlebar>false</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>true</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>nodo3</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#5</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>nodo4</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

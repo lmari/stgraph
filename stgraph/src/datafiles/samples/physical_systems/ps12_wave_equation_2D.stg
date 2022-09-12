@@ -1,0 +1,264 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="10.0" timeD="0.005" maxSteps="1" batchSteps="1" width="1073" height="696" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="2" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Dx" type="ValueNode" pos-x="20" pos-y="270" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.1</fExpression>
+            <fStateTrans/>
+            <expression>0.1</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Dx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="k" type="ValueNode" pos-x="210" pos-y="410" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>15</fExpression>
+            <fStateTrans/>
+            <expression>15</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=k</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="padx" type="ValueNode" pos-x="170" pos-y="270" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>array(@x,0)#uxx#array(@x,0)</fExpression>
+            <expression>array(@x,0)#uxx#array(@x,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=padx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="pady" type="ValueNode" pos-x="250" pos-y="270" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>conc(conc(array([1,@x],0),uyy,0),array([1,@x],0),0)</fExpression>
+            <expression>conc(conc(array([1,@x],0),uyy,0),array([1,@x],0),0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=padx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="u" type="ValueNode" pos-x="210" pos-y="100" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>u0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>integral(vxx+vyy)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>u0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral(vxx+vyy)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=T</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="u0" type="ValueNode" pos-x="70" pos-y="170" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>0.5+array([@x,@y],($i0==((@x-1)/2))&amp;&amp;($i1==((@y-1)/2)))</fExpression>
+            <expression>0.5+array([@x,@y],($i0==((@x-1)/2))&amp;&amp;($i1==((@y-1)/2)))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=y</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="uxx" type="ValueNode" pos-x="170" pos-y="200" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>(u[[],[2:@y-1]]-2*u[[],[1:@y-2]]+u[[],[0:@y-3]])/(Dx^2)</fExpression>
+            <expression>(u[[],[2:@y-1]]-2*u[[],[1:@y-2]]+u[[],[0:@y-3]])/(Dx^2)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Tx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="uyy" type="ValueNode" pos-x="250" pos-y="200" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>(u[[2:@x-1]]-2*u[[1:@x-2]]+u[[0:@x-3]])/(Dx^2)</fExpression>
+            <expression>(u[[2:@x-1]]-2*u[[1:@x-2]]+u[[0:@x-3]])/(Dx^2)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Tx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="vxx" type="ValueNode" pos-x="170" pos-y="340" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>array([@x,@y],0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>integral(k*(uyy[0]#uyy#uyy[@uyy-1]))</fExpression>
+            <fStateTrans>integral(k*padx)</fStateTrans>
+            <expression>integral(k*(uyy[0]#uyy#uyy[@uyy-1]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array([@x,@y],0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral(k*padx)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=v</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="vyy" type="ValueNode" pos-x="250" pos-y="340" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>array([@x,@y],0)</fStateInit>
+            <format>0.0##</format>
+            <fStateTrans>integral(k*pady)</fStateTrans>
+            <fExpression>integral(k*(uyy[0]#uyy#uyy[@uyy-1]))</fExpression>
+            <expression>integral(k*(uyy[0]#uyy#uyy[@uyy-1]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array([@x,@y],0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans>integral(k*pady)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=v</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="x" type="ValueNode" pos-x="30" pos-y="80" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0:Dx:5]</fExpression>
+            <fStateTrans/>
+            <expression>[0:Dx:5]</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="y" type="ValueNode" pos-x="110" pos-y="80" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>[0:Dx:5]</fExpression>
+            <expression>[0:Dx:5]</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="120" pos-y="20" width="161" height="31" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       Wave equation 2D     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="vxx" target="u" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="177.5" p0y="432.5" p1x="120.0" p1y="320.0" p2x="217.5" p2y="192.5" numpoints="3"/>
+        <edge source="vyy" target="u" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="287.5" p0y="362.5" p1x="350.0" p1y="250.0" p2x="247.5" p2y="122.5" numpoints="3"/>
+        <edge source="pady" target="vyy" label="(...)" p0x="287.5" p0y="292.5" p1x="287.5" p1y="362.5" numpoints="2"/>
+        <edge source="k" target="vxx" label="(...)" p0x="247.5" p0y="432.5" p1x="207.5" p1y="362.5" numpoints="2"/>
+        <edge source="padx" target="vxx" label="(...)" p0x="207.5" p0y="292.5" p1x="207.5" p1y="362.5" numpoints="2"/>
+        <edge source="uyy" target="pady" label="(...)" p0x="287.5" p0y="222.5" p1x="287.5" p1y="292.5" numpoints="2"/>
+        <edge source="uxx" target="padx" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="207.5" p0y="222.5" p1x="207.5" p1y="292.5" numpoints="2"/>
+        <edge source="u" target="uxx" label="(...)" p0x="247.5" p0y="122.5" p1x="207.5" p1y="222.5" numpoints="2"/>
+        <edge source="y" target="u0" label="(...)" p0x="147.5" p0y="102.5" p1x="107.5" p1y="192.5" numpoints="2"/>
+        <edge source="k" target="vyy" label="(...)" p0x="247.5" p0y="432.5" p1x="287.5" p1y="362.5" numpoints="2"/>
+        <edge source="u" target="uyy" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="247.5" p0y="122.5" p1x="287.5" p1y="222.5" numpoints="2"/>
+        <edge source="u0" target="u" label="(...)" p0x="107.5" p0y="192.5" p1x="247.5" p1y="122.5" numpoints="2"/>
+        <edge source="x" target="u0" label="(...)" p0x="67.5" p0y="102.5" p1x="107.5" p1y="192.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="MatrixViewerWidget" pos-x="410" pos-y="20" width="420" height="430">
+            <autoscalez>false</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>10.0</projelevationangle>
+            <plotcolor>OPAQUE</plotcolor>
+            <proj2dscaling>15.0</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>125.0</projrotationangle>
+            <displayz>false</displayz>
+            <sourcena>u</sourcena>
+            <plottype>CONTOUR</plottype>
+            <showtitlebar>false</showtitlebar>
+            <title>u</title>
+            <boxed>false</boxed>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

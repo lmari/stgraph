@@ -1,0 +1,275 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="1000.0" timeD="1.0" maxSteps="1" batchSteps="1" width="1279" height="751" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Carta" type="ValueNode" pos-x="260" pos-y="100" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>0</fExpression>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="Forbice" type="ValueNode" pos-x="380" pos-y="100" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>0</fExpression>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="Giocatore" type="ValueNode" pos-x="390" pos-y="210" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(Carta==1,1,Forbice==1,2,Sasso==1,3,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(Carta==1,1,Forbice==1,2,Sasso==1,3,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Giocatore</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Giocatore1" type="ValueNode" pos-x="260" pos-y="280" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>Giocatore</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(Turno==1,Giocatore,this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Giocatore</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(Turno==1,Giocatore,this)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Giocatore1</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="PC" type="ValueNode" pos-x="390" pos-y="370" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(Punteggio[0]==0&amp;&amp;Punteggio[1]==0,randInt(3)+1,if(rndm&gt;0.8,randInt(3)+1,if(Giocatore1==3,1,Giocatore1+1)))</fExpression>
+            <fStateTrans/>
+            <expression>if(Punteggio[0]==0&amp;&amp;Punteggio[1]==0,randInt(3)+1,if(rndm&gt;0.8,randInt(3)+1,if(Giocatore1==3,1,Giocatore1+1)))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=PC</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Punteggio" type="ValueNode" pos-x="490" pos-y="280" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>[0,0]</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(Turno==0,this,Giocatore==1&amp;&amp;PC==2,this+[0,1],Giocatore==1&amp;&amp;PC==3,this+[1,0],Giocatore==2&amp;&amp;PC==1,this+[1,0],Giocatore==2&amp;&amp;PC==3,this+[0,1],Giocatore==3&amp;&amp;PC==1,this+[0,1],Giocatore==3&amp;&amp;PC==2,this+[1,0],this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>[0,0]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(Turno==0,this,Giocatore==1&amp;&amp;PC==2,this+[0,1],Giocatore==1&amp;&amp;PC==3,this+[1,0],Giocatore==2&amp;&amp;PC==1,this+[1,0],Giocatore==2&amp;&amp;PC==3,this+[0,1],Giocatore==3&amp;&amp;PC==1,this+[0,1],Giocatore==3&amp;&amp;PC==2,this+[1,0],this)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Max=10;Name=Vittoria;OnAboveMax=end(&quot;fine gioco&quot;)</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Sasso" type="ValueNode" pos-x="500" pos-y="100" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>0</fExpression>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+        <node name="Turno" type="ValueNode" pos-x="380" pos-y="20" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(Carta==1||Forbice==1||Sasso==1,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(Carta==1||Forbice==1||Sasso==1,1,0)</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Change</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="ptg" type="ValueNode" pos-x="40" pos-y="560" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[1,2]</fExpression>
+            <fStateTrans/>
+            <expression>[1,2]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=ptg</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="rndm" type="ValueNode" pos-x="390" pos-y="450" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>rand()</fExpression>
+            <fStateTrans/>
+            <expression>rand()</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=rndm</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="Punteggio" target="PC" label="(...)"/>
+        <edge source="PC" target="Punteggio" label="(...)"/>
+        <edge source="Giocatore" target="Punteggio" label="(...)"/>
+        <edge source="Giocatore1" target="PC" label="(...)"/>
+        <edge source="Giocatore" target="Giocatore1" label="(...)"/>
+        <edge source="Sasso" target="Giocatore" label="(...)" p0x="537.5" p0y="122.5" p1x="427.5" p1y="232.5" numpoints="2"/>
+        <edge source="Forbice" target="Giocatore" label="(...)" p0x="417.5" p0y="122.5" p1x="427.5" p1y="232.5" numpoints="2"/>
+        <edge source="Carta" target="Giocatore" label="(...)" p0x="297.5" p0y="122.5" p1x="427.5" p1y="232.5" numpoints="2"/>
+        <edge source="Carta" target="Turno" label="(...)"/>
+        <edge source="Forbice" target="Turno" label="(...)"/>
+        <edge source="Sasso" target="Turno" label="(...)"/>
+        <edge source="rndm" target="PC" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="ToggleButtonWidget" pos-x="950" pos-y="10" width="150" height="100">
+            <action>1</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>Forbice</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>Forbice - false</title>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="1100" pos-y="10" width="150" height="100">
+            <action>1</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>Sasso</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>Sasso - false</title>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="800" pos-y="10" width="150" height="100">
+            <action>1</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>Carta</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>Carta - false</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="930" pos-y="120" width="310" height="460">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>true</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>Punteggio</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <maxy>20.0</maxy>
+            <maxx>2.2</maxx>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <miny>0.0</miny>
+            <minx>0.9</minx>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#30</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>5.0</stepy>
+            <stepx>1.0</stepx>
+            <showdots>false</showdots>
+            <xsourcena>ptg</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>
