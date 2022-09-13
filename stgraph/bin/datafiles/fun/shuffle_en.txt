@@ -1,7 +1,0 @@
-<h2>STGraph - shuffle</h2>
-<u>Format</u>: <code>shuffle(x)</code>
-<u>Constraints</u>: <code>x</code> is an array
-<u>Description</u>: array obtained by randomly permutating the elements of the array <code>x</code>
-<br><code>shuffle</code> is <a href="functions_en.properties">an array function</a>
-
-<u>Exceptions</u>: no

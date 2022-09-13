@@ -1,9 +1,0 @@
-<h2>STGraph - wrap</h2>
-<u>Formato</u>: <code>wrap(x,y)</code>
-<u>Vincoli</u>: <code>x</code> e <code>y</code> sono array (i vincoli sono specificati <a href="fun/_diadic_it.txt">qui</a>)
-<u>Descrizione</u>: <code>x</code> modulo <code>y</code> con gestione dei valori negativi
-
-Mentre <code>mod(-2,5)==-2</code>, <code>wrap(-2,5)==3</code>.
-<br><code>wrap</code> e' <a href="functions_it.properties">una funzione matematica</a><br><code>wrap</code> e' <a href="fun/_diadic_it.txt">una funzione diadica polimorfa</a>
-
-<u>Eccezioni</u>: Come specificato <a href="fun/_diadic_it.txt">qui</a>.

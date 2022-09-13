@@ -1,9 +1,0 @@
-<h2>STGraph - Scan-2</h2>
-<u>Format</u>: <code>f\[n]x</code>
-<u>Constraints</u>: <code>f</code> is a function or an operator; <code>x</code> is an array; <code>n</code> is an integer
-<u>Description</u>: as f\x, where <code>f</code> is applied to the dimension <code>n</code> of <code>x</code>
-
-If <code>f</code> is a function, then <code>x</code> must be delimited by parentheses (e.g., <code>max\[0](v)</code>).
-<br><code>Scan-2</code> is <a href="functions_en.properties">an operator</a>
-
-<u>Exceptions</u>: <code>x</code> must be a non-null array; <code>n</code> must be a correct dimension for <code>x</code>, currently between <code>0</code> and <code>2</code>.

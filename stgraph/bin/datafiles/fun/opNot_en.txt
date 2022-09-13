@@ -1,7 +1,0 @@
-<h2>STGraph - Not</h2>
-<u>Format</u>: <code>!x</code>
-<u>Constraints</u>: <code>x</code> is an array
-<u>Description</u>: logical negation: not <code>x</code>
-<br><code>Not</code> is <a href="functions_en.properties">an operator</a><br><code>Not</code> is <a href="fun/_monadic_en.txt">a monadic polymorphic function</a>, <a href="fun/_boolean_en.txt">a boolean operator</a>
-
-<u>Exceptions</u>: no

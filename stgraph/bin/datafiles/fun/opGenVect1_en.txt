@@ -1,7 +1,0 @@
-<h2>STGraph - GenVect1</h2>
-<u>Format</u>: <code>[x:y]</code>
-<u>Constraints</u>: <code>x</code> and <code>y</code> are scalars
-<u>Description</u>: vector of scalars from <code>x</code> to <code>y</code>
-<br><code>GenVect1</code> is <a href="functions_en.properties">an operator</a>
-
-<u>Exceptions</u>: no

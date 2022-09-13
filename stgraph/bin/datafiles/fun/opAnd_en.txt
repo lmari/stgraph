@@ -1,7 +1,0 @@
-<h2>STGraph - And</h2>
-<u>Format</u>: <code>x&&y</code>
-<u>Constraints</u>: <code>x</code> and <code>y</code> are arrays (the constraints are specified <a href="fun/_diadic_en.txt">here</a>)
-<u>Description</u>: logical conjunction: <code>x</code> and <code>y</code>
-<br><code>And</code> is <a href="functions_en.properties">an operator</a><br><code>And</code> is <a href="fun/_diadic_en.txt">a diadic polymorphic function</a>, <a href="fun/_boolean_en.txt">a boolean operator</a>
-
-<u>Exceptions</u>: As specified <a href="fun/_diadic_en.txt">here</a>.

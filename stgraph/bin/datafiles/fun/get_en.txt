@@ -1,7 +1,0 @@
-<h2>STGraph - get</h2>
-<u>Format</u>: <code>get(x,v0,v1,...)</code>
-<u>Constraints</u>: <code>x</code> is an array; <code>v1</code>, <code>v2</code>, ... are scalars or vectors
-<u>Description</u>: array obtained from the array <code>x</code> by extracting its subarray of indexes <code>v0</code> from the 0-th dimension, then its subarray of indexes <code>v1</code> from the 1-st dimension, then... (equivalent to <code>x[v0,v1,...]</code>)
-<br><code>get</code> is <a href="functions_en.properties">an array function</a>
-
-<u>Exceptions</u>: no

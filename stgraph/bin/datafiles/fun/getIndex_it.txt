@@ -1,9 +1,0 @@
-<h2>STGraph - getIndex</h2>
-<u>Formato</u>: <code>getIndex(s,x)</code>
-<u>Vincoli</u>: <code>s</code> e' uno scalare; <code>x</code> e' un array
-<u>Descrizione</u>: se <code>x</code> e' un vettore, vettore degli indici delle occorrenze di <code>s</code> in <code>x</code>; se <code>x</code> e' un array di ordine superiore, matrice degli indici delle occorrenze di <code>s</code> in <code>x</code>
-
-Se <code>s</code> non e' trovato, restituisce il vettore <code>[-1]</code>.
-<br><code>getIndex</code> e' <a href="functions_it.properties">una funzione per array</a>
-
-<u>Eccezioni</u>: no

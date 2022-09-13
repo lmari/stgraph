@@ -1,7 +1,0 @@
-<h2>STGraph - sqrt</h2>
-<u>Formato</u>: <code>sqrt(x)</code>
-<u>Vincoli</u>: <code>x</code> e' un array
-<u>Descrizione</u>: radice quadrata di <code>x</code>
-<br><code>sqrt</code> e' <a href="functions_it.properties">una funzione matematica</a><br><code>sqrt</code> e' <a href="fun/_monadic_it.txt">una funzione monadica polimorfa</a>
-
-<u>Eccezioni</u>: <code>x</code> deve essere positivo.

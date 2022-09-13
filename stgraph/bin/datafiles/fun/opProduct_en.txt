@@ -1,7 +1,0 @@
-<h2>STGraph - Product</h2>
-<u>Format</u>: <code>x*y</code>
-<u>Constraints</u>: <code>x</code> and <code>y</code> are arrays (the constraints are specified <a href="fun/_diadic_en.txt">here</a>)
-<u>Description</u>: <code>x</code> times <code>y</code>
-<br><code>Product</code> is <a href="functions_en.properties">an operator</a><br><code>Product</code> is <a href="fun/_diadic_en.txt">a diadic polymorphic function</a>
-
-<u>Exceptions</u>: As specified <a href="fun/_diadic_en.txt">here</a>.

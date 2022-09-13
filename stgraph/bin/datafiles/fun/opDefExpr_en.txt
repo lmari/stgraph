@@ -1,7 +1,0 @@
-<h2>STGraph - DefExpr</h2>
-<u>Format</u>: <code>{x}</code>
-<u>Constraints</u>: <code>x</code> is an expression
-<u>Description</u>: subexpression that is assigned the variable <code>$wn</code>, where <code>n</code> ranges from 0 to 3 according to the order of evaluation
-<br><code>DefExpr</code> is <a href="functions_en.properties">an operator</a>
-
-<u>Exceptions</u>: no

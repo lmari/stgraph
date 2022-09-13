@@ -1,7 +1,0 @@
-<h2>STGraph - iter</h2>
-<u>Format</u>: <code>iter(x,e,z)</code>
-<u>Constraints</u>: <code>x</code> is an array; <code>e</code> is an expression; <code>z</code> is an array
-<u>Description</u>: value obtained by repeatedly applying the expression <code>e</code> (possibly including functions of the form <code>fun($0,$1)</code> or <code>$0op$1</code>), whose identity element is <code>z</code>, to the elements of the vector <code>x</code> or to the elements of each vector of the last dimension of the higher dimension array <code>x</code>
-<br><code>iter</code> is <a href="functions_en.properties">a control function</a>
-
-<u>Exceptions</u>: <code>x</code> must be non null.

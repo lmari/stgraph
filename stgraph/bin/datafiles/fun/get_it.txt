@@ -1,7 +1,0 @@
-<h2>STGraph - get</h2>
-<u>Formato</u>: <code>get(x,v0,v1,...)</code>
-<u>Vincoli</u>: <code>x</code> e' un array; <code>v1</code>, <code>v2</code>, ... sono scalari o vettori
-<u>Descrizione</u>: array ottenuto dall'array <code>x</code> estraendo il sottoarray di indici <code>v0</code> dalla prima dimensione, quindi il sottoarray di indici <code>v1</code> dalla seconda dimensione, e cosi' via (equivalente a <code>x[v0,v1,...]</code>)
-<br><code>get</code> e' <a href="functions_it.properties">una funzione per array</a>
-
-<u>Eccezioni</u>: no

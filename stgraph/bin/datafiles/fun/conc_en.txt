@@ -1,9 +1,0 @@
-<h2>STGraph - conc</h2>
-<u>Format</u>: <code>conc(x,y,n)</code>
-<u>Constraints</u>: <code>x</code> and <code>y</code> are arrays, <code>n</code> (optional) is an integer
-<u>Description</u>: <code>x</code> concatenated with <code>y</code> along the dimension <code>n</code> if specified or the last dimension otherwise
-
-If <code>n</code> is omitted it is equivalent to the operator <code>x#y</code>.
-<br><code>conc</code> is <a href="functions_en.properties">an array function</a>
-
-<u>Exceptions</u>: It must be possible to concatenate <code>x</code> with <code>y</code> in terms of their dimensions; <code>n</code> must be a correct dimension for <code>x</code>, currently <code>0</code> or <code>1</code>.

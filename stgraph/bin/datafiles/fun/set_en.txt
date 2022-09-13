@@ -1,7 +1,0 @@
-<h2>STGraph - set</h2>
-<u>Format</u>: <code>set(x,v0,v1,...,y)</code>
-<u>Constraints</u>: <code>x</code> is an array; <code>v1</code>, <code>v2</code>, ... are scalars or vectors; <code>y</code> is an array
-<u>Description</u>: array obtained from the array <code>x</code> by substituting its subarray of indexes <code>v0</code> from the 0-th dimension, of indexes <code>v1</code> from the 1-st dimension, ... with the array <code>y</code>
-<br><code>set</code> is <a href="functions_en.properties">an array function</a>
-
-<u>Exceptions</u>: no

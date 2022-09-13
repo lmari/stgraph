@@ -1,9 +1,0 @@
-<h2>STGraph - getData</h2>
-<u>Format</u>: <code>getData(x,y)</code>
-<u>Constraints</u>: <code>x</code> and <code>y</code> are arrays
-<u>Description</u>: vector of the elements of the array <code>y</code> identified by the indexes in the vector <code>x</code> if <code>y</code> is a vector or by the indexes in the matrix <code>x</code> if <code>y</code> is a higher order array
-
-If no elements are not found, it returns the scalar <code>-1</code>.
-<br><code>getData</code> is <a href="functions_en.properties">an array function</a>
-
-<u>Exceptions</u>: no

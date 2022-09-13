@@ -1,7 +1,0 @@
-<h2>STGraph - pline</h2>
-<u>Format</u>: <code>pline(vx,vy,x)</code>
-<u>Constraints</u>: <code>vx</code> and <code>vy</code> are vectors; <code>x</code> is an array
-<u>Description</u>: the <code>y</code> value corresponding to <code>x</code> over the polyline whose vertices are in the vectors <code>vx</code> and <code>vy</code>
-<br><code>pline</code> is <a href="functions_en.properties">a mathematical function</a><br><code>pline</code> is <a href="fun/_interp_en.txt">an interpolation function</a>
-
-<u>Exceptions</u>: <code>vx</code> and <code>vy</code> must have the same number of elements, at least two; for each <code>i</code>, <code>vx[i]</code> must be less than <code>vx[i+1]</code>.

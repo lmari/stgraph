@@ -1,9 +1,0 @@
-<h2>STGraph - FFT</h2>
-<u>Formato</u>: <code>FFT(x,s)</code>
-<u>Vincoli</u>: <code>s</code> e' uno scalare, o <code>1</code> o <code>2</code>; <code>x</code> e' un vettore se <code>x==1</code>, e una matrice se <code>x==2</code>
-<u>Descrizione</u>: se <code>s==1</code>, trasformata veloce di Fourier del vettore <code>x</code>; se <code>s==2</code>, antitrasformata veloce di Fourier della matrice <code>x</code>
-
-La FFT prende un vettore e restituisce una matrice <code>size(x) x 2</code>, da interpretare come un vettore di numeri complessi. La FFT inversa prende una matrice a <code>2</code> colonne, da interpretare come un vettore di numeri complessi, e produce un vettore.
-<br><code>FFT</code> e' <a href="functions_it.properties">una funzione matematica</a>
-
-<u>Eccezioni</u>: Se si calcola la FFT, la dimensione di <code>x</code> deve essere una potenza di <code>2</code>. Se si calcola la FFT inversa, il numero di righe di <code>x</code> deve essere una potenza di <code>2</code> e il numero di colonne deve essere <code>2</code>.

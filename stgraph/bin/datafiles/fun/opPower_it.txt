@@ -1,7 +1,0 @@
-<h2>STGraph - Power</h2>
-<u>Formato</u>: <code>x^y</code>
-<u>Vincoli</u>: <code>x</code> e <code>y</code> sono array (i vincoli sono specificati <a href="fun/_diadic_it.txt">qui</a>)
-<u>Descrizione</u>: <code>x</code> elevato alla potenza <code>y</code>
-<br><code>Power</code> e' <a href="functions_it.properties">un operatore</a><br><code>Power</code> e' <a href="fun/_diadic_it.txt">una funzione diadica polimorfa</a>
-
-<u>Eccezioni</u>: Come specificato <a href="fun/_diadic_it.txt">qui</a>.

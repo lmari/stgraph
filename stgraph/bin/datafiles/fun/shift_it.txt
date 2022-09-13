@@ -1,7 +1,0 @@
-<h2>STGraph - shift</h2>
-<u>Formato</u>: <code>shift(x,y,s)</code>
-<u>Vincoli</u>: <code>x</code> e <code>y</code> sono array; <code>s</code> (opzionale) e' uno scalare
-<u>Descrizione</u>: array ottenuto concatenando l'array <code>y</code> con l'array <code>x</code> a sinistra e rimuovendo lo stesso numero di elementi da <code>x</code> a destra se <code>s==0</code> o se non specificato, o in ordine inverso se <code>s==1</code>
-<br><code>shift</code> e' <a href="functions_it.properties">una funzione per array</a>
-
-<u>Eccezioni</u>: Deve essere possibile concatenare <code>x</code> con <code>y</code> in termini delle loro dimensioni; se specificato, <code>s</code> deve essere o <code>0</code> o <code>1</code>.

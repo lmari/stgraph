@@ -1,7 +1,0 @@
-<h2>STGraph - poisson</h2>
-<u>Formato</u>: <code>poisson(v,x,s)</code>
-<u>Vincoli</u>: <code>v</code> (opzionale) e' un vettore; <code>x</code> (opzionale) e' un array; <code>s</code> (opzionale) e' uno scalare, o <code>0</code> o <code>1</code>
-<u>Descrizione</u>: distribuzione di probabilita' di Poisson, di parametri <code>v=[p1]</code>, con <code>p1</code>=mean (<code>p1>0</code>; default: <code>5</code>): se <code>x</code> e <code>s</code> non sono specificati, valore casuale estratto dalla distribuzione; se <code>s==0</code>, valore della pdf in <code>x</code>; se <code>s==1</code>, valore della cdf in <code>x</code>
-<br><code>poisson</code> e' <a href="functions_it.properties">una funzione statistica</a><br><code>poisson</code> e' <a href="fun/_distrib_it.txt">una funzione di distribuzione statistica</a>
-
-<u>Eccezioni</u>: <code>s</code> deve essere o <code>0</code> o <code>1</code>; gli elementi di <code>x</code> devono essere strettamente positivi.

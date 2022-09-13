@@ -1,7 +1,0 @@
-<h2>STGraph - isNumber</h2>
-<u>Formato</u>: <code>isNumber(x)</code>
-<u>Vincoli</u>: <code>x</code> e' un array
-<u>Descrizione</u>: vero se <code>x</code> e' un numero (cioe' non e' ne' NaN ne' Infinity), falso altrimenti
-<br><code>isNumber</code> e' <a href="functions_it.properties">una funzione di controllo</a><br><code>isNumber</code> e' <a href="fun/_monadic_it.txt">una funzione monadica polimorfa</a>
-
-<u>Eccezioni</u>: no

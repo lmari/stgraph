@@ -1,9 +1,0 @@
-<h2>STGraph - Scan-1</h2>
-<u>Formato</u>: <code>f\x</code>
-<u>Vincoli</u>: <code>f</code> e' una funzione o un operatore; <code>x</code> e' un array
-<u>Descrizione</u>: se <code>x</code> e' un vettore, vettore il cui primo elemento e' ottenuto applicando la funzione didadica <code>f</code> ai primi due elementi di <code>x</code>, il secondo elemento e' ottenuto applicando <code>f</code> al risultato e al terzo elemento, e cosi' via; se <code>x</code> e' un array di ordine superiore, array ottenuto nello stesso modo, applicando <code>f</code> in parallelo agli elementi di ogni vettore dell'ultima dimensione
-
-Se <code>f</code> e' una funzione, <code>x</code> deve essere delimitata da parentesi (p.es., <code>max\(v)</code>).
-<br><code>Scan-1</code> e' <a href="functions_it.properties">un operatore</a>
-
-<u>Eccezioni</u>: <code>x</code> deve essere un array non nullo.

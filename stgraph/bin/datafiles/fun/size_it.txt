@@ -1,9 +1,0 @@
-<h2>STGraph - size</h2>
-<u>Formato</u>: <code>size(x)</code>
-<u>Vincoli</u>: <code>x</code> e' un array
-<u>Descrizione</u>: dimensione di <code>x</code>
-
-Equivalente all'operatore <code>@x</code>. Il valore e' zero se <code>x</code> e' uno scalare, e un vettore altrimenti.
-<br><code>size</code> e' <a href="functions_it.properties">una funzione per array</a>
-
-<u>Eccezioni</u>: no

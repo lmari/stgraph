@@ -1,7 +1,0 @@
-<h2>STGraph - GenVect2</h2>
-<u>Format</u>: <code>[x:y:z]</code>
-<u>Constraints</u>: <code>x</code>, <code>y</code> and <code>z</code> are scalars
-<u>Description</u>: vector of scalars from <code>x</code> to <code>y</code> separated by <code>z</code>
-<br><code>GenVect2</code> is <a href="functions_en.properties">an operator</a>
-
-<u>Exceptions</u>: no

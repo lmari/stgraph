@@ -1,7 +1,0 @@
-<h2>STGraph - binomial</h2>
-<u>Format</u>: <code>binomial(v,x,s)</code>
-<u>Constraints</u>: <code>v</code> (optional) is a vector; <code>x</code> (optional) is an array; <code>s</code> (optional) is a scalar, either <code>0</code> or <code>1</code>
-<u>Description</u>: binomial probability distribution of parameters <code>v=[p1,p2]</code>, where <code>p1</code>=population cardinality (default value: <code>10</code>), <code>p2</code>=probability (default value: <code>0.5</code>): if <code>x</code> and <code>s</code> are not specified, random number extracted from the distribution; if <code>s==0</code>, pdf value at the point <code>x</code>; if <code>s==1</code>, cdf value at the point <code>x</code>
-<br><code>binomial</code> is <a href="functions_en.properties">a statistical function</a><br><code>binomial</code> is <a href="fun/_distrib_en.txt">a statistical distribution function</a>
-
-<u>Exceptions</u>: <code>s</code> must be either <code>0</code> or <code>1</code>.

@@ -1,7 +1,0 @@
-<h2>STGraph - sigmoid</h2>
-<u>Formato</u>: <code>sigmoid(vx,vy,x)</code>
-<u>Vincoli</u>: <code>vx</code> e <code>vy</code> sono vettori; <code>x</code> e' un array
-<u>Descrizione</u>: valore <code>y</code> corrispondente a <code>x</code> sulla sigmoide controllata dai punti <code>vx[0],vy[0]</code> e <code>vx[1],vy[1]</code>
-<br><code>sigmoid</code> e' <a href="functions_it.properties">una funzione matematica</a><br><code>sigmoid</code> e' <a href="fun/_interp_it.txt">una funzione di interpolazione</a>
-
-<u>Eccezioni</u>: Sia <code>vx</code> sia <code>vy</code> devono avere due elementi; <code>vx[0]</code> deve essere minore di <code>vx[1]</code>.

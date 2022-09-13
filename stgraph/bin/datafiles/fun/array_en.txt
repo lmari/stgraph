@@ -1,7 +1,0 @@
-<h2>STGraph - array</h2>
-<u>Format</u>: <code>array(v,e)</code>
-<u>Constraints</u>: <code>v</code> is a scalar or a vector; <code>e</code> is an expression
-<u>Description</u>: array whose size is <code>v</code> and whose elements are specified by the expression <code>e</code>, that can contain the system variables <code>$i0</code>,...,<code>$i5</code>, each of them set to the value of the corresponding dimension
-<br><code>array</code> is <a href="functions_en.properties">an array function</a>
-
-<u>Exceptions</u>: no

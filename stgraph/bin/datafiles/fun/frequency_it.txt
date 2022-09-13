@@ -1,9 +1,0 @@
-<h2>STGraph - frequency</h2>
-<u>Formato</u>: <code>frequency(x,d,c)</code>
-<u>Vincoli</u>: <code>x</code> (opzionale) e' uno scalare; <code>d</code> e <code>c</code> sono vettori
-<u>Descrizione</u>: vettore che contiene la distribuzione dei dati in <code>d</code> categorizzati dai valori in <code>c</code>; se <code>x</code> e' specificato, si suppone che <code>d</code> gia' contenga la distribuzione, a cui <code>x</code> e' aggiunto
-
-Gli elementi del vettore <code>c</code> sono gli estremi destri degli intervalli che definiscono le categorie; l'ultima categoria e' aggiunta automaticamente per contenere i valori maggiori dell'ultimo elemento di <code>c</code>.
-<br><code>frequency</code> e' <a href="functions_it.properties">una funzione per array</a>
-
-<u>Eccezioni</u>: <code>y</code> e <code>z</code> devono avere la stessa dimensione.

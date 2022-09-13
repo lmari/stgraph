@@ -1,7 +1,0 @@
-<h2>STGraph - exp</h2>
-<u>Format</u>: <code>exp(x)</code>
-<u>Constraints</u>: <code>x</code> is an array
-<u>Description</u>: exponential of <code>x</code>, i.e., <code>e</code> to the power of <code>x</code>
-<br><code>exp</code> is <a href="functions_en.properties">a mathematical function</a><br><code>exp</code> is <a href="fun/_monadic_en.txt">a monadic polymorphic function</a>
-
-<u>Exceptions</u>: no

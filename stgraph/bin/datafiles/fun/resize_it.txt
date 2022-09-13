@@ -1,7 +1,0 @@
-<h2>STGraph - resize</h2>
-<u>Formato</u>: <code>resize(x,v)</code>
-<u>Vincoli</u>: <code>x</code> e' un array; <code>v</code> e' un vettore
-<u>Descrizione</u>: array ottenuto ridimensionando l'array <code>x</code> alla dimensione <code>v</code>, ed eliminando gli elementi eccedenti in coda o aggiungendo zeri in coda, se richiesto
-<br><code>resize</code> e' <a href="functions_it.properties">una funzione per array</a>
-
-<u>Eccezioni</u>: no

@@ -1,7 +1,0 @@
-<h2>STGraph - min</h2>
-<u>Format</u>: <code>min(x,y)</code>
-<u>Constraints</u>: <code>x</code> and <code>y</code> are arrays (the constraints are specified <a href="fun/_diadic_en.txt">here</a>)
-<u>Description</u>: minimum between <code>x</code> and <code>y</code>
-<br><code>min</code> is <a href="functions_en.properties">a mathematical function</a><br><code>min</code> is <a href="fun/_diadic_en.txt">a diadic polymorphic function</a>
-
-<u>Exceptions</u>: As specified <a href="fun/_diadic_en.txt">here</a>.

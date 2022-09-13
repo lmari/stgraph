@@ -1,7 +1,0 @@
-<h2>STGraph - Minus</h2>
-<u>Formato</u>: <code>-x</code>
-<u>Vincoli</u>: <code>x</code> e' un array
-<u>Descrizione</u>: meno <code>x</code>
-<br><code>Minus</code> e' <a href="functions_it.properties">un operatore</a><br><code>Minus</code> e' <a href="fun/_monadic_it.txt">una funzione monadica polimorfa</a>
-
-<u>Eccezioni</u>: no

@@ -1,9 +1,0 @@
-<h2>STGraph - atan</h2>
-<u>Format</u>: <code>atan(x)</code>
-<u>Constraints</u>: <code>x</code> is an array
-<u>Description</u>: arctangent of <code>x</code>
-
-<code>x</code> is expressed in radians.
-<br><code>atan</code> is <a href="functions_en.properties">a mathematical function</a><br><code>atan</code> is <a href="fun/_monadic_en.txt">a monadic polymorphic function</a>
-
-<u>Exceptions</u>: no

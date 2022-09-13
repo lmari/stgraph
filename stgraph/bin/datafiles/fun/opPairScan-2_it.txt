@@ -1,9 +1,0 @@
-<h2>STGraph - PairScan-2</h2>
-<u>Formato</u>: <code>f|[n]x</code>
-<u>Vincoli</u>: <code>f</code> e' una funzione o un operatore; <code>x</code> e' un array; <code>n</code> e' un intero
-<u>Descrizione</u>: come f|x, dove <code>f</code> e' applicato alla dimensione <code>n</code> di <code>x</code>
-
-Se <code>f</code> e' una funzione, <code>x</code> deve essere delimitata da parentesi (p.es., <code>max|[0](v)</code>).
-<br><code>PairScan-2</code> e' <a href="functions_it.properties">un operatore</a>
-
-<u>Eccezioni</u>: <code>x</code> deve essere un array non nullo; <code>n</code> deve essere una dimensione corretta per <code>x</code>, attualmente tra <code>0</code> e <code>2</code>.

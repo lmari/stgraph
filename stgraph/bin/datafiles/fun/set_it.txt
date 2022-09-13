@@ -1,7 +1,0 @@
-<h2>STGraph - set</h2>
-<u>Formato</u>: <code>set(x,v0,v1,...,y)</code>
-<u>Vincoli</u>: <code>x</code> e' un array; <code>v1</code>, <code>v2</code>, ... sono scalari o vettori; <code>y</code> e' un array
-<u>Descrizione</u>: array ottenuto dall'array <code>x</code> sostituendo il suo sottoarray di indici <code>v0</code> nella prima dimensione, di indici <code>v1</code> nella seconda dimensione, ... con l'array <code>y</code>
-<br><code>set</code> e' <a href="functions_it.properties">una funzione per array</a>
-
-<u>Eccezioni</u>: no

@@ -1,7 +1,0 @@
-<h2>STGraph - rand</h2>
-<u>Format</u>: <code>rand(x,y)</code>
-<u>Constraints</u>: <code>x</code> (optional) is a scalar; <code>y</code> (optional) is a scalar
-<u>Description</u>: random number extracted from a uniform distribution between <code>0</code> and <code>1</code>, or between <code>0</code> and <code>x</code> if only <code>x</code> is specified, or between <code>x</code> and <code>y</code> if both are specified
-<br><code>rand</code> is <a href="functions_en.properties">a statistical function</a>
-
-<u>Exceptions</u>: If <code>x</code> is specified, it must be strictly positive; if both <code>x</code> and <code>y</code> are specified, the former must be less than the latter.

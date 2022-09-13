@@ -1,7 +1,0 @@
-<h2>STGraph - deg2rad</h2>
-<u>Formato</u>: <code>deg2rad(x)</code>
-<u>Vincoli</u>: <code>x</code> e' un array
-<u>Descrizione</u>: valore di <code>x</code> convertito da gradi a radianti
-<br><code>deg2rad</code> e' <a href="functions_it.properties">una funzione matematica</a><br><code>deg2rad</code> e' <a href="fun/_monadic_it.txt">una funzione monadica polimorfa</a>
-
-<u>Eccezioni</u>: no

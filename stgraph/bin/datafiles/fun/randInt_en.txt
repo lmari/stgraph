@@ -1,7 +1,0 @@
-<h2>STGraph - randInt</h2>
-<u>Format</u>: <code>randInt(x)</code>
-<u>Constraints</u>: <code>x</code> is an array
-<u>Description</u>: integer random number extracted from a uniform distribution between <code>0</code> and <code>int(x-1)</code>
-<br><code>randInt</code> is <a href="functions_en.properties">a statistical function</a><br><code>randInt</code> is <a href="fun/_monadic_en.txt">a monadic polymorphic function</a>
-
-<u>Exceptions</u>: no

@@ -1,7 +1,0 @@
-<h2>STGraph - remove</h2>
-<u>Format</u>: <code>remove(x,v)</code>
-<u>Constraints</u>: <code>x</code> is an array; <code>v</code> is either a scalar or a vector
-<u>Description</u>: array obtained by removing the <code>v</code>-th element(s) from the first dimension of the array <code>x</code>
-<br><code>remove</code> is <a href="functions_en.properties">an array function</a>
-
-<u>Exceptions</u>: no

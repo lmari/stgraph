@@ -1,9 +1,0 @@
-<h2>STGraph - getPhases</h2>
-<u>Format</u>: <code>getPhases()</code>
-<u>Constraints</u>:  
-<u>Description</u>: vector of phases as specified in the "Phase" custom property
-
-The format for the custom property is, e.g., 1,5-8.
-<br><code>getPhases</code> is <a href="functions_en.properties">a control function</a>
-
-<u>Exceptions</u>: The custom property "Phase" must be defined and set as specified.

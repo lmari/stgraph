@@ -1,9 +1,0 @@
-<h2>STGraph - frequency</h2>
-<u>Format</u>: <code>frequency(x,d,c)</code>
-<u>Constraints</u>: <code>x</code> (optional) is a scalar; <code>d</code> and <code>c</code> are vectors
-<u>Description</u>: vector containing the distribution of the data in <code>d</code> categorized by the values in <code>c</code>; if <code>x</code> is specified it is supposed that <code>d</code> already contains the distribution, to which <code>x</code> is added
-
-The elements of the vector <code>c</code> are the right bounds of the intervals defining the categories; the last category is automatically added to contain the values greater than the last element of <code>c</code>.
-<br><code>frequency</code> is <a href="functions_en.properties">an array function</a>
-
-<u>Exceptions</u>: <code>y</code> and <code>z</code> must have the same size.

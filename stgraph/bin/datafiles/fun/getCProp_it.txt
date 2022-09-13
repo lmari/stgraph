@@ -1,9 +1,0 @@
-<h2>STGraph - getCProp</h2>
-<u>Formato</u>: <code>getCProp(n,x)</code>
-<u>Vincoli</u>: <code>n</code> (opzionale) e' un nome di nodo; <code>x</code> e' una stringa
-<u>Descrizione</u>: valore della proprieta' custom di nome <code>x</code>, o del nodo <code>n</code> o del nodo corrente se <code>n</code> non e' specificato
-
-Sono gestiti solo valori numerici. Se specificato, <code>n</code> deve essere scritto senza virgolette.
-<br><code>getCProp</code> e' <a href="functions_it.properties">una funzione di controllo</a>
-
-<u>Eccezioni</u>: Se specificato, <code>n</code> deve essere il nome di un nodo connesso. <code>x</code> deve essere il nome di una proprieta' custom esistente, il cui valore deve essere un numero.

@@ -1,9 +1,0 @@
-<h2>STGraph - readFromXLS-2</h2>
-<u>Format</u>: <code>readFromXLS(x,y,r1,c1,r2,c2)</code>
-<u>Constraints</u>: <code>x</code> is a string; <code>y</code>, <code>r1</code>, <code>c1</code>, <code>r2</code>, and <code>c2</code> are scalars
-<u>Description</u>: vector or matrix read from the row <code>r1</code>, column <code>c1</code> and the row <code>r2</code>, column <code>c2</code> of the sheet of index <code>y</code> of the xls workbook whose filename is <code>x</code>
-
-The xls workbook must be in the same directory of the model, and the filename <code>x</code> must be specified with no pathname.
-<br><code>readFromXLS-2</code> is <a href="functions_en.properties">a control function</a>
-
-<u>Exceptions</u>: no
