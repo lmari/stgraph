@@ -1,6 +1,6 @@
 STGraph - LEGGIMI
 
-STGraph e' Copyright 2004-2021, Luca Mari e sotto licenza GNU GPL 2.0.
+STGraph e' un sistema software distribuito con licenza GNU GPL 2.0.
 
 STGraph e' un'applicazione per creare, modificare ed eseguire
 modelli di sistemi dinamici secondo l'approccio agli stati
@@ -15,13 +15,13 @@ Universita' Cattaneo - LIUC (http://www.liuc.it), Castellanza, Italia.
 
 Molti studenti hanno fornito utili suggerimenti (e trovato bug...)
 per rendere STGraph migliore: grazie a tutti.
-Giuseppe Catalfamo e Sara Sterlocchi sono stati utenti critici di STGraph:
-il suo sviluppo ha tratto beneficio dalla loro competenza.
+Giuseppe Catalfamo e Sara Sterlocchi sono stati utenti critici di STGraph.
+Francesco Bertolotti ha sviluppato vari esempi di modelli.
 
 **************************************************************
 La piu' recente versione di STGraph e della sua documentazione
 possono essere scaricate liberamente dal sito:
-	http://research.liuc.it/luca.mari/stgraph
+	https://lmari.github.io/stgraph
 L'interfaccia utente di STGraph attualmente supporta
 i linguaggi EN e IT.
 **************************************************************
@@ -31,18 +31,16 @@ il cui percorso non deve contenere spazi o caratteri speciali,
 e mantenendo i percorsi completi dei file.
 La cartella conterra' i file:
 - stgraph.sh: per eseguire STGraph in Linux
-- stgraph.command: per eseguire STGraph in Apple MacOS
-- stgraph.exe e stgraph.bat: per eseguire STGraph in MSWindows
+- stgraph.command e stgraphfull.command: per eseguire STGraph in Apple MacOS
+- stgraph.bat e stgraphfull.bat: per eseguire STGraph in MSWindows
 - readme_*.txt: questo file
 e le cartelle:
 - licenses: informazioni sulla licenza open source di STGraph
 	e delle librerie utilizzate
 - lib: il programma e le sue librerie
-- docs: la documentazione
 
-Eseguendo stgraph.sh /  stgraph.app / stgraph.exe / stgraph.bat,
-l'applicazione dovrebbe attivare la Java VM e quindi
-aprire la sua finestra principale: in tal caso, buon lavoro!
+Eseguendo STGraph, l'applicazione dovrebbe attivare la Java VM
+e quindi aprire la sua finestra principale: buon lavoro!
 
 Altrimenti, occorre controllare che una Java Virtual Machine (JRE 1.6+)
 sia installata:
@@ -55,7 +53,7 @@ scariabile liberamente da:
 (scegliere di scaricare Java SE, JRE oppure JDK).
 Infine, assicurarsi che la cartella bin del JRE installato
 sia stata aggiunta ai percorsi di sistema (o modificare manualmente
-stgraph.sh / stgraph.bat per introdurre il percorso completo
+il file batch per introdurre il percorso completo
 all'interprete Java VM).
 
 Ogni commento, suggerimento, ... su STGraph e' benvenuto:
