@@ -1,4 +1,6 @@
 .metadata/*
+.DS_Store
+.directory
 stgraph/*.bak
 stgraph/*.jar
 stgraph/*.zip
