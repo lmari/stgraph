@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;stgraph/config.properties&apos; to &apos;config.properties.bak&apos;" description="Rename resource &apos;config.properties&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="config.properties" name="config.properties.bak" stamp="1635002004310" updateReferences="true"/>
-</session>
