@@ -1,0 +1,159 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="1.0" maxSteps="1" batchSteps="1" width="1202" height="604" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="coda" type="ValueNode" pos-x="430" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Numero di entit&#xe0; in coda.</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>if(@this==0,[],this+1)</fExpression>
+            <fStateTrans>pos(this+in-out)</fStateTrans>
+            <expression>if(@this==0,[],this+1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>pos(this+in-out)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=numero di entit&#xe0; in coda</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="in" type="ValueNode" pos-x="330" pos-y="100" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,255,0</forecol>
+            <documentation>Numero di nuove entit&#xe0; da introdurre nella coda
+[default: intero casuale tra 0 e 2].</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>randInt(3)</fExpression>
+            <fStateTrans/>
+            <expression>randInt(3)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=entit&#xe0; in input</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="lungMax" type="ValueNode" pos-x="540" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Numero massimo di entit&#xe0; che nel corso del tempo sono state contemporaneamente in coda.</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>me</fExpression>
+            <fStateTrans>max(this,coda)</fStateTrans>
+            <expression>me</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>max(this,coda)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=lunghezza massima della coda</customprops>
+            <valueType>2</valueType>
+        </node>
+        <node name="out" type="ValueNode" pos-x="330" pos-y="210" width="75" height="45">
+            <forecol>0,255,0</forecol>
+            <documentation>Numero di entit&#xe0; che da rimuovere dalla coda
+[default: 0].</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>randInt(2)</fExpression>
+            <fStateTrans/>
+            <expression>randInt(2)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=entit&#xe0; in output</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tempiInCoda" type="ValueNode" pos-x="210" pos-y="150" width="121" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Vettore che mantiene il numero di istanti di tempo in cui ogni entit&#xe0; &#xe8; in coda.</documentation>
+            <isOut>true</isOut>
+            <fStateInit>[]</fStateInit>
+            <format>0.0##</format>
+            <fExpression>if(@coda==0,[],coda+1)</fExpression>
+            <fStateTrans>array(in,0)#(this+1)##out</fStateTrans>
+            <expression>if(@coda==0,[],coda+1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>[]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>array(in,0)#(this+1)##out</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=tempi in coda</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="tempoMax" type="ValueNode" pos-x="120" pos-y="70" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Durata massima della permanenza in coda di un&apos;entit&#xe0; nel corso del tempo.</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>max(this,if(@tempiInCoda==0,0,get(tempiInCoda,@tempiInCoda-1)))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>max(this,if(@tempiInCoda==0,0,get(tempiInCoda,@tempiInCoda-1)))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=tempo massimo in coda</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="tempoMed" type="ValueNode" pos-x="120" pos-y="240" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Durata media della permanenza in coda delle entit&#xe0; attualmente in coda.</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(@tempiInCoda==0,0,mean(tempiInCoda))</fExpression>
+            <fStateTrans/>
+            <expression>if(@tempiInCoda==0,0,mean(tempiInCoda))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=tempo medio in coda</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="40" pos-y="300" width="501" height="101" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;&lt;font size=&quot;4&quot;&gt;Implementazione del vettore dei tempi in coda        basata su questa logica: &lt;/font&gt;&lt;/small&gt;     &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;&lt;font size=&quot;4&quot;&gt;- le entit&amp;#224; sono introdotte alla sinistra della        coda (operatore #, conc())&lt;/font&gt;&lt;/small&gt;&lt;br&gt;&lt;small&gt;&lt;font size=&quot;4&quot;&gt;e        sono eliminate dalla sua destra (operatore ##, dec()); &lt;/font&gt;&lt;/small&gt;     &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;&lt;font size=&quot;4&quot;&gt;- le entit&amp;#224; presenti &amp;quot;invecchiano&amp;quot; in ogni istante        di un istante (this+1).&lt;/font&gt;&lt;/small&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="coda" target="lungMax" label="(...)" p0x="467.5" p0y="172.5" p1x="577.5" p1y="172.5" numpoints="2"/>
+        <edge source="tempiInCoda" target="tempoMax" label="(...)" p0x="270.5" p0y="172.5" p1x="267.5" p1y="72.5" numpoints="2"/>
+        <edge source="tempiInCoda" target="tempoMed" label="(...)" p0x="270.5" p0y="172.5" p1x="267.5" p1y="272.5" numpoints="2"/>
+        <edge source="in" target="tempiInCoda" label="(...)" p0x="367.5" p0y="122.5" p1x="270.5" p1y="172.5" numpoints="2"/>
+        <edge source="out" target="tempiInCoda" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="367.5" p0y="232.5" p1x="270.5" p1y="172.5" numpoints="2"/>
+        <edge source="out" target="coda" label="(...)" p0x="367.5" p0y="232.5" p1x="467.5" p1y="172.5" numpoints="2"/>
+        <edge source="in" target="coda" label="(...)" p0x="367.5" p0y="122.5" p1x="467.5" p1y="172.5" numpoints="2"/>
+    </edges>
+    <widgets/>
+    <groups/>
+    <reports/>
+</stgraph>

@@ -1,0 +1,97 @@
+<stgraph class="STGraph.decoder" version="STGraph build 16.3.15">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="1.0" maxSteps="10" batchSteps="1" width="827" height="450" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="nodo1" type="ValueNode" pos-x="90" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+gaussian()</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+gaussian()</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo1</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="nodo2" type="ValueNode" pos-x="250" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>array(nodo3,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>shift(this,nodo1)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(nodo3,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>shift(this,nodo1)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo2</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="nodo3" type="ValueNode" pos-x="140" pos-y="160" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>5</fExpression>
+            <fStateTrans/>
+            <expression>5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo3</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="nodo4" type="ValueNode" pos-x="390" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>(+/nodo2)/nodo3</fExpression>
+            <fStateTrans/>
+            <expression>(+/nodo2)/nodo3</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=nodo4</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="110" pos-y="40" width="321" height="35" content="&lt;html&gt;   &lt;head&gt;    &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       che relazione c&apos;&amp;#232; tra nodo1 e nodo4?     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="nodo3" target="nodo2" label="(...)"/>
+        <edge source="nodo1" target="nodo2" label="(...)"/>
+        <edge source="nodo2" target="nodo4" label="(...)"/>
+        <edge source="nodo3" target="nodo4" label="(...)"/>
+    </edges>
+    <widgets/>
+    <groups/>
+    <reports/>
+</stgraph>

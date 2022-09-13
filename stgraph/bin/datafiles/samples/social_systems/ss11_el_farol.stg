@@ -1,0 +1,246 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1440" height="754" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="attendance" type="ValueNode" pos-x="570" pos-y="30" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>+/decision</fExpression>
+            <fStateTrans/>
+            <expression>+/decision</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=attendance</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="count_attendance" type="ValueNode" pos-x="420" pos-y="230" width="81" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array(n,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+decision</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+decision</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=count_attendance</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="decision" type="ValueNode" pos-x="570" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(estimation&gt;rand(),1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(estimation&gt;rand(),1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=decision</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="estimation" type="ValueNode" pos-x="420" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array(n,rand())</fStateInit>
+            <format>0.0##</format>
+            <fExpression>array(n,if(count_attendance[$i0]&lt;5,rand(),satisfied[$i0]/count_attendance[$i0]))</fExpression>
+            <fStateTrans>satisfied/count_attendance</fStateTrans>
+            <expression>array(n,if(count_attendance[$i0]&lt;5,rand(),satisfied[$i0]/count_attendance[$i0]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n,rand())</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>satisfied/count_attendance</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=estimation</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="420" pos-y="30" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>100.0</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="satisfied" type="ValueNode" pos-x="570" pos-y="230" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array(n,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+array(n,if(+/decision&lt;thresholds[$i0]&amp;&amp;decision[$i0]==1,1,0))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+array(n,if(+/decision&lt;thresholds[$i0]&amp;&amp;decision[$i0]==1,1,0))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=satisfied</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="thresholds" type="ValueNode" pos-x="570" pos-y="310" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array(n,if(tr_type==0,randInt(n),int(n*0.6)))</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(n,if(tr_type==0,randInt(n),int(n*0.6)))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=thresholds</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="tr_type" type="ValueNode" pos-x="420" pos-y="310" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>0</fExpression>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="30" pos-y="30" width="351" height="371" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;b&gt;&lt;font size=&quot;5&quot;&gt;El Farol Bar Problem&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font size=&quot;4&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;span align=&quot;start&quot; style=&quot;letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none&quot;&gt;&lt;font color=&quot;rgb(32, 33, 34)&quot; face=&quot;sans-serif&quot; size=&quot;4&quot;&gt;Every 
+    Thursday night, a fixed population want to go have fun at the &lt;b&gt;El Farol 
+    Bar&lt;/b&gt;, unless it&apos;s too crowded. If they have fun, they remember it, and 
+    they updated their memory (satisfied) with a 1. According to the past, 
+    they will have a different opinion of the bar, and then decide to or not 
+    to attend.&lt;/font&gt;&lt;/span&gt;&lt;font size=&quot;4&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;span align=&quot;start&quot; style=&quot;letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none&quot;&gt;&lt;font color=&quot;rgb(32, 33, 34)&quot; face=&quot;sans-serif&quot; size=&quot;4&quot;&gt;Individuals&apos; 
+    preferences could be of two types: &lt;/font&gt;&lt;/span&gt;&lt;font size=&quot;4&quot;&gt;&lt;br&gt;- 
+    homogeneous (if tr_type is on)&lt;br&gt;- heterogeneous (if tr_type is off)&lt;br&gt;Could 
+    you understand the effect of this inpout on the graphical output?&lt;br&gt;&lt;/font&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="decision" target="attendance" label="(...)" p0x="607.5" p0y="152.5" p1x="607.5" p1y="52.5" numpoints="2"/>
+        <edge source="decision" target="satisfied" label="(...)" p0x="607.5" p0y="152.5" p1x="607.5" p1y="252.5" numpoints="2"/>
+        <edge source="thresholds" target="satisfied" label="(...)" p0x="607.5" p0y="332.5" p1x="607.5" p1y="252.5" numpoints="2"/>
+        <edge source="decision" target="count_attendance" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="607.5" p0y="152.5" p1x="460.5" p1y="252.5" numpoints="2"/>
+        <edge source="estimation" target="decision" label="(...)" p0x="457.5" p0y="152.5" p1x="607.5" p1y="152.5" numpoints="2"/>
+        <edge source="satisfied" target="estimation" label="(...)" p0x="607.5" p0y="252.5" p1x="457.5" p1y="152.5" numpoints="2"/>
+        <edge source="count_attendance" target="estimation" label="(...)" p0x="460.5" p0y="252.5" p1x="457.5" p1y="152.5" numpoints="2"/>
+        <edge source="tr_type" target="thresholds" label="(...)" p0x="457.5" p0y="332.5" p1x="607.5" p1y="332.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="SliderWidget" pos-x="880" pos-y="40" width="270" height="100">
+            <0>0</0>
+            <widgetvalue>100.0</widgetvalue>
+            <max>100.0</max>
+            <min>10.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>n</source>
+            <delta>10.0</delta>
+            <iconized>false</iconized>
+            <title>n: 100.0</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="680" pos-y="140" width="470" height="250">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#2,#1</linewidths>
+            <showline>true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__BLUE,__LIGHT_GRAY</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>attendance,n</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#1,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false,false</showdots>
+            <xsourcena>vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false</dotslastonly>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="680" pos-y="40" width="200" height="100">
+            <action>1</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>tr_type</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>tr_type - false</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

@@ -1,0 +1,180 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="1000.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1279" height="713" scale="1.0" simulationDelay="300" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="C" type="ValueNode" pos-x="430" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Merci inviate ai CLIENTI, quindi in unscita dal magazzino a pila.</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>1.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=C</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="F" type="ValueNode" pos-x="70" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Merci ricevute dai FORNITORI, quindi in ingresso nel magazzino a pila.</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>1.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=F</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="M" type="ValueNode" pos-x="250" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>array(3,randInt(20))</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(C==0&amp;&amp;F==0||C==1&amp;&amp;F==1&amp;&amp;fifo==0,this,C==0&amp;&amp;F==1,r#this,C==1&amp;&amp;F==1&amp;&amp;fifo==1,r#this##1,C==1&amp;&amp;F==0&amp;&amp;fifo==1,this##1,1##this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(3,randInt(20))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(C==0&amp;&amp;F==0||C==1&amp;&amp;F==1&amp;&amp;fifo==0,this,C==0&amp;&amp;F==1,r#this,C==1&amp;&amp;F==1&amp;&amp;fifo==1,r#this##1,C==1&amp;&amp;F==0&amp;&amp;fifo==1,this##1,1##this)</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=Magazzino</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="fifo" type="ValueNode" pos-x="250" pos-y="200" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Input per decidere la logica della gestione della coda: se 1 &#xe8; FIFO, altrimeni LIFO.</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>1.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=fifo_lifo</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="r" type="ValueNode" pos-x="250" pos-y="60" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Generatore di numeri casuali fra 0 a 9. Rappresentano il &quot;codice&quot; per riconoscere ciascuna posizione della pila.</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>randInt(10)</fExpression>
+            <fStateTrans/>
+            <expression>randInt(10)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=r</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="10" pos-y="340" width="541" height="241" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;big&gt;&lt;b&gt;Magazzino semplice a pila&lt;/b&gt;&lt;/big&gt;&lt;br&gt;&lt;br&gt;Questo modello 
+      descrive un magazzino organizzato secondo una &lt;i&gt;pila&lt;/i&gt;, ed &amp;#232; una 
+      semplicissima implementazione della teoria delle code. Il magazzino 
+      riceve merci da un fornitore e le cede ad un cliente.&lt;br&gt;&lt;br&gt;L&apos;implementazione 
+      consente, attraverso l&apos;input fifo, di cambiare la strategia di gestione 
+      della pila da &lt;i&gt;FIFO&lt;/i&gt; (First In, First Out) a &lt;i&gt;LIFO&lt;/i&gt; (Last In, 
+      Last Out).
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="F" target="M" label="(...)" p0x="107.5" p0y="152.5" p1x="287.5" p1y="152.5" numpoints="2"/>
+        <edge source="C" target="M" label="(...)" p0x="467.5" p0y="152.5" p1x="287.5" p1y="152.5" numpoints="2"/>
+        <edge source="fifo" target="M" label="(...)" p0x="287.5" p0y="222.5" p1x="287.5" p1y="152.5" numpoints="2"/>
+        <edge source="r" target="M" label="(...)" p0x="287.5" p0y="82.5" p1x="287.5" p1y="152.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="1060" pos-y="10" width="180" height="580">
+            <fontsize>25</fontsize>
+            <colwidth>173</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>1</colalignment>
+            <colformat>0</colformat>
+            <title>M </title>
+            <lastonly>false</lastonly>
+            <sourcena>M</sourcena>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="840" pos-y="200" width="220" height="190">
+            <action>1</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>F</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>F - false</title>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="840" pos-y="10" width="220" height="190">
+            <action>1</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>C</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>C - false</title>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="840" pos-y="390" width="220" height="200">
+            <action>1</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>fifo</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>fifo - false</title>
+        </widget>
+    </widgets>
+    <groups>
+        <group name="Input">
+            <comp name="r"/>
+            <comp name="F"/>
+            <comp name="fifo"/>
+            <comp name="C"/>
+        </group>
+        <group name="Stato (pila)">
+            <comp name="M"/>
+        </group>
+    </groups>
+    <reports/>
+</stgraph>

@@ -1,0 +1,395 @@
+<stgraph class="STGraph.decoder" version="STGraph build 18.02">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="3" time0="0.0" time1="1.7976931348623157E308" timeD="0.2" maxSteps="1" batchSteps="0" width="1279" height="713" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="I" type="ValueNode" pos-x="500" pos-y="280" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Posizione dell&apos;inseguitore</documentation>
+            <isOut>false</isOut>
+            <fStateInit>[rand()*5+5,rand()*5+5]</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>min(max(this+vI,lmin),lmax)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>[rand()*5+5,rand()*5+5]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>min(max(this+vI,lmin),lmax)</stateTrans>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=I</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Ix" type="ValueNode" pos-x="470" pos-y="350" width="61" height="41">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Posizione dell&apos;inseguitore sulle ascisse (per grafico)</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>I[0]</fExpression>
+            <fStateTrans/>
+            <expression>I[0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Ix</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Iy" type="ValueNode" pos-x="560" pos-y="350" width="61" height="41">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Posizione dell&apos;inseguitore sulle ordinate (per grafico)</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>I[1]</fExpression>
+            <fStateTrans/>
+            <expression>I[1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Iy</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="P" type="ValueNode" pos-x="20" pos-y="295" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Posizione dell&apos;inseguito</documentation>
+            <isOut>false</isOut>
+            <fStateInit>[rand()*5+5,rand()*5+5]</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>min(max(this+vP,lmin),lmax)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>[rand()*5+5,rand()*5+5]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>min(max(this+vP,lmin),lmax)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=P</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Px" type="ValueNode" pos-x="0" pos-y="355" width="61" height="41">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Posizione dell&apos;inseguito sulle ascisse (per grafico)</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>P[0]</fExpression>
+            <fStateTrans/>
+            <expression>P[0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=xP</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Py" type="ValueNode" pos-x="75" pos-y="355" width="61" height="41">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Posizione dell&apos;inseguito sulle ordinate (per grafico)</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>P[1]</fExpression>
+            <fStateTrans/>
+            <expression>P[1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=yP</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="inputP" type="ValueNode" pos-x="20" pos-y="75" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,255</forecol>
+            <documentation>Input di spostamento dell&apos;inseguito</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=inputP</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="lmax" type="ValueNode" pos-x="280" pos-y="280" width="41" height="31">
+            <font>Serif,12</font>
+            <forecol>245,245,245</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>10</fExpression>
+            <fStateTrans/>
+            <expression>10</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=mx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="lmin" type="ValueNode" pos-x="280" pos-y="310" width="41" height="35">
+            <font>Serif,12</font>
+            <forecol>245,245,245</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=mn</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="sm" type="ValueNode" pos-x="380" pos-y="80" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Smorzamento della velocit&#xe0; dell&apos;inseguitore quando &#xe8; in prossimit&#xe0; dell&apos;inseguito</documentation>
+            <isOut>false</isOut>
+            <fStateInit>1</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(sqrt(((I[0]-P[0])^2)+((I[1]-P[1])^2))&lt;1,this+1,1)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>1</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(sqrt(((I[0]-P[0])^2)+((I[1]-P[1])^2))&lt;1,this+1,1)</stateTrans>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=sm</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="vI" type="ValueNode" pos-x="500" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Velocit&#xe0; dell&apos;inseguitore</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[(abs(I[0]-P[0]))*vIs[0],(abs(I[1]-P[1]))*vIs[1]]/sqrt(((I[0]-P[0])^2)+((I[1]-P[1])^2))</fExpression>
+            <fStateTrans/>
+            <expression>[(abs(I[0]-P[0]))*vIs[0],(abs(I[1]-P[1]))*vIs[1]]/sqrt(((I[0]-P[0])^2)+((I[1]-P[1])^2))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=vI</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="vIm" type="ValueNode" pos-x="500" pos-y="0" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Modulo della velocit&#xe0; dell&apos;inseguitore</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.2/sm</fExpression>
+            <fStateTrans/>
+            <expression>0.2/sm</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=vIm</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="vIs" type="ValueNode" pos-x="500" pos-y="80" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Segno della velocit&#xe0; dell&apos;inseguitore</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(I[0]&lt;P[0],1,-1)#if(I[1]&lt;P[1],1,-1)*vIm</fExpression>
+            <fStateTrans/>
+            <expression>if(I[0]&lt;P[0],1,-1)#if(I[1]&lt;P[1],1,-1)*vIm</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=vIsegno</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="vP" type="ValueNode" pos-x="20" pos-y="175" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Velocit&#xe0; dell&apos;inseguito</documentation>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>if(inputP==1,[0,0.5],inputP==2,[0.5,0],inputP==3,[0,-0.5],inputP==4,[-0.5,0],[0,0])</fExpression>
+            <fStateTrans>this+if(inputP==1,[0,1],inputP==2,[1,0],inputP==3,[0,-1],inputP==4,[-1,0],[0,0])</fStateTrans>
+            <expression>if(inputP==1,[0,0.5],inputP==2,[0.5,0],inputP==3,[0,-0.5],inputP==4,[-0.5,0],[0,0])</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+if(inputP==1,[0,1],inputP==2,[1,0],inputP==3,[0,-1],inputP==4,[-1,0],[0,0])</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=vP</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="770" pos-y="0" width="481" height="181" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;b&gt;&lt;big&gt;FOLLOWER&lt;/big&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;The model simulates a 
+      spatially-defined follower (graphicallu depicted by a green square), 
+      which moves on a 2-dimensional squared surface to follow a point 
+      directed by the user (the red circle). The speedof the follower 
+      decreases gradually when approaching to the red circle, to stop closely 
+      and do not overpass it. 
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="sm" target="vIm" label="(...)" p0x="417.5" p0y="102.5" p1x="537.5" p1y="22.5" numpoints="2"/>
+        <edge source="vIm" target="vIs" label="(...)" p0x="537.5" p0y="22.5" p1x="537.5" p1y="102.5" numpoints="2"/>
+        <edge source="P" target="vIs" label="(...)" p0x="92.5" p0y="317.5" p1x="537.5" p1y="102.5" numpoints="2"/>
+        <edge source="I" target="vIs" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="537.5" p0y="302.5" p1x="620.0" p1y="230.0" p2x="537.5" p2y="102.5" numpoints="3"/>
+        <edge source="vIs" target="vI" label="(...)" p0x="537.5" p0y="102.5" p1x="537.5" p1y="192.5" numpoints="2"/>
+        <edge source="lmin" target="I" label="(...)" p0x="270.5" p0y="347.5" p1x="537.5" p1y="302.5" numpoints="2"/>
+        <edge source="lmin" target="P" label="(...)" p0x="270.5" p0y="347.5" p1x="92.5" p1y="317.5" numpoints="2"/>
+        <edge source="lmax" target="I" label="(...)" p0x="270.5" p0y="305.5" p1x="537.5" p1y="302.5" numpoints="2"/>
+        <edge source="lmax" target="P" label="(...)" p0x="270.5" p0y="305.5" p1x="92.5" p1y="317.5" numpoints="2"/>
+        <edge source="I" target="vI" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="537.5" p0y="302.5" p1x="510.0" p1y="250.0" p2x="537.5" p2y="192.5" numpoints="3"/>
+        <edge source="P" target="vI" label="(...)" p0x="92.5" p0y="317.5" p1x="537.5" p1y="192.5" numpoints="2"/>
+        <edge source="I" target="Iy" label="(...)" p0x="537.5" p0y="302.5" p1x="590.5" p1y="410.5" numpoints="2"/>
+        <edge source="I" target="Ix" label="(...)" p0x="537.5" p0y="302.5" p1x="500.5" p1y="410.5" numpoints="2"/>
+        <edge source="vI" target="I" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="537.5" p0y="192.5" p1x="570.0" p1y="240.0" p2x="537.5" p2y="302.5" numpoints="3"/>
+        <edge source="P" target="Py" label="(...)" p0x="57.5" p0y="317.5" p1x="105.5" p1y="375.5" numpoints="2"/>
+        <edge source="P" target="Px" label="(...)" p0x="57.5" p0y="317.5" p1x="30.5" p1y="375.5" numpoints="2"/>
+        <edge source="inputP" target="vP" label="(...)" p0x="57.5" p0y="97.5" p1x="57.5" p1y="197.5" numpoints="2"/>
+        <edge source="vP" target="P" label="(...)" p0x="57.5" p0y="197.5" p1x="57.5" p1y="317.5" numpoints="2"/>
+        <edge source="P" target="sm" label="(...)" p0x="92.5" p0y="317.5" p1x="417.5" p1y="102.5" numpoints="2"/>
+        <edge source="I" target="sm" label="(...)" p0x="537.5" p0y="302.5" p1x="417.5" p1y="102.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="FourButtonWidget" pos-x="570" pos-y="420" width="190" height="160">
+            <action>2</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>inputP</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>inputP - 0.0</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="770" pos-y="190" width="480" height="390">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>false,false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GREEN</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style2</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>Py,Iy</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>1</typey>
+            <typex>1</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <maxy>10.0</maxy>
+            <maxx>10.0</maxx>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <miny>0.0</miny>
+            <minx>0.0</minx>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#8,#7</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>2.0</stepy>
+            <stepx>2.0</stepx>
+            <showdots>true,true</showdots>
+            <xsourcena>Px,Ix</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true,true</dotslastonly>
+        </widget>
+    </widgets>
+    <groups>
+        <group name="Inseguito">
+            <comp name="P"/>
+            <comp name="Px"/>
+            <comp name="Py"/>
+            <comp name="inputP"/>
+            <comp name="vP"/>
+        </group>
+        <group name="Inseguitore">
+            <comp name="I"/>
+            <comp name="Ix"/>
+            <comp name="Iy"/>
+            <comp name="sm"/>
+            <comp name="vI"/>
+            <comp name="vIm"/>
+            <comp name="vIs"/>
+        </group>
+        <group name="Variabili di sistema">
+            <comp name="lmax"/>
+            <comp name="lmin"/>
+        </group>
+    </groups>
+    <reports/>
+</stgraph>

@@ -1,0 +1,197 @@
+<stgraph class="STGraph.decoder" version="STGraph build 18.02">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="200.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1270" height="723" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="a" type="ValueNode" pos-x="237" pos-y="202" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>randInt(n)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(this&gt;b,this-i,this&lt;b,this+i,this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>randInt(n)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(this&gt;b,this-i,this&lt;b,this+i,this)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=A</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="b" type="ValueNode" pos-x="453" pos-y="202" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>randInt(n)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(this&gt;a,this-i,this&lt;a,this+i,this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>randInt(n)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(this&gt;a,this-i,this&lt;a,this+i,this)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=B</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="i" type="ValueNode" pos-x="334" pos-y="326" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>rand()</fExpression>
+            <fStateTrans/>
+            <expression>rand()</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=i</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="mean:" type="ValueNode" pos-x="342" pos-y="149" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>mean([a,b])</fExpression>
+            <fStateTrans/>
+            <expression>mean([a,b])</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Mean</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="347" pos-y="73" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>4.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="b" target="mean:" label="(...)"/>
+        <edge source="a" target="mean:" label="(...)"/>
+        <edge source="b" target="a" label="(...)"/>
+        <edge source="a" target="b" label="(...)"/>
+        <edge source="n" target="a" label="(...)"/>
+        <edge source="n" target="b" label="(...)"/>
+        <edge source="i" target="a" label="(...)"/>
+        <edge source="i" target="b" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="727" pos-y="23" width="440" height="215">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>b</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>a</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="730" pos-y="243" width="436" height="200">
+            <title/>
+            <dotscolors>__RED,__GREEN,__BLUE</dotscolors>
+            <linewidths>#1,#1,#1</linewidths>
+            <showline>true,true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__BLUE,__GREEN</linecolors>
+            <barscolors>__RED,__GREEN,__BLUE</barscolors>
+            <dotsstyles>__style1,__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1,#1</dotsxscales>
+            <showbars>false,false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>a,b,mean:</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1,__style1</linestyles>
+            <dotstype>dot,dot,dot</dotstype>
+            <dotsyscales>#1,#1,#1</dotsyscales>
+            <dotsangles>#0,#0,#0</dotsangles>
+            <dotssizes>#1,#1,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1,#1</barswidths>
+            <dotshilast>false,false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false,false,false</showdots>
+            <xsourcena>vTime,vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false,false</dotslastonly>
+        </widget>
+        <widget type="SliderWidget" pos-x="480" pos-y="25" width="237" height="62">
+            <0>0</0>
+            <widgetvalue>4.0</widgetvalue>
+            <max>5.0</max>
+            <min>2.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>n</source>
+            <delta>1.0</delta>
+            <iconized>false</iconized>
+            <title>n: 4.0</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

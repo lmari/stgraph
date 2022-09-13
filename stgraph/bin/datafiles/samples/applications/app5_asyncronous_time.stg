@@ -1,0 +1,127 @@
+<stgraph class="STGraph.decoder" version="STGraph build 18.02">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="2700.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1277" height="698" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Minute_1" type="ValueNode" pos-x="25" pos-y="104" width="99" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,255</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans>if(Second_1==59&amp;&amp;isInt(time/9),this+1,this)</fStateTrans>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(Second_1==59&amp;&amp;isInt(time/9),this+1,this)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Minuto1</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Minute_2" type="ValueNode" pos-x="25" pos-y="214" width="101" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,255</forecol>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(Second_2==59,this+1,this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(Second_2==59,this+1,this)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Minuto2</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Second_1" type="ValueNode" pos-x="225" pos-y="104" width="101" height="51">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans>if(isInt((time-1)/9)==1&amp;&amp;time!=0,if(this==59,0,this+1),this)</fStateTrans>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,0,0</fontcol>
+            <stateTrans>if(isInt((time-1)/9)==1&amp;&amp;time!=0,if(this==59,0,this+1),this)</stateTrans>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Secondo1</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Second_2" type="ValueNode" pos-x="225" pos-y="214" width="98" height="45">
+            <font>Serif,12</font>
+            <forecol>255,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>int(if(this&lt;59,this+1,0))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,0,0</fontcol>
+            <stateTrans>int(if(this&lt;59,this+1,0))</stateTrans>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Secondo2</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="58" pos-y="34" width="226" height="35" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;b&gt;&lt;big&gt;Asyncronous time&lt;/big&gt;&lt;/b&gt;&lt;br&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="Second_1" target="Minute_1" label="(...)" p0x="262.5" p0y="129.5" p1x="62.5" p1y="126.5" numpoints="2"/>
+        <edge source="Second_2" target="Minute_2" label="(...)" p0x="262.5" p0y="236.5" p1x="62.5" p1y="236.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="355" pos-y="100" width="190" height="70">
+            <fontsize>20</fontsize>
+            <colwidth>92,91</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0,0</colalignment>
+            <colformat>0,0</colformat>
+            <title>Minute_1 Second_1 </title>
+            <lastonly>true</lastonly>
+            <sourcena>Minute_1,Second_1</sourcena>
+        </widget>
+        <widget type="DataTableWidget" pos-x="356" pos-y="205" width="190" height="70">
+            <fontsize>20</fontsize>
+            <colwidth>92,91</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0,0</colalignment>
+            <colformat>0,0</colformat>
+            <title>Minute_2 Second_2 </title>
+            <lastonly>true</lastonly>
+            <sourcena>Minute_2,Second_2</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

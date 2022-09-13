@@ -1,0 +1,194 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1280" height="709" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="s1" type="ValueNode" pos-x="120" pos-y="190" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>me</fExpression>
+            <fStateTrans>integral(v1)</fStateTrans>
+            <expression>me</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral(v1)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Stato</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="s2" type="ValueNode" pos-x="630" pos-y="160" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+(rand()*4)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+(rand()*4)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Spazio1</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="s3" type="ValueNode" pos-x="750" pos-y="200" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>s2</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>s2</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Spazio2</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="v1" type="ValueNode" pos-x="420" pos-y="190" width="81" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>2</fExpression>
+            <fStateTrans>s1</fStateTrans>
+            <expression>2</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>s1</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Variazione</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="v2" type="ValueNode" pos-x="910" pos-y="160" width="81" height="41">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>s2/timeD</fExpression>
+            <fStateTrans>s2-s3</fStateTrans>
+            <expression>s2/timeD</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>s2-s3</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Velocita1</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="140" pos-y="50" width="411" height="81" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      Two examples of using the function &amp;quot;integral&amp;quot; to compute variations of a 
+      stock variable
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="v1" target="s1" label="(...)" p0x="460.5" p0y="212.5" p1x="157.5" p1y="212.5" numpoints="2"/>
+        <edge source="s2" target="v2" label="(...)" p0x="667.5" p0y="182.5" p1x="940.5" p1y="180.5" numpoints="2"/>
+        <edge source="s2" target="s3" label="(...)" p0x="667.5" p0y="182.5" p1x="787.5" p1y="222.5" numpoints="2"/>
+        <edge source="s3" target="v2" label="(...)" p0x="787.5" p0y="222.5" p1x="940.5" p1y="180.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="160" pos-y="280" width="300" height="200">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>s1</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="650" pos-y="280" width="300" height="200">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>s2</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

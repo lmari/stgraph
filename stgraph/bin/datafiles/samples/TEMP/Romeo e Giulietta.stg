@@ -1,0 +1,262 @@
+<stgraph class="STGraph.decoder" version="STGraph build 18.02">
+    <head systemName="Romeo and Juliet" description="This model is freely inspired by &quot;Dynamical Models of Love&quot; of J. C. Sprott (in Nonlinear Dynamics, Psychology, and Life Sciences, Vol. 8, No. 3, July, 2004)" timeUnitDescription="" timeFrame="0" time0="0.0" time1="20.0" timeD="0.025" maxSteps="10" batchSteps="1" width="1270" height="723" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Juliet" type="ValueNode" pos-x="421" pos-y="455" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Level of Juliet&apos;s love at time t</documentation>
+            <isOut>true</isOut>
+            <fStateInit>Juliet0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>integral(this*Par_Juliet[0]+Romeo*Par_Juliet[1])</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Juliet0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral(this*Par_Juliet[0]+Romeo*Par_Juliet[1])</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Giulietta</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Juliet0" type="ValueNode" pos-x="421" pos-y="345" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Initial level of Juliet&apos;s love</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>-100.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Juliet0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Par_Juliet" type="ValueNode" pos-x="591" pos-y="458" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Vector of parameters of Juliet (influences the behaviour of Juliet&apos;s love)</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>[1.0,-3.0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Par_Juliet</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Par_Romeo" type="ValueNode" pos-x="61" pos-y="455" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Vector of parameters of Romeo (influences the behaviour of Romeo&apos;s love)</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>[-2.0,7.0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Par_Romeo</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Romeo" type="ValueNode" pos-x="222" pos-y="453" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Level of Romeo&apos;s love at time t</documentation>
+            <isOut>true</isOut>
+            <fStateInit>Romeo0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>integral(this*Par_Romeo[0]+Juliet*Par_Romeo[1])</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Romeo0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral(this*Par_Romeo[0]+Juliet*Par_Romeo[1])</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Romeo</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Romeo0" type="ValueNode" pos-x="221" pos-y="345" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Initial level of Romeo&apos;s love</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>-100.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Romeo0</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="10" pos-y="20" width="75" height="35" content="&lt;html&gt;
+  &lt;head&gt;
+
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="Par_Juliet" target="Juliet" label="(...)" p0x="628.5" p0y="480.5" p1x="458.5" p1y="477.5" numpoints="2"/>
+        <edge source="Par_Romeo" target="Romeo" label="(...)" p0x="98.5" p0y="477.5" p1x="258.5" p1y="477.5" numpoints="2"/>
+        <edge source="Romeo0" target="Romeo" label="(...)" p0x="258.5" p0y="367.5" p1x="258.5" p1y="477.5" numpoints="2"/>
+        <edge source="Juliet0" target="Juliet" label="(...)" p0x="458.5" p0y="367.5" p1x="458.5" p1y="477.5" numpoints="2"/>
+        <edge source="Juliet" target="Romeo" label="(...)" p0x="458.5" p0y="477.5" p1x="258.5" p1y="477.5" numpoints="2"/>
+        <edge source="Romeo" target="Juliet" label="(...)" labpos-x="519.6122190502182" labpos-y="-56.527295984008724" p0x="259.5" p0y="475.5" p1x="458.5" p1y="477.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="InputTableWidget" pos-x="800" pos-y="8" width="136" height="72">
+            <fontsize>15</fontsize>
+            <widgetvalue>[1.0,-3.0]</widgetvalue>
+            <showtitlebar>true</showtitlebar>
+            <source>Par_Juliet</source>
+            <iconized>false</iconized>
+            <rows>2</rows>
+            <colalignment>0</colalignment>
+            <colformat>###0.0###</colformat>
+            <cols>1</cols>
+            <title>Par_Juliet</title>
+        </widget>
+        <widget type="InputTableWidget" pos-x="934" pos-y="9" width="146" height="71">
+            <fontsize>15</fontsize>
+            <widgetvalue>[-2.0,7.0]</widgetvalue>
+            <showtitlebar>true</showtitlebar>
+            <source>Par_Romeo</source>
+            <iconized>false</iconized>
+            <rows>2</rows>
+            <colalignment>0</colalignment>
+            <colformat>###0.0###</colformat>
+            <cols>1</cols>
+            <title>Par_Romeo</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="439" pos-y="9" width="180" height="70">
+            <0>0</0>
+            <widgetvalue>-100.0</widgetvalue>
+            <max>100.0</max>
+            <min>-100.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>Juliet0</source>
+            <delta>1.0</delta>
+            <iconized>false</iconized>
+            <title>Juliet0: -100.0</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="619" pos-y="9" width="180" height="73">
+            <0>0</0>
+            <widgetvalue>-100.0</widgetvalue>
+            <max>100.0</max>
+            <min>-100.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>Romeo0</source>
+            <delta>1.0</delta>
+            <iconized>false</iconized>
+            <title>Romeo0: -100.0</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="800" pos-y="81" width="279" height="230">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GREEN</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>Juliet,Romeo</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#10,#10</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true,true</showdots>
+            <xsourcena>vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true,true</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="440" pos-y="79" width="359" height="233">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>Romeo</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#10</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>Juliet</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

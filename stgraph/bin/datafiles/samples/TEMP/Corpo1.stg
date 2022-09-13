@@ -1,0 +1,405 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="3" time0="0.0" time1="1.7976931348623157E308" timeD="1.0" maxSteps="1" batchSteps="0" width="1270" height="723" scale="1.0" simulationDelay="600" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Alto" type="ValueNode" pos-x="1790" pos-y="850" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>24</fExpression>
+            <fStateTrans/>
+            <expression>24</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Alto</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Basso" type="ValueNode" pos-x="1790" pos-y="910" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Basso</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Cibo" type="ValueNode" pos-x="170" pos-y="340" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>Zeri[0]</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>min(this+if(Mangiare==1&amp;&amp;Soldi&gt;3,12,-1)+if(Esercizio_fisico==1,-4,0),24)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Zeri[0]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>min(this+if(Mangiare==1&amp;&amp;Soldi&gt;3,12,-1)+if(Esercizio_fisico==1,-4,0),24)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Cibo</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Destra" type="ValueNode" pos-x="1840" pos-y="880" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>23</fExpression>
+            <fStateTrans/>
+            <expression>23</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Destra</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Dormire" type="ValueNode" pos-x="570" pos-y="340" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Dormire</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Esercizio_fisico" type="ValueNode" pos-x="30" pos-y="170" width="105" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Esercizio_fisico</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Forma" type="ValueNode" pos-x="170" pos-y="170" width="71" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>Zeri[2]</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>min(this+if(Cibo&gt;12,-0.1,0)+if(Esercizio_fisico==1,5,-(5/168)),24)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Zeri[2]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>min(this+if(Cibo&gt;12,-0.1,0)+if(Esercizio_fisico==1,5,-(5/168)),24)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Forma</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Lavorare" type="ValueNode" pos-x="610" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Lavorare</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Lavoro" type="ValueNode" pos-x="490" pos-y="150" width="75" height="41">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(Lavorare==1&amp;&amp;Sonno&gt;0&amp;&amp;Cibo&gt;0,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(Lavorare==1&amp;&amp;Sonno&gt;0&amp;&amp;Cibo&gt;0,1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Lavoro</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Mangiare" type="ValueNode" pos-x="170" pos-y="450" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Mangiare</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Ora" type="ValueNode" pos-x="170" pos-y="560" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(this&lt;24,this+1,0)</fStateTrans>
+            <expression/>
+            <isGlobal>true</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(this&lt;24,this+1,0)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Ora</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Sinistra" type="ValueNode" pos-x="1730" pos-y="880" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Sinistra</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Soldi" type="ValueNode" pos-x="490" pos-y="450" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>100</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+if(Lavoro==1,2,0)-if(Mangiare==1,2,0)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>100</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+if(Lavoro==1,2,0)-if(Mangiare==1,2,0)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Soldi</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Sonno" type="ValueNode" pos-x="410" pos-y="340" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>Zeri[1]</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>min(this+if(Dormire==1,if(Ora&gt;10&amp;&amp;Ora&lt;22,1,2),-1),24)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Zeri[1]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>min(this+if(Dormire==1,if(Ora&gt;10&amp;&amp;Ora&lt;22,1,2),-1),24)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Sonno</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Zeri" type="ValueNode" pos-x="930" pos-y="340" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[16,12,12]</fExpression>
+            <fStateTrans/>
+            <expression>[16,12,12]</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Zeri</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Zero" type="ValueNode" pos-x="1790" pos-y="960" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans>if(this==0,0,1)</fStateTrans>
+            <expression>0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(this==0,0,1)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Zero</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="Esercizio_fisico" target="Cibo" label="(...)"/>
+        <edge source="Cibo" target="Lavoro" label="(...)" p0x="207.5" p0y="362.5" p1x="527.5" p1y="170.5" numpoints="2"/>
+        <edge source="Soldi" target="Cibo" label="(...)" p0x="527.5" p0y="472.5" p1x="207.5" p1y="362.5" numpoints="2"/>
+        <edge source="Lavorare" target="Lavoro" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="647.5" p0y="172.5" p1x="527.5" p1y="170.5" numpoints="2"/>
+        <edge source="Mangiare" target="Sonno" label="(...)" p0x="207.5" p0y="472.5" p1x="447.5" p1y="362.5" numpoints="2"/>
+        <edge source="Dormire" target="Sonno" label="(...)" p0x="607.5" p0y="362.5" p1x="447.5" p1y="362.5" numpoints="2"/>
+        <edge source="Mangiare" target="Cibo" label="(...)" p0x="207.5" p0y="472.5" p1x="207.5" p1y="362.5" numpoints="2"/>
+        <edge source="Lavoro" target="Soldi" label="(...)" p0x="527.5" p0y="170.5" p1x="527.5" p1y="472.5" numpoints="2"/>
+        <edge source="Mangiare" target="Soldi" label="(...)" p0x="207.5" p0y="472.5" p1x="527.5" p1y="472.5" numpoints="2"/>
+        <edge source="Sonno" target="Lavoro" label="(...)" p0x="447.5" p0y="362.5" p1x="527.5" p1y="170.5" numpoints="2"/>
+        <edge source="Esercizio_fisico" target="Forma" label="(...)" p0x="332.5" p0y="192.5" p1x="205.5" p1y="192.5" numpoints="2"/>
+        <edge source="Cibo" target="Forma" label="(...)" p0x="207.5" p0y="362.5" p1x="205.5" p1y="212.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ToggleButtonWidget" pos-x="1090" pos-y="10" width="150" height="100">
+            <action>2</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>Dormire</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>Dormire - false</title>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="1090" pos-y="110" width="150" height="100">
+            <action>2</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>Mangiare</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>Mangiare - false</title>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="1090" pos-y="210" width="150" height="100">
+            <action>2</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>Lavorare</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>Lavorare - false</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="750" pos-y="380" width="300" height="200">
+            <title/>
+            <dotscolors>__RED,__BLUE,__MAGENTA,__GREEN,__GREEN,__BLACK</dotscolors>
+            <linewidths>#1,#1,#1,#1,#1,#10</linewidths>
+            <showline>false,false,false,false,false,false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GREEN,__GREEN,__BLUE,__BLACK,__BLACK</linecolors>
+            <barscolors>__RED,__GREEN,__MAGENTA,__BLUE,__BLACK,__CYAN</barscolors>
+            <dotsstyles>__style1,__style1,__style1,__style1,__style1,__style2</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1,#1,#1,#1,#1</dotsxscales>
+            <showbars>false,false,false,false,false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>Cibo,Sonno,Forma,Alto,Basso,Zero</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1,__style1,__style1,__style1,__style1</linestyles>
+            <dotstype>dot,dot,dot,dot,dot,dot</dotstype>
+            <dotsyscales>#1,#1,#1,#1,#1,#1</dotsyscales>
+            <dotsangles>#0,#0,#0,#0,#0,#0</dotsangles>
+            <dotssizes>#5,#5,#5,#0.1,#0.1,#8</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1,#1,#1,#1,#1</barswidths>
+            <dotshilast>false,false,false,false,false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true,true,true,true,true,true</showdots>
+            <xsourcena>Ora,Ora,Ora,Destra,Sinistra,Ora</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true,true,true,true,true,false</dotslastonly>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="1090" pos-y="310" width="150" height="100">
+            <action>2</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>Esercizio_fisico</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>Esercizio_fisico - false</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

@@ -1,0 +1,440 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.08">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="1000.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1415" height="806" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Demand" type="ValueNode" pos-x="18" pos-y="459" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Demand of product</documentation>
+            <isOut>true</isOut>
+            <fStateInit>500</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this*0.9+0.1*(1000*(Price^-1)*Quality)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>500</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this*0.9+0.1*(1000*(Price^-1)*Quality)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Demand</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Demand_ts" type="ValueNode" pos-x="19" pos-y="563" width="81" height="42">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Time series of the demand (plot on a graph using vIndex instead of vTime)</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array(10,Demand)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>1##this#Demand</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(10,Demand)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>1##this#Demand</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Demand_ts</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Price" type="ValueNode" pos-x="272" pos-y="421" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Price of sales of the product
+</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0.5+rand()</fStateInit>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans>max(if(slope(array(@Profit_ts,$i0),Profit_ts)&lt;0,this+rand()*adj_sp_pr,this-rand()*adj_sp_pr),0.01)</fStateTrans>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0.5+rand()</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>max(if(slope(array(@Profit_ts,$i0),Profit_ts)&lt;0,this+rand()*adj_sp_pr,this-rand()*adj_sp_pr),0.01)</stateTrans>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Product_price</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Prod_cost" type="ValueNode" pos-x="155" pos-y="298" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Total production cost at time t (production cost per unit depends only from the quality)</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>Production*(Quality^1.2)</fExpression>
+            <fStateTrans/>
+            <expression>Production*(Quality^1.2)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Prod_cost</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Prod_max" type="ValueNode" pos-x="68" pos-y="376" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Maximum number of goods to produce at t</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>800</fExpression>
+            <fStateTrans/>
+            <expression>800</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Prod_max</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Production" type="ValueNode" pos-x="18" pos-y="236" width="79" height="49">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Production at time t</documentation>
+            <isOut>false</isOut>
+            <fStateInit>min(Demand,Prod_max)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>min(Demand,Prod_max)</fExpression>
+            <fStateTrans>min(Demand,Prod_max)</fStateTrans>
+            <expression>min(Demand,Prod_max)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>min(Demand,Prod_max)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>min(Demand,Prod_max)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Production</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Profit" type="ValueNode" pos-x="269" pos-y="300" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>Turnover-Prod_cost</fExpression>
+            <fStateTrans/>
+            <expression>Turnover-Prod_cost</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Profit</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Profit_ts" type="ValueNode" pos-x="269" pos-y="362" width="78" height="42">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Time series of profit at time t (plot on a graph using vIndex instead of vTime)</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array(10,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>1##this#Profit</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(10,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>1##this#Profit</stateTrans>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Profit_ts</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Quality" type="ValueNode" pos-x="152" pos-y="517" width="75" height="47">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Quality of the product at time t
+</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0.5+rand()</fStateInit>
+            <format>0.0##</format>
+            <fExpression>slope(array(size(Demand_ts),$i0),Demand_ts)</fExpression>
+            <fStateTrans>max(if(slope(array(@Demand_ts,$i0),Demand_ts)&lt;0&amp;&amp;Demand&lt;Prod_max,this+rand()*adj_sp_q,this-rand()*adj_sp_q),0)</fStateTrans>
+            <expression>slope(array(size(Demand_ts),$i0),Demand_ts)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0.5+rand()</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>max(if(slope(array(@Demand_ts,$i0),Demand_ts)&lt;0&amp;&amp;Demand&lt;Prod_max,this+rand()*adj_sp_q,this-rand()*adj_sp_q),0)</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=Quality</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Sales" type="ValueNode" pos-x="447" pos-y="461" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Sales of the product at time t</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>min(Stock,Demand)</fExpression>
+            <fStateTrans/>
+            <expression>min(Stock,Demand)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Sales</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Stock" type="ValueNode" pos-x="440" pos-y="239" width="85" height="44">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Stock of the product at time t</documentation>
+            <isOut>false</isOut>
+            <fStateInit>100</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this-Sales+Production</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>100</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this-Sales+Production</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Stock</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Turnover" type="ValueNode" pos-x="377" pos-y="300" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Income from the sales</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>Price*Sales</fExpression>
+            <fStateTrans/>
+            <expression>Price*Sales</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Turnover</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="adj_sp_pr" type="ValueNode" pos-x="368" pos-y="420" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Adjusting speed of the price</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.04</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=adj_sp_pr</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="adj_sp_q" type="ValueNode" pos-x="267" pos-y="568" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Adjusting speed of the quality</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.09</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=adj_sp_q</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="20" pos-y="20" width="806" height="215" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;big&gt;&lt;b&gt;Homeostatic firm&lt;/b&gt;&lt;/big&gt;&lt;br&gt;&lt;br&gt;&lt;small&gt;&lt;font size=&quot;4&quot;&gt;This        model simulates a smart firm that automatically adjusts the price and        quality of its product to maximize the profit (directly and indirectly,        through the demand). The adjustment process is elementary, consisting of        trend detection of profit and demand (using the function slope) and the        modification of the corresponding states. The changing speed depends on        two &amp;quot;adj_sp&amp;quot; input variables. &lt;/font&gt;&lt;/small&gt;&lt;font size=&quot;4&quot;&gt; &lt;/font&gt;    &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;font size=&quot;4&quot;&gt; &lt;/font&gt;    &lt;/p&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;small&gt;&lt;font size=&quot;4&quot;&gt;Can you find the configuration that maximizes the        sum of the profit during the whole simulation? And the one that        maximixes the demand?&lt;/font&gt;&lt;/small&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="Stock" target="Production" label="(...)" p0x="482.5" p0y="261.0" p1x="57.5" p1y="260.5" numpoints="2"/>
+        <edge source="adj_sp_q" target="Quality" label="(...)" p0x="304.5" p0y="590.5" p1x="189.5" p1y="540.5" numpoints="2"/>
+        <edge source="Profit_ts" target="Price" label="(...)" p0x="308.0" p0y="383.0" p1x="309.5" p1y="443.5" numpoints="2"/>
+        <edge source="Profit" target="Profit_ts" label="(...)" p0x="306.5" p0y="322.5" p1x="308.0" p1y="383.0" numpoints="2"/>
+        <edge source="Demand_ts" target="Quality" label="(...)" p0x="59.5" p0y="584.0" p1x="189.5" p1y="540.5" numpoints="2"/>
+        <edge source="Demand" target="Demand_ts" label="(...)" p0x="55.5" p0y="481.5" p1x="59.5" p1y="584.0" numpoints="2"/>
+        <edge source="Price" target="Demand" label="(...)" p0x="309.5" p0y="443.5" p1x="55.5" p1y="481.5" numpoints="2"/>
+        <edge source="Demand" target="Sales" label="(...)" p0x="55.5" p0y="481.5" p1x="484.5" p1y="483.5" numpoints="2"/>
+        <edge source="Sales" target="Stock" label="(...)" p0x="484.5" p0y="483.5" p1x="482.5" p1y="261.0" numpoints="2"/>
+        <edge source="Prod_max" target="Production" label="(...)" p0x="105.5" p0y="398.5" p1x="57.5" p1y="260.5" numpoints="2"/>
+        <edge source="Sales" target="Quality" label="(...)" p0x="484.5" p0y="483.5" p1x="189.5" p1y="540.5" numpoints="2"/>
+        <edge source="Quality" target="Demand" label="(...)" p0x="189.5" p0y="540.5" p1x="55.5" p1y="481.5" numpoints="2"/>
+        <edge source="Stock" target="Sales" label="(...)" p0x="482.5" p0y="261.0" p1x="484.5" p1y="483.5" numpoints="2"/>
+        <edge source="Production" target="Prod_cost" label="(...)" p0x="57.5" p0y="260.5" p1x="192.5" p1y="320.5" numpoints="2"/>
+        <edge source="Quality" target="Prod_cost" label="(...)" p0x="189.5" p0y="540.5" p1x="192.5" p1y="320.5" numpoints="2"/>
+        <edge source="Demand" target="Production" label="(...)" p0x="55.5" p0y="481.5" p1x="57.5" p1y="260.5" numpoints="2"/>
+        <edge source="Production" target="Stock" label="(...)" p0x="57.5" p0y="260.5" p1x="482.5" p1y="261.0" numpoints="2"/>
+        <edge source="Sales" target="Turnover" label="(...)" p0x="484.5" p0y="483.5" p1x="414.5" p1y="322.5" numpoints="2"/>
+        <edge source="Turnover" target="Profit" label="(...)" p0x="414.5" p0y="322.5" p1x="306.5" p1y="322.5" numpoints="2"/>
+        <edge source="Prod_cost" target="Profit" label="(...)" p0x="192.5" p0y="320.5" p1x="306.5" p1y="322.5" numpoints="2"/>
+        <edge source="Price" target="Turnover" label="(...)" p0x="309.5" p0y="443.5" p1x="414.5" p1y="322.5" numpoints="2"/>
+        <edge source="Demand" target="Quality" label="(...)" p0x="55.5" p0y="481.5" p1x="189.5" p1y="540.5" numpoints="2"/>
+        <edge source="adj_sp_pr" target="Price" label="(...)" p0x="405.5" p0y="442.5" p1x="309.5" p1y="443.5" numpoints="2"/>
+        <edge source="Prod_max" target="Quality" label="(...)" p0x="105.5" p0y="398.5" p1x="189.5" p1y="540.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="850" pos-y="30" width="300" height="200">
+            <title>Profit</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>Profit</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="850" pos-y="230" width="300" height="200">
+            <title>Demand</title>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GRAY</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>Demand,Prod_max</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#1,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false,false</showdots>
+            <xsourcena>vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="850" pos-y="430" width="300" height="200">
+            <title>Decision leverages</title>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__GREEN,__GRAY</linecolors>
+            <barscolors>__RED,__GREEN</barscolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <showbars>false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>Price,Quality</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#1,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1,#1</barswidths>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false,false</showdots>
+            <xsourcena>vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false</dotslastonly>
+        </widget>
+        <widget type="SliderWidget" pos-x="650" pos-y="530" width="200" height="100">
+            <0>0</0>
+            <widgetvalue>0.04</widgetvalue>
+            <max>0.1</max>
+            <min>0.01</min>
+            <showtitlebar>true</showtitlebar>
+            <source>adj_sp_pr</source>
+            <delta>0.01</delta>
+            <iconized>false</iconized>
+            <title>adj_sp_pr: 0.04</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="650" pos-y="430" width="200" height="100">
+            <0>0</0>
+            <widgetvalue>0.09</widgetvalue>
+            <max>0.1</max>
+            <min>0.01</min>
+            <showtitlebar>true</showtitlebar>
+            <source>adj_sp_q</source>
+            <delta>0.01</delta>
+            <iconized>false</iconized>
+            <title>adj_sp_q: 0.09</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

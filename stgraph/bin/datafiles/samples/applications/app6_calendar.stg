@@ -1,0 +1,141 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.08">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="3" time0="0.0" time1="1.7976931348623157E308" timeD="1.0" maxSteps="1" batchSteps="0" width="1277" height="698" scale="1.0" simulationDelay="20" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="true" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="day" type="ValueNode" pos-x="350" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,255</forecol>
+            <documentation>Giorno del mese</documentation>
+            <isOut>true</isOut>
+            <fStateInit>20</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(hour==23&amp;&amp;keep_on==1,if(this==31,1,this+1),this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>20</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(hour==23&amp;&amp;keep_on==1,if(this==31,1,this+1),this)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Giorno</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="hour" type="ValueNode" pos-x="220" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,255</forecol>
+            <documentation>Ora del giorno</documentation>
+            <isOut>true</isOut>
+            <fStateInit>8</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(keep_on==0,this,this==23,0,this+1)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>8</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(keep_on==0,this,this==23,0,this+1)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Ora</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="keep_on" type="ValueNode" pos-x="50" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Input per andare avanti di qualche ora</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>0,0,0</backcol>
+            <customprops>Name=Avanti</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="month" type="ValueNode" pos-x="500" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,255</forecol>
+            <documentation>Mese dell&apos;anno</documentation>
+            <isOut>true</isOut>
+            <fStateInit>12</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(day==31&amp;&amp;hour==23&amp;&amp;keep_on==1,if(this==12,1,this+1),this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>12</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(day==31&amp;&amp;hour==23&amp;&amp;keep_on==1,if(this==12,1,this+1),this)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Mese</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="year" type="ValueNode" pos-x="620" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,255</forecol>
+            <documentation>Anno solare</documentation>
+            <isOut>true</isOut>
+            <fStateInit>2023</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(month==12&amp;&amp;day==31&amp;&amp;hour==23&amp;&amp;keep_on==1,this+1,this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>2023</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(month==12&amp;&amp;day==31&amp;&amp;hour==23&amp;&amp;keep_on==1,this+1,this)</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=Anno</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="770" pos-y="20" width="241" height="131" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;b&gt;&lt;big&gt;Calendar&lt;/big&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Each time the button input &amp;quot;keep_on&amp;quot;        is pressed, the time advance by one hour.     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="day" target="year" label="(...)" p0x="377.5" p0y="142.5" p1x="577.5" p1y="142.5" numpoints="2"/>
+        <edge source="hour" target="year" label="(...)" p0x="287.5" p0y="142.5" p1x="577.5" p1y="142.5" numpoints="2"/>
+        <edge source="month" target="day" label="(...)" p0x="477.5" p0y="142.5" p1x="377.5" p1y="142.5" numpoints="2"/>
+        <edge source="hour" target="day" label="(...)" p0x="287.5" p0y="142.5" p1x="377.5" p1y="142.5" numpoints="2"/>
+        <edge source="day" target="month" label="(...)" p0x="377.5" p0y="142.5" p1x="477.5" p1y="142.5" numpoints="2"/>
+        <edge source="month" target="year" label="(...)" p0x="477.5" p0y="142.5" p1x="577.5" p1y="142.5" numpoints="2"/>
+        <edge source="hour" target="month" label="(...)" p0x="287.5" p0y="142.5" p1x="477.5" p1y="142.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ToggleButtonWidget" pos-x="0" pos-y="10" width="160" height="80">
+            <action>2</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>keep_on</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>keep_on - false</title>
+        </widget>
+        <widget type="DataTableWidget" pos-x="160" pos-y="10" width="570" height="80">
+            <fontsize>40</fontsize>
+            <colwidth>148,132,133,132</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0,0,0,0</colalignment>
+            <colformat>0,0,0,0</colformat>
+            <title>hour day month year </title>
+            <lastonly>true</lastonly>
+            <sourcena>hour,day,month,year</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

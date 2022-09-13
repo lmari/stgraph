@@ -1,0 +1,676 @@
+<stgraph class="STGraph.decoder" version="STGraph build 18.02">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="3" time0="0.0" time1="1.7976931348623157E308" timeD="0.1" maxSteps="1" batchSteps="0" width="1430" height="806" scale="1.0" simulationDelay="25" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="A" type="ValueNode" pos-x="450" pos-y="450" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>La posizione dell&apos;avversario</documentation>
+            <isOut>false</isOut>
+            <fStateInit>[1,rand()]</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>min(max(integral(vA),lmin),lmax)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>[1,rand()]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans>min(max(integral(vA),lmin),lmax)</stateTrans>
+            <backcol>64,64,64</backcol>
+            <customprops>Name=A</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Ax" type="ValueNode" pos-x="330" pos-y="530" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>La posizione sull&apos;asse x del&apos;avversario</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>A[0]</fExpression>
+            <fStateTrans/>
+            <expression>A[0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>64,64,64</backcol>
+            <customprops>Name=Ax</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Ay" type="ValueNode" pos-x="450" pos-y="520" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>La posizione sull&apos;asse y dell&apos;avversario</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>A[1]</fExpression>
+            <fStateTrans/>
+            <expression>A[1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>64,64,64</backcol>
+            <customprops>Name=Ay</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Out" type="ValueNode" pos-x="240" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(P[0]&lt;lmin-0.05||P[0]&gt;lmax+0.05,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(P[0]&lt;lmin-0.05||P[0]&gt;lmax+0.05,1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=Out</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="P" type="ValueNode" pos-x="130" pos-y="190" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Posizione della pallina</documentation>
+            <isOut>false</isOut>
+            <fStateInit>array(2,(rand()/3)+0.33)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(Out==1,array(2,(rand()/3)+0.33),integral(vP))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(2,(rand()/3)+0.33)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(Out==1,array(2,(rand()/3)+0.33),integral(vP))</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=P</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Px" type="ValueNode" pos-x="20" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Posizione sull&apos;asse x della pallina</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>P[0]</fExpression>
+            <fStateTrans/>
+            <expression>P[0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=Px</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Py" type="ValueNode" pos-x="20" pos-y="200" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Posizione sull&apos;asse y della pallina</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>P[1]</fExpression>
+            <fStateTrans/>
+            <expression>P[1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=Py</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="R" type="ValueNode" pos-x="230" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0,inputR]</fExpression>
+            <fStateTrans/>
+            <expression>[0,inputR]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=R</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Rx" type="ValueNode" pos-x="10" pos-y="10" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Posizione sull&apos;asse x della racchetta</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>R[0]</fExpression>
+            <fStateTrans/>
+            <expression>R[0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=Rx</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Ry" type="ValueNode" pos-x="10" pos-y="80" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Posizione sull&apos;asse y della racchetta</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>R[1]</fExpression>
+            <fStateTrans/>
+            <expression>R[1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=Ry</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="c_A" type="ValueNode" pos-x="230" pos-y="420" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(sqrt(((P[0]-A[0])^2)+((P[1]-A[1])^2))&lt;s*5&amp;&amp;vP[0]&gt;0,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(sqrt(((P[0]-A[0])^2)+((P[1]-A[1])^2))&lt;s*5&amp;&amp;vP[0]&gt;0,1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>64,64,64</backcol>
+            <customprops>Name=c_A</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="c_A2" type="ValueNode" pos-x="330" pos-y="380" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Condizione di vicinanza delle ordinate fra avversario e pallina (perch&#xe9; se la pallina &#xe8; pi&#xf9; in alto dell&apos;avversario l&apos;avversario si muover&#xe0; verso l&apos;alto, mentre se la pallina &#xe8; pi&#xf9; in basso dell&apos;avversario questa si muover&#xe0; verso il basso)</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>P[1]-A[1]</fExpression>
+            <fStateTrans/>
+            <expression>P[1]-A[1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>64,64,64</backcol>
+            <customprops>Name=c_A2</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="c_R" type="ValueNode" pos-x="60" pos-y="290" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Contatto con la racchetta: 1 se la pallina impatta la racchetta, 0 altrimenti</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(sqrt(((P[0]-R[0])^2)+((P[1]-R[1])^2))&lt;s*5&amp;&amp;vP[0]&lt;0,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(sqrt(((P[0]-R[0])^2)+((P[1]-R[1])^2))&lt;s*5&amp;&amp;vP[0]&lt;0,1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=c_R</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="c_giu" type="ValueNode" pos-x="140" pos-y="320" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Contatto in basso: 1 se la pallina impatta il confine del campo in basso, 0 altrimenti</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(P[1]&lt;lmin-s&amp;&amp;vP[1]&lt;0,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(P[1]&lt;lmin-s&amp;&amp;vP[1]&lt;0,1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=c_giu</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="c_su" type="ValueNode" pos-x="230" pos-y="350" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Contatto in alto: 1 se la pallina impatta il confine del campo in alto, 0 altrimenti</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(P[1]&gt;lmax-s&amp;&amp;vP[1]&gt;0,1,0)</fExpression>
+            <fStateTrans/>
+            <expression>if(P[1]&gt;lmax-s&amp;&amp;vP[1]&gt;0,1,0)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=c_su</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="go" type="ValueNode" pos-x="450" pos-y="240" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Inizio del gioco</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=go</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="inputR" type="ValueNode" pos-x="140" pos-y="10" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Input di posizione della racchetta</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.38</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=inputR</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="lmax" type="ValueNode" pos-x="340" pos-y="10" width="75" height="51">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Ascissa e ordinata massima del campo di pong</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <expression>1</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=lmax</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="lmin" type="ValueNode" pos-x="250" pos-y="10" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Ascissa e ordinata minime del campo di pong</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=lmin</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="s" type="ValueNode" pos-x="0" pos-y="420" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Sensibilit&#xe0; della palla rispetto alle barriere. Tanto &#xe8; pi&#xf9; alto quanto pi&#xf9; &quot;sentir&#xe0; la barriera&quot; tardi e la simulazione sar&#xe0; sofisticata.</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.01</fExpression>
+            <fStateTrans/>
+            <expression>0.01</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=s</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="v" type="ValueNode" pos-x="330" pos-y="110" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Modulo della velocit&#xe0; della pallina</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.15</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=v</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="vA" type="ValueNode" pos-x="370" pos-y="320" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Velocit&#xe0; dell&apos;avversario</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0,if(c_A2&gt;0,0.1,c_A2==0,0,-0.1)]/vAsmorz</fExpression>
+            <fStateTrans/>
+            <expression>[0,if(c_A2&gt;0,0.1,c_A2==0,0,-0.1)]/vAsmorz</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans/>
+            <backcol>64,64,64</backcol>
+            <customprops>Name=vA</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="vAsmorz" type="ValueNode" pos-x="450" pos-y="380" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Smorzamento della velocit&#xe0; dell&apos;avversario. Se l&apos;ordinata della pallina &#xe8; vicina a quella dell&apos;avversario l&apos;avversaio diminuir&#xe0; progressivamente la propria velocit&#xe0;, perch&#xe9; il suo obiettivo in fase di progettazione &#xe8; di respingere la pallina, e per respingerla deve avere la stessa ordinata.</documentation>
+            <isOut>false</isOut>
+            <fStateInit>1</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>max(if(go==1,1,if(vP[0]==0,if(between(c_A2,-0.07,0.07),this+1.5,1),if(between(c_A2,-0.03,0.03),this+0.1,this-0.2))),1)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>1</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>255,255,255</fontcol>
+            <stateTrans>max(if(go==1,1,if(vP[0]==0,if(between(c_A2,-0.07,0.07),this+1.5,1),if(between(c_A2,-0.03,0.03),this+0.1,this-0.2))),1)</stateTrans>
+            <backcol>64,64,64</backcol>
+            <customprops>Name=vAsmorz</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="vP" type="ValueNode" pos-x="350" pos-y="240" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Velocit&#xe0; della pallina</documentation>
+            <isOut>false</isOut>
+            <fStateInit>array(2,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(go==1,[cos(vP0),sin(vP0)]*v,Out==1,`array(2,0),`c_A==1||c_R==1,[-this[0],this[1]],c_giu==1||c_su==1,[this[0],-this[1]],this)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(2,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(go==1,[cos(vP0),sin(vP0)]*v,Out==1,array(2,0),c_A==1||c_R==1,[-this[0],this[1]],c_giu==1||c_su==1,[this[0],-this[1]],this)</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=vP</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="vP0" type="ValueNode" pos-x="420" pos-y="160" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Versore iniziale della velocit&#xe0; della pallina</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>rand()*2*pi</fExpression>
+            <fStateTrans/>
+            <expression>rand()*2*pi</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=vP0</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="560" pos-y="350" width="691" height="231" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;b&gt;&lt;big&gt;PONG &lt;/big&gt;&lt;/b&gt;&lt;br&gt;&lt;font size=&quot;4&quot;&gt;&lt;br&gt;&lt;small&gt;The model is an 
+      implementation of the videogame Pong. In the game, the player has to hit 
+      the ball and direct it to overpass the opponent. The opponent 
+      automatically behaves to get as close as possible to the ball and 
+      reflects it. The player controls the red squared employing the &amp;quot;inputR&amp;quot; 
+      leverage. The ball is modelled by the state P, while the opponent&apos;s 
+      position is defined by the state A. The speed of the ball is defined by 
+      the parameter v.&lt;/small&gt;&lt;/font&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="go" target="vAsmorz" label="(...)"/>
+        <edge source="vP" target="vAsmorz" label="(...)"/>
+        <edge source="vAsmorz" target="vA" label="(...)"/>
+        <edge source="c_A2" target="vAsmorz" label="(...)"/>
+        <edge source="c_A2" target="vA" label="(...)"/>
+        <edge source="P" target="c_A" label="(...)"/>
+        <edge source="A" target="c_A" label="(...)"/>
+        <edge source="s" target="c_A" label="(...)"/>
+        <edge source="vP" target="c_A" label="(...)"/>
+        <edge source="c_A" target="vP" label="(...)"/>
+        <edge source="P" target="vA" label="(...)"/>
+        <edge source="vA" target="A" label="(...)"/>
+        <edge source="A" target="vA" label="(...)"/>
+        <edge source="A" target="Ay" label="(...)" p0x="487.5" p0y="472.5" p1x="487.5" p1y="542.5" numpoints="2"/>
+        <edge source="A" target="Ax" label="(...)" p0x="547.5" p0y="472.5" p1x="527.5" p1y="532.5" numpoints="2"/>
+        <edge source="Out" target="P" label="(...)"/>
+        <edge source="Out" target="vP" label="(...)"/>
+        <edge source="s" target="c_su" label="(...)" p0x="97.5" p0y="452.5" p1x="417.5" p1y="422.5" numpoints="2"/>
+        <edge source="s" target="c_giu" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="277.5" p0y="492.5" p1x="337.5" p1y="392.5" numpoints="2"/>
+        <edge source="go" target="vP" label="(...)" p0x="547.5" p0y="312.5" p1x="417.5" p1y="252.5" numpoints="2"/>
+        <edge source="R" target="Rx" label="(...)" p0x="137.5" p0y="112.5" p1x="47.5" p1y="52.5" numpoints="2"/>
+        <edge source="R" target="Ry" label="(...)" p0x="137.5" p0y="112.5" p1x="47.5" p1y="162.5" numpoints="2"/>
+        <edge source="inputR" target="R" label="(...)"/>
+        <edge source="P" target="Px" label="(...)" p0x="367.5" p0y="102.5" p1x="277.5" p1y="32.5" numpoints="2"/>
+        <edge source="P" target="Py" label="(...)" p0x="367.5" p0y="102.5" p1x="367.5" p1y="32.5" numpoints="2"/>
+        <edge source="P" target="vP" label="(...)" p0x="367.5" p0y="102.5" p1x="367.5" p1y="182.5" numpoints="2"/>
+        <edge source="vP" target="P" label="(...)" p0x="367.5" p0y="182.5" p1x="367.5" p1y="102.5" numpoints="2"/>
+        <edge source="R" target="vP" label="(...)"/>
+        <edge source="vP0" target="vP" label="(...)" p0x="547.5" p0y="182.5" p1x="417.5" p1y="252.5" numpoints="2"/>
+        <edge source="Rx" target="R" label="(...)"/>
+        <edge source="c_giu" target="vP" label="(...)"/>
+        <edge source="P" target="c_giu" label="(...)"/>
+        <edge source="P" target="c_su" label="(...)"/>
+        <edge source="c_su" target="vP" label="(...)"/>
+        <edge source="vP" target="c_giu" label="(...)"/>
+        <edge source="vP" target="c_su" label="(...)"/>
+        <edge source="R" target="c_R" label="(...)"/>
+        <edge source="P" target="c_R" label="(...)"/>
+        <edge source="vP" target="c_R" label="(...)"/>
+        <edge source="s" target="c_R" label="(...)"/>
+        <edge source="c_R" target="vP" label="(...)"/>
+        <edge source="P" target="Out" label="(...)"/>
+        <edge source="v" target="vP" label="(...)"/>
+        <edge source="A" target="c_A2" label="(...)"/>
+        <edge source="P" target="c_A2" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="SliderWidget" pos-x="560" pos-y="10" width="130" height="330">
+            <0>1</0>
+            <widgetvalue>0.38</widgetvalue>
+            <max>1.0</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>inputR</source>
+            <delta>0.02</delta>
+            <iconized>false</iconized>
+            <title>inputR: 0.38</title>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="430" pos-y="10" width="130" height="130">
+            <action>2</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>go</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>go - false</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="0" pos-y="500" width="230" height="90">
+            <0>0</0>
+            <widgetvalue>0.15</widgetvalue>
+            <max>0.3</max>
+            <min>0.05</min>
+            <showtitlebar>true</showtitlebar>
+            <source>v</source>
+            <delta>0.05</delta>
+            <iconized>false</iconized>
+            <title>v: 0.15</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="690" pos-y="10" width="550" height="330">
+            <title/>
+            <dotscolors>__GRAY,__BLUE,__RED</dotscolors>
+            <linewidths>#1,#1,#1</linewidths>
+            <showline>false,false,false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GREEN,__BLUE</linecolors>
+            <barscolors>__RED,__GREEN,__BLUE</barscolors>
+            <dotsstyles>__style2,__style1,__style2</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1,#1</dotsxscales>
+            <showbars>false,false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>Ay,Py,Ry</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>1</typey>
+            <typex>1</typex>
+            <linestyles>__style1,__style1,__style1</linestyles>
+            <maxy>1.0</maxy>
+            <maxx>1.0</maxx>
+            <dotstype>dot,dot,dot</dotstype>
+            <dotsyscales>#1,#1,#1</dotsyscales>
+            <miny>0.0</miny>
+            <minx>0.0</minx>
+            <dotsangles>#0,#0,#0</dotsangles>
+            <dotssizes>#12,#8,#12</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#1,#1,#1</barswidths>
+            <dotshilast>false,false,false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>0.2</stepy>
+            <stepx>0.2</stepx>
+            <showdots>true,true,true</showdots>
+            <xsourcena>Ax,Px,Rx</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true,true,true</dotslastonly>
+        </widget>
+    </widgets>
+    <groups>
+        <group name="Parametri e input vari">
+            <comp name="s"/>
+            <comp name="go"/>
+            <comp name="lmax"/>
+            <comp name="lmin"/>
+        </group>
+        <group name="Pallina">
+            <comp name="Px"/>
+            <comp name="Py"/>
+            <comp name="P"/>
+            <comp name="Out"/>
+            <comp name="v"/>
+            <comp name="vP0"/>
+            <comp name="vP"/>
+            <comp name="c_su"/>
+            <comp name="c_giu"/>
+            <comp name="c_R"/>
+        </group>
+        <group name="Avversario">
+            <comp name="vA"/>
+            <comp name="c_A2"/>
+            <comp name="c_A"/>
+            <comp name="vAsmorz"/>
+            <comp name="A"/>
+            <comp name="Ay"/>
+            <comp name="Ax"/>
+        </group>
+        <group name="Racchetta">
+            <comp name="Rx"/>
+            <comp name="inputR"/>
+            <comp name="Ry"/>
+            <comp name="R"/>
+        </group>
+    </groups>
+    <reports/>
+</stgraph>

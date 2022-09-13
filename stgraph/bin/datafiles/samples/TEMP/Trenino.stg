@@ -1,0 +1,227 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="3" time0="0.0" time1="1.7976931348623157E308" timeD="0.2" maxSteps="1" batchSteps="0" width="1280" height="709" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="true" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Attrito" type="ValueNode" pos-x="770" pos-y="160" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.05</fExpression>
+            <fStateTrans/>
+            <expression>0.05</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Attrito</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Fine" type="ValueNode" pos-x="1020" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(Trenino&gt;100,0,1)</fExpression>
+            <fStateTrans/>
+            <expression>if(Trenino&gt;100,0,1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>OnZero=end(&quot;il treno &#xe8; giunto a destinazione&quot;);Name=Fine</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Input" type="ValueNode" pos-x="540" pos-y="50" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.45</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Input</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Input1" type="ValueNode" pos-x="630" pos-y="20" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit>Input</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>Input</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>Input</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>Input</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Input1</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Spinta" type="ValueNode" pos-x="630" pos-y="90" width="81" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>abs(Input1-Input)</fExpression>
+            <fStateTrans/>
+            <expression>abs(Input1-Input)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Variazione</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Trenino" type="ValueNode" pos-x="900" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>integral(Vel)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral(Vel)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Trenino</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Uno" type="ValueNode" pos-x="900" pos-y="160" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Uno</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Vel" type="ValueNode" pos-x="770" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>integral(Spinta)*(1-Attrito)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>integral(Spinta)*(1-Attrito)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Vel</customprops>
+            <valueType>1</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="Trenino" target="Fine" label="(...)" p0x="937.5" p0y="112.5" p1x="1057.5" p1y="112.5" numpoints="2"/>
+        <edge source="Input1" target="Spinta" label="(...)" p0x="667.5" p0y="42.5" p1x="670.5" p1y="112.5" numpoints="2"/>
+        <edge source="Input" target="Spinta" label="(...)" p0x="577.5" p0y="72.5" p1x="670.5" p1y="112.5" numpoints="2"/>
+        <edge source="Input" target="Input1" label="(...)" p0x="577.5" p0y="72.5" p1x="667.5" p1y="42.5" numpoints="2"/>
+        <edge source="Spinta" target="Vel" label="(...)" p0x="670.5" p0y="112.5" p1x="807.5" p1y="112.5" numpoints="2"/>
+        <edge source="Vel" target="Trenino" label="(...)" p0x="807.5" p0y="112.5" p1x="937.5" p1y="112.5" numpoints="2"/>
+        <edge source="Attrito" target="Vel" label="(...)" p0x="807.5" p0y="182.5" p1x="807.5" p1y="112.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="SliderWidget" pos-x="1110" pos-y="20" width="120" height="320">
+            <0>1</0>
+            <widgetvalue>0.45</widgetvalue>
+            <max>2</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>Input</source>
+            <delta>0.05</delta>
+            <iconized>false</iconized>
+            <title>Input: 0.45</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="240" pos-y="380" width="990" height="150">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>Uno</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>0</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <maxy>1.5</maxy>
+            <maxx>100.0</maxx>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <miny>0.5</miny>
+            <minx>0.0</minx>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#15</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>0.5</stepy>
+            <stepx>100.0</stepx>
+            <showdots>true</showdots>
+            <xsourcena>Trenino</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

@@ -1,0 +1,146 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="3" time0="0.0" time1="1.7976931348623157E308" timeD="1.0" maxSteps="1" batchSteps="0" width="910" height="510" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="f" type="ValueNode" pos-x="50" pos-y="110" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>50</fExpression>
+            <expression>50</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=f</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="m" type="ValueNode" pos-x="50" pos-y="50" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>100</fExpression>
+            <expression>100</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=m</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="50" pos-y="170" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>3</fExpression>
+            <expression>15.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="x" type="ValueNode" pos-x="170" pos-y="50" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>[0:m-1]/f</fExpression>
+            <expression>[0:m-1]/f</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=x</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="y" type="ValueNode" pos-x="170" pos-y="110" width="75" height="45">
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fStateTrans/>
+            <fExpression>if(n==1,get(array([m,n],sin(2*pi*(1+2*$i1)*$i0/f)/(1+2*$i1)),[]),+/array([m,n],sin(2*pi*(1+2*$i1)*$i0/f)/(1+2*$i1)))</fExpression>
+            <expression>if(n==1,get(array([m,n],sin(2*pi*(1+2*$i1)*$i0/f)/(1+2*$i1)),[]),+/array([m,n],sin(2*pi*(1+2*$i1)*$i0/f)/(1+2*$i1)))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=y</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="m" target="y" label="(...)" p0x="87.5" p0y="72.5" p1x="207.5" p1y="132.5" numpoints="2"/>
+        <edge source="f" target="y" label="(...)" p0x="87.5" p0y="132.5" p1x="207.5" p1y="132.5" numpoints="2"/>
+        <edge source="n" target="y" label="(...)" p0x="87.5" p0y="192.5" p1x="207.5" p1y="132.5" numpoints="2"/>
+        <edge source="f" target="x" label="(...)" p0x="87.5" p0y="132.5" p1x="207.5" p1y="72.5" numpoints="2"/>
+        <edge source="m" target="x" label="(...)" p0x="87.5" p0y="72.5" p1x="207.5" p1y="72.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="SliderWidget" pos-x="280" pos-y="30" width="110" height="200">
+            <0>1</0>
+            <widgetvalue>15.0</widgetvalue>
+            <max>50</max>
+            <min>1</min>
+            <showtitlebar>true</showtitlebar>
+            <source>n</source>
+            <delta>1</delta>
+            <iconized>false</iconized>
+            <title>n: 15.0</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="390" pos-y="30" width="300" height="200">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>y</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>x</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

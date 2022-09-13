@@ -1,0 +1,422 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="1000.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1279" height="751" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Cibo" type="ValueNode" pos-x="190" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Livello del cibo, matrice per tutto il territorio</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array([n,n],randInt(1000))</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>max(integral(this*cresc_cibo-cnsm_cibo*P+rCibo),0)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array([n,n],randInt(1000))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>max(integral(this*cresc_cibo-cnsm_cibo*P+rCibo),0)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=A</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="E" type="ValueNode" pos-x="500" pos-y="260" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Guarda nelle note </documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>min(array([n,n],poisson([0.501])),1)</fExpression>
+            <fStateTrans/>
+            <expression>min(array([n,n],poisson([0.501])),1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=E</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="E_" type="ValueNode" pos-x="380" pos-y="360" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if(dE_[$i0+1,$i1]==1,E_num2[$i0+1,$i1],0))+array([n,n],if(dE_[$i0,$i1+1]==2,E_num2[$i0,$i1+1],0))+array([n,n],if(dE_[$i0+1,$i1+2]==3,E_num2[$i0+1,$i1+2],0))+array([n,n],if(dE_[$i0+2,$i1+1]==4,E_num2[$i0+2,$i1+1],0))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if(dE_[$i0+1,$i1]==1,E_num2[$i0+1,$i1],0))+array([n,n],if(dE_[$i0,$i1+1]==2,E_num2[$i0,$i1+1],0))+array([n,n],if(dE_[$i0+1,$i1+2]==3,E_num2[$i0+1,$i1+2],0))+array([n,n],if(dE_[$i0+2,$i1+1]==4,E_num2[$i0+2,$i1+1],0))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Ee</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="E_num" type="ValueNode" pos-x="190" pos-y="360" width="81" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],rand()/10)*P</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],rand()/10)*P</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=E_num</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="E_num2" type="ValueNode" pos-x="290" pos-y="360" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n+2,n+2],if($i0==0||$i0==(n+1)||$i1==0||$i1==(n+1),0,E_num[$i0-1,$i1-1]))</fExpression>
+            <fStateTrans/>
+            <expression>array([n+2,n+2],if($i0==0||$i0==(n+1)||$i1==0||$i1==(n+1),0,E_num[$i0-1,$i1-1]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=E_num2</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="P" type="ValueNode" pos-x="380" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Livello della popolazione, matrice per tutto il territorio
+</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array([n,n],if($i0==3&amp;&amp;$i1==3,100,0))</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>int(max(integral(this*tn)+E_-(E*E_num),0))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array([n,n],if($i0==3&amp;&amp;$i1==3,100,0))</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>int(max(integral(this*tn)+E_-(E*E_num),0))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=B</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="P_tot" type="ValueNode" pos-x="380" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>+/+/P</fExpression>
+            <fStateTrans/>
+            <expression>+/+/P</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=P_tot</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="cnsm_cibo" type="ValueNode" pos-x="190" pos-y="260" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Tasso di crescita del cibo</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.05</fExpression>
+            <fStateTrans/>
+            <expression>0.05</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=cnsm_cibo</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="cresc_cibo" type="ValueNode" pos-x="190" pos-y="70" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Consumo di cibo pro-capite</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.01</fExpression>
+            <fStateTrans/>
+            <expression>0.01</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=cc</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="dE" type="ValueNode" pos-x="620" pos-y="360" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if(E[$i0,$i1]==0,0,dE_rand2[$i0,$i1]))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if(E[$i0,$i1]==0,0,dE_rand2[$i0,$i1]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=dE</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="dE_" type="ValueNode" pos-x="500" pos-y="360" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n+2,n+2],if($i0==0||$i0==(n+1)||$i1==0||$i1==(n+1),9,dE[$i0-1,$i1-1]))</fExpression>
+            <fStateTrans/>
+            <expression>array([n+2,n+2],if($i0==0||$i0==(n+1)||$i1==0||$i1==(n+1),9,dE[$i0-1,$i1-1]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=node13</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="dE_rand" type="ValueNode" pos-x="730" pos-y="260" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if($i0==0&amp;&amp;$i1==0,randInt(2)+1,$i0==0&amp;&amp;$i1==(n-1),randInt(2)+2,$i0==(n-1)&amp;&amp;$i1==0,randInt(2)+4,$i0==(n-1)&amp;&amp;$i1==(n-1),randInt(2)+3,$i0==(n-1),randInt(3)+3,$i0==0,randInt(3)+1,$i1==(n-1),randInt(3)+2,$i1==0,randInt(3),randInt(4)+1))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if($i0==0&amp;&amp;$i1==0,randInt(2)+1,$i0==0&amp;&amp;$i1==(n-1),randInt(2)+2,$i0==(n-1)&amp;&amp;$i1==0,randInt(2)+4,$i0==(n-1)&amp;&amp;$i1==(n-1),randInt(2)+3,$i0==(n-1),randInt(3)+3,$i0==0,randInt(3)+1,$i1==(n-1),randInt(3)+2,$i1==0,randInt(3),randInt(4)+1))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=dE_rand</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="dE_rand2" type="ValueNode" pos-x="620" pos-y="260" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(dE_rand==5,1,dE_rand==0,4,dE_rand)</fExpression>
+            <fStateTrans/>
+            <expression>if(dE_rand==5,1,dE_rand==0,4,dE_rand)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=dE_rand2</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="n" type="ValueNode" pos-x="40" pos-y="420" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>5</fExpression>
+            <fStateTrans/>
+            <expression>5</expression>
+            <isGlobal>true</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=n</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="rCibo" type="ValueNode" pos-x="70" pos-y="170" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array([n,n],if(Cibo&gt;0,0,poisson([0.01])*(randInt(20)+5)*10))</fExpression>
+            <fStateTrans/>
+            <expression>array([n,n],if(Cibo&gt;0,0,poisson([0.01])*(randInt(20)+5)*10))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=rCibo</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="tn" type="ValueNode" pos-x="330" pos-y="260" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Tasso di natalit&#xe0;, matrice per tutto il territorio</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.05-(cnsm_cibo*(P/Cibo))</fExpression>
+            <fStateTrans/>
+            <expression>0.05-(cnsm_cibo*(P/Cibo))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=tn</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="530" pos-y="10" width="141" height="91" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       Aggiungi che in ciascun riquadro viene usato cibo anche dei riquadri        adiacenti     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="Cibo" target="rCibo" label="(...)"/>
+        <edge source="rCibo" target="Cibo" label="(...)"/>
+        <edge source="E_" target="P" label="(...)"/>
+        <edge source="E_num2" target="E_" label="(...)"/>
+        <edge source="dE" target="dE_" label="(...)"/>
+        <edge source="E" target="dE" label="(...)"/>
+        <edge source="dE_rand2" target="dE" label="(...)"/>
+        <edge source="P" target="tn" label="(...)"/>
+        <edge source="cresc_cibo" target="Cibo" label="(...)"/>
+        <edge source="P" target="Cibo" label="(...)" p0x="417.5" p0y="192.5" p1x="227.5" p1y="192.5" numpoints="2"/>
+        <edge source="Cibo" target="tn" label="(...)" p0x="227.5" p0y="192.5" p1x="327.5" p1y="282.5" numpoints="2"/>
+        <edge source="tn" target="P" label="(...)" p0x="327.5" p0y="282.5" p1x="417.5" p1y="192.5" numpoints="2"/>
+        <edge source="cnsm_cibo" target="Cibo" label="(...)"/>
+        <edge source="cnsm_cibo" target="tn" label="(...)"/>
+        <edge source="tn" target="E" label="(...)"/>
+        <edge source="P" target="E_num" label="(...)"/>
+        <edge source="dE_rand" target="dE_rand2" label="(...)"/>
+        <edge source="E" target="dE_rand2" label="(...)"/>
+        <edge source="dE_" target="E_" label="(...)"/>
+        <edge source="E_num" target="E_num2" label="(...)"/>
+        <edge source="E_num" target="P" label="(...)"/>
+        <edge source="E" target="P" label="(...)"/>
+        <edge source="P" target="P_tot" label="(...)"/>
+        <edge source="P" target="E" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="DataTableWidget" pos-x="20" pos-y="510" width="270" height="120">
+            <fontsize>10</fontsize>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0</colalignment>
+            <colformat>###0.0###</colformat>
+            <title>Cibo </title>
+            <lastonly>false</lastonly>
+            <sourcena>Cibo</sourcena>
+        </widget>
+        <widget type="DataTableWidget" pos-x="290" pos-y="520" width="260" height="100">
+            <fontsize>10</fontsize>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0</colalignment>
+            <colformat>###0.0###</colformat>
+            <title>P </title>
+            <lastonly>false</lastonly>
+            <sourcena>P</sourcena>
+        </widget>
+        <widget type="ChartWidget" pos-x="900" pos-y="300" width="360" height="260">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>P_tot</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="MatrixViewerWidget" pos-x="900" pos-y="10" width="360" height="290">
+            <autoscalez>true</autoscalez>
+            <projdistance>70.0</projdistance>
+            <displaygrids>false</displaygrids>
+            <displayxy>false</displayxy>
+            <mesh>false</mesh>
+            <projelevationangle>10.0</projelevationangle>
+            <plotcolor>SPECTRUM</plotcolor>
+            <proj2dscaling>15.0</proj2dscaling>
+            <iconized>false</iconized>
+            <projrotationangle>125.0</projrotationangle>
+            <displayz>false</displayz>
+            <sourcena>P</sourcena>
+            <plottype>CONTOUR</plottype>
+            <showtitlebar>true</showtitlebar>
+            <title>P</title>
+            <boxed>false</boxed>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

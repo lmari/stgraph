@@ -1,0 +1,164 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.08">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="1000.0" timeD="0.25" maxSteps="10" batchSteps="1" width="1280" height="740" scale="1.0" simulationDelay="1" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Teta" type="ValueNode" pos-x="313" pos-y="71" width="71" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Valore dell&apos;angolo teta all&apos;istante t</documentation>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>time/5</fExpression>
+            <fStateTrans>if(this&gt;2*pi,0,this+pi/50)</fStateTrans>
+            <expression>time/5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(this&gt;2*pi,0,this+pi/50)</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=Teta</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="X" type="ValueNode" pos-x="203" pos-y="151" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Ascissa della curva per il valore dell&apos;angolo teta e il raggio r</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>-r*(1-(2*cos(Teta))+cos(2*Teta))</fExpression>
+            <fStateTrans/>
+            <expression>-r*(1-(2*cos(Teta))+cos(2*Teta))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=X</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Y" type="ValueNode" pos-x="423" pos-y="141" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Ordinata della curva per il valore dell&apos;angolo teta e il raggio r</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>-0.5*r*((2*sin(Teta))-sin(2*Teta))</fExpression>
+            <fStateTrans/>
+            <expression>-0.5*r*((2*sin(Teta))-sin(2*Teta))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Y</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="r" type="ValueNode" pos-x="313" pos-y="211" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Raggio della curva</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>10</fExpression>
+            <fStateTrans/>
+            <expression>5.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=r</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="13" pos-y="13" width="188" height="118" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;b&gt;&lt;big&gt;Cardioid&lt;/big&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;A simple dynamics for a nice 
+      geometry...&lt;br&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="Teta" target="Y" label="(...)" p0x="348.5" p0y="93.5" p1x="460.5" p1y="163.5" numpoints="2"/>
+        <edge source="Teta" target="X" label="(...)" p0x="348.5" p0y="93.5" p1x="240.5" p1y="173.5" numpoints="2"/>
+        <edge source="r" target="Y" label="(...)" p0x="350.5" p0y="233.5" p1x="460.5" p1y="163.5" numpoints="2"/>
+        <edge source="r" target="X" label="(...)" p0x="350.5" p0y="233.5" p1x="240.5" p1y="173.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="530" pos-y="10" width="510" height="470">
+            <title/>
+            <dotscolors>__GREEN</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>X</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#10</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>Y</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+        <widget type="SliderWidget" pos-x="330" pos-y="380" width="200" height="100">
+            <0>0</0>
+            <widgetvalue>5.0</widgetvalue>
+            <max>15.0</max>
+            <min>5.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>r</source>
+            <delta>1.0</delta>
+            <iconized>false</iconized>
+            <title>r: 5.0</title>
+        </widget>
+    </widgets>
+    <groups>
+        <group name="Output">
+            <comp name="X"/>
+            <comp name="Y"/>
+        </group>
+        <group name="Parametro">
+            <comp name="r"/>
+        </group>
+        <group name="Stato">
+            <comp name="Teta"/>
+        </group>
+    </groups>
+    <reports/>
+</stgraph>

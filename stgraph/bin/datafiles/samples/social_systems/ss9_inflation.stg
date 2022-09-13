@@ -1,0 +1,260 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="36.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1270" height="719" scale="1.0" simulationDelay="10" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="cost_living" type="ValueNode" pos-x="410" pos-y="180" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>cost_living_0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this*(1+infl_month)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>cost_living_0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this*(1+infl_month)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=cost_living</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="cost_living_0" type="ValueNode" pos-x="410" pos-y="260" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>1200.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=cost_living_0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="inf_year" type="ValueNode" pos-x="569" pos-y="94" width="92" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.01/12</fExpression>
+            <fStateTrans/>
+            <expression>0.1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=inflazione</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="infl_month" type="ValueNode" pos-x="580" pos-y="180" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>((1+inf_year)^(1/12))-1</fExpression>
+            <fStateTrans/>
+            <expression>((1+inf_year)^(1/12))-1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=infl_month</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="init_savings" type="ValueNode" pos-x="500" pos-y="20" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>10000.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=init_savings</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="savings" type="ValueNode" pos-x="368" pos-y="98" width="165" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>init_savings</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this*(1-infl_month)+stipendio-cost_living</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>init_savings</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this*(1-infl_month)+stipendio-cost_living</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=risparmio_T</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="stipendio" type="ValueNode" pos-x="350" pos-y="18" width="103" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>200</fExpression>
+            <fStateTrans/>
+            <expression>1500.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=risparmo_t</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="40" pos-y="20" width="271" height="141" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      A simulation of the effect of the inflation on the savings of a worker 
+      whichhas a given fixed salary and cost of living during three years. 
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="infl_month" target="savings" label="(...)" p0x="617.5" p0y="212.5" p1x="450.5" p1y="120.5" numpoints="2"/>
+        <edge source="inf_year" target="infl_month" label="(...)" p0x="615.0" p0y="116.5" p1x="617.5" p1y="202.5" numpoints="2"/>
+        <edge source="stipendio" target="savings" label="(...)" p0x="401.5" p0y="40.5" p1x="450.5" p1y="120.5" numpoints="2"/>
+        <edge source="cost_living" target="savings" label="(...)" p0x="447.5" p0y="202.5" p1x="450.5" p1y="120.5" numpoints="2"/>
+        <edge source="cost_living_0" target="cost_living" label="(...)" p0x="447.5" p0y="282.5" p1x="447.5" p1y="202.5" numpoints="2"/>
+        <edge source="infl_month" target="cost_living" label="(...)" p0x="617.5" p0y="212.5" p1x="447.5" p1y="202.5" numpoints="2"/>
+        <edge source="init_savings" target="savings" label="(...)" p0x="537.5" p0y="42.5" p1x="450.5" p1y="120.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="720" pos-y="30" width="400" height="250">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>savings</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="DataTableWidget" pos-x="720" pos-y="280" width="400" height="60">
+            <fontsize>30</fontsize>
+            <colwidth>390</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>1</colalignment>
+            <colformat>0</colformat>
+            <title>savings </title>
+            <lastonly>true</lastonly>
+            <sourcena>savings</sourcena>
+        </widget>
+        <widget type="SliderWidget" pos-x="320" pos-y="400" width="400" height="60">
+            <0>0</0>
+            <widgetvalue>0.1</widgetvalue>
+            <max>1.0</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>inf_year</source>
+            <delta>0.01</delta>
+            <iconized>false</iconized>
+            <title>inf_year: 0.1</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="720" pos-y="400" width="400" height="60">
+            <0>0</0>
+            <widgetvalue>1200.0</widgetvalue>
+            <max>3000.0</max>
+            <min>0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>cost_living_0</source>
+            <delta>100.0</delta>
+            <iconized>false</iconized>
+            <title>cost_living_0: 1200.0</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="720" pos-y="340" width="400" height="60">
+            <0>0</0>
+            <widgetvalue>10000.0</widgetvalue>
+            <max>100000</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>init_savings</source>
+            <delta>1000</delta>
+            <iconized>false</iconized>
+            <title>init_savings: 10000.0</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="320" pos-y="340" width="400" height="60">
+            <0>0</0>
+            <widgetvalue>1500.0</widgetvalue>
+            <max>3000.0</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>stipendio</source>
+            <delta>100</delta>
+            <iconized>false</iconized>
+            <title>stipendio: 1500.0</title>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

@@ -1,0 +1,421 @@
+<stgraph class="STGraph.decoder" version="STGraph build 22.05">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="336.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1414" height="786" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="access" type="ValueNode" pos-x="340" pos-y="110" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Access in the emergency room distributed per color code (0 --&gt; white, 1 --&gt; greem, 2 --&gt; yellow, 3 --&gt; red)</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(new_acc,if(rand()&gt;0.5,randInt(3),randInt(4)))</fExpression>
+            <fStateTrans/>
+            <expression>array(new_acc,if(rand()&gt;0.5,randInt(3),randInt(4)))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=accessi</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="access_arr" type="ValueNode" pos-x="470" pos-y="110" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>New access per 30 minutes divided into categories (only for histogram)</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array(4,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>array(4,countIf(access,[$i0]))</fExpression>
+            <fStateTrans>this+array(4,countIf(access,[$i0]))</fStateTrans>
+            <expression>array(4,countIf(access,[$i0]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(4,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+array(4,countIf(access,[$i0]))</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=in</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="cost" type="ValueNode" pos-x="470" pos-y="460" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Cost of the personell</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>+/(doctors[0])*1500/334</fExpression>
+            <fStateTrans>this++/(doctors[0])*1500/334</fStateTrans>
+            <expression>+/(doctors[0])*1500/334</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this++/(doctors[0])*1500/334</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=costo</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="doctors" type="ValueNode" pos-x="470" pos-y="390" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Number of doctors hired in the emergency room department</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[2,2,2,2]</fExpression>
+            <fStateTrans/>
+            <expression>[[1.0,1.0,1.0,1.0]]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=medici</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="doctors_free" type="ValueNode" pos-x="470" pos-y="300" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Doctors that are free and can visit a new patient</documentation>
+            <isOut>true</isOut>
+            <fStateInit>doctors[0]</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this-new_visits+new_doctors_free</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>doctors[0]</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this-new_visits+new_doctors_free</stateTrans>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=medici_free</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="doctors_occ" type="ValueNode" pos-x="590" pos-y="300" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Doctors that are busy visiting a patient</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array(4,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans>this+new_visits-new_doctors_free</fStateTrans>
+            <expression>0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(4,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+new_visits-new_doctors_free</stateTrans>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=medici_occ</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="inefficiency" type="ValueNode" pos-x="340" pos-y="390" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Cost of the personell times the mean queue</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>cost*mean_queue/10000</fExpression>
+            <fStateTrans/>
+            <expression>cost*mean_queue/10000</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=ore_per_medico</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="mean_queue" type="ValueNode" pos-x="340" pos-y="300" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Mean queue during the time of simulation (in terms of people)</documentation>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>mean(me)</fExpression>
+            <fStateTrans>this#(+/queue)</fStateTrans>
+            <expression>mean(me)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this#(+/queue)</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=ore_attesa</customprops>
+            <valueType>2</valueType>
+        </node>
+        <node name="new_acc" type="ValueNode" pos-x="340" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Number of new access in the emergency room per time step</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>poisson([5])</fExpression>
+            <fStateTrans/>
+            <expression>poisson([5])</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=new_acc</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="new_doctors_free" type="ValueNode" pos-x="590" pos-y="390" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Doctor that at time t has finished visiting a patients and get free to visit a new one</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array(4,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>array(4,if(doctors_occ[$i0]&gt;0,min(doctors_occ[$i0],poisson([doctors_occ[$i0]/t_visits[$i0]])),0))</fExpression>
+            <fStateTrans>array(4,min(poisson([doctors_occ[$i0]/t_visits]),doctors_occ[$i0]))</fStateTrans>
+            <expression>array(4,if(doctors_occ[$i0]&gt;0,min(doctors_occ[$i0],poisson([doctors_occ[$i0]/t_visits[$i0]])),0))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(4,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>array(4,min(poisson([doctors_occ[$i0]/t_visits]),doctors_occ[$i0]))</stateTrans>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=new_med_free</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="new_visits" type="ValueNode" pos-x="470" pos-y="190" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>New patients taken from the queue and visited</documentation>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>array(4,min(queue[$i0],doctors_free[$i0]))</fExpression>
+            <fStateTrans/>
+            <expression>array(4,min(queue[$i0],doctors_free[$i0]))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=new_visite</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="queue" type="ValueNode" pos-x="340" pos-y="190" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Queues of patients waiting</documentation>
+            <isOut>true</isOut>
+            <fStateInit>array(4,0)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>me</fExpression>
+            <fStateTrans>this+array(4,countIf(access,[$i0]))-new_visits</fStateTrans>
+            <expression>me</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(4,0)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+array(4,countIf(access,[$i0]))-new_visits</stateTrans>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=codici</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="t_visits" type="ValueNode" pos-x="590" pos-y="460" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Distribution of time per visit per category of patients</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>[0.5,1,2,8]</fExpression>
+            <fStateTrans/>
+            <expression>[0.5,1,2,8]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,0,0</backcol>
+            <customprops>Name=t_visite</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="10" pos-y="20" width="311" height="511" content="&lt;html&gt;   &lt;head&gt;        &lt;/head&gt;   &lt;body&gt;     &lt;p style=&quot;margin-top: 0&quot;&gt;       &lt;b&gt;&lt;big&gt;Hospital emergency room&lt;/big&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;small&gt;&lt;font size=&quot;4&quot;&gt;The        model simulates the creation of queue in a hospital emergency room for a        week, divided into 334 time steps of 30 minutes. In the Italian health        care system, the patients are divided into four categories: white,        green, yellow and red. In this model the same classification is used (in        the array, position 0 is white and position 3 is red). &lt;/font&gt;&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;small&gt;&lt;font size=&quot;4&quot;&gt;Each        class of patient is taken care by a given set of doctor (input variable        &amp;quot;doctors&amp;quot;, that can be changed only at the beginning of every        simulation). The time of the visits also varies with the category (see        variable t_visits). The more doctors you hire to take care of a category        of patients, the lower the queue. The inefficiency of the process is        measured as the product between the cost the personell and the mean        queue. &lt;/font&gt;&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;small&gt;&lt;font size=&quot;4&quot;&gt;Can you get the        initial configuration of doctors that minimize the inefficiency? And the        one that minimize the queue? And the best configuration give a maximum        cost of the personell of 30&apos;000? Finally, could you understand the        probability distribution of the access?&lt;/font&gt;&lt;/small&gt;     &lt;/p&gt;   &lt;/body&gt; &lt;/html&gt; "/>
+    </texts>
+    <edges>
+        <edge source="cost" target="inefficiency" label="(...)"/>
+        <edge source="queue" target="mean_queue" label="(...)" p0x="377.5" p0y="212.5" p1x="377.5" p1y="322.5" numpoints="2"/>
+        <edge source="new_visits" target="doctors_free" label="(...)" p0x="507.5" p0y="212.5" p1x="507.5" p1y="322.5" numpoints="2"/>
+        <edge source="new_visits" target="doctors_occ" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="507.5" p0y="212.5" p1x="627.5" p1y="322.5" numpoints="2"/>
+        <edge source="doctors" target="doctors_free" label="(...)" p0x="507.5" p0y="412.5" p1x="507.5" p1y="322.5" numpoints="2"/>
+        <edge source="new_acc" target="access" label="(...)" p0x="377.5" p0y="62.5" p1x="377.5" p1y="132.5" numpoints="2"/>
+        <edge source="access" target="queue" label="(...)" p0x="377.5" p0y="132.5" p1x="377.5" p1y="212.5" numpoints="2"/>
+        <edge source="queue" target="new_visits" label="(...)" p0x="377.5" p0y="212.5" p1x="507.5" p1y="212.5" numpoints="2"/>
+        <edge source="doctors_free" target="new_visits" label="(...)" p0x="507.5" p0y="322.5" p1x="507.5" p1y="212.5" numpoints="2"/>
+        <edge source="new_visits" target="queue" label="(...)" p0x="507.5" p0y="212.5" p1x="377.5" p1y="212.5" numpoints="2"/>
+        <edge source="doctors_occ" target="new_doctors_free" label="(...)" p0x="627.5" p0y="322.5" p1x="627.5" p1y="412.5" numpoints="2"/>
+        <edge source="new_doctors_free" target="doctors_free" label="(...)" p0x="627.5" p0y="412.5" p1x="507.5" p1y="322.5" numpoints="2"/>
+        <edge source="t_visits" target="new_doctors_free" label="(...)" p0x="627.5" p0y="482.5" p1x="627.5" p1y="412.5" numpoints="2"/>
+        <edge source="new_doctors_free" target="doctors_occ" label="(...)" p0x="627.5" p0y="412.5" p1x="627.5" p1y="322.5" numpoints="2"/>
+        <edge source="access" target="access_arr" label="(...)" p0x="377.5" p0y="132.5" p1x="507.5" p1y="132.5" numpoints="2"/>
+        <edge source="doctors" target="inefficiency" label="(...)" p0x="507.5" p0y="412.5" p1x="377.5" p1y="412.5" numpoints="2"/>
+        <edge source="mean_queue" target="inefficiency" label="(...)" p0x="377.5" p0y="322.5" p1x="377.5" p1y="412.5" numpoints="2"/>
+        <edge source="doctors" target="cost" label="(...)" p0x="507.5" p0y="412.5" p1x="507.5" p1y="482.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="InputTableWidget" pos-x="440" pos-y="20" width="300" height="70">
+            <fontsize>40</fontsize>
+            <widgetvalue>[[1.0,1.0,1.0,1.0]]</widgetvalue>
+            <showtitlebar>true</showtitlebar>
+            <source>doctors</source>
+            <iconized>false</iconized>
+            <rows>1</rows>
+            <colalignment>0</colalignment>
+            <colformat>0</colformat>
+            <cols>4</cols>
+            <title>doctors</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="970" pos-y="100" width="220" height="210">
+            <title>Queue per code</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>true</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>queue</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#8</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vIndex</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="750" pos-y="100" width="220" height="210">
+            <title>New access per code</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>false</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__GREEN</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>true</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>access_arr</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <maxy>8.0</maxy>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <miny>0.0</miny>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#10</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>1.0</stepy>
+            <showdots>false</showdots>
+            <xsourcena>vIndex</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="DataTableWidget" pos-x="750" pos-y="20" width="440" height="80">
+            <fontsize>30</fontsize>
+            <colwidth>154,151,125</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>1,1,1</colalignment>
+            <colformat>0,0,0</colformat>
+            <title>mean_queue inefficiency cost </title>
+            <lastonly>true</lastonly>
+            <sourcena>mean_queue,inefficiency,cost</sourcena>
+        </widget>
+        <widget type="ChartWidget" pos-x="750" pos-y="310" width="440" height="210">
+            <title>mean time queue</title>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>mean_queue</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <maxx>334.0</maxx>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <minx>0.0</minx>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <stepx>48.0</stepx>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>

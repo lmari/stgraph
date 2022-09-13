@@ -1,0 +1,205 @@
+<stgraph class="STGraph.decoder" version="STGraph build 18.02">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="100.0" timeD="0.1" maxSteps="1" batchSteps="1" width="1270" height="713" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="Input" type="ValueNode" pos-x="410" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Volume di ingresso della vasca (in metri cubi al secondo)</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>5.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Input</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="Output" type="ValueNode" pos-x="660" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Volume di uscita della vasca (in metri cubi al secondo)</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>1.5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>0,255,0</backcol>
+            <customprops>Name=Output</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="V" type="ValueNode" pos-x="540" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Volume della vasca all&apos;istante t (in metri cubi)</documentation>
+            <isOut>true</isOut>
+            <fStateInit>V0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>max(if(this+Input-Output&lt;V_max,this+Input-Output,V_max),0)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>V0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>max(if(this+Input-Output&lt;V_max,this+Input-Output,V_max),0)</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=V</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="V0" type="ValueNode" pos-x="540" pos-y="210" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Il volume iniziale della vasca (in metri cubi)</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>30</fExpression>
+            <fStateTrans/>
+            <expression>30</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=V0</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="V_max" type="ValueNode" pos-x="540" pos-y="20" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Il volume massimo della vasca (in metri cubi)</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>100</fExpression>
+            <fStateTrans/>
+            <expression>100</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=V_max</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="30" pos-y="40" width="321" height="221" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style=&quot;margin-top: 0&quot;&gt;
+      &lt;big&gt;&lt;b&gt;BATHTUBE&lt;/b&gt;&lt;/big&gt;&lt;br&gt;&lt;br&gt;Model of a bathtube with input and 
+      output flows. The overall volume has a maximum and a minimum: can you 
+      guess why?
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="V0" target="V" label="(...)" p0x="577.5" p0y="232.5" p1x="577.5" p1y="142.5" numpoints="2"/>
+        <edge source="Output" target="V" label="(...)" p0x="697.5" p0y="142.5" p1x="577.5" p1y="142.5" numpoints="2"/>
+        <edge source="Input" target="V" label="(...)" p0x="447.5" p0y="142.5" p1x="577.5" p1y="142.5" numpoints="2"/>
+        <edge source="V_max" target="V" label="(...)" p0x="577.5" p0y="42.5" p1x="577.5" p1y="142.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="SliderWidget" pos-x="1050" pos-y="290" width="200" height="90">
+            <0>0</0>
+            <widgetvalue>5.0</widgetvalue>
+            <max>5</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>Input</source>
+            <delta>0.5</delta>
+            <iconized>false</iconized>
+            <title>Input: 5.0</title>
+        </widget>
+        <widget type="SliderWidget" pos-x="1050" pos-y="380" width="200" height="80">
+            <0>0</0>
+            <widgetvalue>1.5</widgetvalue>
+            <max>5.0</max>
+            <min>0.0</min>
+            <showtitlebar>true</showtitlebar>
+            <source>Output</source>
+            <delta>0.5</delta>
+            <iconized>false</iconized>
+            <title>Output: 1.5</title>
+        </widget>
+        <widget type="ChartWidget" pos-x="830" pos-y="0" width="440" height="290">
+            <title/>
+            <dotscolors>__RED</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <barscolors>__RED</barscolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <showbars>false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>V</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>2</typey>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <barswidths>#1</barswidths>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false</showdots>
+            <xsourcena>vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false</dotslastonly>
+        </widget>
+        <widget type="GaugeWidget" pos-x="830" pos-y="290" width="220" height="170">
+            <sourcena>V</sourcena>
+            <max>100.0</max>
+            <min>0.0</min>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>V: 100.0</title>
+        </widget>
+    </widgets>
+    <groups>
+        <group name="Input">
+            <comp name="Input"/>
+            <comp name="Output"/>
+        </group>
+        <group name="Parametri">
+            <comp name="V_max"/>
+            <comp name="V0"/>
+        </group>
+        <group name="Stato">
+            <comp name="V"/>
+        </group>
+    </groups>
+    <reports/>
+</stgraph>

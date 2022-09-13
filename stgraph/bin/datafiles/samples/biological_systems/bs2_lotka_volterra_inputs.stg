@@ -1,0 +1,345 @@
+<stgraph class="STGraph.decoder" version="STGraph build 18.02">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="500.0" timeD="0.1" maxSteps="10" batchSteps="1" width="1270" height="713" scale="1.0" simulationDelay="10" stepsBeforePause="1" integrationMethod="2" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webExplTitle="" webExplURL="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="a" type="ValueNode" pos-x="20" pos-y="50" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Tasso di crescita delle prede in funzione del proprio numero</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans/>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=a</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="b" type="ValueNode" pos-x="20" pos-y="120" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Tasso di diminuzione delle prede in funzione del proprio numero e dei predatori che le mangiano</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>-0.01</fExpression>
+            <fStateTrans/>
+            <expression>-0.01</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=b</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="c" type="ValueNode" pos-x="370" pos-y="50" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Tasso di crescita, negatico, dei predatori in funzione del proprio numero. </documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>-0.5</fExpression>
+            <fStateTrans/>
+            <expression>-0.5</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=c</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="d" type="ValueNode" pos-x="370" pos-y="130" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>255,255,255</forecol>
+            <documentation>Tasso di crescita dei predatori in funzione del proprio numero e del numero delle prede di cui si nutrono.</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0.004</fExpression>
+            <fStateTrans/>
+            <expression>0.004</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=d</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="x" type="ValueNode" pos-x="120" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Numero di prede</documentation>
+            <isOut>true</isOut>
+            <fStateInit>500</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>max(integral(a*this+b*this*y+20*x_up-10*x_down),0)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>500</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>max(integral(a*this+b*this*y+20*x_up-10*x_down),0)</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=x</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="x_down" type="ValueNode" pos-x="90" pos-y="30" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Input per diminuire il numero di prede</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=x_down</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="x_up" type="ValueNode" pos-x="90" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Input per aumentare il numero di prede</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=x_up</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="y" type="ValueNode" pos-x="270" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Numero di predatori</documentation>
+            <isOut>true</isOut>
+            <fStateInit>100</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>max(integral(c*this+d*this*x+y_up*20-y_down*10),0)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>100</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>max(integral(c*this+d*this*x+y_up*20-y_down*10),0)</stateTrans>
+            <backcol>0,255,255</backcol>
+            <customprops>Name=y</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="y_down" type="ValueNode" pos-x="300" pos-y="30" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Input per diminuire il numero di predatori
+</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=y_down</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="y_up" type="ValueNode" pos-x="300" pos-y="150" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation>Input per aumentare il numero di predatori</documentation>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>0</fExpression>
+            <fStateTrans/>
+            <expression>0.0</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,0</backcol>
+            <customprops>Name=y_up</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts>
+        <text name="*text1" pos-x="900" pos-y="250" width="341" height="231" content="&lt;html&gt;
+  &lt;head&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;b&gt;&lt;big&gt;Interactive Lotka-Volterra&lt;/big&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;A classic 
+    prey-predator model in which the level of the two stocks can be modified 
+    by one unit using four input buttons. Could you use this model to infer 
+    something about the success of repopulating policies?
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>
+    </texts>
+    <edges>
+        <edge source="b" target="x" label="(...)" p0x="57.5" p0y="142.5" p1x="157.5" p1y="112.5" numpoints="2"/>
+        <edge source="a" target="x" label="(...)" p0x="57.5" p0y="72.5" p1x="157.5" p1y="112.5" numpoints="2"/>
+        <edge source="c" target="y" label="(...)" p0x="407.5" p0y="72.5" p1x="307.5" p1y="112.5" numpoints="2"/>
+        <edge source="d" target="y" label="(...)" p0x="407.5" p0y="152.5" p1x="307.5" p1y="112.5" numpoints="2"/>
+        <edge source="y" target="x" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="270.0" p0y="94.44444444444444" p1x="240.0" p1y="80.0" p2x="195.0" p2y="97.72727272727273" numpoints="3"/>
+        <edge source="x" target="y" label="(...)" labpos-x="500.0" labpos-y="0.0" p0x="195.0" p0y="129.54545454545453" p1x="240.0" p1y="150.0" p2x="270.0" p2y="133.33333333333334" numpoints="3"/>
+        <edge source="x_up" target="x" label="(...)" p0x="147.5" p0y="172.5" p1x="157.5" p1y="112.5" numpoints="2"/>
+        <edge source="x_down" target="x" label="(...)" p0x="147.5" p0y="52.5" p1x="157.5" p1y="112.5" numpoints="2"/>
+        <edge source="y_up" target="y" label="(...)" p0x="297.5" p0y="172.5" p1x="307.5" p1y="112.5" numpoints="2"/>
+        <edge source="y_down" target="y" label="(...)" p0x="297.5" p0y="52.5" p1x="307.5" p1y="112.5" numpoints="2"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="400" pos-y="240" width="440" height="350">
+            <title/>
+            <dotscolors>__BLUE</dotscolors>
+            <linewidths>#1</linewidths>
+            <showline>true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED</linecolors>
+            <dotsstyles>__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1</dotsxscales>
+            <autolegendy>true</autolegendy>
+            <ysourcena>y</ysourcena>
+            <typey>2</typey>
+            <autolegendx>true</autolegendx>
+            <typex>2</typex>
+            <linestyles>__style1</linestyles>
+            <dotstype>dot</dotstype>
+            <dotsyscales>#1</dotsyscales>
+            <dotsangles>#0</dotsangles>
+            <dotssizes>#7</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <dotshilast>false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>true</showdots>
+            <xsourcena>x</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true</dotslastonly>
+        </widget>
+        <widget type="ChartWidget" pos-x="0" pos-y="240" width="400" height="350">
+            <title/>
+            <dotscolors>__RED,__GREEN</dotscolors>
+            <linewidths>#1,#1</linewidths>
+            <showline>true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GREEN</linecolors>
+            <dotsstyles>__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1</dotsxscales>
+            <autolegendy>true</autolegendy>
+            <ysourcena>x,y</ysourcena>
+            <typey>2</typey>
+            <autolegendx>true</autolegendx>
+            <typex>2</typex>
+            <linestyles>__style1,__style1</linestyles>
+            <dotstype>dot,dot</dotstype>
+            <dotsyscales>#1,#1</dotsyscales>
+            <dotsangles>#0,#0</dotsangles>
+            <dotssizes>#1,#1</dotssizes>
+            <autoaxisy>true</autoaxisy>
+            <autoaxisx>true</autoaxisx>
+            <dotshilast>false,false</dotshilast>
+            <iconized>false</iconized>
+            <showdots>false,false</showdots>
+            <xsourcena>vTime,vTime</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>false,false</dotslastonly>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="1070" pos-y="10" width="180" height="120">
+            <action>1</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>y_down</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>y_down - false</title>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="900" pos-y="10" width="170" height="120">
+            <action>2</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>x_up</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>x_up - false</title>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="1070" pos-y="130" width="180" height="110">
+            <action>1</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>y_up</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>y_up - false</title>
+        </widget>
+        <widget type="ToggleButtonWidget" pos-x="900" pos-y="130" width="170" height="110">
+            <action>2</action>
+            <widgetvalue>0.0</widgetvalue>
+            <source>x_down</source>
+            <iconized>false</iconized>
+            <showtitlebar>true</showtitlebar>
+            <title>x_down - false</title>
+        </widget>
+    </widgets>
+    <groups>
+        <group name="Input">
+            <comp name="x_down"/>
+            <comp name="y_down"/>
+            <comp name="y_up"/>
+            <comp name="x_up"/>
+        </group>
+        <group name="Stati">
+            <comp name="y"/>
+            <comp name="x"/>
+        </group>
+        <group name="Parametri">
+            <comp name="a"/>
+            <comp name="b"/>
+            <comp name="c"/>
+            <comp name="d"/>
+        </group>
+    </groups>
+    <reports/>
+</stgraph>

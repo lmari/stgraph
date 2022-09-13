@@ -1,0 +1,121 @@
+********Log dei modelli**********
+
+Sistemi fisici
+1.ps1_bathtube_volume --> FRANCESCO
+2.ps2_lorenz --> LUCA (v. 2022)
+3.ps3_lorentz_int --> LUCA (v. 2022)
+4.ps4_fft --> LUCA (v. 2022)
+5.ps5_freebodies --> LUCA (v. 2022)
+6.ps6_brownian --> LUCA (v. 2022)
+7.ps7_heat_equation --> LUCA (v. 2022)
+8.ps8_fern_by_ifs --> LUCA (v. 2022)
+9.ps9_fern_by_ifs --> LUCA (v. 2022)
+10.ps10_damper --> LUCA (v. archivio)
+11.ps11_gravitation_2d --> LUCA (v. archivio)
+12.ps12_mandelbrot --> LUCA (v. archivio)
+13.ps13_wave_equation_2Dt --> LUCA (v. archivio)
+
+Esempi vari di applicazioni
+1.app1_equiv_state_delay --> LUCA (v. 2022)
+2.app2_factorial --> LUCA (v. 2022)
+3.app3_galton_machine --> LUCA (v. 2022)
+4.app4_cardioid- -> FRANCESCO (v. 2022, validato)
+5.app5_asyncronous_time- -> FRANCESCO
+6.app6_calendar --> FRANCESCO
+7.app7_follower --> FRANCESCO
+8.app8_sculpture --> FRANCESCO
+9.app9_random_walk_1d --> FRANCESCO
+10.app10_bistable_controller --> LUCA (v. archivio)
+11.app11_square_wave --> LUCA (v. archivio)
+12.app12_zeros_newton --> LUCA (v. archivio)
+
+Teoria delle code
+1.que1_esempio1--> LUCA (v. 2022)
+2.que2_esempio2 --> LUCA (v. 2022)
+3.que3_esempio3 --> LUCA (v. 2022)
+4.que4_distribuzioni --> LUCA (v. 2022)
+
+Esempi di automi cellulari
+1.ac1_cell_automaton_1D --> LUCA (v. 2022)
+2.ac2_life --> LUCA (v. 2016)
+
+Esempi di modelli basati su agenti
+1.abm1_bouncing_balls --> FRANCESCO
+2.abm2_turtles --> FRANCESCO
+3.abm3_swarm_1 --> FRANCESCO
+4.abm4_turtle -->LUCA (v. archivio)
+
+Esempi di scienza dei dati
+1.ds1_regression -->FRANCESCO
+2.ds2_pi_montecarlo --> LUCA (v. 2016)
+3.ds3_prob_distributions --> FRANCESCO
+
+Modelli di sistemi sociali
+1.ss1_hom_firm --> FRANCESCO (v. 2022, validato)
+2.ss2_innov_diff --> FRANCESCO (v. 2022, validato)
+3.ss3_project --> FRANCESCO
+4.ss4_emergency_care --> FRANCESCO
+5.ss5_epidemiologic_SIS --> FRANCESCO (v. 2020, validato 2020, da tradurre)
+6.ss6_epidemiologic_policy --> FRANCESCO (v. 2020, validato 2020, da tradurre)
+7.ss7_bottleneck --> FRANCESCO (v. 2022, validato)
+8.ss8_demand_forecast --> FRANCESCO
+9.ss9_inflation --> FRANCESCO
+10.ss10_price_demand_supply --> LUCA (v. archivio)
+11.ss11_el_farol --> FRANCESCO
+12.ss12_wealth_distribution --> FRANCESCO
+13.ss13_spatial_market --> FRANCESCO
+14.ss14_schelling --> FRANCESCO
+15.ss15_football1 --> FRANCESCO
+16.ss16_football2 --> FRANCESCO
+17.ss17_football3 --> FRANCESCO
+
+Modelli di sistemi biologici
+1.bs1_lotka_volterra --> LUCA (v. 2016)
+2.bs2_lotka_volterra_inputs --> FRANCESCO
+3.bs3_lotka_volterra_hybrid --> FRANCESCO
+4.bs4_verhulst --> LUCA (v. 2022)
+5.bs5_park --> FRANCESCO (v. 2022, validato)
+6.bs6_expansion_1 --> FRANCESCO
+7.bs7_expansion_2 --> FRANCESCO
+
+Giochi
+1.gm1_pong --> FRANCESCO
+2.gm2_flappy_bird --> FRANCESCO
+3.gm3_serenissima --> FRANCESCO
+
+Esempi
+1.ex1_ex1 --> LUCA (v. 2022)
+2.ex1_ex2 --> LUCA (v. 2022)
+3.ex1_ex3 --> LUCA (v. 2022)
+4.ex1_ex4 --> LUCA (v. 2022)
+5.ex1_ex5 --> LUCA (v. 2022)
+6.ex6_mod1 --> LUCA (v. 2016)
+7.ex7_mod2 --> LUCA (v. 2016)
+8.ex8_mod3 --> LUCA (v. 2016)
+9.ex9_mod4 --> LUCA (v. 2016)
+10.ex10_mod5 --> LUCA (v. 2016)
+11.ex11_mod6 --> LUCA (v. 2016)
+12.ex12_mod7 --> LUCA (v. 2016)
+13.ex13_mod8 --> LUCA (v. 2016)
+14.ex14_mod9 --> LUCA (v. 2016)
+15.ex15_mod10 --> LUCA (v. 2016)
+16.ex16_create_function --> FRANCESCO
+17.ex17_count_elements_matrix --> FRANCESCO
+18.ex18_conditions_array --> FRANCESCO
+19.ex19_excel_test --> FRANCESCO
+20.ex20_get_data --> FRANCESCO
+21.ex21_dollar_use --> FRANCESCO
+22.ex22_impulse_delay --> FRANCESCO
+23.ex23_and --> FRANCESCO
+24.ex24_integral --> FRANCESCO
+25.ex25_max_array --> FRANCESCO
+26.ex26_shorten_array --> FRANCESCO
+
+
+
+
+
+
+
+
+

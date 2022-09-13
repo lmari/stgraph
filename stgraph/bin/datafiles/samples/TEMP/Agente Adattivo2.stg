@@ -1,0 +1,510 @@
+<stgraph class="STGraph.decoder" version="STGraph build 23.2.16">
+    <head systemName="" description="" timeUnitDescription="" timeFrame="0" time0="0.0" time1="1000.0" timeD="1.0" maxSteps="10" batchSteps="1" width="1282" height="709" scale="1.0" simulationDelay="100" stepsBeforePause="1" integrationMethod="0" exceptionHandling="1" withInterrupts="false" isDataSaved="false" forNet="false" serverAddress="" forWeb="false" webModelLanguages="" webModelDescription="" webTimeUnit="" webModelGroups="" indexOrigin="0" isGraphVisible="true" areWidgetsVisible="true"/>
+    <nodes>
+        <node name="DirezioneA" type="ValueNode" pos-x="460" pos-y="240" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(isPos(DistanzaA),1,-1)</fExpression>
+            <fStateTrans/>
+            <expression>if(isPos(DistanzaA),1,-1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=DirezioneA</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="DirezioneNA" type="ValueNode" pos-x="270" pos-y="240" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>if(isPos(DistanzaNA),1,-1)</fExpression>
+            <fStateTrans/>
+            <expression>if(isPos(DistanzaNA),1,-1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Direzione</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="DistanzaA" type="ValueNode" pos-x="460" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>Obiettivo-PosizioneA</fExpression>
+            <fStateTrans/>
+            <expression>Obiettivo-PosizioneA</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=DIstanzaA</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="DistanzaNA" type="ValueNode" pos-x="270" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>Obiettivo-PosizioneNA</fExpression>
+            <fStateTrans/>
+            <expression>Obiettivo-PosizioneNA</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Distanza</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="MemoriaDA" type="ValueNode" pos-x="560" pos-y="390" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(time==0,mean(DistanzaA),@this&lt;m,this#mean(DistanzaA),1##(this#mean(DistanzaA)))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(time==0,mean(DistanzaA),@this&lt;m,this#mean(DistanzaA),1##(this#mean(DistanzaA)))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=MemoriaA</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="MemoriaVA" type="ValueNode" pos-x="620" pos-y="480" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>if(time==0,VelocitaA,@this&lt;m,this#VelocitaA,1##(this#VelocitaA))</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(time==0,VelocitaA,@this&lt;m,this#VelocitaA,1##(this#VelocitaA))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=MemoriaVA</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="Obiettivo" type="ValueNode" pos-x="360" pos-y="160" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>array(2,25)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this-array(2,rand()-rand())</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(2,25)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this-array(2,rand()-rand())</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Obiettivo</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="ObiettivoX" type="ValueNode" pos-x="360" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>Obiettivo[0]</fExpression>
+            <fStateTrans/>
+            <expression>Obiettivo[0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=ObiettivoX</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="ObiettivoY" type="ValueNode" pos-x="360" pos-y="280" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>Obiettivo[1]</fExpression>
+            <fStateTrans/>
+            <expression>Obiettivo[1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=ObiettivoY</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="PosizioneA" type="ValueNode" pos-x="560" pos-y="160" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>array(2,randInt(10)+20)</fStateInit>
+            <format>0.0##</format>
+            <fExpression/>
+            <fStateTrans>this+DirezioneA*(VelocitaA)</fStateTrans>
+            <expression/>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(2,randInt(10)+20)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+DirezioneA*(VelocitaA)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=PosizioneA</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="PosizioneAX" type="ValueNode" pos-x="650" pos-y="90" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>PosizioneA[0]</fExpression>
+            <fStateTrans/>
+            <expression>PosizioneA[0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=PosizioneAX</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="PosizioneAY" type="ValueNode" pos-x="650" pos-y="230" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>PosizioneA[1]</fExpression>
+            <fStateTrans/>
+            <expression>PosizioneA[1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=PosizioneAY</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="PosizioneNA" type="ValueNode" pos-x="190" pos-y="160" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>array(2,randInt(10)+20)</fStateInit>
+            <format>0.0##</format>
+            <fExpression>1</fExpression>
+            <fStateTrans>this+(0.1*DirezioneNA)</fStateTrans>
+            <expression>1</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>array(2,randInt(10)+20)</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>this+(0.1*DirezioneNA)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=Posizione</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="PosizioneNAX" type="ValueNode" pos-x="70" pos-y="100" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>PosizioneNA[0]</fExpression>
+            <fStateTrans/>
+            <expression>PosizioneNA[0]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=PosizioneX</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="PosizioneNAY" type="ValueNode" pos-x="70" pos-y="230" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>PosizioneNA[1]</fExpression>
+            <fStateTrans/>
+            <expression>PosizioneNA[1]</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=PosizioneY</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="VelocitaA" type="ValueNode" pos-x="610" pos-y="300" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>VelocitaMA*VelocitaSA</fExpression>
+            <fStateTrans/>
+            <expression>VelocitaMA*VelocitaSA</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=VelocitaA</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="VelocitaMA" type="ValueNode" pos-x="460" pos-y="390" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit>0.1</fStateInit>
+            <format>0.0##</format>
+            <fExpression>if(time&gt;2,intercept(MemoriaDA,MemoriaVA),0.1)</fExpression>
+            <fStateTrans>if(time&gt;2,intercept(MemoriaDA,MemoriaVA),0.1)</fStateTrans>
+            <expression>if(time&gt;2,intercept(MemoriaDA,MemoriaVA),0.1)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0.1</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(time&gt;2,intercept(MemoriaDA,MemoriaVA),0.1)</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=ParametroA</customprops>
+            <valueType>1</valueType>
+        </node>
+        <node name="VelocitaSA" type="ValueNode" pos-x="740" pos-y="300" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>true</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>abs(sin(time/5))</fExpression>
+            <fStateTrans/>
+            <expression>abs(sin(time/5))</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=VelocitaSA</customprops>
+            <valueType>0</valueType>
+        </node>
+        <node name="ipfA" type="ValueNode" pos-x="560" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>mean(this)</fExpression>
+            <fStateTrans>if(time==0,mean(abs(DistanzaA)),@this&lt;100,this#mean(abs(DistanzaA)),1##this#mean(abs(DistanzaA)))</fStateTrans>
+            <expression>mean(this)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(time==0,mean(abs(DistanzaA)),@this&lt;100,this#mean(abs(DistanzaA)),1##this#mean(abs(DistanzaA)))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=ipfA</customprops>
+            <valueType>2</valueType>
+        </node>
+        <node name="ipfNA" type="ValueNode" pos-x="180" pos-y="40" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit>0</fStateInit>
+            <format>0.0##</format>
+            <fExpression>mean(this)</fExpression>
+            <fStateTrans>if(time==0,mean(abs(DistanzaNA)),@this&lt;100,this#mean(abs(DistanzaNA)),1##this#mean(abs(DistanzaNA)))</fStateTrans>
+            <expression>mean(this)</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>false</isIn>
+            <stateInit>0</stateInit>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans>if(time==0,mean(abs(DistanzaNA)),@this&lt;100,this#mean(abs(DistanzaNA)),1##this#mean(abs(DistanzaNA)))</stateTrans>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=ipfNA</customprops>
+            <valueType>2</valueType>
+        </node>
+        <node name="m" type="ValueNode" pos-x="760" pos-y="460" width="75" height="45">
+            <font>Serif,12</font>
+            <forecol>0,0,0</forecol>
+            <documentation/>
+            <isOut>false</isOut>
+            <fStateInit/>
+            <format>0.0##</format>
+            <fExpression>200</fExpression>
+            <fStateTrans/>
+            <expression>200</expression>
+            <isGlobal>false</isGlobal>
+            <isIn>true</isIn>
+            <stateInit/>
+            <isVectorOut>false</isVectorOut>
+            <fontcol>0,0,255</fontcol>
+            <stateTrans/>
+            <backcol>255,255,255</backcol>
+            <customprops>Name=m</customprops>
+            <valueType>0</valueType>
+        </node>
+    </nodes>
+    <texts/>
+    <edges>
+        <edge source="DistanzaNA" target="ipfNA" label="(...)"/>
+        <edge source="MemoriaVA" target="VelocitaMA" label="(...)" p0x="587.5" p0y="482.5" p1x="517.5" p1y="412.5" numpoints="2"/>
+        <edge source="DistanzaA" target="MemoriaDA" label="(...)"/>
+        <edge source="PosizioneA" target="PosizioneAY" label="(...)" p0x="587.5" p0y="182.5" p1x="687.5" p1y="262.5" numpoints="2"/>
+        <edge source="PosizioneA" target="PosizioneAX" label="(...)" p0x="587.5" p0y="182.5" p1x="687.5" p1y="112.5" numpoints="2"/>
+        <edge source="DirezioneA" target="PosizioneA" label="(...)" p0x="497.5" p0y="262.5" p1x="587.5" p1y="182.5" numpoints="2"/>
+        <edge source="Obiettivo" target="DistanzaA" label="(...)" p0x="397.5" p0y="182.5" p1x="497.5" p1y="112.5" numpoints="2"/>
+        <edge source="DistanzaA" target="DirezioneA" label="(...)" p0x="497.5" p0y="112.5" p1x="497.5" p1y="262.5" numpoints="2"/>
+        <edge source="PosizioneA" target="DistanzaA" label="(...)" p0x="587.5" p0y="182.5" p1x="497.5" p1y="112.5" numpoints="2"/>
+        <edge source="Obiettivo" target="PosizioneA" label="(...)" p0x="397.5" p0y="182.5" p1x="587.5" p1y="182.5" numpoints="2"/>
+        <edge source="DirezioneNA" target="PosizioneNA" label="(...)" p0x="307.5" p0y="262.5" p1x="227.5" p1y="182.5" numpoints="2"/>
+        <edge source="PosizioneNA" target="DistanzaNA" label="(...)" p0x="227.5" p0y="182.5" p1x="307.5" p1y="112.5" numpoints="2"/>
+        <edge source="Obiettivo" target="DistanzaNA" label="(...)" p0x="397.5" p0y="182.5" p1x="307.5" p1y="112.5" numpoints="2"/>
+        <edge source="Obiettivo" target="PosizioneNA" label="(...)" p0x="397.5" p0y="182.5" p1x="227.5" p1y="182.5" numpoints="2"/>
+        <edge source="Obiettivo" target="ObiettivoX" label="(...)" p0x="397.5" p0y="182.5" p1x="397.5" p1y="62.5" numpoints="2"/>
+        <edge source="Obiettivo" target="ObiettivoY" label="(...)" p0x="397.5" p0y="182.5" p1x="397.5" p1y="312.5" numpoints="2"/>
+        <edge source="PosizioneNA" target="PosizioneNAX" label="(...)" p0x="227.5" p0y="182.5" p1x="107.5" p1y="122.5" numpoints="2"/>
+        <edge source="PosizioneNA" target="PosizioneNAY" label="(...)" p0x="227.5" p0y="182.5" p1x="107.5" p1y="252.5" numpoints="2"/>
+        <edge source="DistanzaNA" target="DirezioneNA" label="(...)" p0x="307.5" p0y="112.5" p1x="307.5" p1y="262.5" numpoints="2"/>
+        <edge source="MemoriaDA" target="VelocitaMA" label="(...)" p0x="647.5" p0y="412.5" p1x="517.5" p1y="412.5" numpoints="2"/>
+        <edge source="m" target="MemoriaVA" label="(...)" p0x="707.5" p0y="482.5" p1x="587.5" p1y="482.5" numpoints="2"/>
+        <edge source="m" target="MemoriaDA" label="(...)" p0x="707.5" p0y="482.5" p1x="647.5" p1y="412.5" numpoints="2"/>
+        <edge source="DistanzaA" target="ipfA" label="(...)"/>
+        <edge source="VelocitaMA" target="VelocitaA" label="(...)"/>
+        <edge source="VelocitaSA" target="VelocitaA" label="(...)"/>
+        <edge source="VelocitaA" target="PosizioneA" label="(...)"/>
+        <edge source="VelocitaA" target="MemoriaVA" label="(...)"/>
+    </edges>
+    <widgets>
+        <widget type="ChartWidget" pos-x="820" pos-y="10" width="430" height="340">
+            <title/>
+            <dotscolors>__RED,__BLUE,__BLACK</dotscolors>
+            <linewidths>#1,#1,#1</linewidths>
+            <showline>true,true,true</showline>
+            <showtitlebar>true</showtitlebar>
+            <linecolors>__RED,__GREEN,__GREEN</linecolors>
+            <barscolors>__RED,__GREEN,__BLUE</barscolors>
+            <dotsstyles>__style1,__style1,__style1</dotsstyles>
+            <logscaley>false</logscaley>
+            <logscalex>false</logscalex>
+            <dotsxscales>#1,#1,#1</dotsxscales>
+            <showbars>false,false,false</showbars>
+            <autolegendy>true</autolegendy>
+            <ysourcena>ObiettivoY,PosizioneNAY,PosizioneAY</ysourcena>
+            <autolegendx>true</autolegendx>
+            <typey>1</typey>
+            <typex>1</typex>
+            <linestyles>__style1,__style1,__style1</linestyles>
+            <maxy>50.0</maxy>
+            <maxx>50.0</maxx>
+            <dotstype>dot,dot,dot</dotstype>
+            <dotsyscales>#1,#1,#1</dotsyscales>
+            <miny>0.0</miny>
+            <minx>0.0</minx>
+            <dotsangles>#0,#0,#0</dotsangles>
+            <dotssizes>#10,#10,#10</dotssizes>
+            <autoaxisy>false</autoaxisy>
+            <autoaxisx>false</autoaxisx>
+            <barswidths>#1,#1,#1</barswidths>
+            <dotshilast>false,false,false</dotshilast>
+            <iconized>false</iconized>
+            <stepy>10.0</stepy>
+            <stepx>10.0</stepx>
+            <showdots>true,true,true</showdots>
+            <xsourcena>ObiettivoX,PosizioneNAX,PosizioneAX</xsourcena>
+            <isometric>false</isometric>
+            <dotslastonly>true,true,true</dotslastonly>
+        </widget>
+        <widget type="DataTableWidget" pos-x="0" pos-y="280" width="240" height="300">
+            <fontsize>10</fontsize>
+            <colwidth>109,109</colwidth>
+            <autowidth>true</autowidth>
+            <showtitlebar>true</showtitlebar>
+            <iconized>false</iconized>
+            <colalignment>0,0</colalignment>
+            <colformat>###0.0###,###0.0###</colformat>
+            <title>MemoriaDA MemoriaVA </title>
+            <lastonly>false</lastonly>
+            <sourcena>MemoriaDA,MemoriaVA</sourcena>
+        </widget>
+    </widgets>
+    <groups/>
+    <reports/>
+</stgraph>
