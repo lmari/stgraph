@@ -11,21 +11,31 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
-        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.action"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples.queue_theory"/>
         <file path="/stgraph/.project"/>
         <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.widget"/>
-        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.node"/>
         <javaElement handleIdentifier="=stgraph/src&lt;datafiles.fun"/>
         <javaElement handleIdentifier="=stgraph/src&lt;icons.base"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples.data_science"/>
         <javaElement handleIdentifier="=stgraph/src&lt;icons.menuset"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples.examples"/>
         <file path="/stgraph/.classpath"/>
-        <javaElement handleIdentifier="=stgraph/src&lt;datafiles"/>
         <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.fun.utils"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.action"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.node"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples.social_systems"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples.physical_systems"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples.agent_based_models"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples.biological_systems"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles"/>
         <javaElement handleIdentifier="=stgraph/src&lt;icons.set0"/>
         <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.util"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples.cellular_automata"/>
         <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples.applications"/>
         <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.tools"/>
         <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples"/>
         <javaElement handleIdentifier="=stgraph/src&lt;it.liuc.stgraph.fun"/>
+        <javaElement handleIdentifier="=stgraph/src&lt;datafiles.samples.games"/>
     </selectedElements>
 </jardesc>
