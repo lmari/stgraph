@@ -61,16 +61,16 @@
 <h3>Esempi di automi cellulari</h3>
 - Un basilare <a href="samples/cellular_automata/ac1_cell_automaton_1D.stg">automa cellulare a una dimensione</a>.
 
-- Un implementazione del famoso <a href="samples/ac2_cellular_automata/life.stg">gioco della vita</a>.
+- Un implementazione del famoso <a href="samples/cellular_automata/ac2_life.stg">gioco della vita</a>.
 
 <h3>Esempi di modelli basati su agenti</h3>
-- Un semplice esempio di<a href="samples/agent_based_modesl/abm1_bouncing_balls.stg">due punti</a> che su muovono su un piano rimbalzando sulle pareti.
+- Un semplice esempio di<a href="samples/agent_based_models/abm1_bouncing_balls.stg">due punti</a> che su muovono su un piano rimbalzando sulle pareti.
 
-- Un esempio un po' sofisticato di <a href="samples/agent_based_modesl/abm2_turtles.stg">tartarughe che si muovono in un giardino mangiando l'erba</a>.
+- Un esempio un po' sofisticato di <a href="samples/agent_based_models/abm2_turtles.stg">tartarughe che si muovono in un giardino mangiando l'erba</a>.
 
-- Un <a href="samples/agent_based_modesl/abm3_swarm_1.stg">modello molto semplificato del comportamento di uno stormo</a>.
+- Un <a href="samples/agent_based_models/abm3_swarm_1.stg">modello molto semplificato del comportamento di uno stormo</a>.
 
-- Un <a href="samples/agent_based_modesl/abm4_turtle.stg">esempio di costruzione di una figura geometrica</a> usando una ''tartaruga'' (come si potrebbe fare nel linguaggio di programmazione Logo).
+- Un <a href="samples/agent_based_models/abm4_turtle.stg">esempio di costruzione di una figura geometrica</a> usando una ''tartaruga'' (come si potrebbe fare nel linguaggio di programmazione Logo).
 
 <h3>Utilizzo di concetti della scienza dei dati</h3>
 - Un <a href="samples/data_science/ds1_regression.stg">esempio di una retta di regressione</a> calcolata in modo dinamico all'aumentare dei punti campionati.
@@ -106,10 +106,10 @@
 
 - Un'implementazione del classico modello di <a href="samples/social_systems/ss14_schelling.stg">segregazione di Schelling</a>.
 
-- Un <a href="samples/social_systems/ss15_football1.stg">modello stima i risultati delle partite di calcio</a> usando gli expected goals, un <a href="samples/social_systems/ss16_football2.stg">secondo modello più sofisticato</a> e un <a href="samples/social_systems/ss17_football3.stg">terzo modello</a> che stima la classifica finale di un campionato simulando i risultati degli incontri che mancano sulla base delle performance passate.
+- Un <a href="samples/social_systems/ss15_football_1.stg">modello stima i risultati delle partite di calcio</a> usando gli expected goals, un <a href="samples/social_systems/ss16_football_2.stg">secondo modello più sofisticato</a> e un <a href="samples/social_systems/ss17_football_3.stg">terzo modello</a> che stima la classifica finale di un campionato simulando i risultati degli incontri che mancano sulla base delle performance passate.
 
 <h3>Modelli di sistemi biologici</h3>
-- Il sistema preda-predatore descritto dalle equazioni di Lotka-Volterra, in una sua <a href="samples/biological_systems/bs1_lotka_volterra.stg">implementazione standard</a>, una <a href="samples/biological_systems/bs2_lotka_volterra_inputs.stg">seconda implementazione</a>, in cui si può agire sui valori degli stati per modificare le tratiettorie nello spazio degli stati, e una <a href="samples/biological_systems/bs3_lotka_volterra_hybrid.stg.stg">terza implementazione</a> in cui la popolazione è distribuita su una superficie quadrata e si evolve interagendo anche con la popolazione nelle celle vicine.
+- Il sistema preda-predatore descritto dalle equazioni di Lotka-Volterra, in una sua <a href="samples/biological_systems/bs1_lotka_volterra.stg">implementazione standard</a>, una <a href="samples/biological_systems/bs2_lotka_volterra_inputs.stg">seconda implementazione</a>, in cui si può agire sui valori degli stati per modificare le tratiettorie nello spazio degli stati, e una <a href="samples/biological_systems/bs3_lotka_volterra_hybrid.stg">terza implementazione</a> in cui la popolazione è distribuita su una superficie quadrata e si evolve interagendo anche con la popolazione nelle celle vicine.
 
 - Il <a href="samples/biological_systems/bs4_verhulst.stg">sistema di Verhulst</a>, classico sistema dinamico, che diventa caotico quando sia il passo temporale sia il parametro di crescita sono sufficientemente grandi. Al variare del parametro di crescita, si ottiene un comportamento stabile, periodico, o frattale.
 
