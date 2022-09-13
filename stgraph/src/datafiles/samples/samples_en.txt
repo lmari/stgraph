@@ -4,7 +4,7 @@
 <h3>Models of physical systems</h3>
 - A simple model of a <a href="samples/physical_systems/ps1_bathtube_volumes.stg">bathtube</a> which level varies in time with inflow and outflow variations. 
 
-- The <a href="samples/physical_systems/ps2_lorenz.stg">Lorentz's attractor</a>, also implemented as a<a href="samples/physical_systems/ps3_lorentz_int.stg">vector synchronous model</a>.
+- The <a href="samples/physical_systems/ps2_lorenz.stg">Lorentz's attractor</a>, also implemented as a <a href="samples/physical_systems/ps3_lorentz_int.stg">vector synchronous model</a>.
 
 - A simple example showing <a href="samples/physical_systems/ps4_fft.stg">the power spectrum</a> of a noisy signal computed by the Fast Fourier Transform.
 
@@ -31,7 +31,7 @@
 
 - A tricky implementation of the  <a href="samples/applications/app3_galton_machine.stg">Galton machine</a>.
 
-- A simple implementation of a  <a href="samples/applications/app4_cardioid.stg">point following a cardioid-shaped traiectory</a>. 
+- A simple implementation of a  <a href="samples/applications/app4_cardioid.stg">point following a cardioid-shaped trajectory</a>. 
 
 - A trivial implementation of two <a href="samples/applications/app5_asyncronous_time.stg">asynchronous chronometers</a>..
 
@@ -61,16 +61,16 @@
 <h3>Examples of cellular automata</h3>
 - A basic  <a href="samples/cellular_automata/ac1_cell_automaton_1D.stg">one dimensional cellular automaton</a>.
 
-- An implementation of the well-known <a href="samples/ac2_cellular_automata/life.stg">game of life</a>.
+- An implementation of the well-known <a href="samples/cellular_automata/ac2_life.stg">game of life</a>.
 
 <h3>Examples of agent-based modelling</h3>
-- A simple example of <a href="samples/agent_based_modesl/abm1_bouncing_balls.stg">two points</a> moving on a 2D-plain bouncing on the walls.
+- A simple example of <a href="samples/agent_based_models/abm1_bouncing_balls.stg">two points</a> moving on a 2D-plain bouncing on the walls.
 
-- The examples of <a href="samples/agent_based_modesl/abm2_turtles.stg"> few turtles</a> moving in a garden and feeding with the grass
+- The examples of <a href="samples/agent_based_models/abm2_turtles.stg"> few turtles</a> moving in a garden and feeding with the grass
 
-- A very simple model of a <a href="samples/agent_based_modesl/abm3_swarm_1.stg">swarm</a>.
+- A very simple model of a <a href="samples/agent_based_models/abm3_swarm_1.stg">swarm</a>.
 
-- The example of a <a href="samples/agent_based_modesl/abm4_turtle.stg">geometric figure construction</a> using a ''turtle'' (in the sense of Logo programming language).
+- The example of a <a href="samples/agent_based_models/abm4_turtle.stg">geometric figure construction</a> using a ''turtle'' (in the sense of Logo programming language).
 
 <h3>Data science applications</h3>
 - An example of a <a href="samples/data_science/ds1_regression.stg">regression line</a> dynamically computed with the growth of sampled points.
@@ -98,7 +98,7 @@
 
 - A model of <a href="samples/social_systems/ss10_price_demand_supply.stg">price, demand and supply dynamics</a> in a simple economy.
 
-- An implementation of the classic<a href="samples/social_systems/ss11_el_farol.stg">El Farol bar problem</a>. 
+- An implementation of the classic <a href="samples/social_systems/ss11_el_farol.stg">El Farol bar problem</a>. 
 
 - An example of how <a href="samples/social_systems/ss12_wealth_distribution.stg">inequalities</a> emerges from simple rules.
 
@@ -106,16 +106,16 @@
 
 - An implementation of the classic <a href="samples/social_systems/ss14_schelling.stg">Schelling segregation model</a>.
 
-- A model that estimates <a href="samples/social_systems/ss15_football1.stg">football matches results</a> using expected goals, a <a href="samples/social_systems/ss16_football2.stg">more sophisticated second mode l</a> and a <a href="samples/social_systems/ss17_football3.stg">third model</a> that estimates the final standing of a championship simulating the results of missing matches.
+- A model that estimates <a href="samples/social_systems/ss15_football_1.stg">football matches results</a> using expected goals, a <a href="samples/social_systems/ss16_football_2.stg">more sophisticated second mode l</a> and a <a href="samples/social_systems/ss17_football_3.stg">third model</a> that estimates the final standing of a championship simulating the results of missing matches.
 
 <h3>Models of biological systems</h3>
-- The prey-predator model depicted by Lotka-Volterra equations: a<a href="samples/biological_systems/bs1_lotka_volterra.stg">standard implementation</a>, a <a href="samples/biological_systems/bs2_lotka_volterra_inputs.stg">second implemtation</a>,where the user can modify the values of the stock, and a <a href="samples/biological_systems/bs3_lotka_volterra_hybrid.stg.stg">third implementation</a> where the population is distributed on a squared surface divided into cells and varies in time also according to stocks in nearer areas.
+- The prey-predator model depicted by Lotka-Volterra equations: a <a href="samples/biological_systems/bs1_lotka_volterra.stg">standard implementation</a>, a <a href="samples/biological_systems/bs2_lotka_volterra_inputs.stg">second implemtation</a>,where the user can modify the values of the stock, and a <a href="samples/biological_systems/bs3_lotka_volterra_hybrid.stg">third implementation</a> where the population is distributed on a squared surface divided into cells and varies in time also according to stocks in nearer areas.
 
 -The <a href="samples/biological_systems/bs4_verhulst.stg">Verhulst system</a>, , a classical dynamic system, which becomes chaotic when both the time step and the growth parameter are large enough. By modifying the growth parameter, the obtained behavior is either stable, oscillating, or fractal.
 
 - A model of a <a href="samples/biological_systems/bs5_park.stg">city park ecosystem</a>, where four kind of entities affects each other in a non-trivial way.
 
-- A model of  <a href="samples/biological_systems/bs6_expansion_1.stg">population expansion</a> following a logistic map, and an<a href="samples/biological_systems/bs7_expansion_2.stg">extension</a> where the maximum population size in each cell depends on the grass level (so, if the grass finishes, the population can estinguish).
+- A model of  <a href="samples/biological_systems/bs6_expansion_1.stg">population expansion</a> following a logistic map, and an <a href="samples/biological_systems/bs7_expansion_2.stg">extension</a> where the maximum population size in each cell depends on the grass level (so, if the grass finishes, the population can estinguish).
 
 <h3>Games</h3>
 - An implementation of the popular retro videogame <a href="samples/games/gm1_pong.stg">Pong</a>.
