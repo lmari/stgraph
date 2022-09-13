@@ -1,16 +1,12 @@
 <h2>STGraph - Esempi</h2>
-
-
-<b>Alcuni modelli, per suggerire idee su quello che si puo' fare con STGraph, divisi per categorie</b>
-
+<b><i>Alcuni modelli (realizzati da Francesco Bertolotti o Luca Mari), per suggerire idee su quello che si puo' fare con STGraph, divisi per categorie</i></b>
 
 <h3>Modelli di sistemi fisici</h3>
-
 - Un semplicissimo modello di una <a href="samples/physical_systems/ps1_bathtube_volumes.stg">vasca</a> il cui livello varia nel tempo a seconda delle variazioni di flusso in entrata e un flusso in uscita.  
 
 - Il classico <a href="samples/physical_systems/ps2_lorenz.stg">attrattore di Lorenz</a>, implementato anche come <a href="samples/physical_systems/ps3_lorentz_int.stg">modello vettoriale sincrono</a>.
 
-- Un semplice esempio che mostra <a href="samples/ps4_physical_systems/fft.stg">lo spettro di potenza</a> di un segnale rumoroso, calcolato attraverso la Fast Fourier Transform.
+- Un semplice esempio che mostra <a href="samples/physical_systems/ps4_fft.stg">lo spettro di potenza</a> di un segnale rumoroso, calcolato attraverso la Fast Fourier Transform.
 
 - In modo completamente polimorfico, un modello che simula <a href="samples/physical_systems/ps5_freebodies.stg">n corpi in moto in uno spazio 2D limitato</a>.
 
@@ -28,9 +24,7 @@
 
 - Un modello di <a href="samples/physical_systems/ps12_wave_equation_2D.stg">diffusione di un onda</a> in un piano bidiensionale.
 
-
 <h3>Esempi vari di applicazioni</h3>
-
 - Un semplice modello che mostra come <a href="samples/applications/app1_equiv_state_delay.stg">uno stato sia equivalente a una variabile ritardata e in feedback</a> con se stessa.
 
 - Un esempio che mostra tre diversi modi per implementare e calcolare il <a href="samples/applications/app2_factorial.stg">prodotto fattoriale</a>.
@@ -55,9 +49,7 @@
 
 - Un applicazione del <a href="samples/applications/app12_zeros_newton.stg">metodo di Newton</a> per trovare gli zeri di un polinomio.
 
-
 <h3>Esempi di teoria delle code</h3>
-
 - Un primo esempio di <a href="samples/queue_theory/que1_esempio1.stg">modello contenente una coda</a>.
 
 - Un secondo esempio di <a href="samples/queue_theory/que2_esempio2.stg">modello contenente una coda</a>.
@@ -66,16 +58,12 @@
 
 - Un esempio di  <a href="samples/queue_theory/que4_distribuzioni.stg"> distribuzione di probabilità</a> realizzata usando la teoria delle code.
 
-
 <h3>Esempi di automi cellulari</h3>
-
 - Un basilare <a href="samples/cellular_automata/ac1_cell_automaton_1D.stg">automa cellulare a una dimensione</a>.
 
 - Un implementazione del famoso <a href="samples/ac2_cellular_automata/life.stg">gioco della vita</a>.
 
-
 <h3>Esempi di modelli basati su agenti</h3>
-
 - Un semplice esempio di<a href="samples/agent_based_modesl/abm1_bouncing_balls.stg">due punti</a> che su muovono su un piano rimbalzando sulle pareti.
 
 - Un esempio un po' sofisticato di <a href="samples/agent_based_modesl/abm2_turtles.stg">tartarughe che si muovono in un giardino mangiando l'erba</a>.
@@ -84,18 +72,14 @@
 
 - Un <a href="samples/agent_based_modesl/abm4_turtle.stg">esempio di costruzione di una figura geometrica</a> usando una ''tartaruga'' (come si potrebbe fare nel linguaggio di programmazione Logo).
 
-
 <h3>Utilizzo di concetti della scienza dei dati</h3>
-
 - Un <a href="samples/data_science/ds1_regression.stg">esempio di una retta di regressione</a> calcolata in modo dinamico all'aumentare dei punti campionati.
 
 - Uno <a href="samples/data_science/ds2_pi_montecarlo.stg">stimatore del valore di pi greco usando il metodo Monte Carlo</a>.
 
 - Una semplice <a href="samples/data_science/ds3_prob_distributions.stg">implementazione di un campionatore</a> con diverse distribuzioni di probabilità.
 
-
 <h3>Modelli di sistemi sociali</h3>
-
 - Un modello di un'<a href="samples/social_systems/ss1_hom_firm.stg">azienda</a> che modifica il proprio prezzo e la qualità dei propri prodotti per massimizzare i profitti.
 
 - Un <a href="samples/social_systems/ss2_innov_diff.stg">modello di diffusione di un nuovo prodotto innovativo</a>  in cui due aziende competono per lo stesso mercato. 
@@ -124,9 +108,7 @@
 
 - Un <a href="samples/social_systems/ss15_football1.stg">modello stima i risultati delle partite di calcio</a> usando gli expected goals, un <a href="samples/social_systems/ss16_football2.stg">secondo modello più sofisticato</a> e un <a href="samples/social_systems/ss17_football3.stg">terzo modello</a> che stima la classifica finale di un campionato simulando i risultati degli incontri che mancano sulla base delle performance passate.
 
-
 <h3>Modelli di sistemi biologici</h3>
-
 - Il sistema preda-predatore descritto dalle equazioni di Lotka-Volterra, in una sua <a href="samples/biological_systems/bs1_lotka_volterra.stg">implementazione standard</a>, una <a href="samples/biological_systems/bs2_lotka_volterra_inputs.stg">seconda implementazione</a>, in cui si può agire sui valori degli stati per modificare le tratiettorie nello spazio degli stati, e una <a href="samples/biological_systems/bs3_lotka_volterra_hybrid.stg.stg">terza implementazione</a> in cui la popolazione è distribuita su una superficie quadrata e si evolve interagendo anche con la popolazione nelle celle vicine.
 
 - Il <a href="samples/biological_systems/bs4_verhulst.stg">sistema di Verhulst</a>, classico sistema dinamico, che diventa caotico quando sia il passo temporale sia il parametro di crescita sono sufficientemente grandi. Al variare del parametro di crescita, si ottiene un comportamento stabile, periodico, o frattale.
@@ -135,18 +117,14 @@
 
 - Un  <a href="samples/biological_systems/bs6_expansion_1.stg">modello di espansione di una popolazione in un territorio</a>, che cresce su ciascuna cella seguendo le equazioni di una mappa logistica, e una sua <a href="samples/biological_systems/bs7_expansion_2.stg">estensione</a> in cui la portanza della popolazione dipende dall'erba in ciascuna, per cui quando questa termina la popolazione può estinguersi.
 
-
 <h3>Giochi</h3>
-
-- Un'<a href="samples/games/gm1_pong.stg">implementazione di Pong</a>, popolare videogioco degli anni 70.
+- Un'<a href="samples/games/gm1_pong.stg">implementazione di Pong</a>, popolare videogioco degli anni '70.
 
 - Un'<a href="samples/games/gm2_flappy_bird.stg">implementazione di Flappy Bird</a>, popolare videogioco per smartphone del 2014. 
 
 - Un  <a href="samples/games/gm3_serenissima.stg">serious game a tema storico</a>, in cui il giocatore è nei panni di una repubblica marinara e deve sopravvivere agli attacchi dei nemici senza esaurire le proprie risorse rinnovabili.
 
-
 <h3>Esempi di utilizzo di funzioni e strutture</h3>
-
 - 5 esempi di semplici strutture da utilizzare per capire di aver capito alcuni meccanismi del software (<a href="samples/examples/ex1_ex1.stg">qui</a>, <a href="samples/examples/ex2_ex2.stg">qui</a>, <a href="samples/examples/ex3_ex3.stg">qui</a>, <a href="samples/examples/ex4_ex4.stg">qui</a> e <a href="samples/examples/ex5_ex5.stg">qui</a>).
 
 - Altri 10 esempi sfidanti per capire alcuni comuni errori di sviluppo di un modello (<a href="samples/examples/ex6_mod1.stg">qui</a>, <a href="samples/examples/ex7_mod2.stg">qui</a>, <a href="samples/examples/ex8_mod3.stg">qui</a>, <a href="samples/examples/ex9_mod4.stg">qui</a>, <a href="samples/examples/ex10_mod5.stg">qui</a>, <a href="samples/examples/ex11_mod6.stg">qui</a>, <a href="samples/examples/ex12_mod7.stg">qui</a>, <a href="samples/examples/ex13_mod8.stg">qui</a>, <a href="samples/examples/ex14_mod9.stg">qui</a>, <a href="samples/examples/ex15_mod10.stg">qui</a>)
@@ -172,29 +150,3 @@
 - Un esempio di utilizzo della <a href="samples/examples/ex25_max_array.stg">funzione iter</a> per calcolare il valore massimo di un array.
 
 - Un modello contenente <a href="samples/examples/ex26_shorten_array.stg">quattro modi diversi per accorciare un vettore</a>.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

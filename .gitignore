@@ -1,4 +1,8 @@
 .metadata/*
+stgraph/*.bak
+stgraph/*.jar
+stgraph/*.zip
+stgraph/*.exe
 ekit/bin/*
 jgraph/bin/*
 myjep/bin/*
