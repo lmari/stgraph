@@ -1,5 +1,5 @@
 /*******************************************************************************
- * This file is part of STGraph, Copyright 2004-2018, Luca Mari.
+ * This file is part of STGraph, Copyright 2004-2022, Luca Mari.
  * 
  * STGraph is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -185,7 +185,8 @@ public class ModelNode extends STNode {
 	public String getSubmodelFilename() {
 		String name = getSubmodelName();
 		if(name == null) { return null; }
-		if(getNodeSubtype() == null) { return getGraph().contextName + System.getProperty("file.separator") + name; } //$NON-NLS-1$
+		//if(getNodeSubtype() == null) { return getGraph().contextName + System.getProperty("file.separator") + name; } //$NON-NLS-1$
+		if(getNodeSubtype() == null) { return getGraph().contextName + STTools.SLASH + name; } //$NON-NLS-1$
 		return MODELPATH + STTools.SLASH + name;
 	}
 

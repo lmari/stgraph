@@ -49,7 +49,7 @@
 
 - An implementation of <a href="samples/applications/app12_zeros_newton.stg">Newton method</a> to find the zeros of a polynomial.
 
-<h3>Examples of queue theory</h3>
+<h3>Examples of queuing theory</h3>
 - A first example of <a href="samples/queue_theory/que1_esempio1.stg">model with a queue</a>.
 
 - A second example of <a href="samples/queue_theory/que2_esempio2.stg">model with a queue</a>.
