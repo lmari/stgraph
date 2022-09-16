@@ -1,5 +1,5 @@
 /*******************************************************************************
- * This file is part of STGraph, Copyright 2004-2021, Luca Mari.
+ * This file is part of STGraph, Copyright 2004-2022, Luca Mari.
  * 
  * STGraph is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

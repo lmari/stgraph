@@ -1,5 +1,5 @@
 /*******************************************************************************
- * This file is part of STGraph, Copyright 2004-2021, Luca Mari.
+ * This file is part of STGraph, Copyright 2004-2022, Luca Mari.
  * 
  * STGraph is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -61,7 +61,9 @@ public class STPreferencesDialog extends JDialog {
 	/** The menu icon size. */
 	private JTextField textMenuIconSize = null;    
 	/** The toolbar icon size. */
-	private JTextField textToolbarIconSize = null;    
+	private JTextField textToolbarIconSize = null;
+	/** The check autoupdate. */
+	private JCheckBox checkUIFallback = null;
 	/** The check autoupdate. */
 	private JCheckBox checkAutoupdate = null;
 	/** The list icon set. */
@@ -118,9 +120,11 @@ public class STPreferencesDialog extends JDialog {
 		boolean b = (g == null) || g.isEditable;
 		getListLocale().setEnabled(b);
 		getTextMenuFontSize().setEnabled(b); getTextMenuIconSize().setEnabled(b); getTextToolbarIconSize().setEnabled(b);
+		getCheckUIFallback().setEnabled(b);
 		getCheckAutoupdate().setEnabled(b);
 		//getListIconSet().setEnabled(b);
-		//getListLaF().setEnabled(b); getListTabPos().setEnabled(b);
+		//getListLaF().setEnabled(b);
+		//getListTabPos().setEnabled(b);
 		getCheckAntiAliased().setEnabled(b);
 		//getCheckDoubleBuffered().setEnabled(b);
 		getCheckShowNodeValues().setEnabled(b); getCheckShowEdgeLabels().setEnabled(b);
@@ -140,9 +144,10 @@ public class STPreferencesDialog extends JDialog {
 		getTextMenuFontSize().setText(p.getProperty("MENU.FONTSIZE"));
 		getTextMenuIconSize().setText(p.getProperty("MENU.ICONSIZE"));
 		getTextToolbarIconSize().setText(p.getProperty("TOOLBAR.ICONSIZE"));
+		getCheckUIFallback().setSelected(Boolean.valueOf(p.getProperty("UIFALLBACK")).booleanValue());
 		getCheckAutoupdate().setSelected(Boolean.valueOf(p.getProperty("AUTOUPDATE")).booleanValue());
-		//getListLaF().setSelectedItem(p.getProperty("LAF"));
 		//getListIconSet().setSelectedIndex(Integer.parseInt(p.getProperty("ICONSET").substring(3)));
+		//getListLaF().setSelectedItem(p.getProperty("LAF"));
 		//getListTabPos().setSelectedItem(p.getProperty("TABPOSITION"));
 		getCheckAntiAliased().setSelected(Boolean.valueOf(p.getProperty("GRAPH.ANTIALIASED")).booleanValue());
 		//getCheckDoubleBuffered().setSelected(Boolean.valueOf(p.getProperty("GRAPH.DOUBLEBUFFERED")).booleanValue());
@@ -197,25 +202,25 @@ public class STPreferencesDialog extends JDialog {
 			p.add(new JLabel(STGraphC.getMessage("PREFS.LOCALE") + STTools.COLON),
 					new GridConstraints(0, 0, GridBagConstraints.EAST));
 			p.add(getListLocale(), new GridConstraints(1, 0, GridBagConstraints.WEST));
-			jContentPane1.add(p, new GridConstraints(0, 0, GridBagConstraints.CENTER));
 
-
-			JPanel p2 = new JPanel(new GridBagLayout());
-			p2.add(new JLabel(STGraphC.getMessage("PREFS.MENUFONTSIZE") + STTools.COLON),
-					new GridConstraints(0, 0, GridBagConstraints.EAST));
-			p2.add(getTextMenuFontSize(), new GridConstraints(1, 0, GridBagConstraints.WEST));
-
-			p2.add(new JLabel(STGraphC.getMessage("PREFS.MENUICONSIZE") + STTools.COLON),
+			p.add(new JLabel(STGraphC.getMessage("PREFS.MENUFONTSIZE") + STTools.COLON),
 					new GridConstraints(0, 1, GridBagConstraints.EAST));
-			p2.add(getTextMenuIconSize(), new GridConstraints(1, 1, GridBagConstraints.WEST));
+			p.add(getTextMenuFontSize(), new GridConstraints(1, 1, GridBagConstraints.WEST));
 
-			p2.add(new JLabel(STGraphC.getMessage("PREFS.TOOLBARICONSIZE") + STTools.COLON),
+			p.add(new JLabel(STGraphC.getMessage("PREFS.MENUICONSIZE") + STTools.COLON),
 					new GridConstraints(0, 2, GridBagConstraints.EAST));
-			p2.add(getTextToolbarIconSize(), new GridConstraints(1, 2, GridBagConstraints.WEST));
+			p.add(getTextMenuIconSize(), new GridConstraints(1, 2, GridBagConstraints.WEST));
 
-			jContentPane1.add(p2, new GridConstraints(0, 1, GridBagConstraints.WEST));
+			p.add(new JLabel(STGraphC.getMessage("PREFS.TOOLBARICONSIZE") + STTools.COLON),
+					new GridConstraints(0, 3, GridBagConstraints.EAST));
+			p.add(getTextToolbarIconSize(), new GridConstraints(1, 3, GridBagConstraints.WEST));
+
+			jContentPane1.add(p, new GridConstraints(0, 0, GridBagConstraints.WEST));
+
+			jContentPane1.add(getCheckUIFallback(), new GridConstraints(0, 1, GridBagConstraints.CENTER));
 
 			jContentPane1.add(getCheckAutoupdate(), new GridConstraints(0, 2, GridBagConstraints.CENTER));
+
 
 			jContentPane1.add(new JLabel(STTools.SPACE), new GridConstraints(0, 3, GridBagConstraints.CENTER));
 			jContentPane1.add(new JLabel(STTools.SPACE), new GridConstraints(0, 4, GridBagConstraints.CENTER));
@@ -230,16 +235,18 @@ public class STPreferencesDialog extends JDialog {
             gbcIconSet2.anchor = GridBagConstraints.WEST;
             jContentPane1.add(getListIconSet(), gbcIconSet2);
 			 */
+
 			/*
             JLabel labLaF = new JLabel(STGraphC.getMessage("PREFS.LAF") + STTools.COLON);
-            GridConstraints gbcLaF = new GridConstraints(0, 2);
+            GridConstraints gbcLaF = new GridConstraints(0, 3);
             gbcLaF.anchor = GridBagConstraints.EAST;
             jContentPane1.add(labLaF, gbcLaF);
 
-            GridConstraints gbcLaF2 = new GridConstraints(1, 2);
+            GridConstraints gbcLaF2 = new GridConstraints(1, 3);
             gbcLaF2.anchor = GridBagConstraints.WEST;
             jContentPane1.add(getListLaF(), gbcLaF2);
-			 */
+            */
+
 			/*
             JLabel labTabPos = new JLabel(STGraphC.getMessage("PREFS.TABPOS") + STTools.COLON);
             GridConstraints gbcTabPos = new GridConstraints(0, 3);
@@ -303,6 +310,16 @@ public class STPreferencesDialog extends JDialog {
 	}
 
 
+	/** Initialize checkUIFallback.
+	 * @return checkbox */
+	JCheckBox getCheckUIFallback() {
+		if(checkUIFallback == null) {
+			checkUIFallback = new JCheckBox(STGraphC.getMessage("PREFS.UIFALLBACK"));
+		}
+		return checkUIFallback;
+	}
+
+	
 	/** Initialize checkAutoupdate.
 	 * @return checkbox */
 	JCheckBox getCheckAutoupdate() {
@@ -311,6 +328,30 @@ public class STPreferencesDialog extends JDialog {
 		}
 		return checkAutoupdate;
 	}
+
+
+	/** Initialize listIconSet.
+	 * @return combobox */
+	/*
+    JComboBox getListIconSet() {
+    	if(listIconSet == null) {
+    		Properties p = new Properties();
+            try {
+            	p.load(STGraphC.class.getClassLoader().getResource("datafiles/iconsets.properties").openStream());
+            } catch (Exception e) { e.printStackTrace(); }
+            Vector v = new Vector();
+            int i = 0;
+            String s = p.getProperty("set0");
+            v.add(s);
+            while(s != null) {
+            	i++;
+            	v.add(s = p.getProperty("set" + i));
+            }
+    		listIconSet = new JComboBox(v.toArray());
+    	}
+    	return listIconSet;
+    }
+	 */
 
 
 	/** Initialize listLaF.
@@ -338,31 +379,7 @@ public class STPreferencesDialog extends JDialog {
     	}
     	return listLaF;
     }
-	 */
-
-
-	/** Initialize listIconSet.
-	 * @return combobox */
-	/*
-    JComboBox getListIconSet() {
-    	if(listIconSet == null) {
-    		Properties p = new Properties();
-            try {
-            	p.load(STGraphC.class.getClassLoader().getResource("datafiles/iconsets.properties").openStream());
-            } catch (Exception e) { e.printStackTrace(); }
-            Vector v = new Vector();
-            int i = 0;
-            String s = p.getProperty("set0");
-            v.add(s);
-            while(s != null) {
-            	i++;
-            	v.add(s = p.getProperty("set" + i));
-            }
-    		listIconSet = new JComboBox(v.toArray());
-    	}
-    	return listIconSet;
-    }
-	 */
+    */
 
 
 	/** Initialize listTabPos.
@@ -625,9 +642,10 @@ public class STPreferencesDialog extends JDialog {
 					try { Integer.parseInt(s); } catch (Exception ex) { s = "10"; }
 					STConfigurator.setProperty("TOOLBAR.ICONSIZE", s);
 
+					STConfigurator.setProperty("UIFALLBACK", getCheckUIFallback().isSelected() ? "true" : "false");
 					STConfigurator.setProperty("AUTOUPDATE", getCheckAutoupdate().isSelected() ? "true" : "false");
-					//Configurator.setProperty("LAF", (String)getListLaF().getSelectedItem());
 					//Configurator.setProperty("ICONSET", "set" + getListIconSet().getSelectedIndex());
+					//STConfigurator.setProperty("LAF", (String)getListLaF().getSelectedItem());
 					//Configurator.setProperty("TABPOSITION", (String)getListTabPos().getSelectedItem());
 					STConfigurator.setProperty("GRAPH.ANTIALIASED", getCheckAntiAliased().isSelected() ? "true" : "false");
 					//Configurator.setProperty("GRAPH.DOUBLEBUFFERED", getCheckDoubleBuffered().isSelected() ? "true" : "false");

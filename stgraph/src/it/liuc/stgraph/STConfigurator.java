@@ -1,5 +1,5 @@
 /*******************************************************************************
- * This file is part of STGraph, Copyright 2004-2021, Luca Mari.
+ * This file is part of STGraph, Copyright 2004-2022, Luca Mari.
  * 
  * STGraph is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ public final class STConfigurator {
 	/** The properties. */
 	private static Properties properties = new Properties();
 	/** The property keys to be written to the user configuration file (there must be an entry in). */
-	private static final String[] KEYS = { "LOCALE", "AUTOUPDATE", "LAF", "ICONSET", "TABPOSITION",
+	private static final String[] KEYS = { "LOCALE", "UIFALLBACK", "AUTOUPDATE", "LAF", "ICONSET", "TABPOSITION",
 		"GRAPH.ANTIALIASED", "GRAPH.DOUBLEBUFFERED",
 		"GRAPH.SHOWNODEVALUES", "GRAPH.SHOWEDGELABELS", 
 		"GRAPH.GRIDVISIBLE", "GRAPH.GRIDENABLED", "GRAPH.GRIDSIZE",

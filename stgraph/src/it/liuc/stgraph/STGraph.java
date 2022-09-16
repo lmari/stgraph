@@ -92,7 +92,7 @@ public class STGraph {
 	public static final int EXECLEVEL_WEB = 2;
 	/** The fallback to old UI. */
 	public static boolean fallback = false;
-	
+
 	public static String getMyFont() { return "Arial"; }
 
 

@@ -524,12 +524,12 @@ public class STGraphC extends Container implements ChangeListener, ComponentList
     	System.out.println("Setting preferences..."); //$NON-NLS-1$
 		this.visible = visible;
 		basicProps = STConfigurator.read();
-		//System.out.println("--> " + basicProps.getProperty("SYSTEM.NAME")); //$NON-NLS-1$ //$NON-NLS-2$
+		//System.out.println("--> " + basicProps.getProperty("SYSTEM.NAME"));
 
 		STGraphC.locale = getDefaultLocale(); // default language
 		if(!STTools.isEmpty(locale)) {
 			for(String l : getUILanguages()) {
-				if(locale.equals(l)) { basicProps.setProperty("LOCALE", l); } //$NON-NLS-1$
+				if(locale.equals(l)) { basicProps.setProperty("LOCALE", l); }
 			}
 		}
 		String l = basicProps.getProperty("LOCALE"); //$NON-NLS-1$
@@ -541,13 +541,16 @@ public class STGraphC extends Container implements ChangeListener, ComponentList
 			JFrame.setDefaultLookAndFeelDecorated(true);
 			JDialog.setDefaultLookAndFeelDecorated(true);
 			Toolkit.getDefaultToolkit().setDynamicLayout(true);
-			System.setProperty("sun.awt.noerasebackground", "true"); //$NON-NLS-1$ //$NON-NLS-2$
+			System.setProperty("sun.awt.noerasebackground", "true");
 
 			/**/
+			String s = basicProps.getProperty("UIFALLBACK");
+			STGraph.fallback = (s != null && s.equals("true"));
+			
 			boolean found = false;
 			if(!STGraph.fallback) {
 			    for(LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-			        if(info.getName().equals("Nimbus")) { //$NON-NLS-1$
+			        if(info.getName().equals("Nimbus")) {
 			            UIManager.setLookAndFeel(info.getClassName());
 			            found = true;
 			            break;
@@ -561,11 +564,11 @@ public class STGraphC extends Container implements ChangeListener, ComponentList
 
 			//UIManager.setLookAndFeel(new InfoNodeLookAndFeel(new InfoNodeLookAndFeelTheme()));
 
-			String s = basicProps.getProperty("SHOWNODETOOLTIP"); //$NON-NLS-1$
-			STGraphC.setShowNodeTooltips(s == null || s.equals("true")); //$NON-NLS-1$
+			s = basicProps.getProperty("SHOWNODETOOLTIP");
+			STGraphC.setShowNodeTooltips(s == null || s.equals("true"));
 
-			s = basicProps.getProperty("HIGHLIGHTEDGES"); //$NON-NLS-1$
-			STGraphC.setHighlightEdges(s == null || s.equals("true")); //$NON-NLS-1$
+			s = basicProps.getProperty("HIGHLIGHTEDGES");
+			STGraphC.setHighlightEdges(s == null || s.equals("true"));
 		} catch (Exception ex) { /*ex.printStackTrace();*/ }
 	}
 
