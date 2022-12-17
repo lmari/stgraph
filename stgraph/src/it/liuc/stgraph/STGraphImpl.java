@@ -1070,7 +1070,7 @@ public class STGraphImpl extends JGraph implements SpacebrewClient {
 		repaint();
 		// what follows is really peculiar: it should not be required (the repainting should be inherited),
 		// but it seems to be the only way to refresh widgets with LaF such as motif and metal...
-		/*
+		/**/
 		Object[] o = getEntities();
 		if(o != null) {
 			for(Object ob : o) {
@@ -1080,7 +1080,7 @@ public class STGraphImpl extends JGraph implements SpacebrewClient {
 				//}
 			}
 		}
-		*/
+		/**/
 		if(inputWidgetList != null) {
 			//ValueNode node;
 			for(STWidget widget : inputWidgetList) {

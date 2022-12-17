@@ -46,9 +46,7 @@ import javax.swing.JTextField;
 import javax.swing.ListCellRenderer;
 
 
-/**
- * Generate and control a list pane to let the user interact with nodes, groups, and widgets.
- */
+/** Generate and control a list pane to let the user interact with nodes, groups, and widgets. */
 @SuppressWarnings({ "serial", "rawtypes", "unchecked" })
 public class STListPane extends JPanel implements ComponentListener {
 	private final static String HTMLOPEN = "<html><u><font color='blue'>"; //$NON-NLS-1$
@@ -60,9 +58,7 @@ public class STListPane extends JPanel implements ComponentListener {
 	private static JList widgetList;
 
 
-	/**
-	 * Class constructor.
-	 */
+	/** Class constructor. */
 	public STListPane() {
 		super();
 		addComponentListener(this);
@@ -189,9 +185,7 @@ public class STListPane extends JPanel implements ComponentListener {
 	}
 
 
-	/**
-	 * Update the node list to be visualized.
-	 */
+	/** Update the node list to be visualized. */
 	public static void setNodeList() {
 		Vector nodes = new Vector();
 		if(STGraph.getSTC().getCurrentGraph() != null) {
@@ -222,9 +216,7 @@ public class STListPane extends JPanel implements ComponentListener {
 	}
 
 
-	/**
-	 * Update the widget list to be visualized.
-	 */
+	/** Update the widget list to be visualized. */
 	public static void setWidgetList() {
 		Vector widgets = new Vector();
 		if(STGraph.getSTC().getCurrentGraph() != null) {
@@ -234,29 +226,20 @@ public class STListPane extends JPanel implements ComponentListener {
 	}
 
 
-	/**
-	 * Render the items of the node list.
-	 */
+	/** Render the items of the node list. */
 	static class NodeListRenderer extends JTextField implements ListCellRenderer {
 
-
-		/**
-		 * The Constructor.
-		 */
+		/** The Constructor. */
 		public NodeListRenderer() { setOpaque(true); }
 
 
-		/**
-		 * Gets the list cell renderer component.
-		 *
+		/** Gets the list cell renderer component.
 		 * @param list the list
 		 * @param value the value
 		 * @param index the index
 		 * @param isSelected the is selected
 		 * @param cellHasFocus the cell has focus
-		 *
-		 * @return the list cell renderer component
-		 */
+		 * @return the list cell renderer component */
 		public Component getListCellRendererComponent(final JList list, final Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
 			STNode n = (STNode)value;
 			String text = n.getName() + STTools.SPACE + STTools.OPENP;
@@ -279,29 +262,20 @@ public class STListPane extends JPanel implements ComponentListener {
 	}
 
 
-	/**
-	 * Render the items of the group list.
-	 */
+	/** Render the items of the group list. */
 	static class GroupListRenderer extends JTextField implements ListCellRenderer {
 
-
-		/**
-		 * The Constructor.
-		 */
+		/** The Constructor. */
 		public GroupListRenderer() { setOpaque(true); }
 
 
-		/**
-		 * Gets the list cell renderer component.
-		 *
+		/** Gets the list cell renderer component.
 		 * @param list the list
 		 * @param value the value
 		 * @param index the index
 		 * @param isSelected the is selected
 		 * @param cellHasFocus the cell has focus
-		 *
-		 * @return the list cell renderer component
-		 */
+		 * @return the list cell renderer component */
 		public Component getListCellRendererComponent(final JList list, final Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
 			if(!STGraph.getSTC().getCurrentGraph().visibilityGroupMap.get(value).booleanValue()) {
 				setText((String)value + " (hidden)"); //$NON-NLS-1$
@@ -319,27 +293,19 @@ public class STListPane extends JPanel implements ComponentListener {
 	}
 
 
-	/**
-	 * Render the items of the widget list.
-	 */
+	/** Render the items of the widget list. */
 	static class WidgetListRenderer extends JTextField implements ListCellRenderer {
 
-		/**
-		 * The Constructor.
-		 */
+		/** The Constructor. */
 		public WidgetListRenderer() { setOpaque(true); }
 
-		/**
-		 * Gets the list cell renderer component.
-		 *
+		/** Gets the list cell renderer component.
 		 * @param index the index
 		 * @param list the list
 		 * @param value the value
 		 * @param cellHasFocus the cell has focus
 		 * @param isSelected the is selected
-		 *
-		 * @return the list cell renderer component
-		 */
+		 * @return the list cell renderer component */
 		public final Component getListCellRendererComponent(final JList list, final Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
 			STWidget w = (STWidget)value;
 			String text = w.getLabel() + ": " + w.getTitle(); //$NON-NLS-1$
