@@ -42,12 +42,12 @@ e le cartelle:
 Eseguendo STGraph, l'applicazione dovrebbe attivare la Java VM
 e quindi aprire la sua finestra principale: buon lavoro!
 
-Altrimenti, occorre controllare che una Java Virtual Machine (JRE 1.6+)
+Altrimenti, occorre controllare che una Java Virtual Machine (JRE 1.8+)
 sia installata:
 aprire un terminale / prompt dei comandi e digitare:
 	java -version
 Se si ottiene un errore 'File non trovato' o la JRE
-e' precedente alla versione 1.6, occorre installare una JRE,
+e' precedente alla versione 1.8, occorre installare una JRE,
 scariabile liberamente da:
 	http://java.com/download
 (scegliere di scaricare Java SE, JRE oppure JDK).

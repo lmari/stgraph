@@ -53,7 +53,7 @@ public final class STFactory {
 	 * @param name the name
 	 * @param type the type
 	 * @return node */
-	@SuppressWarnings({ "deprecation", "rawtypes" })
+	@SuppressWarnings({ "rawtypes" })
 	public static STNode nodeCreate(final String name, final String type) {
 		STGraphC stc = STGraph.getSTC();
 		STGraphExec graph = stc.getCurrentGraph();
@@ -215,7 +215,7 @@ public final class STFactory {
 	/** Create a new widget with the specified parameters and the default properties.
 	 * @param type the type
 	 * @return widget */
-	@SuppressWarnings({ "deprecation", "unchecked", "rawtypes" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static STWidget widgetCreate(final String type) {
 		STGraphC stc = STGraph.getSTC();
 		STGraphExec graph = stc.getCurrentGraph();

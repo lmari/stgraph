@@ -43,7 +43,7 @@ public class STMacroSubMenu extends AbstractActionDefault {
 	/**
 	 * Class constructor.
 	 */
-	@SuppressWarnings({ "rawtypes", "deprecation" })
+	@SuppressWarnings({ "rawtypes" })
 	public STMacroSubMenu() {
 		menu = new JMenu();
 		try {

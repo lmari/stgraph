@@ -65,10 +65,12 @@ public class Log extends STFunction {
 				stack.push(STInterpreter.handleException(getException("ERR.FUN.INVALID_PARAMETER_TYPE"), STFunction.getType(param1))); //$NON-NLS-1$
 				return;
 			}
+			/*
 			if(param2.getOrder() != 0) {
 				stack.push(STInterpreter.handleException(getException("ERR.FUN.INVALID_PARAMETER_TYPE"), STFunction.getType(param1))); //$NON-NLS-1$
 				return;
 			}
+			*/
 			stack.push(divide(log(param1), log(param2)));
 			return;
 		}

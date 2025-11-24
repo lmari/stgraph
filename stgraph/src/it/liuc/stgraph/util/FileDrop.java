@@ -419,7 +419,7 @@ public class FileDrop {
 	}   // end constructor
 
 
-	@SuppressWarnings({ "rawtypes", "removal" })
+	@SuppressWarnings({ "rawtypes" })
 	private static boolean supportsDnD()
 	{   // Static Boolean
 		if( supportsDnD == null )

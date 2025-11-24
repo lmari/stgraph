@@ -228,7 +228,6 @@ public class ToggleButtonWidget extends STWidget implements InputWidget {
 	 * @param name the name
 	 * @param action the action
 	 * @return result */
-	@SuppressWarnings("removal")
 	final boolean setProps(final String name, final int action) {
 		try {
 			if(STTools.isEmpty(name) && (STNode)getProperty(InputWidget.PROP_SOURCE_OB) != null) {

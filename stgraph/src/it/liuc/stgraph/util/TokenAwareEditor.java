@@ -869,7 +869,7 @@ public class TokenAwareEditor extends JEditorPane {
 
 
 	/** Get and show the popup autocomplete. */
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "unchecked" })
 	private void getPopupAutocomplete() {
 		if(popupAutoComplete == null) {
 			popupAutoComplete = new JPopupMenu();

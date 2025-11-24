@@ -11,9 +11,9 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
-        <file path="/stgraphdoc/.project"/>
-        <file path="/stgraphdoc/.classpath"/>
         <folder path="/stgraphdoc/lib"/>
+        <file path="/stgraphdoc/.classpath"/>
+        <file path="/stgraphdoc/.project"/>
         <javaElement handleIdentifier="=stgraphdoc/src"/>
     </selectedElements>
 </jardesc>

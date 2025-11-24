@@ -22,27 +22,18 @@ import java.io.File;
 import java.io.FileFilter;
 
 
-/**
- * Implement FileFilter by accepting only the stg files (the subdirectories are refused).
- */
+/** Implement FileFilter by accepting only the stg files (the subdirectories are refused). */
 public class STFileFilter3 implements FileFilter {
 
 
-	/**
-	 * Get description.
-	 * 
-	 * @return description
-	 */
+	/** Get description.
+	 * @return description */
 	public final String getDescription() { return STGraphC.getMessage("SYSTEM.FILETYPE.DESCRIPTION"); } //$NON-NLS-1$
 
 
-	/**
-	 * Set the acceptation condition.
-	 *
+	/** Set the acceptation condition.
 	 * @param f the f
-	 *
-	 * @return result
-	 */
+	 * @return result */
 	public final boolean accept(final File f) {
 		if(f.isDirectory()) { return false; }
 		String ext = null;

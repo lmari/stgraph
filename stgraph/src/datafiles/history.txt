@@ -2,9 +2,9 @@
 <h2>STGraph - History</h2>
 
 <hr>
-<b>Version Fall15-Fall22</b>
+<b>Version Fall15-Winter25</b>
 - extended the function Integral with an optional second argument
-- set jdk6 as class compatibility for all projects
+- set jdk8 as class compatibility for all projects
 - finally added some basic keyboard control to some input widgets and made input widgets more interactive
 - removed the now obsolete option to run it as an applet
 - extended the "Samples" section with many more examples (by Francesco Bertolotti)

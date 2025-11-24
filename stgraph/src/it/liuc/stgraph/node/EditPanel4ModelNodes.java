@@ -482,7 +482,13 @@ public class EditPanel4ModelNodes extends EditPanel4Nodes {
 			}
 			DefaultListModel listNamesModel = new DefaultListModel();
 			listNamesModel.clear();
+
+			//*** 2024 fix: to open the edit window of submodels of sample models
 			File[] files = (new File(curDir)).listFiles(new STFileFilter3());
+			if(files == null) {
+				files = new File(getClass().getClassLoader().getResource(curDir).getPath()).listFiles();
+			}
+		
 			if(files.length > 0) {
 				Arrays.sort(files);
 				String fileName;

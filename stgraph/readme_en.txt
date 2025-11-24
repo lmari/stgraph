@@ -41,12 +41,12 @@ and the directories:
 When executing STGraph, the application should start the Java VM
 and then open its main window: enjoy STGraph!
 
-Otherwise, you should check that a Java Virtual Machine (JRE 1.6+)
+Otherwise, you should check that a Java Virtual Machine (JRE 1.8+)
 is installed on your system:
 open a terminal / command shell and type:
 	java -version
 If a 'File not found' error is displayed or the installed JRE
-is older than 1.6, then you must install a JRE, which can be
+is older than 1.8, then you must install a JRE, which can be
 freely downloaded from:
 	http://java.com/download
 (select to download Java SE, either the JRE or the JDK).

@@ -332,7 +332,6 @@ public class JEP {
 	 * @param value Initial value or new value for the variable
 	 * @return Double object of the variable
 	 */
-	@SuppressWarnings("removal")
 	public Object addVariable(String name, double value) {
 		Double object = new Double(value);
 		symTab.makeVarIfNeeded(name, object);

@@ -66,7 +66,7 @@ import javax.swing.border.SoftBevelBorder;
 public class STGraph {
 	public final static String ICON_PATH = "icons/base/img.png"; //$NON-NLS-1$
 	public final static String MOTTO = "Systems Theory for Simulation"; //$NON-NLS-1$
-	public final static String AUTHOR = "Luca Mari, 2004-2022"; //$NON-NLS-1$
+	public final static String AUTHOR = "Luca Mari, 2004-2025"; //$NON-NLS-1$
 
 	/** The stc. */
 	private static STGraphC stc;
