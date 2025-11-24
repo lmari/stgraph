@@ -6,8 +6,8 @@ STGraph is a software system for creating, editing, and executing models of dyna
 
 STGraph is based on several open source libraries and is itself open source software. Please see the file licenses/license.txt.
 
-STGraph has been used for several modeling projects, mainly in the context of the course 'Systems Theory' in the Management Engineering curriculum
-of the Universita' Cattaneo - LIUC (http://www.liuc.it), Castellanza, Italy.
+STGraph has been used for several modeling projects, mainly in the context of the courses 'Systems Theory' and 'Dynamical Systems Design' in the Management Engineering curriculum
+of the Università Cattaneo - LIUC (http://www.liuc.it), Castellanza, Italy.
 
 Many students have given useful suggestions (and found bugs...) to make STGraph better: thank you all.
 Giuseppe Catalfamo and Sara Sterlocchi have been critical users of STGraph.
@@ -31,9 +31,9 @@ and the directories:
 
 When executing STGraph, the application should start the Java VM and then open its main window: enjoy STGraph!
 
-Otherwise, you should check that a Java Virtual Machine (JRE 1.6+) is installed on your system: open a terminal / command shell and type:
+Otherwise, you should check that a Java Virtual Machine (JRE 1.8+) is installed on your system: open a terminal / command shell and type:
 	java -version
-If a 'File not found' error is displayed or the installed JRE is older than 1.6, then you must install a JRE, which can be freely downloaded from:
+If a 'File not found' error is displayed or the installed JRE is older than 1.8, then you must install a JRE, which can be freely downloaded from:
 	http://java.com/download
 (select to download Java SE, either the JRE or the JDK).
 Finally, be sure that the bin directory of the installed JRE has been added to the system path (or manually edit the batch file to introduce the full pathname to the Java VM interpreter).
